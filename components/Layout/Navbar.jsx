@@ -12,17 +12,19 @@ export default function Navbar() {
         <nav className="w-full mx-auto hidden xl:block bg-white shadow">
           <div className="container px-6 justify-between h-16 flex items-center lg:items-stretch mx-auto">
             <div className="h-full flex items-center">
-              <div className="mr-10 flex items-center">
-                <img
-                  className="h-12 object-cover"
-                  src="/images/logo-01.svg"
-                  alt="logo"
-                  aria-label="logo"
-                />
-                <h3 className="text-base text-gray-800 font-bold tracking-normal leading-tight hidden lg:block">
-                  Hotwater24
-                </h3>
-              </div>
+              <Link href="/" passHref>
+                <div className="mr-10 flex items-center cursor-pointer">
+                  <img
+                    className="h-12 object-cover"
+                    src="/images/logo-01.svg"
+                    alt="logo"
+                    aria-label="logo"
+                  />
+                  <h3 className="text-base text-gray-800 font-bold tracking-normal leading-tight hidden lg:block">
+                    Hotwater24
+                  </h3>
+                </div>
+              </Link>
               <ul className="pr-12 xl:flex items-center h-full hidden">
                 <Link href="/who-we-are" passHref>
                   <li className="cursor-pointer h-full flex items-center hover:text-indigo-700 text-sm text-gray-800 tracking-normal border-b-2 border-white">
@@ -132,14 +134,16 @@ export default function Navbar() {
         {/* Navbar */}
         <nav>
           <div className="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-gray-300 fixed top-0 z-40">
-            <div className="w-24">
-              <img
-                className="h-12 object-cover"
-                alt="logo"
-                src="/images/logo-01.svg"
-              />
-              <p>Hotwater24</p>
-            </div>
+            <Link href="/" passHref>
+              <div className="w-24 cursor-pointer">
+                <img
+                  className="h-12 object-cover"
+                  alt="logo"
+                  src="/images/logo-01.svg"
+                />
+                <p>Hotwater24</p>
+              </div>
+            </Link>
             <div>
               <div
                 id="menu"
