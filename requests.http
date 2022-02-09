@@ -1,0 +1,25 @@
+POST http://localhost:1337/api/auth/local
+Content-Type: application/json
+
+{
+    "identifier": "ncbphi001@gmail.com",
+    "password": "1234567"
+}
+
+###
+
+GET http://localhost:1337/api/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ0MTY4NDM5LCJleHAiOjE2NDY3NjA0Mzl9.QmMJZhOlqYPMsDho-0I_0cLBt5WFIpwpMnYwQSK3-Fg
+Content-Type: application/json
+
+
+###
+
+POST http://localhost:1337/api/auth/local/register
+Content-Type: application/json
+
+{
+    "username": "philani@faben.uk",
+    "email": "philani@faben.uk",
+    "password": "1234567"
+}
