@@ -15,7 +15,7 @@ const Hero = () => {
         Through the power of gas geyser <br />
         heating solutions for your home
       </p>
-      <Link href="/quote" passHref>
+      <Link href="/quote/start" passHref>
         <button className="bg-gray-800 text-white flex space-x-2 py-1 px-4 items-center mt-4 rounded-full">
           Find Your Fit
           <span>
