@@ -7,6 +7,7 @@ import Step4 from '../../components/QuoteSteps/Step4';
 import Step5 from '../../components/QuoteSteps/Step5';
 import Step6 from '../../components/QuoteSteps/Step6';
 import Confirm from '../../components/QuoteSteps/Confirm';
+import PageTransitions from '../../components/PageTransitions';
 
 const index = () => {
   const [page, setPage] = useState(1);
@@ -21,6 +22,7 @@ const index = () => {
     gasStove: false,
     gasGrill: false,
     gasHeating: false,
+    noGasUse: false,
     locateOutside: false,
     waterHeater: '',
     standardShower: 0,

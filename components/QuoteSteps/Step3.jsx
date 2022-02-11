@@ -20,7 +20,7 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
       <div className="py-8 max-w-6xl mx-auto flex justify-center space-y-4 lg:space-y-0 lg:space-x-6">
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeOwnership(false)}
         >
           {!quoteInfo.ownership && (
@@ -37,12 +37,13 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img className="h-16 w-16" alt="" src="/images/icons/renting.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
             I am renting
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeOwnership(true)}
         >
           {quoteInfo.ownership && (
@@ -59,6 +60,7 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img className="h-16 w-16" alt="" src="/images/icons/key.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
             I am a house owner
           </p>

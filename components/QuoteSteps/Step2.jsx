@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 
 const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
@@ -19,7 +20,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
       <div className="py-8 max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-y-8">
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('appartment')}
         >
           {quoteInfo.houseType === 'appartment' && (
@@ -36,12 +37,17 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img
+            className="h-16 w-16"
+            alt=""
+            src="/images/icons/appartment.svg"
+          />
           <p className="text-lg text-center text-sky-500 font-bold">
             Appartment
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('semi-detached')}
         >
           {quoteInfo.houseType === 'semi-detached' && (
@@ -58,12 +64,17 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img
+            className="h-16 w-16"
+            alt=""
+            src="/images/icons/semidetatched.svg"
+          />
           <p className="text-lg text-center text-sky-500 font-bold">
             Semi-detached
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('free-standing')}
         >
           {quoteInfo.houseType === 'free-standing' && (
@@ -80,12 +91,13 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img className="h-16 w-16" alt="" src="/images/icons/home.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
             Free-standing
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('cornerhouse')}
         >
           {quoteInfo.houseType === 'cornerhouse' && (
@@ -102,12 +114,13 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img className="h-16 w-16" alt="" src="/images/icons/farm.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
             Cornerhouse
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('two-in-one')}
         >
           {quoteInfo.houseType === 'two-in-one' && (
@@ -124,12 +137,13 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img className="h-16 w-16" alt="" src="/images/icons/2in1.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
             Two In One
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('villa')}
         >
           {quoteInfo.houseType === 'villa' && (
@@ -146,10 +160,11 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img className="h-16 w-16" alt="" src="/images/icons/villa.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">Villa</p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('farm')}
         >
           {quoteInfo.houseType === 'farm' && (
@@ -166,13 +181,14 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
+          <img className="h-16 w-16" alt="" src="/images/icons/farm.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">Farm</p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex items-center justify-center hover:shadow-md cursor-pointer"
-          onClick={() => homeType('commercial')}
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          onClick={() => homeType('other')}
         >
-          {quoteInfo.houseType === 'commercial' && (
+          {quoteInfo.houseType === 'other' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -186,9 +202,8 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
-          <p className="text-lg text-center text-sky-500 font-bold">
-            Commercial
-          </p>
+          <img className="h-16 w-16" alt="" src="/images/icons/dots.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">Other</p>
         </div>
       </div>
 
