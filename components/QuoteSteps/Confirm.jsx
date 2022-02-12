@@ -2,28 +2,42 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-export default function Success() {
+export default function Confirm({
+  quoteInfo,
+  nextPage,
+  prevPage,
+  page,
+  setQuoteInfo,
+}) {
   return (
-    <div className="">
-      <div className="dark:bg-gray-900">
-        <section className="mx-auto container w-full py-36">
-          <div className="flex flex-col justify-center items-center">
-            <div className="md:text-5xl text-4xl font-black text-center text-gray-800 dark:text-white leading-snug lg:w-3/4">
-              <h2>Thank you for you interest</h2>
-              <p className="text-sm font-light text-white px-16 py-8">
-                We have taken note of your interest and we will be in touch
-                shortly with a quotation based on your answers.
-              </p>
-            </div>
-            <div className="flex justify-center items-center mt-16">
-              <Link href="/" passHref>
-                <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-800 hover:opacity-90 w-48 h-12 text-lg text-white bg-gradient-to-l from-indigo-600 to-indigo-700 rounded">
-                  Back to Home
-                </button>
-              </Link>
-            </div>
-          </div>
-        </section>
+    <div className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12">
+      <h1 className="mt-8 font-sans text-center font-bold text-2xl">
+        You are Done
+      </h1>
+
+      <p className="py-1 text-center">
+        Thanks for taking the time to complete the questionnaire
+      </p>
+      <div className="py-8 px-6 lg:px-16 max-w-5xl mx-auto shadow-lg rounded bg-gray-200  md:h-1/2 mt-6 flex flex-col items-center">
+        <div className="flex flex-col justify-center w-5/6 lg:w-1/2">
+          <h2 className="text-4xl text-center font-light uppercase">
+            Thank <span className="font-bold">You!</span>
+          </h2>
+          <p className="text-md text-medium py-2 text-center">
+            We have taken note of your interest and we will be in touch shortly
+            with a quotation based on your answers.
+          </p>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <Link href="/" passHref>
+          <button
+            onClick={nextPage}
+            className="bg-sky-500 hover:bg-sky-600 mt-4 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
+          >
+            Back To Home
+          </button>
+        </Link>
       </div>
     </div>
   );

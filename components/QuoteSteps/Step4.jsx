@@ -11,11 +11,11 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <div className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Owner or renting?
+        Current Gas Supply Installation
       </h1>
 
       <p className="py-3 text-center">
-        Tell us if you are the owner of the home or are renting it
+        What type of gas supply do you have to your home?
       </p>
 
       <div className="py-8 max-w-6xl mx-auto flex justify-center space-y-4 lg:space-y-0 lg:space-x-6">

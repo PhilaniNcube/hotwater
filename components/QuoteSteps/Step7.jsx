@@ -1,29 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 
-const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   return (
     <div className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Intende Gas Use
+        Water Heater
       </h1>
 
-      <p className="py-3 text-center">What do/will you use gas for?</p>
+      <p className="py-3 text-center">
+        How do you currently heat up your water?
+      </p>
 
-      <div className="py-8 max-w-6xl mx-auto flex justify-center space-y-4 lg:space-y-0 lg:space-x-6">
+      <div className="py-8 max-w-6xl mx-auto flex flex-col md:flex-row flex-wrap items-center justify-center space-y-4 lg:space-y-0 lg:space-x-6">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() =>
             setQuoteInfo({
               ...quoteInfo,
-              gasStove: true,
-              noGasUse: false,
+              waterHeater: 'electricity',
             })
           }
         >
-          {quoteInfo.gasStove && (
+          {quoteInfo.waterHeater === 'electricity' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -37,20 +38,25 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
-          <img className="h-16 w-16" alt="" src="/images/icons/stove.svg" />
-          <p className="text-lg text-center text-sky-500 font-bold">Cooking</p>
+          <img
+            className="h-16 w-16"
+            alt=""
+            src="/images/icons/electricity.svg"
+          />
+          <p className="text-lg text-center text-sky-500 font-bold">
+            Electricity
+          </p>
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() =>
             setQuoteInfo({
               ...quoteInfo,
-              gasGrill: true,
-              noGasUse: false,
+              waterHeater: 'gas',
             })
           }
         >
-          {quoteInfo.gasGrill && (
+          {quoteInfo.waterHeater === 'gas' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -64,20 +70,19 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
-          <img className="h-16 w-16" alt="" src="/images/icons/under.svg" />
-          <p className="text-lg text-center text-sky-500 font-bold">Barbecue</p>
+          <img className="h-16 w-16" alt="" src="/images/icons/gas.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">Gas</p>
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() =>
             setQuoteInfo({
               ...quoteInfo,
-              gasHeating: true,
-              noGasUse: false,
+              waterHeater: 'solar',
             })
           }
         >
-          {quoteInfo.gasHeating && (
+          {quoteInfo.waterHeater === 'solar' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -91,22 +96,19 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
-          <img className="h-16 w-16" alt="" src="/images/icons/heater.svg" />
-          <p className="text-lg text-center text-sky-500 font-bold">Heating</p>
+          <img className="h-16 w-16" alt="" src="/images/icons/solar.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">Solar</p>
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() =>
             setQuoteInfo({
               ...quoteInfo,
-              gasHeating: false,
-              gasGrill: false,
-              gasStove: false,
-              noGasUse: true,
+              waterHeater: 'other',
             })
           }
         >
-          {quoteInfo.noGasUse && (
+          {quoteInfo.waterHeater === 'other' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -152,4 +154,4 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step5;
+export default Step7;

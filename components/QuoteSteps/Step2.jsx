@@ -181,7 +181,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
-          <img className="h-16 w-16" alt="" src="/images/icons/farm.svg" />
+          <img className="h-16 w-16" alt="" src="/images/icons/farm1.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">Farm</p>
         </div>
         <div

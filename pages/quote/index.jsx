@@ -8,6 +8,9 @@ import Step5 from '../../components/QuoteSteps/Step5';
 import Step6 from '../../components/QuoteSteps/Step6';
 import Confirm from '../../components/QuoteSteps/Confirm';
 import PageTransitions from '../../components/PageTransitions';
+import Step7 from '../../components/QuoteSteps/Step7';
+import Step8 from '../../components/QuoteSteps/Step8';
+import Step9 from '../../components/QuoteSteps/Step9';
 
 const index = () => {
   const [page, setPage] = useState(1);
@@ -27,10 +30,10 @@ const index = () => {
     waterHeater: '',
     standardShower: 0,
     rainShower: 0,
-    kitchenTap: 0,
     bathtub: 0,
     sink: 0,
     dishwasher: 0,
+    washingmachine: 0,
     flowRate: 0,
     offGrid: false,
     firstName: '',
@@ -43,7 +46,7 @@ const index = () => {
   });
 
   const nextPage = () => {
-    if (page === 7) return;
+    if (page === 10) return;
     setPage((page) => page + 1);
   };
   const prevPage = () => {
@@ -108,6 +111,33 @@ const index = () => {
         />
       )}
       {page === 7 && (
+        <Step7
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 8 && (
+        <Step8
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 9 && (
+        <Step9
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 10 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}

@@ -1,258 +1,147 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 
 const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+  const [tooltipStatus, setTooltipStatus] = useState(0);
   console.log('Step', page, quoteInfo);
-
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleOnChange = () => {
-    setIsChecked(!isChecked);
-
-    setQuoteInfo({
-      ...quoteInfo,
-      completeSolution: isChecked,
-    });
-
-    console.log(quoteInfo.completeSolution);
-  };
 
   return (
     <div className="max-w-6xl mx-auto my-16">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
-        <h4 className="text-2xl font-bold leading-tight text-gray-800">
-          Personal Info
-        </h4>
-        <div className="mt-6 md:mt-0">
-          <button
-            onClick={prevPage}
-            className="mr-3 bg-gray-200 focus:outline-none transition duration-150 ease-in-out rounded hover:bg-gray-300 text-indigo-700 px-5 py-2 text-sm"
-          >
-            Back
-          </button>
-          <button
-            onClick={nextPage}
-            className="transition focus:outline-none duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"
-          >
-            Next Page
-          </button>
-        </div>
-      </div>
-      {/* Header Ends */}
-      <div className="mt-4">
-        <div className="mt-4">
-          <div>
-            <div className="xl:w-full border-b border-gray-300"></div>
-            <div className="w-11/12 mx-auto">
-              <div className="container mx-auto">
-                <div className="my-8 mx-auto xl:w-full xl:mx-0">
-                  <div className="xl:flex lg:flex md:flex flex-wrap justify-between">
-                    <div className="xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6">
-                      <label
-                        htmlFor="firstName"
-                        className="pb-2 text-sm font-bold text-gray-800 "
-                      >
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={quoteInfo.firstName}
-                        onChange={(e) => {
-                          setQuoteInfo({
-                            ...quoteInfo,
-                            firstName: e.target.value,
-                          });
-                        }}
-                        required
-                        id="firstName"
-                        className="border border-gray-300  pl-3 py-3 shadow-sm rounded text-sm focus:outline-none bg-transparent focus:border-indigo-700 text-gray-800 "
-                      />
-                    </div>
-                    <div className="xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6">
-                      <label
-                        htmlFor="lastName"
-                        className="pb-2 text-sm font-bold text-gray-800 "
-                      >
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={quoteInfo.lastName}
-                        onChange={(e) => {
-                          setQuoteInfo({
-                            ...quoteInfo,
-                            lastName: e.target.value,
-                          });
-                        }}
-                        required
-                        className="border border-gray-300  pl-3 py-3 shadow-sm rounded text-sm focus:outline-none bg-transparent focus:border-indigo-700 text-gray-800 "
-                      />
-                    </div>
-                    <div className="xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6">
-                      <label
-                        htmlFor="email"
-                        className="pb-2 text-sm font-bold text-gray-800 "
-                      >
-                        Email
-                      </label>
-                      <div className="relative">
-                        <div className="absolute text-gray-600  flex items-center px-4 border-r h-full">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon icon-tabler icon-tabler-mail"
-                            width={20}
-                            height={20}
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" />
-                            <rect x={3} y={5} width={18} height={14} rx={2} />
-                            <polyline points="3 7 12 13 21 7" />
-                          </svg>
-                        </div>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={quoteInfo.email}
-                          onChange={(e) => {
-                            setQuoteInfo({
-                              ...quoteInfo,
-                              email: e.target.value,
-                            });
-                          }}
-                          required
-                          className="w-full bg-transparent text-gray-800  focus:outline-none focus:border focus:border-indigo-700 font-normal py-3 flex items-center pl-16 text-sm border-gray-300 rounded border shadow"
-                          placeholder="example@gmail.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6">
-                      <label
-                        htmlFor="streetAddress"
-                        className="pb-2 text-sm font-bold text-gray-800 "
-                      >
-                        Street Address
-                      </label>
-                      <input
-                        type="text"
-                        id="streetAddress"
-                        name="streetAddress"
-                        value={quoteInfo.streetAddress}
-                        onChange={(e) => {
-                          setQuoteInfo({
-                            ...quoteInfo,
-                            streetAddress: e.target.value,
-                          });
-                        }}
-                        required
-                        className="border border-gray-300  pl-3 py-3 shadow-sm rounded text-sm focus:outline-none bg-transparent focus:border-indigo-700 text-gray-800 "
-                      />
-                    </div>
-                    <div className="xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6">
-                      <label
-                        htmlFor="city"
-                        className="pb-2 text-sm font-bold text-gray-800 "
-                      >
-                        City
-                      </label>
-                      <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={quoteInfo.city}
-                        onChange={(e) => {
-                          setQuoteInfo({
-                            ...quoteInfo,
-                            city: e.target.value,
-                          });
-                        }}
-                        required
-                        className="border border-gray-300  pl-3 py-3 shadow-sm rounded text-sm focus:outline-none bg-transparent focus:border-indigo-700 text-gray-800 "
-                      />
-                    </div>
-                  </div>
-                  <div className="xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6">
-                    <label
-                      htmlFor="telephoneNumber"
-                      className="pb-2 text-sm font-bold text-gray-800 "
-                    >
-                      Telephone
-                    </label>
-                    <input
-                      type="tel"
-                      id="telephoneNumber"
-                      name="telephoneNumber"
-                      value={quoteInfo.telephoneNumber}
-                      onChange={(e) => {
-                        setQuoteInfo({
-                          ...quoteInfo,
-                          telephoneNumber: e.target.value,
-                        });
-                      }}
-                      required
-                      className="border border-gray-300  pl-3 py-3 shadow-sm rounded text-sm focus:outline-none bg-transparent focus:border-indigo-700 text-gray-800 "
-                    />
-                  </div>
-                  <div className="py-4 flex items-center">
-                    <div className="bg-white border rounded-sm border-gray-400 w-5 h-5 flex flex-shrink-0 justify-center items-center relative">
-                      <input
-                        onChange={handleOnChange}
-                        checked={isChecked}
-                        type="checkbox"
-                        className="checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                      />
-                      <div className="check-icon hidden bg-indigo-700 text-white rounded-sm">
-                        <svg
-                          className="icon icon-tabler icon-tabler-check"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={20}
-                          height={20}
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path stroke="none" d="M0 0h24v24H0z" />
-                          <path d="M5 12l5 5l10 -10" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="ml-3 text-sm leading-4 font-normal text-gray-800">
-                      Do you wish to receive some extra information from us
-                      regarding a total off-the-grid solution (gas for cooking
-                      and heating up water and solar for electricity)?
-                    </p>
-                  </div>
+      <h1 className="mt-8 font-sans text-center font-bold text-2xl">
+        Geyser Location
+      </h1>
+      <div className="flex justify-center items-center">
+        <p className="py-3 text-center">
+          Can the geyser be installed on an outside wall of the building??
+        </p>
+        <div
+          className="relative mt-20 md:mt-0"
+          onMouseEnter={() => setTooltipStatus(1)}
+          onMouseLeave={() => setTooltipStatus(0)}
+        >
+          <div className="mr-2 cursor-pointer">
+            <svg
+              aria-haspopup="true"
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-info-circle"
+              width={25}
+              height={25}
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#A0AEC0"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <circle cx={12} cy={12} r={9} />
+              <line x1={12} y1={8} x2="12.01" y2={8} />
+              <polyline points="11 12 12 12 12 16 13 16" />
+            </svg>
+          </div>
+          {tooltipStatus == 1 && (
+            <div
+              role="tooltip"
+              className="z-20 mt-4 -translate-x-[200px] md:-translate-x-[400px] w-[300px] h-[300px] md:w-[400px] md:h-[400px] absolute transition duration-150 ease-in-out left-0 ml-8 shadow-lg bg-white p-4 rounded"
+            >
+              <p className="text-sm font-bold text-gray-800 pb-1 text-center">
+                Geyser Dimensions
+              </p>
+              <p className="text-xs leading-4 text-gray-600 pb-3 text-center">
+                Please take note of the overall footprint of the geyser
+              </p>
+              <div className="flex justify-center items-center">
+                <div className="flex flex-col justify-center items-center">
+                  <img
+                    className="h-[200px] w-[200px] md:w-[300px] md:h-[300px]"
+                    alt=""
+                    src="/images/icons/wallmount.svg"
+                  />
                 </div>
               </div>
             </div>
-            <div className="w-full py-4 sm:px-12 px-4 bg-gray-100 mt-6 flex justify-end rounded-bl rounded-br">
-              <button
-                className="bg-gray-700 transition duration-150 ease-in-out hover:bg-gray-600 rounded text-white px-8 py-2 text-sm focus:outline-none"
-                onClick={nextPage}
-              >
-                Save
-              </button>
-            </div>
-          </div>
+          )}{' '}
         </div>
       </div>
-      <style>
-        {`  .checkbox:checked + .check-icon {
-                            display: flex;
-                        }`}
-      </style>
+
+      <div className="py-8 max-w-6xl mx-auto flex flex-col items-center md:flex-row justify-center space-y-4 md:space-y-0 lg:space-x-6">
+        <div
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          onClick={() =>
+            setQuoteInfo({
+              ...quoteInfo,
+              locateOutside: true,
+            })
+          }
+        >
+          {quoteInfo.locateOutside && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 absolute top-2 right-2 text-sky-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
+            </svg>
+          )}
+          <img className="h-16 w-16" alt="" src="/images/icons/check.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">Yes</p>
+        </div>
+        <div
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          onClick={() =>
+            setQuoteInfo({
+              ...quoteInfo,
+              locateOutside: false,
+            })
+          }
+        >
+          {!quoteInfo.locateOutside && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 absolute top-2 right-2 text-sky-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
+            </svg>
+          )}
+          <img className="h-16 w-16" alt="" src="/images/icons/close.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">No</p>
+        </div>
+      </div>
+      <div className="flex items-center justify-center space-x-6">
+        <svg
+          onClick={prevPage}
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+
+        <button
+          onClick={nextPage}
+          className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
+        >
+          Continue
+        </button>
+      </div>
     </div>
   );
 };
