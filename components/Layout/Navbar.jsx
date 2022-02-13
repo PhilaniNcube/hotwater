@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Popover, Transition } from '@headlessui/react';
-import { XIcon, MenuIcon } from '@heroicons/react/outline';
+import { Popover } from '@headlessui/react';
+import { useSignOut, useUser } from '../../hooks/user';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -11,7 +11,14 @@ function classNames(...classes) {
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
-  const [user, setUser] = useState({ name: 'Philani' });
+  const user = useUser();
+  const signOut = useSignOut();
+
+  const handleSignOut = async () => {
+    signOut();
+    setShow(false);
+    // setUser(undefined);
+  };
 
   return (
     <Popover className="">
@@ -160,8 +167,8 @@ const Navbar = () => {
             <div
               className={classNames(
                 show
-                  ? 'transition-all duration-300'
-                  : '-translate-x-[135%] bg-gray-700 h-0 w-0',
+                  ? 'absolute top-16 z-50 left-7 bg-gray-700 w-[280px] transition-all duration-300 rounded-lg shadow-md  px-4 py-8 flex flex-col'
+                  : ' bg-gray-700 h-0 w-0',
                 'absolute top-16 left-7 bg-gray-700 w-[280px] transition-all duration-300 rounded-lg shadow-md  px-4 py-8 flex flex-col',
               )}
             >
@@ -214,15 +221,21 @@ const Navbar = () => {
                 </a>
               </Link>
 
-              {user ? (
+              {!user ? (
                 <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
                   <Link href="/signin">
-                    <a className="text-md font-bold hover:text-slate-200">
+                    <a
+                      onClick={() => setShow(false)}
+                      className="text-md font-bold hover:text-slate-200"
+                    >
                       Sign In
                     </a>
                   </Link>
                   <Link href="/register">
-                    <a className="text-md font-bold hover:text-slate-200">
+                    <a
+                      onClick={() => setShow(false)}
+                      className="text-md font-bold hover:text-slate-200"
+                    >
                       Register
                     </a>
                   </Link>
@@ -230,7 +243,7 @@ const Navbar = () => {
               ) : (
                 <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
                   <button
-                    onClick={() => console.log('logout')}
+                    onClick={handleSignOut}
                     className="text-md font-bold hover:text-slate-200"
                   >
                     Sign Out
@@ -265,7 +278,10 @@ const Navbar = () => {
                   </div>
                 </Link>
 
-                <div className="flex px-2 py-1 bg-gray-600 rounded items-center text-red-50 cursor-pointer">
+                <div
+                  className="flex px-2 py-1 bg-gray-600 rounded items-center text-red-50 cursor-pointer"
+                  onClick={handleSignOut}
+                >
                   <p>Logout</p>
                   <span className="pl-2">
                     <svg

@@ -1,30 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
-import { fetchJson } from '../lib/requests';
+import { useRouter } from 'next/router';
+import { useSignIn } from '../hooks/user';
 
 export default function SignIn() {
+  const router = useRouter();
   const [showpass, setShowPass] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [status, setStatus] = useState({ loading: false, error: false });
+
+  const { signIn, signInError, signInLoading } = useSignIn();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus({ loading: true, error: false });
-    console.log(status);
-    try {
-      const response = await fetchJson('http://localhost:1337/api/auth/local', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          identifier: email,
-          password,
-        }),
-      });
-      console.log('sign in', response);
-      setStatus({ error: false, loading: false });
-    } catch (error) {
-      setStatus({ error: true, loading: false });
+
+    const valid = await signIn(email, password);
+
+    if (valid) {
+      router.push('/');
     }
   };
 
@@ -177,126 +170,34 @@ export default function SignIn() {
                   </div>
                 </div>
               </div>
+
+              {signInError && (
+                <p className="text-sm font-light text-red-500">
+                  Invalid Credentials
+                </p>
+              )}
             </div>
             <div className="mt-8">
               <button
                 role="button"
-                disabled={status.loading}
+                disabled={signInLoading}
                 type="submit"
                 className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
               >
-                {status.loading ? `Loading...` : 'Login'}
+                {signInLoading ? `Loading...` : 'Login'}
               </button>
             </div>
-            {status.error && (
-              <div>
-                {/* Code block starts */}
-                <div className="flex items-center justify-center px-4 lg:px-0 py-12 absolute top-36 left-8">
-                  <div
-                    id="alert"
-                    className={
-                      status.error
-                        ? 'transition duration-150 ease-in-out lg:w-11/12 mx-auto py-3 px-4  dark:bg-gray-800 bg-white md:flex items-center justify-between shadow rounded '
-                        : 'transition duration-150 ease-in-out lg:w-11/12 mx-auto py-3 px-4  dark:bg-gray-800 bg-white md:flex items-center justify-between shadow rounded translate-hide'
-                    }
-                  >
-                    <div className="sm:flex sm:items-start lg:items-center">
-                      <div className="flex items-end">
-                        <div className="mr-2 text-red-400">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            width={20}
-                            height={20}
-                            fill="currentColor"
-                          >
-                            <path
-                              className="heroicon-ui"
-                              d="M4.93 19.07A10 10 0 1 1 19.07 4.93 10 10 0 0 1 4.93 19.07zm1.41-1.41A8 8 0 1 0 17.66 6.34 8 8 0 0 0 6.34 17.66zM13.41 12l1.42 1.41a1 1 0 1 1-1.42 1.42L12 13.4l-1.41 1.42a1 1 0 1 1-1.42-1.42L10.6 12l-1.42-1.41a1 1 0 1 1 1.42-1.42L12 10.6l1.41-1.42a1 1 0 1 1 1.42 1.42L13.4 12z"
-                            />
-                          </svg>
-                        </div>
-                        <p className="mr-2 text-sm lg:text-base font-bold text-gray-800 dark:text-gray-100">
-                          Error
-                        </p>
-                      </div>
-                      <div className="h-1 w-1 bg-gray-300 dark:bg-gray-700 rounded-full mr-2 hidden xl:block" />
-                      <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 pt-2 sm:pt-0 pb-2 sm:pb-0">
-                        Invalid credentials
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-end sm:mt-4 md:mt-0 md:pl-4 lg:pl-0">
-                      <div
-                        onClick={() => setError(false)}
-                        className="cursor-pointer text-gray-400"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width={18}
-                          height={18}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="feather feather-x"
-                        >
-                          <line x1={18} y1={6} x2={6} y2={18} />
-                          <line x1={6} y1={6} x2={18} y2={18} />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Code block ends */}
-                <style>
-                  {`
-                .translate-show{
-                    transform : translateY(0%);
-                }
-                .translate-hide{
-                    transform : translateY(18vh);
-                }
-                `}
-                </style>
-              </div>
-            )}
           </form>
           <div className="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
             <div className="pl-8 md:block hidden">
               <img
-                className="h-12 object-cover"
+                className="h-36 object-cover"
                 src="/images/logo-01.svg"
                 alt=""
               />
             </div>
             <div className="flex items-start mt-8">
-              <div>
-                <svg
-                  width={22}
-                  height={14}
-                  viewBox="0 0 22 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M15.0666 6.65142C15.7914 6.17428 16.6517 5.94576 17.5177 6.00035C18.3837 6.05493 19.2085 6.38965 19.8677 6.95402C20.5268 7.51839 20.9845 8.28179 21.1718 9.12907C21.3591 9.97636 21.2658 10.8616 20.906 11.6512C20.5461 12.4408 19.9393 13.092 19.177 13.5065C18.4146 13.921 17.5382 14.0764 16.6798 13.9492C15.8215 13.822 15.0277 13.4192 14.4184 12.8014C13.809 12.1836 13.4171 11.3844 13.3016 10.5244C12.9366 8.73142 12.7946 6.57642 13.5086 4.62542C14.2746 2.53542 15.9726 0.821417 19.0136 0.0254175C19.2671 -0.0328119 19.5332 0.00995174 19.7556 0.144642C19.978 0.279332 20.1392 0.495356 20.205 0.746904C20.2708 0.998453 20.2361 1.26575 20.1081 1.4921C19.9802 1.71846 19.7691 1.88608 19.5196 1.95942C17.0596 2.60342 15.9096 3.88942 15.3866 5.31342C15.2316 5.73842 15.1266 6.18742 15.0666 6.65142Z"
-                    fill="#4B5563"
-                  />
-                  <path
-                    d="M2.06664 6.65142C2.79142 6.17428 3.65171 5.94576 4.51773 6.00035C5.38375 6.05493 6.20853 6.38965 6.86766 6.95402C7.5268 7.51839 7.98454 8.28179 8.17183 9.12907C8.35912 9.97636 8.26581 10.8616 7.90597 11.6512C7.54612 12.4408 6.93927 13.092 6.17695 13.5065C5.41463 13.921 4.53818 14.0764 3.67982 13.9492C2.82145 13.822 2.02772 13.4192 1.41836 12.8014C0.808998 12.1836 0.417052 11.3844 0.301644 10.5244C-0.0633559 8.73142 -0.205356 6.57642 0.508644 4.62542C1.27464 2.53542 2.97264 0.821417 6.01364 0.0254175C6.26706 -0.0328119 6.53318 0.00995174 6.7556 0.144642C6.97801 0.279332 7.13921 0.495356 7.20502 0.746904C7.27084 0.998453 7.23609 1.26575 7.10814 1.4921C6.98019 1.71846 6.7691 1.88608 6.51964 1.95942C4.05964 2.60342 2.90964 3.88942 2.38664 5.31342C2.23164 5.73842 2.12664 6.18742 2.06664 6.65142Z"
-                    fill="#4B5563"
-                  />
-                </svg>
-              </div>
-              <p className="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">
-                Generating random paragraphs can be an excellent way for writers
-                to get their creative flow going at the beginning of the day.
-                The writer has no idea what topic the random paragraph will be
-                about when it appears
-              </p>
+              <div></div>
             </div>
           </div>
         </div>
