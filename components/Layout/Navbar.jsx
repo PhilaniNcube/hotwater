@@ -1,36 +1,39 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, Fragment } from 'react';
 import Link from 'next/link';
+import { Popover, Transition } from '@headlessui/react';
+import { XIcon, MenuIcon } from '@heroicons/react/outline';
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
-  const [user, setUser] = useState({
-    name: 'Philani',
-    email: 'ncbphi001@gmail.com',
-  });
+  const [user, setUser] = useState(null);
 
   return (
-    <nav className="">
+    <Popover className="">
       {/*Desktop Nav */}
       <div className="py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-2 md:px-0 flex items-center justify-between">
           {/*Logo */}
           <Link href="/" passHref>
             <div className="flex space-x-2 items-center cursor-pointer">
               <img
-                className="h-12 object-cover"
+                className="h-8 md:h-12 object-cover"
                 src="/images/logo-01.svg"
                 alt="hotwater24"
                 aria-label="Logo"
               />
-              <span className="font-bebas text-4xl tracking-widest font-thin">
+              <span className="font-bebas text-xl md:text-4xl tracking-widest font-thin">
                 Hotwater <span className="font-bold">24</span>
               </span>
             </div>
           </Link>
           {/*Search Input*/}
-          <div className="flex flex-col flex-1 px-16">
+          <div className="hidden md:flex flex-col flex-1 px-16">
             <div className="relative w-full">
               <div className="absolute text-gray-600  flex items-center pl-3 h-full">
                 <svg
@@ -60,39 +63,176 @@ const Navbar = () => {
 
           {/*Quote Button */}
           <div>
-            <button className="bg-sky-600 text-white flex items-center px-8 py-2 rounded-full font-bold">
-              Get In Touch{' '}
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 ml-4"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-              </span>
-            </button>
+            <Link href="/contact" passHref>
+              <button className="bg-sky-600 text-white flex items-center px-6 md:px-8 py-2 rounded-full font-bold">
+                Get In Touch{' '}
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 ml-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </span>
+              </button>
+            </Link>
           </div>
+
+          {/*Quote Button Ends*/}
         </div>
       </div>
+      {/*Top Nav Ends */}
+
+      {/*Bottom Nav Begins */}
       <div className="bg-gray-800 text-white">
-        <div className="max-w-6xl mx-auto py-4 flex items-center justify-between">
-          <nav className="flex items-center">
+        <div className="max-w-6xl mx-auto py-4 px-4 md:px-2 lg:px-0 flex items-center justify-between relative">
+          <nav className="hidden md:flex items-center">
             <Link href="/who-we-are">
-              <a className="text-md focus:text-sky-600 pr-6">Who We Are</a>
+              <a className="text-sm md:text-md focus:text-sky-600 pr-6">
+                Who We Are
+              </a>
             </Link>
             <Link href="/why-us">
-              <a className="text-md focus:text-sky-600 px-6">Why Us</a>
+              <a className="text-sm md:text-md focus:text-sky-600 px-6">
+                Why Us
+              </a>
             </Link>
             <Link href="/our-approach">
-              <a className="text-md focus:text-sky-600 px-6">Our Approach</a>
+              <a className="text-sm md:text-md focus:text-sky-600 px-6">
+                Our Approach
+              </a>
             </Link>
             <Link href="/catalogue">
-              <a className="text-md focus:text-sky-600 px-6">Our Catalogue</a>
+              <a className="text-sm md:text-md focus:text-sky-600 px-6">
+                Our Catalogue
+              </a>
             </Link>
           </nav>
+
+          {/*Mobile Bottom Nav*/}
+          {/*Menu Toggle Button */}
+          <div className="text-white transition-all duration-300 md:hidden">
+            {!show ? (
+              <Popover.Button>
+                <span className="sr-only">Open menu</span>
+                <svg
+                  onClick={() => setShow(true)}
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </Popover.Button>
+            ) : (
+              <Popover.Button>
+                <span className="sr-only">Close menu</span>
+                <svg
+                  onClick={() => setShow(false)}
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </Popover.Button>
+            )}
+          </div>
+
+          {show && (
+            <div
+              className={classNames(
+                show
+                  ? 'transition-all duration-300'
+                  : '-translate-x-[135%] bg-gray-700 h-0 w-0',
+                'absolute top-16 left-7 bg-gray-700 w-[280px] transition-all duration-300 rounded-lg shadow-md  px-4 py-8 flex flex-col',
+              )}
+            >
+              <Link href="/" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Home
+                </a>
+              </Link>
+              <Link href="/why-us" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Why Us
+                </a>
+              </Link>
+              <Link href="/who-we-are" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Who We Are
+                </a>
+              </Link>
+              <Link href="/our-approach" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Our Approach
+                </a>
+              </Link>
+              <Link href="/our-promise" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Our Promise
+                </a>
+              </Link>
+              <Link href="/catalogue" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Our Catalogue
+                </a>
+              </Link>
+
+              {!user && (
+                <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
+                  <Link href="/signin">
+                    <a className="text-md font-bold hover:text-slate-200">
+                      Sign In
+                    </a>
+                  </Link>
+                  <Link href="/register">
+                    <a className="text-md font-bold hover:text-slate-200">
+                      Register
+                    </a>
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+          {/*Mobile Bottom Nav Ends*/}
+
+          {/*User Nav Starts */}
           <div>
             {user ? (
               <Link href="/profile" passHref>
@@ -115,19 +255,19 @@ const Navbar = () => {
                 </div>
               </Link>
             ) : (
-              <div className="flex space-x-2 items-center">
+              <div className="flex space-x-3 lg:space-x-8 items-center">
                 <Link href="/signin">
-                  <a className="text-md font-bold">Sign In</a>
+                  <a className="text-sm md:text-md font-bold">Sign In</a>
                 </Link>
                 <Link href="/register">
-                  <a className="text-md font-bold">Register</a>
+                  <a className="text-sm md:text-md font-bold">Register</a>
                 </Link>
               </div>
             )}
           </div>
         </div>
       </div>
-    </nav>
+    </Popover>
   );
 };
 
