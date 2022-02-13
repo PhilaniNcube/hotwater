@@ -11,7 +11,7 @@ function classNames(...classes) {
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({ name: 'Philani' });
 
   return (
     <Popover className="">
@@ -214,7 +214,7 @@ const Navbar = () => {
                 </a>
               </Link>
 
-              {!user && (
+              {user ? (
                 <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
                   <Link href="/signin">
                     <a className="text-md font-bold hover:text-slate-200">
@@ -227,6 +227,15 @@ const Navbar = () => {
                     </a>
                   </Link>
                 </div>
+              ) : (
+                <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
+                  <button
+                    onClick={() => console.log('logout')}
+                    className="text-md font-bold hover:text-slate-200"
+                  >
+                    Sign Out
+                  </button>
+                </div>
               )}
             </div>
           )}
@@ -235,25 +244,47 @@ const Navbar = () => {
           {/*User Nav Starts */}
           <div>
             {user ? (
-              <Link href="/profile" passHref>
-                <div className="flex items-center text-red-600 cursor-pointer">
-                  <p>{user.name}</p>
+              <div className="flex space-x-5">
+                <Link href="/profile" passHref>
+                  <div className="flex items-center text-sky-600 cursor-pointer">
+                    <p>{user.name}</p>
+                    <span className="pl-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 text-white bg-sky-600 rounded-full p-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+
+                <div className="flex px-2 py-1 bg-gray-600 rounded items-center text-red-50 cursor-pointer">
+                  <p>Logout</p>
                   <span className="pl-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 text-white bg-red-600 rounded-full p-1"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
                       <path
-                        fillRule="evenodd"
-                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clipRule="evenodd"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                       />
                     </svg>
                   </span>
                 </div>
-              </Link>
+              </div>
             ) : (
               <div className="flex space-x-3 lg:space-x-8 items-center">
                 <Link href="/signin">
