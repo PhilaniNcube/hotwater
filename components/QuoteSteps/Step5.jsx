@@ -124,7 +124,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           <p className="text-lg text-center text-sky-500 font-bold">Other</p>
         </div>
       </div>
-      <div className="flex items-center justify-center space-x-6">
+      <div className="flex items-center justify-center my-3 space-x-6">
         <svg
           onClick={prevPage}
           xmlns="http://www.w3.org/2000/svg"

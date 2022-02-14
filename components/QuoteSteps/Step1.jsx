@@ -153,7 +153,7 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </div>
         </div>
       </div>
-      <div className="mt-1 flex justify-center">
+      <div className="my-3 flex justify-center">
         <button
           onClick={nextPage}
           className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
