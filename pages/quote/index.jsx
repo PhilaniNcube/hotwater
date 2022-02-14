@@ -23,7 +23,7 @@ const index = () => {
     ownership: false,
     gasSupply: '',
     gasStove: false,
-    gasGrill: false,
+    gasWaterHeating: false,
     gasHeating: false,
     noGasUse: false,
     locateOutside: false,

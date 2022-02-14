@@ -45,12 +45,12 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           onClick={() =>
             setQuoteInfo({
               ...quoteInfo,
-              gasGrill: true,
+              gasWaterHeating: true,
               noGasUse: false,
             })
           }
         >
-          {quoteInfo.gasGrill && (
+          {quoteInfo.gasWaterHeating && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -65,7 +65,9 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </svg>
           )}
           <img className="h-16 w-16" alt="" src="/images/icons/under.svg" />
-          <p className="text-lg text-center text-sky-500 font-bold">Barbecue</p>
+          <p className="text-lg text-center text-sky-500 font-bold">
+            Water Heating
+          </p>
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
@@ -100,7 +102,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             setQuoteInfo({
               ...quoteInfo,
               gasHeating: false,
-              gasGrill: false,
+              gasWaterHeating: false,
               gasStove: false,
               noGasUse: true,
             })
