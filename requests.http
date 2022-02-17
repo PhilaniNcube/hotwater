@@ -9,7 +9,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:1337/api/users/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ0MTY4NDM5LCJleHAiOjE2NDY3NjA0Mzl9.QmMJZhOlqYPMsDho-0I_0cLBt5WFIpwpMnYwQSK3-Fg
+Authorization: 
 Content-Type: application/json
 
 
@@ -30,7 +30,26 @@ POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {
-    
+  
     "email": "ncbphi001@gmail.com",
     "password": "1234567"
 }
+
+
+###
+
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+      "username": "pills",
+    "email": "ncbphi005@gmail.com",
+    "password": "1234567"
+}
+
+
+###
+
+GET http://localhost:1337/api/users
+
+Content-Type: application/json

@@ -32,6 +32,36 @@ export function useSignIn() {
   };
 }
 
+export function useRegister() {
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(async ({ email, password, username }) => {
+    return await fetchJson('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        password,
+        username,
+      }),
+    });
+  });
+
+  return {
+    register: async (email, password, username) => {
+      try {
+        const user = await mutation.mutateAsync({ email, password, username });
+        queryClient.setQueryData(USER_QUERY_KEY, user);
+        return true;
+      } catch (error) {
+        return false;
+      }
+    },
+    registerError: mutation.isError,
+    registerLoading: mutation.isLoading,
+  };
+}
+
 export function useSignOut() {
   const queryClient = useQueryClient();
   const mutation = useMutation(() => fetchJson('/api/logout'));
