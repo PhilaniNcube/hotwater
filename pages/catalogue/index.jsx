@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { Fragment } from 'react';
-import { useProducts } from '../../hooks/products';
-import { useRouter } from 'next/router';
 import { fetchJson } from '../../lib/requests';
-import { useQuery } from 'react-query';
 import CatalogueHero from '../../components/Catalogue/CatalogueHero';
 import CatalogueGrid from '../../components/Catalogue/CatalogueGrid';
 
-const Catalogue = ({ flowRate, products }) => {
+const Catalogue = ({ products, flowRate }) => {
+  console.log(flowRate);
+
   return (
     <Fragment>
       <CatalogueHero />
