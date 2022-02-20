@@ -61,11 +61,11 @@ const Footer = () => {
             <p className="text-sm">Stay Connected</p>
             <form className="flex flex-col justify-center items-center space-y-2">
               <input
-                className="px-4 py-2 mt-2 rounded-full bg-white text-gray-500"
+                className="px-4 py-2 mt-2 rounded-full bg-white text-gray-500 w-1/3 lg:w-full min-w-fit"
                 type="text"
                 placeholder="email"
               />
-              <button className="py-2 px-10 text-center text-white bg-sky-500 hover:bg-sky-600 rounded-full w-full">
+              <button className="py-2 px-10 text-center text-white bg-sky-500 hover:bg-sky-600 rounded-full min-w-fit w-1/3 lg:w-full">
                 Subscribe
               </button>
             </form>

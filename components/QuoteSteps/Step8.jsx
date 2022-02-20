@@ -71,6 +71,25 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   // dishwasher: 0,
   // flowRate: 0,
 
+  const calculateFlowRate = () => {
+    let showerFlow = quoteInfo.standardShower * 6.42;
+    let rainShowerFlow = quoteInfo.rainShower * 12.84;
+    let bathtubFlow = quoteInfo.bathtub * 4.98;
+    let sinkFlow = quoteInfo.sink * 4.98;
+    let dishwasherFlow = quoteInfo.dishwasher * 10.02;
+    let washingmachineFlow = quoteInfo.washingmachine * 10.02;
+
+    let totalFowRate =
+      showerFlow +
+      rainShowerFlow +
+      bathtubFlow +
+      sinkFlow +
+      dishwasherFlow +
+      washingmachineFlow;
+
+    setQuoteInfo({ ...quoteInfo, flowRate: +totalFowRate.toFixed(2) });
+  };
+
   return (
     <div className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
@@ -303,7 +322,10 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </svg>
 
         <button
-          onClick={nextPage}
+          onClick={() => {
+            calculateFlowRate();
+            nextPage();
+          }}
           className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
         >
           Continue
