@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
+import { supabase } from '../../utils/supabase';
 
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   const [checked, setChecked] = useState(quoteInfo.completeSolution);
 
-  // rainShower: 0,
+  // rainShower,
   // kitchenTap: 0,
   // bathtub: 0,
   // sink: 0,
@@ -19,6 +20,74 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       ...quoteInfo,
       completeSolution: checked,
     });
+  };
+
+  const handleSubmit = async () => {
+    const {
+      children,
+      teenagers,
+      adults,
+      houseType,
+      ownership,
+      gasSupply,
+      gasStove,
+      gasWaterHeating,
+      gasHeating,
+      noGasUse,
+      locateOutside,
+      waterHeater,
+      standardShower,
+      rainShower,
+      bathtub,
+      sink,
+      dishwasher,
+      washingmachine,
+      flowRate,
+      offGrid,
+      firstName,
+      lastName,
+      email,
+      streetAddress,
+      city,
+      telephoneNumber,
+      completeSolution,
+    } = quoteInfo;
+
+    const { data, error } = await supabase.from('quotes').insert([
+      {
+        children,
+        teenagers,
+        adults,
+        houseType,
+        ownership,
+        gasSupply,
+        gasStove,
+        gasWaterHeating,
+        gasHeating,
+        noGasUse,
+        locateOutside,
+        waterHeater,
+        standardShower,
+        rainShower,
+        bathtub,
+        sink,
+        dishwasher,
+        washingmachine,
+        flowRate,
+        offGrid,
+        firstName,
+        lastName,
+        email,
+        streetAddress,
+        city,
+        telephoneNumber,
+        completeSolution,
+      },
+    ]);
+
+    if (!!data) {
+      nextPage();
+    }
   };
 
   return (
@@ -159,7 +228,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </svg>
 
         <button
-          onClick={nextPage}
+          onClick={handleSubmit}
           className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
         >
           Save

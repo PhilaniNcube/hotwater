@@ -67,7 +67,7 @@ const Start = () => {
           </div>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-8">
           <Link href="/quote" passHref>
             <button className="bg-sky-500 hover:bg-sky-700 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow">
               Lets get started

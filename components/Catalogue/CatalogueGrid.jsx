@@ -11,14 +11,14 @@ const CatalogueGrid = ({ products }) => {
           <div className="max-w-xs" key={product.id}>
             <div className="bg-gray-100 shadow rounded-tl rounded-tr">
               <img
-                src={product.attributes.image.data.attributes.formats.small.url}
+                src={product.image}
                 alt="bg-img"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="bg-gray-200  px-5 rounded-b-lg">
               <p className="w-48 text-base font-semibold leading-5 pt-4 text-gray-800">
-                {product.attributes.title}
+                {product.name}
               </p>
               <div className="flex items-center pt-2">
                 <div className="flex items-center">
@@ -44,7 +44,7 @@ const CatalogueGrid = ({ products }) => {
                     </svg>
                   </div>
                   <p className="text-xs leading-3 text-indigo-700 pl-1">
-                    {product.attributes.brand.data.attributes.name}
+                    {product.brand_id.name}
                   </p>
                 </div>
                 <div className="flex items-center pl-4">
@@ -67,34 +67,12 @@ const CatalogueGrid = ({ products }) => {
                     </svg>
                   </div>
                   <p className="text-xs leading-3 text-indigo-700 pl-1">
-                    {product.attributes.flowRate} Litres/Min
-                  </p>
-                </div>
-                <div className="flex items-center pl-4">
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-cloud"
-                      width={16}
-                      height={16}
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="#4338CA"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-12" />
-                    </svg>
-                  </div>
-                  <p className="text-xs leading-3 text-indigo-700 pl-1">
-                    {product.attributes.sku}
+                    {product.flowRate} Litres/Min
                   </p>
                 </div>
               </div>
               <p className="pt-4 text-md font-bold leading-4 text-gray-700">
-                {`R ${product.attributes.price}`}
+                {`R ${product.price}`}
               </p>
               <div className="flex cursor-pointer py-4">
                 <p className="text-xs leading-1 text-indigo-700 pr-1">
