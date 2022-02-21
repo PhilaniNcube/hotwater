@@ -16,7 +16,10 @@ const Catalogue = ({ flowRate }) => {
   } = useProducts(flow);
 
   console.log({
+    productsFetching,
     products,
+    productsIsLoading,
+    productsError,
     flow,
   });
 
