@@ -10,3 +10,4 @@
 [0221/191230.970:ERROR:registration_protocol_win.cc(102)] CreateFile: The system cannot find the file specified. (0x2)
 [0221/191240.643:ERROR:registration_protocol_win.cc(102)] CreateFile: The system cannot find the file specified. (0x2)
 [0221/212958.014:ERROR:registration_protocol_win.cc(102)] CreateFile: The system cannot find the file specified. (0x2)
+[0221/231823.745:ERROR:crashpad_client_win.cc(808)] not connected
