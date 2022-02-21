@@ -41,9 +41,7 @@ const Catalogue = ({ flowRate }) => {
           </p>
         </div>
       )}
-      {products.products.length > 0 && (
-        <CatalogueGrid products={products.products} />
-      )}
+      {!!products.products && <CatalogueGrid products={products.products} />}
     </Fragment>
   );
 };
