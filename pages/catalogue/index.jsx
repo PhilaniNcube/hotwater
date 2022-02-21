@@ -32,7 +32,7 @@ const Catalogue = ({ flowRate }) => {
           {`${flow} Litres/minute`}
         </p>
       </div>
-      {products.products.length === 0 && (
+      {!!products.products && (
         <div className="flex justify-center text-center max-w-3xl mx-auto mt-4 bg-slate-100 shadow-lg rounded p-8">
           <p>
             We currently do not have geysers with a flow rate greater than{' '}
