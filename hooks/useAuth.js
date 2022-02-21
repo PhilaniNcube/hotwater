@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { supabase } from '../client';
+import { supabase } from '../utils/supabase';
 
 const useAuth = () => {
   const signInWithGoogle = () => supabase.auth.signIn({ provider: 'google' });
