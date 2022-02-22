@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { fetchJson } from '../lib/requests';
+import { supabase } from '../utils/supabase';
 
 const USER_QUERY_KEY = 'user';
 
@@ -7,14 +8,14 @@ export function useSignIn() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation(async ({ email, password }) => {
-    return await fetchJson('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
+    let { user, error } = await supabase.auth.signIn({
+      email,
+      password,
     });
+
+    console.log(user, error);
+
+    return { user, error };
   });
 
   return {
@@ -35,22 +36,18 @@ export function useSignIn() {
 export function useRegister() {
   const queryClient = useQueryClient();
 
-  const mutation = useMutation(async ({ email, password, username }) => {
-    return await fetchJson('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        password,
-        username,
-      }),
+  const mutation = useMutation(async ({ email, password }) => {
+    return await supabase.auth.signUp({
+      email,
+      password,
     });
   });
 
   return {
-    register: async (email, password, username) => {
+    register: async (email, password) => {
       try {
-        const user = await mutation.mutateAsync({ email, password, username });
+        const user = await mutation.mutateAsync({ email, password });
+        console.log(user);
         queryClient.setQueryData(USER_QUERY_KEY, user);
         return true;
       } catch (error) {
@@ -64,7 +61,7 @@ export function useRegister() {
 
 export function useSignOut() {
   const queryClient = useQueryClient();
-  const mutation = useMutation(() => fetchJson('/api/logout'));
+  const mutation = useMutation(() => supabase.auth.signOut());
   return async () => {
     await mutation.mutateAsync();
     queryClient.setQueryData(USER_QUERY_KEY, undefined);
@@ -76,7 +73,7 @@ export function useUser() {
     USER_QUERY_KEY,
     async () => {
       try {
-        return await fetchJson('/api/user');
+        return await supabase.auth.user();
       } catch (error) {
         // not signed in
         return undefined;

@@ -51,7 +51,7 @@ const Slider = () => {
           return (
             <SwiperSlide key={i}>
               <div
-                className="max-w-6xl mx-auto min-h-[70vh] bg-cover bg-center bg-no-repeat px-4 lg:px-16 py-6"
+                className="max-w-[100%] mx-auto min-h-[70vh] bg-cover bg-center bg-no-repeat px-4 lg:px-24 2xl:px-[360px] py-6 flex flex-col justify-center"
                 style={{ backgroundImage: `url(${slide.image})` }}
               >
                 <h1
@@ -65,7 +65,7 @@ const Slider = () => {
                   {slide.subheading}
                 </p>
                 <Link href={slide.link} passHref>
-                  <button className="bg-gray-800 text-white flex space-x-2 py-1 px-4 items-center mt-4 rounded-full">
+                  <button className="bg-gray-800 text-white flex space-x-2 py-1 px-4 items-center mt-4 rounded-full w-fit">
                     {slide.linkText}
                     <span>
                       <svg

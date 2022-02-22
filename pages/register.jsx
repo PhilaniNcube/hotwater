@@ -8,7 +8,7 @@ export default function Register() {
   const router = useRouter();
   const [showpass, setShowPass] = useState(false);
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
+
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -22,7 +22,7 @@ export default function Register() {
       return;
     }
 
-    const valid = await register(email, password, username);
+    const valid = await register(email, password);
 
     if (valid) {
       router.push('/');
@@ -70,26 +70,7 @@ export default function Register() {
               </p>
               <hr className="w-full bg-gray-400" />
             </div>
-            <div>
-              <label
-                htmlFor="username"
-                className="text-sm font-medium leading-none text-gray-800"
-              >
-                {' '}
-                username{' '}
-              </label>
-              <input
-                id="username"
-                name="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                aria-labelledby="username"
-                type="text"
-                required
-                className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                placeholder="e.g: john123"
-              />
-            </div>
+
             <div>
               <label
                 htmlFor="email"
