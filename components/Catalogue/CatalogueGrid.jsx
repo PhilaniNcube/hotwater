@@ -6,10 +6,10 @@ const CatalogueGrid = ({ products }) => {
 
   return (
     <div className="max-w-6xl mx-auto my-4">
-      <div className="flex items-center justify-around flex-wrap w-full h-full py-12 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto justify-center gap-y-12 gap-x-16  py-12 px-4 lg:px-0">
         {products.map((product) => (
-          <div className="max-w-xs" key={product.id}>
-            <div className="bg-gray-100 shadow rounded-tl rounded-tr">
+          <div className="max-w-md" key={product.id}>
+            <div className="bg-gray-100 rounded-tl rounded-tr">
               <img
                 src={product.image}
                 alt="bg-img"

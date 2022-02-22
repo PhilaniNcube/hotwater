@@ -2,16 +2,22 @@
 import Link from 'next/link';
 import React from 'react';
 
-export default function CatalogueHero() {
+export default function CatalogueHero({ loading }) {
   return (
     <>
       <div className="bg-yellow flex flex-col items-center w-full justify-between py-24 px-4">
         <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold leading-9 text-gray-800 text-center">
           Recommended Geysers
         </h1>
-        <p className="text-base font-medium leading-4 text-gray-800 mt-4 text-center">
-          Select one one of our recommended geysers based on your answers
-        </p>
+        {loading ? (
+          <p className="text-base font-medium leading-4 text-gray-800 mt-4 text-center">
+           Loading...
+          </p>
+        ) : (
+          <p className="text-base font-medium leading-4 text-gray-800 mt-4 text-center">
+            Select one one of our recommended geysers based on your answers
+          </p>
+        )}
         <Link href="/" passHref>
           <button className="space-x-3 mt-8 hover:bg-gray-700 flex items-center justify-center h-full px-4 py-3.5 bg-gray-800 rounded">
             <p className="text-base font-medium leading-none text-white">

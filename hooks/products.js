@@ -4,7 +4,7 @@ import { supabase } from '../utils/supabase';
 
 const PRODUCTS_QUERY_KEY = 'products';
 
-export function useProducts(flowRate) {
+export function useProducts(flowRate, data) {
   const query = useQuery(
     PRODUCTS_QUERY_KEY,
     async () => {
@@ -12,7 +12,7 @@ export function useProducts(flowRate) {
         let { data: products, error } = await supabase
           .from('products')
           .select(`*, brand_id( name)`)
-          .gte('flowRate', `${flowRate}`);
+          .gte('flowRate', `${parseInt(flowRate)}`);
 
         return { products, error };
       } catch (error) {
@@ -23,6 +23,7 @@ export function useProducts(flowRate) {
     {
       staleTime: 30_000, //ms
       cacheTime: Infinity,
+      initialData: data,
     },
   );
 
