@@ -59,17 +59,6 @@ const index = () => {
     setPage((page) => page - 1);
   };
 
-  if (!user) {
-    <div className="h-[100vh] w-[90%] mx-auto flex justify-center items-center">
-      <p className="font-bold text-2xl">Please Sign In First</p>
-      <Link href="/signin" passHref>
-        <button type="button" className="p-8 bg-sky-600 text-white">
-          Sign In
-        </button>
-      </Link>
-    </div>;
-  }
-
   return (
     <Fragment>
       {page === 1 && (
