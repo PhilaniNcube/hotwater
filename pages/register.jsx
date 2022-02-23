@@ -6,25 +6,25 @@ import Link from 'next/link';
 
 export default function Register() {
   const router = useRouter();
-  const [showpass, setShowPass] = useState(false);
-  const [email, setEmail] = useState('');
-
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showpass, setShowPass] = useState(false);
+  const [email, setEmail] = useState('');
 
   const { register, registerError, registerLoading } = useRegister();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (confirmPassword !== password) {
-      alert('Passowrds do not match');
+    if (password !== confirmPassword) {
+      alert('Your passwords do not match');
       return;
     }
 
     const valid = await register(email, password);
 
     if (valid) {
+      alert('Check your email for a link to complete your sign up');
       router.push('/');
     }
   };
@@ -85,6 +85,7 @@ export default function Register() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 aria-labelledby="email"
+                autoComplete="username"
                 type="email"
                 required
                 className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
@@ -104,6 +105,7 @@ export default function Register() {
                   id="password"
                   name="password"
                   value={password}
+                  autoComplete="new-password"
                   required
                   onChange={(e) => setPassword(e.target.value)}
                   type={showpass ? 'text' : 'password'}
@@ -168,6 +170,7 @@ export default function Register() {
                   id="confirmPassword"
                   name="confirmPassword"
                   value={confirmPassword}
+                  autoComplete="new-password"
                   required
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   type={showpass ? 'text' : 'password'}

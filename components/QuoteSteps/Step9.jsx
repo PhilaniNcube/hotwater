@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
+import { useUser } from '../../hooks/user';
 import { supabase } from '../../utils/supabase';
 
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
+
+  const user = useUser();
 
   const [checked, setChecked] = useState(quoteInfo.completeSolution);
 
@@ -82,6 +85,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         city,
         telephoneNumber,
         completeSolution,
+        userId: user.id,
       },
     ]);
 

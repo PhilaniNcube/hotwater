@@ -7,21 +7,17 @@ const USER_QUERY_KEY = 'user';
 export function useSignIn() {
   const queryClient = useQueryClient();
 
-  const mutation = useMutation(async ({ email, password }) => {
-    let { user, error } = await supabase.auth.signIn({
-      email,
-      password,
-    });
-
-    console.log(user, error);
-
-    return { user, error };
+  const mutation = useMutation(async (email) => {
+    let { user, error } = await supabase.auth.signIn({ email });
+    console.log(error);
+    return user;
   });
 
   return {
-    signIn: async (email, password) => {
+    signIn: async (email) => {
       try {
-        const user = await mutation.mutateAsync({ email, password });
+        const user = await mutation.mutateAsync(email);
+        console.log('signin', user);
         queryClient.setQueryData(USER_QUERY_KEY, user);
         return true;
       } catch (error) {
@@ -36,17 +32,19 @@ export function useSignIn() {
 export function useRegister() {
   const queryClient = useQueryClient();
 
-  const mutation = useMutation(async ({ email, password }) => {
-    return await supabase.auth.signUp({
+  const mutation = useMutation(async (email, password) => {
+    const { user, error } = await supabase.auth.signUp({
       email,
       password,
     });
+
+    return user;
   });
 
   return {
     register: async (email, password) => {
       try {
-        const user = await mutation.mutateAsync({ email, password });
+        const user = await mutation.mutateAsync(email, password);
         console.log(user);
         queryClient.setQueryData(USER_QUERY_KEY, user);
         return true;
@@ -73,16 +71,15 @@ export function useUser() {
     USER_QUERY_KEY,
     async () => {
       try {
-        return await supabase.auth.user();
+        let user = await supabase.auth.user();
+        console.log('user', user);
+        return user;
       } catch (error) {
         // not signed in
         return undefined;
       }
     },
-    {
-      staleTime: 30_000, //ms
-      cacheTime: Infinity,
-    },
+    { staleTime: 0, cacheTime: 300, refetchInterval: 100 },
   );
 
   return query.data;
