@@ -11,10 +11,14 @@ import PageTransitions from '../../components/PageTransitions';
 import Step7 from '../../components/QuoteSteps/Step7';
 import Step8 from '../../components/QuoteSteps/Step8';
 import Step9 from '../../components/QuoteSteps/Step9';
+import { useUser } from '../../hooks/user';
+import { useRouter } from 'next/router';
 
 const index = () => {
-  const [page, setPage] = useState(1);
+  const router = useRouter();
 
+  const [page, setPage] = useState(1);
+  const user = useUser();
   const [quoteInfo, setQuoteInfo] = useState({
     children: 0,
     teenagers: 0,
@@ -53,6 +57,11 @@ const index = () => {
     if (page === 1) return;
     setPage((page) => page - 1);
   };
+
+  if (!user) {
+    alert('please sign in first');
+    router.push('/signin');
+  }
 
   return (
     <Fragment>
