@@ -13,6 +13,7 @@ import Step8 from '../../components/QuoteSteps/Step8';
 import Step9 from '../../components/QuoteSteps/Step9';
 import { useUser } from '../../hooks/user';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const index = () => {
   const router = useRouter();
@@ -59,8 +60,14 @@ const index = () => {
   };
 
   if (!user) {
-    alert('please sign in first');
-    router.push('/signin');
+    <div className="h-[100vh] w-[90%] mx-auto flex justify-center items-center">
+      <p className="font-bold text-2xl">Please Sign In First</p>
+      <Link href="/signin" passHref>
+        <button type="button" className="p-8 bg-sky-600 text-white">
+          Sign In
+        </button>
+      </Link>
+    </div>;
   }
 
   return (
