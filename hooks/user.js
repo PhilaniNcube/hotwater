@@ -79,7 +79,7 @@ export function useUser() {
         return undefined;
       }
     },
-    { staleTime: 0, cacheTime: 300, refetchInterval: 100 },
+    { staleTime: 0, cacheTime: 300 },
   );
 
   return query.data;

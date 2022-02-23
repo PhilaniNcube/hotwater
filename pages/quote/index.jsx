@@ -16,10 +16,10 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const index = () => {
-  const router = useRouter();
-
   const [page, setPage] = useState(1);
+
   const user = useUser();
+
   const [quoteInfo, setQuoteInfo] = useState({
     children: 0,
     teenagers: 0,
@@ -59,100 +59,115 @@ const index = () => {
     setPage((page) => page - 1);
   };
 
-  return (
-    <Fragment>
-      {page === 1 && (
-        <Step1
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 2 && (
-        <Step2
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 3 && (
-        <Step3
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 4 && (
-        <Step4
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 5 && (
-        <Step5
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 6 && (
-        <Step6
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 7 && (
-        <Step7
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 8 && (
-        <Step8
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 9 && (
-        <Step9
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 10 && (
-        <Confirm
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-    </Fragment>
-  );
+  if (user === null || user === undefined) {
+    return (
+      <div className="flex flex-col justify-center items-center h-[80vh] w-[90%] mx-auto">
+        <p className="text-lg text-center font-bold ">Please sign in first</p>
+        <Link href="/signin" passHref>
+          <button className="bg-blue-600 text-white font-bold text-lg mt-8 rounded px-6 py-2">
+            Sign In
+          </button>
+        </Link>
+      </div>
+    );
+  }
+
+  if (user) {
+    return (
+      <Fragment>
+        {page === 1 && (
+          <Step1
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 2 && (
+          <Step2
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 3 && (
+          <Step3
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 4 && (
+          <Step4
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 5 && (
+          <Step5
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 6 && (
+          <Step6
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 7 && (
+          <Step7
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 8 && (
+          <Step8
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 9 && (
+          <Step9
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 10 && (
+          <Confirm
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+      </Fragment>
+    );
+  }
 };
 
 export default index;
