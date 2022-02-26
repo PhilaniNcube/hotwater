@@ -85,7 +85,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         city,
         telephoneNumber,
         completeSolution,
-        userId: user.id || '',
+        user_id: user.id || '',
       },
     ]);
 

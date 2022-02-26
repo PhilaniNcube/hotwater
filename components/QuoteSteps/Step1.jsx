@@ -1,10 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
+  const [interaction, setInteraction] = useState(false);
+
   const decrementChildren = () => {
+    setInteraction(true);
     console.log('Decrement');
 
     const qty = quoteInfo.children - 1;
@@ -13,7 +16,7 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   const incrementChildren = () => {
     console.log('Increment');
-
+    setInteraction(true);
     const qty = quoteInfo.children + 1;
 
     setQuoteInfo({ ...quoteInfo, children: qty });
@@ -21,14 +24,14 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   const decrementTeenagers = () => {
     console.log('Decrement');
-
+    setInteraction(true);
     const qty = quoteInfo.teenagers - 1;
     setQuoteInfo({ ...quoteInfo, teenagers: qty });
   };
 
   const incrementTeenagers = () => {
     console.log('Increment');
-
+    setInteraction(true);
     const qty = quoteInfo.teenagers + 1;
 
     setQuoteInfo({ ...quoteInfo, teenagers: qty });
@@ -36,14 +39,14 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   const decrementAdults = () => {
     console.log('Decrement');
-
+    setInteraction(true);
     const qty = quoteInfo.adults - 1;
     setQuoteInfo({ ...quoteInfo, adults: qty });
   };
 
   const incrementAdults = () => {
     console.log('Increment');
-
+    setInteraction(true);
     const qty = quoteInfo.adults + 1;
 
     setQuoteInfo({ ...quoteInfo, adults: qty });
@@ -77,10 +80,13 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               onChange={(e) =>
                 setQuoteInfo({ ...quoteInfo, children: e.target.value })
               }
-              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
+              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default hidden items-center text-gray-700  outline-none"
               name="custom-input-number"
               value={quoteInfo.children}
             ></input>
+            <p className="h-10 w-10 flex justify-center items-center">
+              {quoteInfo.children}
+            </p>
             <button
               data-action="increment"
               onClick={incrementChildren}
@@ -108,10 +114,13 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               onChange={(e) =>
                 setQuoteInfo({ ...quoteInfo, teenagers: e.target.value })
               }
-              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
+              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default hidden items-center text-gray-700  outline-none"
               name="custom-input-number"
               value={quoteInfo.teenagers}
             ></input>
+            <p className="h-10 w-10 flex justify-center items-center">
+              {quoteInfo.teenagers}
+            </p>
             <button
               data-action="increment"
               onClick={incrementTeenagers}
@@ -139,10 +148,13 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               onChange={(e) =>
                 setQuoteInfo({ ...quoteInfo, adults: e.target.value })
               }
-              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
+              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default hidden items-center text-gray-700  outline-none"
               name="custom-input-number"
               value={quoteInfo.adults}
             ></input>
+            <p className="h-10 w-10 flex justify-center items-center">
+              {quoteInfo.adults}
+            </p>
             <button
               data-action="increment"
               onClick={incrementAdults}
@@ -153,13 +165,20 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </div>
         </div>
       </div>
-      <div className="my-3 flex justify-center">
-        <button
-          onClick={nextPage}
-          className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
-        >
-          Continue
-        </button>
+      <div className="my-10 flex justify-center">
+        {interaction ? (
+          <button
+            disabled={!interaction}
+            onClick={nextPage}
+            className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
+          >
+            Continue
+          </button>
+        ) : (
+          <p className="text-md text-sky-600 font-bold text-center">
+            Please Answer The Questions
+          </p>
+        )}
       </div>
     </Fragment>
   );
