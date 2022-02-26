@@ -316,7 +316,7 @@ function ProfileNav({ children }) {
                         className="w-7 h-7 rounded-full"
                       />
                       <p className="text-base leading-4 pl-3 text-gray-100">
-                        {user.email}
+                        {user && user.email}
                       </p>
                     </div>
                   </Fragment>
