@@ -7,18 +7,6 @@ const Profile = () => {
   const user = useUser();
   const { quotes, quotesIsLoading, quotesFetching, quotesError } = useQuotes();
 
-  const router = useRouter();
-
-  console.log('quotes', quotes);
-
-  if (!user) {
-    router.push('/');
-
-    return (
-      <div className="flex justify-center items-center min-h-screen"></div>
-    );
-  }
-
   return (
     <ProfileNav>
       <div className="px-6 lg:px-12 py-6">
