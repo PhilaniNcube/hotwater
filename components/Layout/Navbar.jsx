@@ -1,18 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import { useSignOut, useUser } from '../../hooks/user';
+import { useRouter } from 'next/router';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 const Navbar = () => {
-  const [show, setShow] = useState(false);
-
   const user = useUser();
-  console.log(user);
+  console.log('navbar', user);
+
+  const router = useRouter();
+
+  const [show, setShow] = useState(false);
 
   const signOut = useSignOut();
 
@@ -20,6 +23,8 @@ const Navbar = () => {
     setShow(false);
 
     await signOut();
+    router.push('/');
+
     // setUser(undefined);
   };
 

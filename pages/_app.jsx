@@ -16,8 +16,10 @@ function MyApp({ Component, pageProps }) {
     'not-authenticated',
   );
 
-  useEffect(async () => {
-    const { data: authListener } = await supabase.auth.onAuthStateChange(
+  const router = useRouter();
+
+  useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
         handleAuthChange(event, session);
         if (event === 'SIGNED_IN') {
@@ -36,6 +38,8 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   async function handleAuthChange(event, session) {
+    console.log(event, session);
+
     await fetch('/api/auth', {
       method: 'POST',
       headers: new Headers({ 'Content-Type': 'application/json' }),

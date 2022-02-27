@@ -70,10 +70,7 @@ export default function QuotesTable({ quotes }) {
                       </td>
                       <td className="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">
                         <div className="flex items-center">
-                          <a
-                            className="rounded border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray"
-                            href="javascript: void(0)"
-                          >
+                          <a className="rounded border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray">
                             <div className="p-2 bg-gray-100 hover:bg-gray-200 rounded cursor-pointer text-indigo-700">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -94,10 +91,7 @@ export default function QuotesTable({ quotes }) {
                               </svg>
                             </div>
                           </a>
-                          <a
-                            className="mx-2 rounded border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray"
-                            href="javascript: void(0)"
-                          >
+                          <a className="mx-2 rounded border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray">
                             <div className="p-2 bg-gray-100 hover:bg-gray-200 rounded cursor-pointer text-indigo-700">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -117,10 +111,7 @@ export default function QuotesTable({ quotes }) {
                               </svg>
                             </div>
                           </a>
-                          <a
-                            className="rounded border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray"
-                            href="javascript: void(0)"
-                          >
+                          <a className="rounded border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray">
                             <div className="p-2 bg-gray-100 hover:bg-gray-200 rounded cursor-pointer text-red-500">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"

@@ -24,6 +24,8 @@ export function useQuotes(data) {
     },
   );
 
+  console.log('query', query);
+
   return {
     quotes: query.data,
     quotesIsLoading: query.isLoading,

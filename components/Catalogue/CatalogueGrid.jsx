@@ -75,26 +75,14 @@ const CatalogueGrid = ({ products }) => {
                 {`R ${product.price}`}
               </p>
               <div className="flex cursor-pointer py-4">
-                <p className="text-xs leading-1 text-indigo-700 pr-1">
-                  Read more
-                </p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mt-0.5 icon icon-tabler icon-tabler-arrow-narrow-right"
-                  width={16}
-                  height={16}
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="#4338CA"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <button
+                  onClick={() => {
+                    console.log('Add To Cart', product);
+                  }}
+                  className="text-md font-bold leading-1 bg-sky-700 text-white py-1 px-4 rounded"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <line x1={5} y1={12} x2={19} y2={12} />
-                  <line x1={15} y1={16} x2={19} y2={12} />
-                  <line x1={15} y1={8} x2={19} y2={12} />
-                </svg>
+                  Add To Cart
+                </button>
               </div>
             </div>
           </div>

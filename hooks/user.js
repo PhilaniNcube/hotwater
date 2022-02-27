@@ -1,5 +1,4 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { fetchJson } from '../lib/requests';
 import { supabase } from '../utils/supabase';
 
 const USER_QUERY_KEY = 'user';
@@ -10,6 +9,7 @@ export function useSignIn() {
   const mutation = useMutation(async (email) => {
     let { user, error } = await supabase.auth.signIn({ email });
     console.log(error);
+
     return user;
   });
 
@@ -72,7 +72,8 @@ export function useUser() {
     async () => {
       try {
         let user = await supabase.auth.user();
-        console.log('user', user);
+        console.log('use user', user);
+
         return user;
       } catch (error) {
         // not signed in
