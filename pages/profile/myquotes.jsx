@@ -13,7 +13,7 @@ const MyQuotes = ({ error, serverQuotes }) => {
     <ProfileNav>
       <div className="px-6 lg:px-12 py-6">
         <h1 className="text-2xl mt-6">My Quotes</h1>
-        {quotes && <QuotesTable quotes={quotes} />}
+        {quotes && <QuotesTable quotes={quotes.quotes} />}
       </div>
     </ProfileNav>
   );
