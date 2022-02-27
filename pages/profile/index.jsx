@@ -5,7 +5,10 @@ import { useUser } from '../../hooks/user';
 
 const Profile = () => {
   const user = useUser();
+
   const { quotes, quotesIsLoading, quotesFetching, quotesError } = useQuotes();
+
+  console.log(quotes);
 
   return (
     <ProfileNav>

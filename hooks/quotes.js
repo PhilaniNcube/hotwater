@@ -4,7 +4,7 @@ import { supabase } from '../utils/supabase';
 
 const QUOTES_QUERY = 'quotes';
 
-export function useQuotes(data) {
+export function useQuotes() {
   const query = useQuery(
     QUOTES_QUERY,
     async () => {
@@ -20,11 +20,8 @@ export function useQuotes(data) {
     {
       staleTime: 30_000, //ms
       cacheTime: Infinity,
-      initialData: data,
     },
   );
-
-  console.log('query', query);
 
   return {
     quotes: query.data,

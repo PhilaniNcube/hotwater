@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import { useSignOut, useUser } from '../../hooks/user';
 import { useRouter } from 'next/router';
+import { supabase } from '../../utils/supabase';
+import { useQueryClient } from 'react-query';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -11,9 +13,58 @@ function classNames(...classes) {
 
 const Navbar = () => {
   const user = useUser();
-  console.log('navbar', user);
+
+  const queryClient = useQueryClient();
 
   const router = useRouter();
+
+  const [authenticatedState, setAuthenticatedState] = useState(
+    'not-authenticated',
+  );
+
+  useEffect(() => {
+    /* fires when a user signs in or out */
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        handleAuthChange(event, session);
+        if (event === 'SIGNED_IN') {
+          setAuthenticatedState('authenticated');
+        }
+        if (event === 'SIGNED_OUT') {
+          setAuthenticatedState('not-authenticated');
+        }
+      },
+    );
+    checkUser();
+    return () => {
+      authListener.unsubscribe();
+    };
+  }, []);
+
+  async function checkUser() {
+    /* when the component loads, checks user to show or hide Sign In link */
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const fetchedUser = supabase.auth.user();
+
+    queryClient.setQueryData('user', fetchedUser);
+
+    console.log('fetched_user', fetchedUser);
+
+    if (fetchedUser) {
+      setAuthenticatedState('authenticated');
+    }
+  }
+
+  async function handleAuthChange(event, session) {
+    console.log({ event, session });
+    /* sets and removes the Supabase cookie */
+    await fetch('/api/auth', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      credentials: 'same-origin',
+      body: JSON.stringify({ event, session }),
+    });
+  }
 
   const [show, setShow] = useState(false);
 
@@ -102,7 +153,7 @@ const Navbar = () => {
       {/*Top Nav Ends */}
 
       {/*Bottom Nav Begins */}
-      <div className="bg-gray-800 text-white">
+      <div className="bg-gray-800 text-white py-4">
         <div className="max-w-6xl mx-auto py-4 px-4 md:px-2 lg:px-0 flex items-center justify-between relative">
           <nav className="hidden md:flex items-center">
             <Link href="/who-we-are">
@@ -229,7 +280,7 @@ const Navbar = () => {
                 </a>
               </Link>
 
-              {!user ? (
+              {authenticatedState === 'not-authenticated' ? (
                 <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
                   <Link href="/signin">
                     <a
@@ -256,11 +307,13 @@ const Navbar = () => {
 
           {/*User Nav Starts */}
           <div>
-            {user ? (
+            {authenticatedState === 'authenticated' ? (
               <div className="flex space-x-5">
                 <Link href="/profile" passHref>
                   <div className="flex items-center text-sky-600 cursor-pointer">
-                    <p className="text-xs md:text-sm">{user.email}</p>
+                    <p className="text-xs md:text-sm">
+                      Profile {user && user.email}
+                    </p>
                     <span className="pl-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

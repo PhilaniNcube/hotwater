@@ -4,10 +4,8 @@ import QuotesTable from '../../components/Tables/QuotesTable';
 import { useQuotes } from '../../hooks/quotes';
 import { supabase } from '../../utils/supabase';
 
-const MyQuotes = ({ error, serverQuotes }) => {
-  const { quotes, quotesIsLoading, quotesFetching, quotesError } = useQuotes(
-    serverQuotes,
-  );
+const MyQuotes = ({}) => {
+  const { quotes, quotesIsLoading, quotesFetching, quotesError } = useQuotes();
 
   return (
     <ProfileNav>
@@ -20,16 +18,3 @@ const MyQuotes = ({ error, serverQuotes }) => {
 };
 
 export default MyQuotes;
-
-export async function getServerSideProps() {
-  let { data: quotes, error } = await supabase.from('quotes').select('*');
-
-  const serverQuotes = quotes;
-
-  return {
-    props: {
-      serverQuotes,
-      error,
-    },
-  };
-}

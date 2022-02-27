@@ -8,6 +8,7 @@ export function useSignIn() {
 
   const mutation = useMutation(async (email) => {
     let { user, error } = await supabase.auth.signIn({ email });
+
     console.log(error);
 
     return user;
@@ -80,7 +81,10 @@ export function useUser() {
         return undefined;
       }
     },
-    { staleTime: 100, cacheTime: 300 },
+    {
+      staleTime: 10_000,
+      cacheTime: Infinity,
+    },
   );
 
   return query.data;
