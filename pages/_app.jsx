@@ -53,6 +53,7 @@ function MyApp({ Component, pageProps }) {
 
     if (user) {
       setAuthenticatedState('authenticated');
+      router.push('/profile');
     }
   }
 
