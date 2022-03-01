@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
-import { useUser } from '../../hooks/user';
+import { useUser } from '../../Context/AuthContext';
 
 function ProfileNav({ children }) {
   const [show, setShow] = useState(true);
 
-  const user = useUser();
+  const { user } = useUser();
 
   return (
     <Fragment>
@@ -16,16 +16,18 @@ function ProfileNav({ children }) {
           <div className="flex w-full h-full">
             <div className=" flex flex-col h-full justify-between">
               <div className="">
-                <div className="flex items-center">
-                  <img src="/images/logo-01.svg" alt="" className="w-16" />
-                  {show && (
-                    <div className="pl-3" id="closed">
-                      <h3 className="text-lg font-bold uppercase text-white tracking-wider">
-                        Hotwater24
-                      </h3>
-                    </div>
-                  )}
-                </div>
+                <Link href="/profile" passHref>
+                  <div className="flex items-center cursor-pointer">
+                    <img src="/images/logo-01.svg" alt="" className="w-16" />
+                    {show && (
+                      <div className="pl-3" id="closed">
+                        <h3 className="text-lg font-bold uppercase text-white tracking-wider">
+                          Profile
+                        </h3>
+                      </div>
+                    )}
+                  </div>
+                </Link>
                 <div className="mt-10 flex items-center relative">
                   {show ? (
                     <div arial-label="search" className="w-56 relative">

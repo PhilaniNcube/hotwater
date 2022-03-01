@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Popover } from '@headlessui/react';
-import { useSignOut, useUser } from '../../hooks/user';
+import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import { supabase } from '../../utils/supabase';
 import { useQueryClient } from 'react-query';
@@ -12,70 +12,20 @@ function classNames(...classes) {
 }
 
 const Navbar = () => {
-  const user = useUser();
-
-  const queryClient = useQueryClient();
-
   const router = useRouter();
 
-  const [authenticatedState, setAuthenticatedState] = useState(
-    'not-authenticated',
-  );
+  const { user } = useUser();
 
-  useEffect(() => {
-    /* fires when a user signs in or out */
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        handleAuthChange(event, session);
-        if (event === 'SIGNED_IN') {
-          setAuthenticatedState('authenticated');
-        }
-        if (event === 'SIGNED_OUT') {
-          setAuthenticatedState('not-authenticated');
-        }
-      },
-    );
-    checkUser();
-    return () => {
-      authListener.unsubscribe();
-    };
-  }, []);
-
-  async function checkUser() {
-    /* when the component loads, checks user to show or hide Sign In link */
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const fetchedUser = supabase.auth.user();
-
-    queryClient.setQueryData('user', fetchedUser);
-
-    console.log('fetched_user', fetchedUser);
-
-    if (fetchedUser) {
-      setAuthenticatedState('authenticated');
-    }
-  }
-
-  async function handleAuthChange(event, session) {
-    console.log({ event, session });
-    /* sets and removes the Supabase cookie */
-    await fetch('/api/auth', {
-      method: 'POST',
-      headers: new Headers({ 'Content-Type': 'application/json' }),
-      credentials: 'same-origin',
-      body: JSON.stringify({ event, session }),
-    });
-  }
+  console.log('Navbar user', user);
 
   const [show, setShow] = useState(false);
 
-  const signOut = useSignOut();
-
   const handleSignOut = async () => {
     setShow(false);
-
-    await signOut();
-    router.push('/');
-
+    let { error } = await supabase.auth.signOut();
+    if (!error) {
+      router.push('/');
+    }
     // setUser(undefined);
   };
 
@@ -280,7 +230,7 @@ const Navbar = () => {
                 </a>
               </Link>
 
-              {authenticatedState === 'not-authenticated' ? (
+              {!user ? (
                 <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
                   <Link href="/signin">
                     <a
@@ -307,13 +257,10 @@ const Navbar = () => {
 
           {/*User Nav Starts */}
           <div>
-            {authenticatedState === 'authenticated' ? (
+            {user ? (
               <div className="flex space-x-5">
                 <Link href="/profile" passHref>
                   <div className="flex items-center text-sky-600 cursor-pointer">
-                    <p className="text-xs md:text-sm">
-                      Profile {user && user.email}
-                    </p>
                     <span className="pl-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -328,6 +275,9 @@ const Navbar = () => {
                         />
                       </svg>
                     </span>
+                    <p className="text-xs md:text-sm text-white pl-2">
+                      {!!user && user.email}
+                    </p>
                   </div>
                 </Link>
 

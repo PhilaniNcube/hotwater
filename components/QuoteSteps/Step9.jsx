@@ -1,12 +1,79 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
-import { useUser } from '../../hooks/user';
+import { useMutation, useQueryClient } from 'react-query';
+import { useUser } from '../../Context/AuthContext';
 import { supabase } from '../../utils/supabase';
 
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
+  const { user } = useUser();
 
-  const user = useUser();
+  const {
+    children,
+    teenagers,
+    adults,
+    houseType,
+    ownership,
+    gasSupply,
+    gasStove,
+    gasWaterHeating,
+    gasHeating,
+    noGasUse,
+    locateOutside,
+    waterHeater,
+    standardShower,
+    rainShower,
+    bathtub,
+    sink,
+    dishwasher,
+    washingmachine,
+    flowRate,
+    offGrid,
+    firstName,
+    lastName,
+    email,
+    streetAddress,
+    city,
+    telephoneNumber,
+    completeSolution,
+  } = quoteInfo;
+
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(() =>
+    supabase.from('quotes').insert([
+      {
+        children: children,
+        teenagers: teenagers,
+        adults: adults,
+        houseType: houseType,
+        ownership: ownership,
+        gasSupply: gasSupply,
+        gasStove: gasStove,
+        gasWaterHeating: gasWaterHeating,
+        gasHeating: gasHeating,
+        noGasUse: noGasUse,
+        locateOutside: locateOutside,
+        waterHeater: waterHeater,
+        standardShower: standardShower,
+        rainShower: rainShower,
+        bathtub: bathtub,
+        sink: sink,
+        dishwasher: dishwasher,
+        washingmachine: washingmachine,
+        flowRate: flowRate,
+        offGrid: offGrid,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        streetAddress: streetAddress,
+        city: city,
+        telephoneNumber: telephoneNumber,
+        completeSolution: completeSolution,
+        user_id: user.id,
+      },
+    ]),
+  );
 
   const [checked, setChecked] = useState(quoteInfo.completeSolution);
 
@@ -26,71 +93,12 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   const handleSubmit = async () => {
-    const {
-      children,
-      teenagers,
-      adults,
-      houseType,
-      ownership,
-      gasSupply,
-      gasStove,
-      gasWaterHeating,
-      gasHeating,
-      noGasUse,
-      locateOutside,
-      waterHeater,
-      standardShower,
-      rainShower,
-      bathtub,
-      sink,
-      dishwasher,
-      washingmachine,
-      flowRate,
-      offGrid,
-      firstName,
-      lastName,
-      email,
-      streetAddress,
-      city,
-      telephoneNumber,
-      completeSolution,
-    } = quoteInfo;
-
-    const { data, error } = await supabase.from('quotes').insert([
-      {
-        children,
-        teenagers,
-        adults,
-        houseType,
-        ownership,
-        gasSupply,
-        gasStove,
-        gasWaterHeating,
-        gasHeating,
-        noGasUse,
-        locateOutside,
-        waterHeater,
-        standardShower,
-        rainShower,
-        bathtub,
-        sink,
-        dishwasher,
-        washingmachine,
-        flowRate,
-        offGrid,
-        firstName,
-        lastName,
-        email,
-        streetAddress,
-        city,
-        telephoneNumber,
-        completeSolution,
-        user_id: user.id || '',
-      },
-    ]);
-
-    if (!!data) {
-      nextPage();
+    try {
+      const quote = await mutation.mutateAsync();
+      queryClient.setQueryData('quote', quote);
+      console.log('quote', quote);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -233,9 +241,10 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
         <button
           onClick={handleSubmit}
+          disabled={mutation.isLoading}
           className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
         >
-          Save
+          {mutation.isLoading ? 'Loading...' : 'Save'}
         </button>
       </div>
     </div>

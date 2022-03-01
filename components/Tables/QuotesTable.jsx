@@ -1,12 +1,20 @@
 import { useRouter } from 'next/router';
 import React, { Fragment } from 'react';
-import { useUser } from '../../hooks/user';
+import { useUser } from '../../Context/AuthContext';
+import { supabase } from '../../utils/supabase';
 
 export default function QuotesTable({ quotes }) {
   console.log('quotes', quotes);
 
   const router = useRouter();
-  const user = useUser();
+  const { user } = useUser();
+
+  const deleteQuote = async (quoteId) => {
+    const { data, error } = await supabase
+      .from('quotes')
+      .delete()
+      .eq('id', quoteId);
+  };
 
   return (
     <Fragment>
@@ -67,8 +75,11 @@ export default function QuotesTable({ quotes }) {
                       </td>
 
                       <td className="pr-8 text-right">
-                        <button className="bg-gray-200 transition duration-150 ease-in-out border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-indigo-700 px-5 py-1 text-sm">
-                          Start Session
+                        <button
+                          onClick={() => deleteQuote(quote.id)}
+                          className="bg-gray-200 transition duration-150 ease-in-out border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-indigo-700 px-5 py-1 text-sm"
+                        >
+                          Delete
                         </button>
                       </td>
                     </tr>

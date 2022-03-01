@@ -11,14 +11,15 @@ import PageTransitions from '../../components/PageTransitions';
 import Step7 from '../../components/QuoteSteps/Step7';
 import Step8 from '../../components/QuoteSteps/Step8';
 import Step9 from '../../components/QuoteSteps/Step9';
-import { useUser } from '../../hooks/user';
+import Step10 from '../../components/QuoteSteps/Step10';
+import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const index = () => {
   const [page, setPage] = useState(1);
 
-  const user = useUser();
+  const { user } = useUser();
 
   const [quoteInfo, setQuoteInfo] = useState({
     children: 0,
@@ -48,10 +49,11 @@ const index = () => {
     city: '',
     telephoneNumber: '',
     completeSolution: false,
+    product_id: null,
   });
 
   const nextPage = () => {
-    if (page === 10) return;
+    if (page === 11) return;
     setPage((page) => page + 1);
   };
   const prevPage = () => {
@@ -157,6 +159,15 @@ const index = () => {
           />
         )}
         {page === 10 && (
+          <Step10
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+            nextPage={nextPage}
+            prevPage={prevPage}
+            page={page}
+          />
+        )}
+        {page === 11 && (
           <Confirm
             quoteInfo={quoteInfo}
             setQuoteInfo={setQuoteInfo}

@@ -1,23 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useQuery } from 'react-query';
+import { useUser } from '../Context/AuthContext';
 import { supabase } from '../utils/supabase';
-import { useSignIn } from '../hooks/user';
 
 export default function SignIn() {
   const router = useRouter();
   const [email, setEmail] = useState('');
 
-  const { signIn, signInError, signInLoading } = useSignIn();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await signIn(email);
-    console.log(response);
+    setLoading(true);
+    let { user, error } = await supabase.auth.signIn({
+      email: email,
+    });
+    console.log('sign in', user);
 
-    if (response) {
+    if (!user) {
       alert('Please check your email address for the login link');
+      setLoading(false);
+    } else {
+      console.log('error', error);
+      setLoading(false);
     }
   };
 
@@ -68,10 +74,10 @@ export default function SignIn() {
               <button
                 role="button"
                 type="submit"
-                disabled={signInLoading}
+                disabled={loading}
                 className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
               >
-                {signInLoading ? 'Loading' : 'Login'}
+                {loading ? 'Loading' : 'Login'}
               </button>
             </div>
           </form>

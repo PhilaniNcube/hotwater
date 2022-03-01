@@ -21,9 +21,12 @@ export default function Register() {
       return;
     }
 
-    const valid = await register(email, password);
+    let { user, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
 
-    if (valid) {
+    if (user) {
       alert('Check your email for a link to complete your sign up');
       router.push('/');
     }
