@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useUser } from '../../Context/AuthContext';
@@ -7,6 +8,7 @@ import { supabase } from '../../utils/supabase';
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
   const { user } = useUser();
+  const router = useRouter();
 
   const {
     children,
@@ -95,8 +97,12 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const handleSubmit = async () => {
     try {
       const quote = await mutation.mutateAsync();
-      queryClient.setQueryData('quote', quote);
+      queryClient.setQueryData('quote', quote.data[0]);
       console.log('quote', quote);
+
+      if (quote.data[0]) {
+        router.push('/profile');
+      }
     } catch (error) {
       console.log(error);
     }
