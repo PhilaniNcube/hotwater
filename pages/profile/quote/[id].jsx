@@ -129,7 +129,7 @@ const Quote = () => {
           );
         })}
 
-        {products?.products.length > 0 && (
+        {products?.products?.length > 0 && (
           <CatalogueGrid products={products.products} />
         )}
       </div>
