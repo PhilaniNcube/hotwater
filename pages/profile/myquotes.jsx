@@ -18,3 +18,15 @@ const MyQuotes = ({}) => {
 };
 
 export default MyQuotes;
+
+export async function getServerSideProps({ req }) {
+  let { data: quotes, error } = await supabase.from('quotes').select('*');
+
+  console.log(quotes);
+
+  return {
+    props: {
+      hello: 'hello',
+    },
+  };
+}

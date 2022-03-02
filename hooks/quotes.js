@@ -18,7 +18,7 @@ export function useQuotes() {
       }
     },
     {
-      staleTime: 30_000, //ms
+      staleTime: 0, //ms
       cacheTime: Infinity,
     },
   );

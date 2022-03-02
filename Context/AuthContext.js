@@ -24,7 +24,11 @@ const Provider = ({ children }) => {
   };
 
   useEffect(() => {
-    supabase.auth.onAuthStateChange(() => {
+    supabase.auth.onAuthStateChange(async () => {
+      await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
       setUser(supabase.auth.user());
     });
   }, []);
