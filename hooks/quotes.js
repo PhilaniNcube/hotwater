@@ -30,3 +30,33 @@ export function useQuotes() {
     quotesError: query.isError,
   };
 }
+
+export function useQuote(id) {
+  const query = useQuery(
+    'quote',
+    async () => {
+      try {
+        let { data: quote, error } = await supabase
+          .from('quotes')
+          .select('*')
+          .eq('id', id);
+
+        return { quote, error };
+      } catch (error) {
+        // not signed in
+        return undefined;
+      }
+    },
+    {
+      staleTime: 0, //ms
+      cacheTime: Infinity,
+    },
+  );
+
+  return {
+    quote: query.data,
+    quoteIsLoading: query.isLoading,
+    quoteFetching: query.isFetching,
+    quoteError: query.isError,
+  };
+}
