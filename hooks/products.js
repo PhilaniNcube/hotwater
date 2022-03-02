@@ -21,7 +21,7 @@ export function useProducts(flowRate, data) {
       }
     },
     {
-      staleTime: 30_000, //ms
+      staleTime: 0, //ms
       cacheTime: Infinity,
       initialData: data,
     },

@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router';
 import React from 'react';
+import CatalogueGrid from '../../../components/Catalogue/CatalogueGrid';
 import ProfileNav from '../../../components/Profile/ProfileSidebar';
 import { useUser } from '../../../Context/AuthContext';
+import { useProducts } from '../../../hooks/products';
 import { useQuote } from '../../../hooks/quotes';
 
 const Quote = () => {
@@ -14,6 +16,17 @@ const Quote = () => {
   );
 
   console.log({ quote, quoteIsLoading, quoteFetching, quoteError });
+
+  const arr = [];
+
+  const {
+    products,
+    productsIsLoading,
+    productsFetching,
+    productsError,
+  } = useProducts(Math.ceil(quote?.quote[0].flowRate), arr);
+
+  console.log(products);
 
   return (
     <ProfileNav>
@@ -115,6 +128,10 @@ const Quote = () => {
             </div>
           );
         })}
+
+        {products?.products.length > 0 && (
+          <CatalogueGrid products={products.products} />
+        )}
       </div>
     </ProfileNav>
   );
