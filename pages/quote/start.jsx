@@ -1,10 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
 const Start = () => {
   return (
     <div className="max-w-6xl mx-auto">
+      <Head>
+        <title>Hotwater24 | Quote</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Submit a quote request." />
+        <meta
+          name="keywords"
+          content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
+        />
+      </Head>
       <div className="pt-4">
         <h1 className="font-sans text-2xl text-center font-semibold text-gray-800">
           Let us help you find your fit.

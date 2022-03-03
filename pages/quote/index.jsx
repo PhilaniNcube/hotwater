@@ -15,6 +15,7 @@ import Step10 from '../../components/QuoteSteps/Step10';
 import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const index = () => {
   const [page, setPage] = useState(1);
@@ -77,6 +78,18 @@ const index = () => {
   if (user) {
     return (
       <Fragment>
+        <Head>
+          <title>Hotwater24 | Quote</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <meta name="description" content="Submit a quote request." />
+          <meta
+            name="keywords"
+            content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
+          />
+        </Head>
         {page === 1 && (
           <Step1
             quoteInfo={quoteInfo}

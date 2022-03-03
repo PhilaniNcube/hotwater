@@ -6,16 +6,13 @@ import CatalogueHero from '../../components/Catalogue/CatalogueHero';
 import CatalogueGrid from '../../components/Catalogue/CatalogueGrid';
 import { useProducts } from '../../hooks/products';
 import { supabase } from '../../utils/supabase';
+import Head from 'next/head';
 
 const Catalogue = ({ data, error, flow }) => {
   const router = useRouter();
 
-  const {
-    products,
-    productsIsLoading,
-    productsFetching,
-    productsError,
-  } = useProducts(flow, data);
+  const { products, productsIsLoading, productsFetching, productsError } =
+    useProducts(flow, data);
 
   console.log({
     productsFetching,
@@ -27,6 +24,18 @@ const Catalogue = ({ data, error, flow }) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Hotwater24 | Products</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="Our collection of gas geysers for sale"
+        />
+        <meta
+          name="keywords"
+          content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
+        />
+      </Head>
       <CatalogueHero loading={false} />
       {data.length === 0 ? (
         <div className="text-center text-md bg-red-600 text-gray-50 my-8 max-w-xl mx-auto py-4 px-4 rounded">

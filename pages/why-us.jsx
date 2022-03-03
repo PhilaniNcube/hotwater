@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
@@ -6,6 +7,18 @@ import React, { Fragment } from 'react';
 const WhyUs = () => {
   return (
     <Fragment>
+      <Head>
+        <title>Hotwater24 | Why Us</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="The online platform to assist and advise you on the most cost-effective and efficient gas water heating solution for your household."
+        />
+        <meta
+          name="keywords"
+          content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
+        />
+      </Head>
       <div className="bg-gray-500 grid grid-cols-1 lg:grid-cols-2">
         <div className="px-8 lg:px-24 2xl:pl-[380px] py-16">
           <h1 className="text-white font-light text-3xl lg:text-5xl">

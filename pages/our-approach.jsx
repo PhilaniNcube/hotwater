@@ -1,9 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from 'next/head';
 import React from 'react';
 
 export default function MyApp() {
   return (
     <div>
+      <Head>
+        <title>Hotwater24 | Our Approach </title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="The online platform to assist and advise you on the most cost-effective and efficient gas water heating solution for your household."
+        />
+        <meta
+          name="keywords"
+          content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
+        />
+      </Head>
       <div className="py-12 2xl:px-20 px-6 xl:mx-auto xl:container">
         <div className="md:flex items-center justify-between">
           <div className="xl:w-5/12 md:w-1/2 xl:pr-16 md:pr-8">
