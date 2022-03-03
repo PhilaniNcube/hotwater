@@ -39,13 +39,10 @@ const Navbar = () => {
             <div className="flex space-x-2 items-center cursor-pointer">
               <img
                 className="h-8 md:h-12 object-cover"
-                src="/images/logo-01.svg"
+                src="/images/hw24-logo.svg"
                 alt="hotwater24"
                 aria-label="Logo"
               />
-              <span className="font-bebas text-xl md:text-4xl tracking-widest font-thin">
-                Hotwater <span className="font-bold">24</span>
-              </span>
             </div>
           </Link>
           {/*Search Input*/}

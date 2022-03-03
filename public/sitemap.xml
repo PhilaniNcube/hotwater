@@ -1,74 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hotwater24.com</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/our-approach</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/our-approach</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/our-promise</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/our-promise</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/signin</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/signin</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/who-we-are</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/who-we-are</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/why-us</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/why-us</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/catalogue/index</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/catalogue/index</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/profile/index</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/catalogue/[id]</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/profile/myquotes</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/profile/index</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/quote/index</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/profile/myquotes</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/quote/start</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/quote/index</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hotwater24.com/profile/quote/[id]</loc>
-    <lastmod>2022-03-03T11:47:03.472Z</lastmod>
+    <loc>undefined/quote/start</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>undefined/profile/quote/[id]</loc>
+    <lastmod>2022-03-03T20:14:54.969Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

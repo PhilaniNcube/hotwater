@@ -1,12 +1,17 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { useQuery } from 'react-query';
 import CatalogueGrid from '../../../components/Catalogue/CatalogueGrid';
 import ProfileNav from '../../../components/Profile/ProfileSidebar';
 import { useUser } from '../../../Context/AuthContext';
 import { useProducts } from '../../../hooks/products';
 import { useQuote } from '../../../hooks/quotes';
+import { supabase } from '../../../utils/supabase';
 
-const Quote = () => {
+const Quote = ({ data }) => {
+  console.log({ data });
+
   const router = useRouter();
 
   const { user } = useUser();
@@ -16,17 +21,6 @@ const Quote = () => {
   );
 
   console.log({ quote, quoteIsLoading, quoteFetching, quoteError });
-
-  const arr = [];
-
-  const {
-    products,
-    productsIsLoading,
-    productsFetching,
-    productsError,
-  } = useProducts(Math.ceil(quote?.quote[0].flowRate), arr);
-
-  console.log(products);
 
   return (
     <ProfileNav>
@@ -40,6 +34,9 @@ const Quote = () => {
         {quote?.quote.map((quote) => {
           return (
             <div key={quote.id} className="text-gray-600">
+              <Head>
+                <title>Quote | {quote.firstName}</title>
+              </Head>
               <h2 className="font-bold text-2xl text-gray-600">
                 {quote.streetAddress}
               </h2>
@@ -129,12 +126,27 @@ const Quote = () => {
           );
         })}
 
-        {products?.products?.length > 0 && (
-          <CatalogueGrid products={products.products} />
-        )}
+        <CatalogueGrid products={data} />
       </div>
     </ProfileNav>
   );
 };
 
 export default Quote;
+
+export async function getServerSideProps({ query: { flowRate = 16 } }) {
+  const flow = Math.ceil(parseFloat(flowRate));
+
+  let { data: products, error } = await supabase
+    .from('products')
+    .select(`*, brand_id( name)`)
+    .gte('flowRate', `${flow}`);
+
+  return {
+    props: {
+      flow,
+      data: products,
+      error,
+    },
+  };
+}

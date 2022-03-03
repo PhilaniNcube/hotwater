@@ -9,7 +9,10 @@ export function useQuotes() {
     QUOTES_QUERY,
     async () => {
       try {
-        let { data: quotes, error } = await supabase.from('quotes').select(`*`);
+        let { data: quotes, error } = await supabase
+          .from('quotes')
+          .select(`*`)
+          .order('created_at', { ascending: false });
 
         return { quotes, error };
       } catch (error) {

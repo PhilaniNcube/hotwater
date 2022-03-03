@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const CatalogueGrid = ({ products }) => {
-  console.log(products);
+  const router = useRouter();
 
   return (
     <div className="max-w-6xl mx-auto my-4">
@@ -10,9 +13,11 @@ const CatalogueGrid = ({ products }) => {
         {products.map((product) => (
           <div className="max-w-md" key={product.id}>
             <div className="bg-gray-100 rounded-tl rounded-tr">
-              <img
+              <Image
                 src={product.image}
                 alt="bg-img"
+                width={400}
+                height={400}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -75,14 +80,11 @@ const CatalogueGrid = ({ products }) => {
                 {`R ${product.price}`}
               </p>
               <div className="flex cursor-pointer py-4">
-                <button
-                  onClick={() => {
-                    console.log('Add To Cart', product);
-                  }}
-                  className="text-md font-bold leading-1 bg-sky-700 text-white py-1 px-4 rounded"
-                >
-                  Add To Cart
-                </button>
+                <Link href={`/catalogue/${product.id}`} passHref>
+                  <button className="text-md font-bold leading-1 bg-sky-700 text-white py-1 px-4 rounded">
+                    View Geyser
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

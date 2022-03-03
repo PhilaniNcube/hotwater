@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { fetchJson } from '../lib/requests';
 import { supabase } from '../utils/supabase';
 
@@ -12,7 +12,8 @@ export function useProducts(flowRate, data) {
         let { data: products, error } = await supabase
           .from('products')
           .select(`*, brand_id( name)`)
-          .gte('flowRate', `${parseInt(flowRate)}`);
+          .gte('flowRate', `${parseInt(flowRate)}`)
+          .order('flowRate', { ascending: false });
 
         return { products, error };
       } catch (error) {

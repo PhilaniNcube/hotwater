@@ -77,7 +77,9 @@ export default function QuotesTable({ quotes }) {
                       <td className="pr-8 text-right">
                         <button
                           onClick={() =>
-                            router.push(`/profile/quote/${quote.id}`)
+                            router.push(
+                              `/profile/quote/${quote.id}?flowRate=${quote.flowRate}`,
+                            )
                           }
                           className="bg-gray-200 transition duration-150 ease-in-out border border-transparent focus:outline-none focus:border-gray-800 focus:shadow-outline-gray hover:bg-gray-300 rounded text-indigo-700 px-5 py-1 text-sm"
                         >
