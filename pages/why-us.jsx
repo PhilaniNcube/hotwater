@@ -9,24 +9,33 @@ const WhyUs = () => {
       <div className="bg-gray-500 grid grid-cols-1 lg:grid-cols-2">
         <div className="px-8 lg:px-24 2xl:pl-[380px] py-16">
           <h1 className="text-white font-light text-3xl lg:text-5xl">
-            Why Choose <span className="font-bold">Gas?</span>
+            Why Choose <span className="font-bold">LPG GAS?</span>
           </h1>
           <ul className="pl-4 list-disc text-white text-sm">
             <li className="py-1">
-              Fugiandam, ulluptas dit late et volliquas et, quae vendelent
-              quiate sunt labore pratur am dolendunda volorep repudae qui rem.
+              LPG is a very safe and reliable source of energy that can be used
+              for cooking and heating. LPG has many advantages, to name a few:
             </li>
             <li className="py-1">
-              CeEcerferum rem aut qui des volorum rem re suscima num commollicia
-              quam venis se et velesti onsenem
+              It can be up to five times more efficient than traditional fuels,
+              resulting in less energy wastage and better use of our planet’s
+              resources.
             </li>
             <li className="py-1">
-              Oviti nullorem et, ut qui il et facearum rae volorehent endem
-              fugia quas non ped magnim exceris est eliquiasit inctese quatur?
+              LPG is extremely versatile and portable. It can be transported
+              using sea, rail or road transport.
             </li>
             <li className="py-1">
-              CeEcerferum rem aut qui des volorum rem re suscima num commollicia
-              quam venis se et velesti onsenem
+              LPG can be accessible to everyone everywhere today without major
+              infrastructure investment.
+            </li>
+            <li className="py-1">
+              LPG is a clean burning fuel that is low carbon, emits virtually no
+              black carbon and does not spill. Do you know that South Africa is
+              amongst the most polluted countries in the world, this mainly due
+              to the fact that electricity is still being generated through the
+              use of coal. So it is time for us to act accordingly and reduce
+              the CO2 footprint!
             </li>
           </ul>
 
@@ -194,19 +203,22 @@ const WhyUs = () => {
                   40+ years experience with gas
                 </p>
                 <p className="font-normal text-base leading-6 text-gray-600 mt-6">
-                  Fugiandam, ulluptas dit late et volliquas et, quae vendelent
-                  quiate sunt labore pratur am dolendunda volorep repudae qui
-                  rem.
+                  With over 40years of experience in the Dutch gas installation
+                  business, we understand your need, especially in a time when
+                  energy costs are rising (and almost becomes unaffordable) and
+                  load shedding becomes a daily part of our lives.
                 </p>
               </div>
               <div>
                 <p className="font-semibold text-xl lg:leading-6 leading-5 text-gray-800 mt-6">
-                  Quality Guarantee
+                  Affordable Alternative
                 </p>
                 <p className="font-normal text-base leading-6 text-gray-600 mt-6">
-                  Fugiandam, ulluptas dit late et volliquas et, quae vendelent
-                  quiate sunt labore pratur am dolendunda volorep repudae qui
-                  rem.
+                  We offer our clients gas as an alternative source of energy,
+                  we do not only offer you our experience in recommending the
+                  best quality and safe product for your property, we also
+                  recommend you the best (partially) off-the-grid solutions,
+                  minimizing your monthly household expense on electricity.
                 </p>
               </div>
               <div className="sm:block hidden">
@@ -214,12 +226,58 @@ const WhyUs = () => {
                   Seamless Service
                 </p>
                 <p className="font-normal text-base leading-6 text-gray-600 mt-6">
-                  Fugiandam, ulluptas dit late et volliquas et, quae vendelent
-                  quiate sunt labore pratur am dolendunda volorep repudae qui
-                  rem.
+                  Free yourself from the difficulties of periodic load shedding.
+                  Get the comfort of knowing that you will have hot water even
+                  in a black out. If you also go the full Off Grid solution you
+                  can offload the the greatest drain of electricity which is the
+                  geyser onto a gas solution.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="my-4 max-w-6xl mx-auto">
+        <hr className="z-10  w-full bg-gray-400 my-4" />
+
+        <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
+          Installations
+        </h2>
+
+        <div className="flex flex-col md:flex-row">
+          <div className="w-full md:w-2/3 pr-8">
+            <p className="font-normal text-base leading-6 text-gray-600 mt-6">
+              We work with our network of independent installers. Safety comes
+              first, which is why all our installers are certified and
+              registered with the LPGas Association of South Africa. For safety
+              and quality purposes of the installation work performed, the
+              installation has to be checked to be compliant with current rules
+              and regulation. Therefore after every installation a CoC
+              (Certificate of Compliance) will be signed off between installer
+              as well as client.
+            </p>
+            <p className="font-normal text-base leading-6 text-gray-600 mt-6">
+              Are you looking for a reliable installation? Then simply click on
+              the button below to answer some questions in order for us to give
+              you a quote. Upon approval we will organize and assign an
+              installer to your area. So you will always be helped safely and
+              quickly without too much hassle!
+            </p>
+            <p className="font-normal text-base leading-6 text-gray-600 mt-6">
+              Do you want to be sure that your installation remains in top
+              condition? Then also think of taking a service & maintenance
+              contract with us. Our network of certified installers provide
+              high-quality maintenance and the best service.
+            </p>
+          </div>
+
+          <div className="w-1/3">
+            <img
+              src="/images/bathroom.jpg"
+              alt=""
+              className="h-full object-cover"
+            />
           </div>
         </div>
       </div>

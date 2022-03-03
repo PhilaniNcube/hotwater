@@ -17,18 +17,27 @@ export default function MyApp() {
               role="contentinfo"
               className="mt-4 text-base leading-6 text-gray-600"
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Veritatis, aspernatur. Accusamus natus repellat saepe, harum
-              velit, atque et voluptatum nam mollitia illum sunt obcaecati in!
-              Facere dolorum inventore modi quas odio harum deleniti reiciendis
-              ea.
+              With over 40years of experience in the Dutch gas installation
+              business, we understand your needs. Either when it is a need for
+              comfort (on demand hot water 24/7 for your family) or a need out
+              of necessity (tired of load shedding, cold water and high energy
+              bills from Eskom) and want to become “off-the-grid” and
+              independent from Eskom and save money on your energy bill, then
+              heating up your water with a gas heating solution is the answer!
+            </p>
+            <p
+              role="contentinfo"
+              className="mt-4 text-base leading-6 text-gray-600"
+            >
+              Please click on the button below to check out your potential
+              monthly saving on your energy bill!
             </p>
             <button
               role="button"
               aria-label="explore more"
-              className="sm:w-auto w-full mt-10 text-base font-medium leading-none text-white bg-indigo-700 rounded md:p-4 p-6 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hover:bg-indigo-600 focus:outline-none"
+              className="sm:w-auto w-full mt-10 text-base font-medium leading-none text-white bg-sky-700 rounded md:p-4 p-6 focus:ring-2 focus:ring-offset-2 focus:ring-sky-700 hover:bg-sky-600 focus:outline-none"
             >
-              Explore More
+              Potential Savings
             </button>
           </div>
           <div className="xl:w-2/5 md:w-1/2 w-full md:mt-0 mt-4">
@@ -39,47 +48,51 @@ export default function MyApp() {
             />
           </div>
         </div>
-        <div className="flex flex-wrap md:mt-16 mt-8 gap-6 items-center justify-between">
+        <div className="flex flex-wrap md:mt-16 mt-8 gap-6 items-start justify-between">
           <div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-indigo-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
+              <div className="w-10 h-10 bg-sky-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
                 1
               </div>
               <h2 className="ml-4 text-base font-semibold leading-4 text-gray-800">
-                Extraordinary Performance
+                Off The Grid Solutions
               </h2>
             </div>
             <p className="sm:w-72 w-full text-base mt-5 leading-6 text-gray-600">
-              A phrase is a short selection of words which when put together
-              create a concept.
+              We can even offer you a “total off-the-grid” solution. Through
+              combining gas (for cooking and heating water) and solar (plugs,
+              lights, modem, fridge, etc..) we can prepare your property to
+              become total off-the-grid without any dependency from Eskom.
             </p>
           </div>
           <div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-indigo-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
+              <div className="w-10 h-10 bg-sky-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
                 2
               </div>
               <h2 className="ml-4 text-base font-semibold leading-4 text-gray-800">
-                Extraordinary Performance
+                Full Service
               </h2>
             </div>
             <p className="sm:w-72 w-full text-base mt-5 leading-6 text-gray-600">
-              A phrase is a short selection of words which when put together
-              create a concept.
+              We can offer you the full service through our platform of
+              independent and certified installers who daily ensure reliable and
+              safe installation.
             </p>
           </div>
           <div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-indigo-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
+              <div className="w-10 h-10 bg-sky-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
                 3
               </div>
               <h2 className="ml-4 text-base font-semibold leading-4 text-gray-800">
-                Extraordinary Performance
+                Financing
               </h2>
             </div>
             <p className="sm:w-72 w-full text-base mt-5 leading-6 text-gray-600">
-              A phrase is a short selection of words which when put together
-              create a concept.
+              Please contact us if you would like to receive more information as
+              there are several options we can recommend not only on the product
+              & service, but also on possible financing.
             </p>
           </div>
         </div>
