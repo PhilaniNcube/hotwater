@@ -11,6 +11,7 @@
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "@supabase/supabase-js": "^1.29.3",
+    "axios": "^0.26.0",
     "cookie": "^0.4.2",
     "framer-motion": "^6.2.1",
     "globby": "^11.0.1",

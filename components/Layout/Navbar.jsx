@@ -14,7 +14,7 @@ function classNames(...classes) {
 const Navbar = () => {
   const router = useRouter();
 
-  const { user } = useUser();
+  const { user, signOut } = useUser();
 
   console.log('Navbar user', user);
 
@@ -22,10 +22,7 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     setShow(false);
-    let { error } = await supabase.auth.signOut();
-    if (!error) {
-      router.push('/');
-    }
+    await signOut();
     // setUser(undefined);
   };
 

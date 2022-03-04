@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../utils/supabase';
+import axios from 'axios';
 
 const Context = createContext();
 
@@ -11,6 +12,7 @@ const Provider = ({ children }) => {
 
   const signOut = async () => {
     let { error } = await supabase.auth.signOut();
+    setUser(null);
     router.push('/');
   };
 
@@ -18,20 +20,20 @@ const Provider = ({ children }) => {
     let { user, error } = supabase.auth.signIn({
       email,
     });
-
-    console.log('user', user);
-    console.log('error', error);
   };
 
   useEffect(() => {
     supabase.auth.onAuthStateChange(async () => {
-      await fetch('/api/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      });
       setUser(supabase.auth.user());
     });
   }, []);
+
+  useEffect(() => {
+    axios.post('/api/auth', {
+      event: user ? 'SIGNED_IN' : 'SIGNED_OUT',
+      session: supabase.auth.session(),
+    });
+  }, [user]);
 
   const exposed = {
     user,
