@@ -30,9 +30,12 @@ export default function Confirm({
         </div>
       </div>
       <div className="flex justify-center">
-        <Link href={`/catalogue?flowRate=${quoteInfo.flowRate}`} passHref>
+        <Link
+          href={`/profile/quote/${quote.id}?flowRate=${quoteInfo.flowRate}`}
+          passHref
+        >
           <button className="bg-sky-500 hover:bg-sky-600 mt-4 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow">
-            View Recommendations
+            View Quote Info
           </button>
         </Link>
       </div>

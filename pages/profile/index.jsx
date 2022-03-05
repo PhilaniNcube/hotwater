@@ -2,13 +2,15 @@ import { useRouter } from 'next/router';
 import ProfileNav from '../../components/Profile/ProfileSidebar';
 import { useQuotes } from '../../hooks/quotes';
 import { useUser } from '../../Context/AuthContext';
+import cookie from 'cookie';
+import { supabase } from '../../utils/supabase';
 
-const Profile = () => {
+const Profile = ({ data, error }) => {
+  console.log({ data, error });
+
   const { user } = useUser();
 
   const { quotes, quotesIsLoading, quotesFetching, quotesError } = useQuotes();
-
-  console.log(quotes);
 
   return (
     <ProfileNav>
@@ -21,3 +23,18 @@ const Profile = () => {
 };
 
 export default Profile;
+
+export async function getServerSideProps({ req }) {
+  const token = cookie.parse(req.headers.cookie)['sb:token'];
+
+  supabase.auth.session = () => ({ access_token: token });
+
+  let { data: quotes, error } = await supabase.from('quotes').select('*');
+
+  return {
+    props: {
+      data: quotes,
+      error,
+    },
+  };
+}

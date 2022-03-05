@@ -8,6 +8,7 @@ import Footer from '../components/Layout/Footer';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { supabase } from '../utils/supabase';
+import { AnimatePresence } from 'framer-motion';
 
 const queryClient = new QueryClient();
 
@@ -16,10 +17,12 @@ function MyApp({ Component, pageProps }) {
     <Fragment>
       <UserProvider>
         <QueryClientProvider client={queryClient}>
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-          <ReactQueryDevtools />
+          <AnimatePresence>
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+            <ReactQueryDevtools />
+          </AnimatePresence>
         </QueryClientProvider>
       </UserProvider>
     </Fragment>

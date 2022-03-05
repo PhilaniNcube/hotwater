@@ -9,7 +9,10 @@ export default function ProductDetail({ product }) {
     <Fragment>
       <div className="mt-4 max-w-6xl mx-auto">
         <div className="lg:px-20 md:px-6 px-4 md:flex items-start">
-          <div className="w-[100%]  md:w-1/2 flex flex-col flex-shrink-0">
+          <div
+            className="w-[100%]  md:w-1/2 flex flex-col flex-shrink-0"
+            layoutId={product.id}
+          >
             <Image
               src={product.image}
               alt="Image of a shoe"
