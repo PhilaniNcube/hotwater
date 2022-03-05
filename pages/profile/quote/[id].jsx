@@ -9,6 +9,8 @@ import { useUser } from '../../../Context/AuthContext';
 import { useProducts } from '../../../hooks/products';
 import { useQuote } from '../../../hooks/quotes';
 import { supabase } from '../../../utils/supabase';
+import cookie from 'cookie';
+import axios from 'axios';
 
 const Quote = ({ data }) => {
   console.log({ data });
@@ -44,7 +46,10 @@ const Quote = ({ data }) => {
 
 export default Quote;
 
-export async function getServerSideProps({ query: { flowRate = 16 } }) {
+export async function getServerSideProps({
+  query: { flowRate = 16 },
+  params: { id },
+}) {
   const flow = Math.ceil(parseFloat(flowRate));
 
   let { data: products, error } = await supabase
