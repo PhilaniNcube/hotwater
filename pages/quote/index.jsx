@@ -172,15 +172,6 @@ const index = () => {
           />
         )}
         {page === 10 && (
-          <Step10
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 11 && (
           <Confirm
             quoteInfo={quoteInfo}
             setQuoteInfo={setQuoteInfo}

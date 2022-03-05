@@ -101,7 +101,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       console.log('quote', quote);
 
       if (quote.data[0]) {
-        router.push('/profile');
+        nextPage();
       }
     } catch (error) {
       console.log(error);
@@ -207,6 +207,23 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                 setQuoteInfo({
                   ...quoteInfo,
                   streetAddress: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="flex flex-col w-full">
+            <label className="text-md font-bold" htmlFor="city">
+              City
+            </label>
+            <input
+              type="text"
+              name="streetAddress"
+              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              value={quoteInfo.city}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  city: e.target.value,
                 })
               }
             />
