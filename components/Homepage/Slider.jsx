@@ -51,7 +51,7 @@ const Slider = () => {
           return (
             <SwiperSlide key={i}>
               <div
-                className="max-w-[100%] mx-auto min-h-[70vh] bg-cover bg-center bg-no-repeat px-4 lg:px-24 2xl:px-[360px] py-6 flex flex-col justify-center"
+                className="max-w-[100%] mx-auto min-h-[70vh] bg-cover bg-right md:bg-center  bg-no-repeat px-4 lg:px-24 2xl:px-[360px] py-6 flex flex-col justify-center"
                 style={{ backgroundImage: `url(${slide.image})` }}
               >
                 <h1
@@ -60,7 +60,7 @@ const Slider = () => {
                   {slide.heading}
                 </h1>
                 <p
-                  className={`text-md lg:text-lg text-${slide.color} max-w-[35ch] font-medium leading-3`}
+                  className={`text-md lg:text-lg text-${slide.color} max-w-[35ch] font-medium leading-5`}
                 >
                   {slide.subheading}
                 </p>

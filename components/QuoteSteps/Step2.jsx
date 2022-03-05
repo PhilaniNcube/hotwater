@@ -17,13 +17,13 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         Type of property
       </h1>
 
-      <p className="py-3 text-center">
+      <p className="py-3 px-8 text-center">
         Tell us which of the below best describes the type of house you live in
       </p>
 
-      <div className="py-8 max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-y-8">
+      <div className="py-8 max-w-6xl mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-y-8">
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg justify-self-center bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('appartment')}
         >
           {quoteInfo.houseType === 'appartment' && (
@@ -50,7 +50,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] justify-self-center rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('semi-detached')}
         >
           {quoteInfo.houseType === 'semi-detached' && (
@@ -77,7 +77,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded justify-self-center shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('free-standing')}
         >
           {quoteInfo.houseType === 'free-standing' && (
@@ -100,7 +100,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded shadow-lg justify-self-center bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('cornerhouse')}
         >
           {quoteInfo.houseType === 'cornerhouse' && (
@@ -123,7 +123,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded justify-self-center shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('two-in-one')}
         >
           {quoteInfo.houseType === 'two-in-one' && (
@@ -146,7 +146,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded justify-self-center shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('villa')}
         >
           {quoteInfo.houseType === 'villa' && (
@@ -167,7 +167,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           <p className="text-lg text-center text-sky-500 font-bold">Villa</p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded justify-self-center shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('farm')}
         >
           {quoteInfo.houseType === 'farm' && (
@@ -188,7 +188,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           <p className="text-lg text-center text-sky-500 font-bold">Farm</p>
         </div>
         <div
-          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          className="relative h-[200px] w-[250px] rounded justify-self-center shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeType('other')}
         >
           {quoteInfo.houseType === 'other' && (

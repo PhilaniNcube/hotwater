@@ -17,16 +17,16 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         Owner or renting?
       </h1>
 
-      <p className="py-3 text-center">
+      <p className="py-3 px-4 text-center">
         Tell us if you are the owner of the home or are renting it
       </p>
 
-      <div className="py-8 max-w-6xl mx-auto flex justify-center space-y-4 lg:space-y-0 lg:space-x-6">
+      <div className="py-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-16 md:space-y-0 justify-center lg:space-y-0 lg:space-x-6">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeOwnership(false)}
         >
-          {!quoteInfo.ownership && (
+          {quoteInfo.ownership === false && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"

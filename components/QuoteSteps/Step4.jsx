@@ -17,11 +17,11 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         Current Gas Supply Installation
       </h1>
 
-      <p className="py-3 text-center">
+      <p className="py-3 px-4 text-center">
         What type of gas supply do you have to your home?
       </p>
 
-      <div className="py-8 max-w-6xl mx-auto flex justify-center space-y-4 lg:space-y-0 lg:space-x-6">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-wrap items-center justify-center space-y-8 md:space-y-0 lg:space-x-6">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => gasType('piped')}

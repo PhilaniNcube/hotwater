@@ -25,9 +25,9 @@ const index = () => {
   const [quoteInfo, setQuoteInfo] = useState({
     children: 0,
     teenagers: 0,
-    adults: 2,
+    adults: 0,
     houseType: '',
-    ownership: false,
+    ownership: null,
     gasSupply: '',
     gasStove: false,
     gasWaterHeating: false,

@@ -65,7 +65,7 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
 
-      <div className="py-8 max-w-6xl mx-auto flex flex-col items-center md:flex-row justify-center space-y-4 md:space-y-0 lg:space-x-6">
+      <div className="py-8 max-w-6xl mx-auto flex flex-col items-center md:flex-row justify-center space-y-8 md:space-y-0 lg:space-x-6">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => {

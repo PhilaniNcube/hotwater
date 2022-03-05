@@ -25,18 +25,20 @@ const Start = () => {
           recommendations
         </p>
 
-        <div className="flex items-center py-8 justify-between">
+        <div className="flex flex-col md:flex-row items-center py-8 justify-between">
           <div className="flex flex-col w-64 h-64 shadow-lg rounded bg-gray-50 justify-center items-center hover:bg-gray-100 hover:shadow">
             <img
               className="h-16 w-16"
               alt=""
               src="/images/icons/clipboard.svg"
             />
-            <p className="text-sm py-8">Answer a few questions</p>
+            <p className="text-sm py-8 text-center px-3">
+              Answer a few questions
+            </p>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-red-500"
+            className="h-8 w-8 text-red-500 mt-4"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -53,12 +55,14 @@ const Start = () => {
               alt=""
               src="/images/icons/document.svg"
             />
-            <p className="text-sm py-8">We analyze your answers</p>
+            <p className="text-sm py-8 text-center px-3">
+              We analyze your answers
+            </p>
           </div>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-red-500"
+            className="h-8 w-8 text-red-500 mt-4"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -71,7 +75,7 @@ const Start = () => {
 
           <div className="flex flex-col w-64 h-64 shadow-lg rounded bg-gray-50 justify-center items-center hover:bg-gray-100 hover:shadow">
             <img className="h-16 w-16" alt="" src="/images/icons/mail.svg" />
-            <p className="text-sm py-8 text-center">
+            <p className="text-sm py-8 text-center px-3">
               We contact you with a recommendation
             </p>
           </div>
