@@ -17,12 +17,10 @@ function MyApp({ Component, pageProps }) {
     <Fragment>
       <UserProvider>
         <QueryClientProvider client={queryClient}>
-          <AnimatePresence>
-            <Navbar />
-            <Component {...pageProps} />
-            <Footer />
-            <ReactQueryDevtools />
-          </AnimatePresence>
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+          <ReactQueryDevtools />
         </QueryClientProvider>
       </UserProvider>
     </Fragment>

@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <Popover className="">
+    <Popover>
       {/*Desktop Nav */}
       <div className="py-4">
         <div className="max-w-6xl mx-auto px-2 md:px-0 flex items-center justify-between">
