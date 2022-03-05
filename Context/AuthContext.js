@@ -29,7 +29,7 @@ const Provider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    axios.post('/api/auth', {
+    axios.post('/api/set-supabase-cookie', {
       event: user ? 'SIGNED_IN' : 'SIGNED_OUT',
       session: supabase.auth.session(),
     });
