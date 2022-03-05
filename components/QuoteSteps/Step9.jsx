@@ -101,9 +101,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       console.log('quote', quote);
 
       if (quote.data[0]) {
-        router.push(
-          `/profile/quote/${quote.data[0].id}?flowRate=${quote.data[0].flowRate}`,
-        );
+        router.push(`/profile`);
       }
     } catch (error) {
       console.log(error);
