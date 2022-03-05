@@ -10,8 +10,6 @@ const Profile = ({ data, error }) => {
 
   const { user } = useUser();
 
-  const { quotes, quotesIsLoading, quotesFetching, quotesError } = useQuotes();
-
   return (
     <ProfileNav>
       <div className="px-6 lg:px-12 py-6">
@@ -27,7 +25,7 @@ export default Profile;
 export async function getServerSideProps({ req }) {
   const token = cookie.parse(req.headers.cookie)['sb:token'];
 
-  supabase.auth.session = () => ({ access_token: token });
+  supabase.auth.session = () => ({ access_token: `${token}` });
 
   let { data: quotes, error } = await supabase.from('quotes').select('*');
 
