@@ -21,7 +21,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         What type of gas supply do you have to your home?
       </p>
 
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-wrap items-center justify-center space-y-8 md:space-y-0 lg:space-x-6">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:flex-wrap items-center justify-center space-y-8 md:space-y-0 lg:space-x-6">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => gasType('piped')}

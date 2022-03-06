@@ -10,6 +10,7 @@ import { useUser } from '../../../Context/AuthContext';
 import { supabase } from '../../../utils/supabase';
 import cookie from 'cookie';
 import axios from 'axios';
+import RecommendedProducts from '../../../components/Catalogue/RecommededProducts';
 
 const Quote = ({ data, quote }) => {
   console.log({ data, quote });
@@ -29,7 +30,7 @@ const Quote = ({ data, quote }) => {
           <QuoteCard key={quote.id} quote={quote} />
         )}
 
-        <CatalogueGrid products={data} />
+        <RecommendedProducts products={data} quote={quote} />
       </div>
     </ProfileNav>
   );

@@ -4,9 +4,10 @@ import { useQuotes } from '../../hooks/quotes';
 import { useUser } from '../../Context/AuthContext';
 import cookie from 'cookie';
 import { supabase } from '../../utils/supabase';
+import ProfileInfo from '../../components/Profile/ProfileInfo';
 
-const Profile = ({ data, error }) => {
-  console.log({ data, error });
+const Profile = ({ data, error, profile }) => {
+  console.log({ data, error, profile });
 
   const { user } = useUser();
 
@@ -14,7 +15,9 @@ const Profile = ({ data, error }) => {
     <ProfileNav>
       <div className="px-6 lg:px-12 py-6">
         <h1 className="text-2xl">Profile: {user && user.email}</h1>
-        <section className="w-full mt-4"></section>
+        <section className="w-full mt-4">
+          <ProfileInfo profile={profile} />
+        </section>
       </div>
     </ProfileNav>
   );
@@ -29,10 +32,16 @@ export async function getServerSideProps({ req }) {
 
   let { data: quotes, error } = await supabase.from('quotes').select('*');
 
+  let { data: profile } = await supabase
+    .from('profile')
+    .select('*')
+    .single();
+
   return {
     props: {
       data: quotes,
       error,
+      profile,
     },
   };
 }
