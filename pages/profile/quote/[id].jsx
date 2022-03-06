@@ -30,7 +30,9 @@ const Quote = ({ data, quote }) => {
           <QuoteCard key={quote.id} quote={quote} />
         )}
 
-        <RecommendedProducts products={data} quote={quote} />
+        {!quote.product_id && (
+          <RecommendedProducts products={data} quote={quote} />
+        )}
       </div>
     </ProfileNav>
   );
@@ -53,7 +55,7 @@ export async function getServerSideProps({
 
   const { data: quote } = await supabase
     .from('quotes')
-    .select('*')
+    .select(`*, product_id(name, price, installationCost)`)
     .eq('id', id)
     .single();
 
