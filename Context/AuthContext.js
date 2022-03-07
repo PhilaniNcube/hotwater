@@ -24,9 +24,11 @@ const Provider = ({ children }) => {
 
   const signUp = async (email, password) => {
     let { user, error } = await supabase.auth.signUp({
-      email: email,
-      password: password,
+      email,
+      password,
     });
+
+    console.log(user, error);
 
     if (user) {
       router.push('/');
