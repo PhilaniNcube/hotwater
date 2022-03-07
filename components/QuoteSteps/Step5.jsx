@@ -5,6 +5,16 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
   const [interaction, setInteraction] = useState(false);
 
+  const clearSelection = () => {
+    setQuoteInfo({
+      ...quoteInfo,
+      gasStove: false,
+      noGasUse: false,
+      gasHeating: false,
+      gasWaterHeating: false,
+    });
+  };
+
   return (
     <div className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
@@ -12,6 +22,15 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       </h1>
 
       <p className="py-3 px-4 text-center">What do/will you use gas for?</p>
+
+      <div className="flex justify-center">
+        <button
+          onClick={clearSelection}
+          className="bg-sky-600 text-white justify-self-center px-4 py-2 rounded"
+        >
+          Clear Selection
+        </button>
+      </div>
 
       <div className="py-8 max-w-6xl mx-auto flex flex-wrap justify-around space-y-8  lg:space-y-0 lg:space-x-4">
         <div
@@ -158,9 +177,26 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </Fragment>
         ) : (
-          <p className="text-md text-sky-600 font-bold text-center">
-            Please Answer The Questions
-          </p>
+          <Fragment>
+            <svg
+              onClick={prevPage}
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <p className="text-md text-sky-600 font-bold text-center">
+              Please Answer The Questions
+            </p>
+          </Fragment>
         )}
       </div>
     </div>

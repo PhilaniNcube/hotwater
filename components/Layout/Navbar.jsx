@@ -234,15 +234,6 @@ const Navbar = () => {
                       Sign In
                     </a>
                   </Link>
-
-                  <Link href="/register">
-                    <a
-                      onClick={() => setShow(false)}
-                      className="text-md font-bold hover:text-slate-200"
-                    >
-                      Register
-                    </a>
-                  </Link>
                 </div>
               ) : (
                 <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
@@ -311,10 +302,6 @@ const Navbar = () => {
               <div className="flex space-x-3 lg:space-x-8 items-center">
                 <Link href="/signin">
                   <a className="text-sm md:text-md font-bold">Sign In</a>
-                </Link>
-
-                <Link href="/register">
-                  <a className="text-sm md:text-md font-bold">Register</a>
                 </Link>
               </div>
             )}

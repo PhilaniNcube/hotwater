@@ -158,9 +158,26 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </Fragment>
         ) : (
-          <p className="text-md text-sky-600 font-bold text-center">
-            Please Answer The Questions
-          </p>
+          <Fragment>
+            <svg
+              onClick={prevPage}
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <p className="text-md text-sky-600 font-bold text-center">
+              Please Answer The Questions
+            </p>
+          </Fragment>
         )}
       </div>
     </div>

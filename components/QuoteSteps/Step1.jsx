@@ -175,9 +175,11 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             Continue
           </button>
         ) : (
-          <p className="text-md text-sky-600 font-bold text-center">
-            Please Answer The Questions
-          </p>
+          <Fragment>
+            <p className="text-md text-sky-600 font-bold text-center">
+              Please Answer The Questions
+            </p>
+          </Fragment>
         )}
       </div>
     </Fragment>
