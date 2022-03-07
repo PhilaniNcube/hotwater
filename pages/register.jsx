@@ -15,7 +15,7 @@ export default function SignIn() {
     e.preventDefault();
     setLoading(true);
 
-    let { user, error } = await supabase.auth.signUp({
+    let { user, error } = await supabase.auth.signIn({
       email,
       password,
     });
