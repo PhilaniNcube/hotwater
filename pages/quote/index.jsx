@@ -62,20 +62,9 @@ const index = () => {
     setPage((page) => page - 1);
   };
 
-  if (user === null || user === undefined) {
-    return (
-      <div className="flex flex-col justify-center items-center h-[80vh] w-[90%] mx-auto">
-        <p className="text-lg text-center font-bold ">Please sign in first</p>
-        <Link href="/signin" passHref>
-          <button className="bg-blue-600 text-white font-bold text-lg mt-8 rounded px-6 py-2">
-            Sign In
-          </button>
-        </Link>
-      </div>
-    );
-  }
 
-  if (user) {
+
+  
     return (
       <Fragment>
         <Head>
@@ -182,7 +171,7 @@ const index = () => {
         )}
       </Fragment>
     );
-  }
+  
 };
 
 export default index;
