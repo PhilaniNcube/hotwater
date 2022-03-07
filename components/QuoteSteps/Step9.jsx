@@ -7,7 +7,7 @@ import { supabase } from '../../utils/supabase';
 
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
-  const { user } = useUser();
+  
   const router = useRouter();
 
   const {
@@ -72,7 +72,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         city: city,
         telephoneNumber: telephoneNumber,
         completeSolution: completeSolution,
-        user_id: user.id,
+    
       },
     ]),
   );
@@ -101,7 +101,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       console.log('quote', quote);
 
       if (quote.data[0]) {
-        router.push(`/profile`);
+        router.push(`/`);
       }
     } catch (error) {
       console.log(error);
