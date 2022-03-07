@@ -83,7 +83,6 @@ export default function SignIn() {
                 type="password"
                 required
                 className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                placeholder="e.g: john@gmail.com "
               />
             </div>
 
@@ -94,7 +93,7 @@ export default function SignIn() {
                 disabled={loading}
                 className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
               >
-                {loading ? 'Loading' : 'Login'}
+                {loading ? 'Loading' : 'Register'}
               </button>
             </div>
           </form>
