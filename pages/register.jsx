@@ -9,15 +9,18 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { signUp } = useUser();
-
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    await signUp(email, password);
+    let { user, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    console.log('error', error);
 
     alert('Please check your email address for the login link');
     setLoading(false);
