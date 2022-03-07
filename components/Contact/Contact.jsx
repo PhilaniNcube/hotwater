@@ -1,34 +1,31 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 export default function ContactComponent() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submit');
+    console.log('submit', message);
 
-    try {
-      const message = await axios.post(`/api/mail/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      });
+    const conatctMessage = await fetch(`/api/mail/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
 
-      const response = message.data;
-
-      alert(JSON.stringify(response, null, 2));
-    } catch (error) {
-      const response = message.data;
-
-      alert(response.message);
-    }
+    const response = await conatctMessage.json();
+    alert('Email sent');
+    router.push('/');
   };
 
   return (

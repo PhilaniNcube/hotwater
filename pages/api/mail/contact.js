@@ -8,9 +8,11 @@ export default async function handler(req, res) {
     return;
   }
 
+  console.log(req.body);
+
   const msg = {
-    to: 'webdev@htowater24.com', // Change to your recipient
-    from: 'webdev@htowater24.com', // Change to your verified sender
+    to: 'webdev@hotwater24.com', // Change to your recipient
+    from: 'webdev@hotwater24.com', // Change to your verified sender
     subject: 'Website Contact Form',
     text: `Name: ${req.body.name},
              Email: ${req.body.email},
@@ -21,15 +23,12 @@ export default async function handler(req, res) {
                         <h2>Contact Form Submission</div>
                             <h3>Name: ${req.body.name}</h3>
                           <h3>Name: ${req.body.email}</h3>
-                          <p>Name: ${req.body.message}</p>
+                          <p>Message: ${req.body.message}</p>
                     </div>
                 </div >`,
   };
 
-  try {
-    const message = await sgMail.send(msg);
-    res.send('Email Sent');
-  } catch (error) {
-    res.json({ message: 'Email not sent', error: error });
-  }
+  const message = await sgMail.send(msg);
+
+  res.json({ message: 'Email Sent' });
 }
