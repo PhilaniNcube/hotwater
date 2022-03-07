@@ -15,12 +15,12 @@ export default function SignIn() {
     e.preventDefault();
     setLoading(true);
 
-    let { user, error } = await supabase.auth.signIn({
-      email,
-      password,
+    let { user, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
     });
 
-    console.log('error', error);
+    console.log('error', error, 'user', user);
 
     alert('Please check your email address for the login link');
     setLoading(false);
