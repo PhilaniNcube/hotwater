@@ -22,6 +22,17 @@ const Provider = ({ children }) => {
     });
   };
 
+  const signUp = async (email, password) => {
+    let { user, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
+
+    if (user) {
+      router.push('/');
+    }
+  };
+
   useEffect(() => {
     supabase.auth.onAuthStateChange(async () => {
       setUser(supabase.auth.user());
@@ -39,6 +50,7 @@ const Provider = ({ children }) => {
     user,
     signOut,
     signIn,
+    signUp,
   };
 
   return <Context.Provider value={exposed}>{children}</Context.Provider>;
