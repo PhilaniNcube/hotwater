@@ -103,7 +103,7 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             setInteraction(true);
           }}
         >
-          {!quoteInfo.locateOutside && (
+          {quoteInfo.locateOutside === false && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"

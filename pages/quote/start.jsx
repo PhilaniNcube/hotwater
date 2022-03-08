@@ -20,9 +20,9 @@ const Start = () => {
           Let us help you find your fit.
         </h1>
 
-        <p className="text-lg text-center">
-          Answer a few questions and we will contact you with expert
-          recommendations
+        <p className="text-lg text-center px-8 lg:px-60">
+          Answer a few questions and we will instantly give you an expert
+          recommendation for a suitable geyser
         </p>
 
         <div className="flex flex-col md:flex-row items-center py-8 justify-between">

@@ -72,7 +72,6 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         city: city,
         telephoneNumber: telephoneNumber,
         completeSolution: completeSolution,
-        user_id: user.id,
       },
     ]),
   );
@@ -100,7 +99,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       queryClient.setQueryData('quote', quote.data[0]);
       console.log('quote', quote);
 
-      if (quote.data[0]) {
+      if (quote?.data[0]) {
         router.push(`/catalogue?flowRate=${quoteInfo.flowRate}`);
       }
     } catch (error) {

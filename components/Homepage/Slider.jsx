@@ -9,7 +9,7 @@ const Slides = [
   {
     image: '/images/slide1.jpg',
     color: 'black',
-    heading: 'Start saving up to 30% on your water heating',
+    heading: 'Start saving up to 20% on your monthly electricity bill',
     subheading:
       'Through the power of gas geyser heating solutions for your home',
     link: '/quote/start',
@@ -59,13 +59,9 @@ const Slider = () => {
                 >
                   {slide.heading}
                 </h1>
-                <p
-                  className={`text-md lg:text-lg text-${slide.color} max-w-[35ch] font-medium leading-5`}
-                >
-                  {slide.subheading}
-                </p>
+
                 <Link href={slide.link} passHref>
-                  <button className="bg-gray-800 text-white flex space-x-2 py-1 px-4 items-center mt-4 rounded-full w-fit">
+                  <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit">
                     {slide.linkText}
                     <span>
                       <svg

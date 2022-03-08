@@ -33,7 +33,7 @@ const index = () => {
     gasWaterHeating: false,
     gasHeating: false,
     noGasUse: false,
-    locateOutside: false,
+    locateOutside: undefined,
     waterHeater: '',
     standardShower: 0,
     rainShower: 0,
@@ -62,116 +62,109 @@ const index = () => {
     setPage((page) => page - 1);
   };
 
-
-
-  
-    return (
-      <Fragment>
-        <Head>
-          <title>Hotwater24 | Quote</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta name="description" content="Submit a quote request." />
-          <meta
-            name="keywords"
-            content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
-          />
-        </Head>
-        {page === 1 && (
-          <Step1
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 2 && (
-          <Step2
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 3 && (
-          <Step3
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 4 && (
-          <Step4
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 5 && (
-          <Step5
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 6 && (
-          <Step6
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 7 && (
-          <Step7
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 8 && (
-          <Step8
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 9 && (
-          <Step9
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-        {page === 10 && (
-          <Confirm
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            page={page}
-          />
-        )}
-      </Fragment>
-    );
-  
+  return (
+    <Fragment>
+      <Head>
+        <title>Hotwater24 | Quote</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Submit a quote request." />
+        <meta
+          name="keywords"
+          content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
+        />
+      </Head>
+      {page === 1 && (
+        <Step1
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 2 && (
+        <Step2
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 3 && (
+        <Step3
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 4 && (
+        <Step4
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 5 && (
+        <Step5
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 6 && (
+        <Step6
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 7 && (
+        <Step7
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 8 && (
+        <Step8
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 9 && (
+        <Step9
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 10 && (
+        <Confirm
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+    </Fragment>
+  );
 };
 
 export default index;
