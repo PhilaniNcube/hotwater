@@ -11,11 +11,11 @@ export default function SignIn() {
 
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    let { user, error } = await supabase.auth.signUp({
+    let { user, error } = supabase.auth.signUp({
       email: email,
       password: password,
     });
