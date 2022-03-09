@@ -11,16 +11,16 @@ const Slides = [
     color: 'black',
     heading: 'Start saving up to 20% on your monthly electricity bill',
     subheading:
-      'Through the power of gas geyser heating solutions for your home',
-    link: '/quote/start',
-    linkText: 'Find your fit',
+      'Please click on the button below to check out your potential saving on your monthly energy bill!',
+    link: '/savings',
+    linkText: 'Calculate your saving',
   },
   {
     image: '/images/slide2.jpeg',
     color: 'white',
-    heading: '24 hours supply of hot water in your home',
+    heading: '24 hours supply of hot water for ultimate comfort in your home',
     subheading:
-      'Through the power of gas geyser heating solutions for your home',
+      'By clicking on the button below we instantly recommend the best water heating solution for your home',
     link: '/quote/start',
     linkText: 'Find your fit',
   },
@@ -29,7 +29,7 @@ const Slides = [
     color: 'black',
     heading: 'Safe and reliable installation by accredited professionals',
     subheading:
-      'Through the power of gas geyser heating solutions for your home',
+      'Get our expert opinion on the best gas water heating solution for your home',
     link: '/quote/start',
     linkText: 'Find your fit',
   },
@@ -59,6 +59,7 @@ const Slider = () => {
                 >
                   {slide.heading}
                 </h1>
+                <p className="mt-2 max-w-[40ch]">{slide.subheading}</p>
 
                 <Link href={slide.link} passHref>
                   <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit">

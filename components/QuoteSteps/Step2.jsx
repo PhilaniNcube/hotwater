@@ -1,21 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
+import Step2Modal from '../Modals/Step2Modal';
 
 const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
-  const [interaction, setInteraction] = useState(false);
+  const [show, setShow] = useState(false);
 
   const homeType = (type) => {
     setQuoteInfo({ ...quoteInfo, houseType: type });
-    setInteraction(true);
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Type of property
       </h1>
+
+      {show && (
+        <Step2Modal
+          show={show}
+          setShow={setShow}
+          homeType={homeType}
+          page={page}
+          setQuoteInfo={setQuoteInfo}
+          quoteInfo={quoteInfo}
+        />
+      )}
 
       <p className="py-3 px-8 text-center">
         Tell us which of the below best describes the type of house you live in
@@ -189,7 +200,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded justify-self-center shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-          onClick={() => homeType('other')}
+          onClick={() => setShow(true)}
         >
           {quoteInfo.houseType === 'other' && (
             <svg
@@ -211,7 +222,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       </div>
 
       <div className="flex items-center justify-center space-x-6 my-3">
-        {interaction ? (
+        {quoteInfo.houseType !== '' ? (
           <Fragment>
             {' '}
             <svg
@@ -254,7 +265,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please Answer The Questions
+              Please answer the questions
             </p>
           </Fragment>
         )}

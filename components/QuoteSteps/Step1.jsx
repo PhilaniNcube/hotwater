@@ -166,9 +166,10 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="my-10 flex justify-center">
-        {interaction ? (
+        {quoteInfo.adults !== 0 ||
+        quoteInfo.children !== 0 ||
+        quoteInfo.teenagers !== 0 ? (
           <button
-            disabled={!interaction}
             onClick={nextPage}
             className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
           >
@@ -177,7 +178,7 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         ) : (
           <Fragment>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please Answer The Questions
+              Please answer the questions
             </p>
           </Fragment>
         )}
