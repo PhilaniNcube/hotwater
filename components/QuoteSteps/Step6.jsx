@@ -122,7 +122,7 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 my-3">
-        {interaction ? (
+        {quoteInfo.locateOutside !== null ? (
           <Fragment>
             {' '}
             <svg
@@ -165,7 +165,7 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please Answer The Questions
+              Please answer the questions
             </p>
           </Fragment>
         )}

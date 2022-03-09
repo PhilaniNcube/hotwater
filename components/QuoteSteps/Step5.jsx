@@ -1,36 +1,35 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
+import Step5Modal from '../Modals/Step5Modal';
 
 const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
   const [interaction, setInteraction] = useState(false);
 
-  const clearSelection = () => {
-    setQuoteInfo({
-      ...quoteInfo,
-      gasStove: false,
-      noGasUse: false,
-      gasHeating: false,
-      gasWaterHeating: false,
-    });
+  const [show, setShow] = useState(false);
+
+  const setGasUse = (type) => {
+    setQuoteInfo({ ...quoteInfo, otherGasUse: type });
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Intended Gas Use
       </h1>
 
-      <p className="py-3 px-4 text-center">What do/will you use gas for?</p>
+      {show && (
+        <Step5Modal
+          show={show}
+          setShow={setShow}
+          setGasUse={setGasUse}
+          page={page}
+          setQuoteInfo={setQuoteInfo}
+          quoteInfo={quoteInfo}
+        />
+      )}
 
-      <div className="flex justify-center">
-        <button
-          onClick={clearSelection}
-          className="bg-sky-600 text-white justify-self-center px-4 py-2 rounded"
-        >
-          Clear Selection
-        </button>
-      </div>
+      <p className="py-3 px-4 text-center">What do/will you use gas for?</p>
 
       <div className="py-8 max-w-6xl mx-auto flex flex-wrap justify-around space-y-8  lg:space-y-0 lg:space-x-4">
         <div
@@ -38,8 +37,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              gasStove: true,
-              noGasUse: false,
+              gasStove: !quoteInfo.gasStove,
             });
             setInteraction(true);
           }}
@@ -66,8 +64,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              gasWaterHeating: true,
-              noGasUse: false,
+              gasWaterHeating: !quoteInfo.gasWaterHeating,
             });
             setInteraction(true);
           }}
@@ -96,8 +93,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              gasHeating: true,
-              noGasUse: false,
+              gasHeating: !quoteInfo.gasHeating,
             });
             setInteraction(true);
           }}
@@ -121,18 +117,9 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-          onClick={() => {
-            setQuoteInfo({
-              ...quoteInfo,
-              gasHeating: false,
-              gasWaterHeating: false,
-              gasStove: false,
-              noGasUse: true,
-            });
-            setInteraction(true);
-          }}
+          onClick={() => setShow(true)}
         >
-          {quoteInfo.noGasUse && (
+          {quoteInfo.otherGasUse && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -151,7 +138,10 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center my-3 space-x-6">
-        {interaction ? (
+        {quoteInfo.gasStove !== null ||
+        quoteInfo.gasWaterHeating !== null ||
+        quoteInfo.gasHeating !== null ||
+        quoteInfo.otherGasUse !== '' ? (
           <Fragment>
             {' '}
             <svg
@@ -194,7 +184,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please Answer The Questions
+              Please answer the questions
             </p>
           </Fragment>
         )}

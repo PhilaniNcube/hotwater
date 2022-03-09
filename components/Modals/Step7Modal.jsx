@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const Step2Modal = ({
+const Step7Modal = ({
   show,
   setShow,
-  homeType,
+  setOtherGasGeyser,
   page,
   setQuoteInfo,
   quoteInfo,
@@ -23,7 +23,7 @@ const Step2Modal = ({
           <div className="py-8 px-5 md:px-32 bg-white shadow-md rounded border border-gray-400">
             <div className="w-full flex justify-center text-gray-600 mb-4"></div>
             <h1 className="text-center text-gray-800 font-lg font-bold tracking-normal leading-tight mb-5">
-              Enter Type of your property
+              Specify the other type of geyser you use
             </h1>
             <input
               type="text"
@@ -31,12 +31,12 @@ const Step2Modal = ({
               value={type}
               onChange={(e) => setType(e.target.value)}
               className="mb-5 text-gray-600 focus:outline-none focus:border focus:border-sky-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-              placeholder="Enter Property Type"
+              placeholder="What do or will you use gas for"
             />
             <div className="flex items-center justify-center w-full">
               <button
                 onClick={() => {
-                  homeType(type);
+                  setOtherGasGeyser(type);
                   setShow(false);
                 }}
                 className="focus:outline-none transition duration-150 ease-in-out hover:bg-sky-600 bg-sky-700 rounded text-white px-8 py-2 text-sm"
@@ -46,11 +46,11 @@ const Step2Modal = ({
               <button
                 className="focus:outline-none ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"
                 onClick={() => {
-                  homeType('');
+                  setOtherGasGeyser(null);
                   setShow(false);
                 }}
               >
-                Cancel
+                Clear
               </button>
             </div>
           </div>
@@ -59,4 +59,4 @@ const Step2Modal = ({
     </div>
   );
 };
-export default Step2Modal;
+export default Step7Modal;

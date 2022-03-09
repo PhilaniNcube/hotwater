@@ -12,7 +12,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Current Gas Supply Installation
       </h1>
@@ -93,7 +93,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 my-3">
-        {interaction ? (
+        {quoteInfo.gasSupply !== '' ? (
           <Fragment>
             {' '}
             <svg
@@ -136,7 +136,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please Answer The Questions
+              Please answer the questions
             </p>
           </Fragment>
         )}

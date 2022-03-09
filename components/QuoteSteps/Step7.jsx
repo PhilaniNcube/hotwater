@@ -1,15 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
+import Step7Modal from '../Modals/Step7Modal';
 
 const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
-  const [interaction, setInteraction] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const setOtherGasGeyser = (type) => {
+    setQuoteInfo({ ...quoteInfo, otherGeyser: type });
+  };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Water Heater
       </h1>
+
+      {show && (
+        <Step7Modal
+          show={show}
+          setShow={setShow}
+          setOtherGasGeyser={setOtherGasGeyser}
+          page={page}
+          setQuoteInfo={setQuoteInfo}
+          quoteInfo={quoteInfo}
+        />
+      )}
 
       <p className="py-3 text-center">
         How do you currently heat up your water?
@@ -21,12 +37,11 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              waterHeater: 'electricity',
+              electricGeyser: !quoteInfo.electricGeyser,
             });
-            setInteraction(true);
           }}
         >
-          {quoteInfo.waterHeater === 'electricity' && (
+          {quoteInfo.electricGeyser === true && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -54,12 +69,11 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              waterHeater: 'gas',
+              gasGeyser: !quoteInfo.gasGeyser,
             });
-            setInteraction(true);
           }}
         >
-          {quoteInfo.waterHeater === 'gas' && (
+          {quoteInfo.gasGeyser === true && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -81,12 +95,11 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              waterHeater: 'solar',
+              solarGeyser: !quoteInfo.solarGeyser,
             });
-            setInteraction(true);
           }}
         >
-          {quoteInfo.waterHeater === 'solar' && (
+          {quoteInfo.solarGeyser === true && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -105,15 +118,9 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-          onClick={() => {
-            setQuoteInfo({
-              ...quoteInfo,
-              waterHeater: 'other',
-            });
-            setInteraction(true);
-          }}
+          onClick={() => setShow(true)}
         >
-          {quoteInfo.waterHeater === 'other' && (
+          {quoteInfo.otherGeyser !== null && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -132,7 +139,10 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 my-3">
-        {interaction ? (
+        {quoteInfo.electricGeyser !== null ||
+        quoteInfo.gasGeyser !== null ||
+        quoteInfo.solarGeyser !== null ||
+        quoteInfo.otherGeyser !== null ? (
           <Fragment>
             {' '}
             <svg
