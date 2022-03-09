@@ -14,11 +14,19 @@ function classNames(...classes) {
 const Navbar = () => {
   const router = useRouter();
 
+  const [query, setQuery] = useState('');
+
   const { user, signOut } = useUser();
 
   console.log('Navbar user', user);
 
   const [show, setShow] = useState(false);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    router.push(`/search?query=${query}`);
+  };
 
   const handleSignOut = async () => {
     setShow(false);
@@ -43,7 +51,10 @@ const Navbar = () => {
             </div>
           </Link>
           {/*Search Input*/}
-          <div className="hidden md:flex flex-col flex-1 px-16">
+          <form
+            onSubmit={handleSearch}
+            className="hidden md:flex flex-col flex-1 px-16"
+          >
             <div className="relative w-full">
               <div className="absolute text-gray-600  flex items-center pl-3 h-full">
                 <svg
@@ -65,11 +76,13 @@ const Navbar = () => {
               </div>
               <input
                 id="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
                 className="text-gray-600 rounded-full w-full bg-gray-200  focus:outline-none focus:border focus:border-gray-700 font-normal pr-20 sm:pr-32 h-10 flex items-center pl-10 text-sm border-gray-300 border shadow"
                 placeholder="Search products..."
               />
             </div>
-          </div>
+          </form>
 
           {/*Quote Button */}
           <div>
@@ -100,8 +113,11 @@ const Navbar = () => {
       <div className="bg-gray-800 text-white py-4">
         <div className="max-w-6xl mx-auto py-4 px-4 md:px-2 lg:px-0 flex items-center justify-between relative">
           <nav className="hidden md:flex items-center">
+            <Link href="/">
+              <a className="text-sm md:text-md focus:text-sky-600 pr-6">Home</a>
+            </Link>
             <Link href="/who-we-are">
-              <a className="text-sm md:text-md focus:text-sky-600 pr-6">
+              <a className="text-sm md:text-md focus:text-sky-600 px-6">
                 Who We Are
               </a>
             </Link>
