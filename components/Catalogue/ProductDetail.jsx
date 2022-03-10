@@ -2,18 +2,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment, useState } from 'react';
 import { useUser } from '../../Context/AuthContext';
+import { useCart } from '../../Context/CartContext';
 
 export default function ProductDetail({ product }) {
   const { user } = useUser();
+
+  const { cart } = useCart();
+
+  console.log(cart);
 
   return (
     <Fragment>
       <div className="mt-4 max-w-6xl mx-auto">
         <div className="lg:px-20 md:px-6 px-4 md:flex items-start">
-          <div
-            className="w-[100%]  md:w-1/2 flex flex-col flex-shrink-0"
-            layoutId={product.id}
-          >
+          <div className="w-[100%]  md:w-1/2 flex flex-col flex-shrink-0">
             <Image
               src={product.image}
               alt="Image of a shoe"

@@ -14,13 +14,13 @@ const Footer = () => {
             </h3>
           </div>
           <div className="text-gray-400 mt-4">
-            <p className="text-sm">Address Line 1</p>
-            <p className="text-sm">Address Line 2</p>
-            <p className="text-sm">Suburb</p>
-            <p className="text-sm">City</p>
+            <p className="text-sm">9 Kramer Road</p>
+            <p className="text-sm">Kramerville</p>
+            <p className="text-sm">Sandton</p>
+            <p className="text-sm">Johannesburg</p>
           </div>
           <div className="mt-2 text-gray-400">
-            <p className="text-sm">Tel: +12 34 567 8910</p>
+            <p className="text-sm">Tel: +27 (0)79 341 4075</p>
             <p className="text-sm">Email: info@hotwater24.com</p>
           </div>
         </div>

@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { supabase } from '../utils/supabase';
 import { AnimatePresence } from 'framer-motion';
+import CartProvider from '../Context/CartContext';
 
 const queryClient = new QueryClient();
 
@@ -16,12 +17,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <UserProvider>
-        <QueryClientProvider client={queryClient}>
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-          <ReactQueryDevtools />
-        </QueryClientProvider>
+        <CartProvider>
+          <QueryClientProvider client={queryClient}>
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+            <ReactQueryDevtools />
+          </QueryClientProvider>
+        </CartProvider>
       </UserProvider>
     </Fragment>
   );
