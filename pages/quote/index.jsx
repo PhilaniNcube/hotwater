@@ -52,12 +52,12 @@ const index = () => {
     streetAddress: '',
     city: '',
     telephoneNumber: '',
-    completeSolution: false,
+    completeSolution: null,
     product_id: null,
   });
 
   const nextPage = () => {
-    if (page === 11) return;
+    if (page === 12) return;
     setPage((page) => page + 1);
   };
   const prevPage = () => {
@@ -158,6 +158,16 @@ const index = () => {
         />
       )}
       {page === 10 && (
+        <Step10
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+
+      {page === 11 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}

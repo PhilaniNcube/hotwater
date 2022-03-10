@@ -336,7 +336,12 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 my-3">
-        {interaction ? (
+        {quoteInfo.standardShower !== 0 ||
+        quoteInfo.rainShower !== 0 ||
+        quoteInfo.sink !== 0 ||
+        quoteInfo.bathtub !== 0 ||
+        quoteInfo.washingmachine !== 0 ||
+        quoteInfo.dishwasher !== 0 ? (
           <Fragment>
             {' '}
             <svg
@@ -382,7 +387,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please Answer The Questions
+              Please answer the questions
             </p>
           </Fragment>
         )}
