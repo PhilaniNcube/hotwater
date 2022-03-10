@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { Fragment, useState } from 'react';
+import { useUser } from '../../Context/AuthContext';
 
 export default function ProductDetail({ product }) {
-  const [show, setShow] = useState(false);
-  const [text, setText] = useState('Select Size');
+  const { user } = useUser();
 
   return (
     <Fragment>
@@ -35,21 +36,28 @@ export default function ProductDetail({ product }) {
               R {product.price}
             </p>
 
-            <div className="lg:flex items-start justify-between mt-12">
-              <div className="w-full lg:mt-0 mt-4">
-                <button className="bg-gray-800 h-10 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-800 text-base leading-none text-white py-3 w-full px-2">
-                  Add to cart
-                </button>
-              </div>
+            <div className="my-8 text-sky-600">
+              <p className="text-md font-medium lg:leading-5 text-sm leading-5 ">
+                {product.installationCost
+                  ? `Installation costs for this type of gas geyser generally costs R${product.installationCost}. Installations are carried out by qualified technicians`
+                  : `Please contact us for a separate estimate on installation`}
+              </p>
             </div>
 
-            <div className="mt-8">
-              <h1 className="lg:text-xl md:text-xl text-lg font-medium lg:leading-6 md:leading-5 leading-5 text-gray-800">
-                Geyser Installation Costs
-              </h1>
-              <p className="text-md font-medium lg:leading-6 text-lg leading-5 text-gray-800">
-                R {product.installationCost}
-              </p>
+            <div className="lg:flex items-start justify-between mt-12">
+              <div className="w-full lg:mt-0 mt-4">
+                {!user ? (
+                  <Link href="/signin" passHref>
+                    <button className="bg-gray-800 h-10 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-800 text-base leading-none text-white py-3 w-full px-2">
+                      Please Sign In To Add To Cart
+                    </button>
+                  </Link>
+                ) : (
+                  <button className="bg-gray-800 h-10 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-800 text-base leading-none text-white py-3 w-full px-2">
+                    Add to cart
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>

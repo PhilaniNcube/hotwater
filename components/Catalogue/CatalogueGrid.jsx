@@ -12,10 +12,7 @@ const CatalogueGrid = ({ products }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto justify-center gap-y-12 gap-x-16  py-12 px-4 lg:px-0">
         {products.map((product) => (
           <div className="max-w-md" key={product.id}>
-            <div
-              className="bg-gray-100 rounded-tl rounded-tr"
-              layoutId={product.id}
-            >
+            <div className="bg-gray-100 rounded-tl rounded-tr">
               <Image
                 src={product.image}
                 alt="bg-img"
