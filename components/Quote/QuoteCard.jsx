@@ -42,23 +42,6 @@ function Index({ quote }) {
                   {`Postal Code: ${quote.postalCode}`}
                 </p>
 
-                {!!quote.product_id && (
-                  <div className="my-4 p-4 bg-sky-700 rounded">
-                    <h3 className="text-gray-50 text-md">Selected Geyser</h3>
-                    <p className="text-gray-50  text-sm font-normal">
-                      {`Name: ${quote.product_id.name}`}
-                    </p>
-                    <p className="text-gray-50  text-sm font-normal">
-                      {`Price: R ${quote.product_id.price}`}
-                    </p>
-                    <p className="text-gray-50  text-sm font-normal">
-                      {quote.product_id.installationCost
-                        ? `Installation Cost: R ${quote.product_id.installationCost}`
-                        : `Installation Cost: TBD`}
-                    </p>
-                  </div>
-                )}
-
                 <div className="mt-4">
                   <div className="grid grid-cols-2 bg-gray-200 px-2 py-3 rounded-t-lg">
                     <h3>Geyser</h3>
