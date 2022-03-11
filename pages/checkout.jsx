@@ -1,252 +1,144 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
-import useCart from '../hooks/useCart';
+export default function Checkout() {
+  const [dropdown1, setDropdown1] = useState(false);
+  const [dropdown2, setDropdown2] = useState(false);
+  const [dropdown3, setDropdown3] = useState(false);
+  const [changeText1, setChangeText1] = useState('City');
 
-const Checkout = () => {
-  const countries = ['South Africa'];
-  const [menu, setMenu] = useState(false);
-  const [country, setCountry] = useState('South Africa');
-
-  const { cart, removeItemFromCart, addCartQty, reduceCartQty, cartTotal } =
-    useCart();
-
-  const changeText = (e) => {
-    setMenu(false);
-    setCountry(e.target.textContent);
+  const HandleText1 = (e) => {
+    setChangeText1(e);
+    setDropdown1(false);
   };
+
   return (
     <div className="overflow-y-hidden">
-      <div className="hidden md:block absolute w-full h-full bg-black bg-opacity-60"></div>
-      <div className="relative left-0 right-0 lg:h-auto h-screen flex md:justify-end lg:flex-row flex-col md:w-11/12 lg:w-full md:ml-auto">
-        <div className="lg:w-7/12 lg:h-full md:h-auto h-auto">
-          <div className="bg-white h-auto lg:h-screen lg:px-10 p-6 lg:py-12">
-            <p>
-              <svg
-                className="inline"
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 1L1 5L5 9"
-                  stroke="#4B5563"
-                  strokeWidth="1.25"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="cursor-pointer text-gray-500 font-normal text-base leading-4 ml-2.5">
-                Back
-              </span>
-            </p>
-            <h3 className="font-semibold text-gray-800 lg:text-4xl text-3xl leading-7 lg:leading-9 mt-2">
-              Checkout
-            </h3>
-
-            <div className="mt-7 lg:mt-20">
-              <p className="font-normal text-sm leading-3 text-gray-600 mb-3">
-                Your details {'>'} shipping address
+      <div className="flex justify-center items-center 2xl:container 2xl:mx-auto lg:py-16 md:py-12 py-9 px-4 md:px-6 lg:px-20 xl:px-44 ">
+        <div className="flex w-full lg:w-full flex-col lg:flex-row justify-center items-center lg:space-x-10 2xl:space-x-36 space-y-12 lg:space-y-0">
+          <div className="flex w-full  flex-col justify-start items-start">
+            <div className>
+              <p className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
+                Checkout
               </p>
-              <h3 className="md:text-2xl md:leading-6 text-xl leading-5 text-gray-800 font-medium">
-                Shipping address
-              </h3>
+            </div>
+            <div className="mt-2">
+              <Link href="/cart">
+                <a className="text-base leading-4 underline  hover:text-gray-800 text-gray-600">
+                  Back to cart
+                </a>
+              </Link>
+            </div>
+            <div className="mt-12">
+              <p className="text-xl font-semibold leading-5 text-gray-800">
+                Shipping Details
+              </p>
+            </div>
+            <div className="mt-8 flex flex-col justify-start items-start w-full space-y-8 ">
+              <input
+                className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
+                type="text"
+                placeholder="First Name"
+              />
+              <input
+                className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
+                type="text"
+                placeholder="Last Name"
+              />
+              <input
+                className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
+                type="text"
+                placeholder="Street Address"
+              />
 
-              <form className="mt-8" action="" autoComplete="off">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+              <div className="flex justify-between flex-col sm:flex-row w-full items-start space-y-8 sm:space-y-0 sm:space-x-8">
+                <div className="w-full">
                   <input
-                    aria-label="country"
-                    required
-                    className="border-b-2 border-gray-300 pb-3 text-base text-gray-600 font-normal placeholder-gray-600 focus:outline-none"
+                    className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3   w-full"
                     type="text"
-                    name="Country"
-                    id="Country"
-                    placeholder="Country*"
-                  />
-                  <input
-                    aria-label="address"
-                    className="border-b-2 border-gray-300 pb-3 text-base text-gray-600 font-normal placeholder-gray-600 focus:outline-none"
-                    type="text"
-                    name="address"
-                    id="address"
-                    placeholder="Address"
-                  />
-                  <input
-                    aria-label="city"
-                    className="border-b-2 border-gray-300 pb-3 text-base text-gray-600 font-normal placeholder-gray-600 focus:outline-none"
-                    type="text"
-                    name="city"
-                    id="city"
                     placeholder="City"
                   />
+                </div>
+              </div>
+              <div className="flex justify-between flex-col sm:flex-row w-full items-start space-y-8 sm:space-y-0 sm:space-x-8">
+                <div className="w-full">
                   <input
-                    aria-label="ZipCode"
-                    className="border-b-2 border-gray-300 pb-3 text-base text-gray-600 font-normal placeholder-gray-600 focus:outline-none"
+                    className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3   w-full"
                     type="text"
-                    name="ZipCode"
-                    id="ZipCode"
+                    placeholder="Country"
+                  />
+                </div>
+
+                <div className="w-full">
+                  <input
+                    className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3   w-full"
+                    type="text"
                     placeholder="Zip Code"
                   />
-                  <input
-                    aria-label="State"
-                    className="border-b-2 border-gray-300 pb-3 text-base text-gray-600 font-normal placeholder-gray-600 focus:outline-none"
-                    type="text"
-                    name="State"
-                    id="State"
-                    placeholder="State/Province"
-                  />
-
-                  <div className="relative">
-                    <button
-                      id="changetext"
-                      className="text-left border-b-2 border-gray-300 py-3 w-full text-base font-normal placeholder-gray-600 text-gray-600 bg-white"
-                      type="email"
-                    >
-                      {country}
-                    </button>
-
-                    <svg
-                      onClick={() => setMenu(!menu)}
-                      className={
-                        'transform  cursor-pointer absolute top-4 right-4 ' +
-                        (menu ? 'rotate-180' : '')
-                      }
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 6L8 10L4 6"
-                        stroke="#6B7280"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-
-                    <div
-                      className={
-                        'mt-1 absolute z-10 w-full flex bg-white justify-start flex-col text-gray-600 ' +
-                        (menu ? 'block' : 'hidden')
-                      }
-                    >
-                      {countries.map((country) => (
-                        <div
-                          key={country}
-                          className="cursor-pointer hover:bg-gray-800 hover:text-white px-4 py-2"
-                          onClick={changeText}
-                        >
-                          {country}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <div className="lg:mt-14 mt-10 w-full flex flex-col justify-start items-start">
-                <p className="text-xl md:text-2xl font-medium leading-normal text-gray-800">
-                  Delivery options
-                </p>
-                <div className="flex md:w-full lg:w-auto justify-start items-start flex-col md:mt-8 mt-6 md:space-y-4 space-y-8">
-                  <div className="w-full flex md:flex-row flex-col lg:gap-x-16 md:justify-between">
-                    <div className="flex md:items-center items-start space-x-4">
-                      <div className="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative md:mt-0 mt-1">
-                        <input
-                          aria-labelledby="label2"
-                          type="radio"
-                          name="radio"
-                          className="checkbox appearance-none focus:opacity-100 focus:border-gray-400 border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none"
-                        />
-                        <div className="check-icon hidden border-4 border-gray-100 bg-gray-800 rounded-full w-full h-full z-1"></div>
-                      </div>
-                      <label
-                        id="label2"
-                        className="text-base leading-normal md:leading-4 text-gray-800 md:w-full w-3/5"
-                      >
-                        Standard shipping - 3 to 5 business days{' '}
-                      </label>
-                    </div>
-                    <p className="font-semibold md:font-medium text-base leading-4 md:mt-0 mt-2 ml-8">
-                      $0.00
-                    </p>
-                  </div>
-
-                  <div className="w-full flex md:flex-row flex-col lg:gap-x-16 md:justify-between">
-                    <div className="flex md:items-center items-start space-x-4">
-                      <div className="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative md:mt-0 mt-1">
-                        <input
-                          aria-labelledby="label2"
-                          type="radio"
-                          name="radio"
-                          className="checkbox appearance-none focus:opacity-100 focus:border-gray-400 border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none"
-                        />
-                        <div className="check-icon hidden border-4 border-gray-100 bg-gray-800 rounded-full w-full h-full z-1"></div>
-                      </div>
-                      <label
-                        id="label2"
-                        className="text-base leading-normal md:leading-4 text-gray-800 md:w-full w-3/5"
-                      >
-                        Express shipping - 1to 2 business days
-                      </label>
-                    </div>
-                    <p className="font-semibold md:font-medium text-base leading-4 md:m-0 mt-2 ml-8">
-                      $30.00
-                    </p>
-                  </div>
                 </div>
               </div>
+              <input
+                className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4   w-full"
+                type="text"
+                placeholder="Phone Number"
+              />
             </div>
-            <button className="focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 text-base leading-4 my-3 mt-10 w-full md:w-auto">
+            <button className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800">
               Proceed to payment
             </button>
-          </div>
-        </div>
-        <div className="lg:w-3/12 lg:h-full md:h-3/5 h-3/5 px-4 md:px-0 mb-8 md:mb-0">
-          <div className="flex flex-col justify-between h-full lg:h-screen p-4 md:p-6 xl:px-14 xl:py-20 bg-gray-100">
-            <div className="">
-              <div className="flex flex-1">
-                <h3 className="text-gray-800 font-semibold md:text-2xl text-xl md:leading-6 leading-5">
-                  Items
-                </h3>
-                <div className="flex-auto"></div>
-                <h5 className="text-gray-600 hover:text-gray-800 cursor-pointer text-base font-normal underline">
-                  Edit Cart
-                </h5>
-              </div>
-              {cart.map((item, i) => (
-                <div
-                  key={i}
-                  className="mt-7 flex flex-1 text-gray-800 text-lg font-normal"
-                >
-                  <p className="leading-4">{item.name}</p>
-                  <p className="flex-auto leading-4 text-right pr-4 md:pr-5 lg:pr-4">
-                    {item.qty}x
-                  </p>
-                  <p className="leading-4">R{item.price}</p>
-                </div>
-              ))}
+            <div className="mt-4 flex justify-start items-center w-full">
+              <a
+                href="javascript:void(0)"
+                className="text-base leading-4 underline focus:outline-none focus:text-gray-500  hover:text-gray-800 text-gray-600"
+              >
+                Back to my bag
+              </a>
             </div>
-            <div className="bg-gray-100 w-full text-lg font-medium text-gray-800 mt-20 md:mt-0">
-              <span
-                aria-label="Total"
-                className="float-left md:text-2xl text-xl md:leading-6 leading-5 text-gray-800 font-normal"
-              >
-                Total
-              </span>
-              <span
-                aria-label="Total Price"
-                className="float-right font-semibold text-gray-800 md:text-2xl text-xl md:leading-6 leading-5"
-              >
-                R{cartTotal}
-              </span>
-              <div className="clear-both"></div>
+          </div>
+          <div className="flex flex-col justify-start items-start bg-gray-50 w-full p-6 md:p-14">
+            <div>
+              <h1 className="text-2xl font-semibold leading-6 text-gray-800">
+                Order Summary
+              </h1>
+            </div>
+            <div className="flex mt-7 flex-col items-end w-full space-y-6">
+              <div className="flex justify-between w-full items-center">
+                <p className="text-lg leading-4 text-gray-600">Total items</p>
+                <p className="text-lg font-semibold leading-4 text-gray-600">
+                  20
+                </p>
+              </div>
+              <div className="flex justify-between w-full items-center">
+                <p className="text-lg leading-4 text-gray-600">Total Charges</p>
+                <p className="text-lg font-semibold leading-4 text-gray-600">
+                  $2790
+                </p>
+              </div>
+              <div className="flex justify-between w-full items-center">
+                <p className="text-lg leading-4 text-gray-600">
+                  Shipping charges
+                </p>
+                <p className="text-lg font-semibold leading-4 text-gray-600">
+                  $90
+                </p>
+              </div>
+              <div className="flex justify-between w-full items-center">
+                <p className="text-lg leading-4 text-gray-600">Sub total </p>
+                <p className="text-lg font-semibold leading-4 text-gray-600">
+                  R
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-between w-full items-center mt-32">
+              <p className="text-xl font-semibold leading-4 text-gray-800">
+                Estimated Total{' '}
+              </p>
+              <p className="text-lg font-semibold leading-4 text-gray-800">
+                $2900
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default Checkout;
+}
