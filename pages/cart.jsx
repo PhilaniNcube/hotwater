@@ -231,9 +231,11 @@ export default function Cart({}) {
                 R {cartTotal}
               </p>
             </div>
-            <button className="w-full mt-4 bg-gray-800 hover:bg-gray-900 text-base font-medium leading-none text-white py-5 lg:px-28 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
-              Check Out
-            </button>
+            <Link href="/checkout" passHref>
+              <button className="w-full mt-4 bg-gray-800 hover:bg-gray-900 text-base font-medium leading-none text-white py-5 lg:px-28 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                Check Out
+              </button>
+            </Link>
           </div>
         </div>
       </div>
