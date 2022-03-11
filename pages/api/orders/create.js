@@ -3,8 +3,6 @@ import CryptoJS from 'crypto-js';
 import axios from 'axios';
 import { supabase } from '../../../utils/supabase';
 
-var FormData = require('form-data');
-
 export default async function handler(req, res) {
   const {
     firstName,
