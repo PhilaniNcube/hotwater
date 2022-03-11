@@ -1,16 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
-import { supabase } from '../utils/supabase';
-import cookie from 'cookie';
 import useCart from '../hooks/useCart';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Cart({}) {
-  const [counter1, setCounter1] = useState(1);
-  const [counter2, setCounter2] = useState(1);
-
-  const { cart, removeItemFromCart, addCartQty, reduceCartQty } = useCart();
+  const { cart, removeItemFromCart, addCartQty, reduceCartQty, cartTotal } =
+    useCart();
 
   return (
     <div className="2xl:container 2xl:mx-auto">
@@ -45,8 +40,10 @@ export default function Cart({}) {
                     {item.name}
                   </h2>
                   <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
-                    If you are going to use a passage of Lorem Ipsum,you need to
-                    be sure there isnot anything.
+                    Brand:{item.brand_id.name}
+                  </p>
+                  <p className="text-sm leading-tight text-gray-600 ">
+                    Flow Rate:{item.flowRate}l/min
                   </p>
                   <div className="mt-8 flex space-x-6 items-center">
                     <a
@@ -166,9 +163,11 @@ export default function Cart({}) {
                     </button>
                   </div>
                 </div>
-                <p className="mt-4 w-11/12text-sm leading-tight text-gray-600">
-                  If you are going to use a passage of Lorem Ipsum,you need to
-                  be sure there is not anything.
+                <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
+                  Brand:{item.brand_id.name}
+                </p>
+                <p className="text-sm leading-tight text-gray-600 ">
+                  Flow Rate:{item.flowRate}l/min
                 </p>
                 <div className="mt-8 flex space-x-6 items-center">
                   <a
@@ -228,11 +227,15 @@ export default function Cart({}) {
           <div className="w-full md:w-9/12 lg:w-auto">
             <div className="flex items-center justify-between">
               <h3 className="text-2xl text-gray-800">Total</h3>
-              <p className="text-2xl font-semibold text-gray-800">$2790</p>
+              <p className="text-2xl font-semibold text-gray-800">
+                R {cartTotal}
+              </p>
             </div>
-            <button className="w-full mt-4 bg-gray-800 hover:bg-gray-900 text-base font-medium leading-none text-white py-5 lg:px-28 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
-              Check Out
-            </button>
+            <Link href="/checkout" passHref>
+              <button className="w-full mt-4 bg-gray-800 hover:bg-gray-900 text-base font-medium leading-none text-white py-5 lg:px-28 focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                Check Out
+              </button>
+            </Link>
           </div>
         </div>
       </div>

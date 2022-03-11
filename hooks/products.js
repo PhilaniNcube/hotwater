@@ -13,6 +13,7 @@ export function useProducts(flowRate, data) {
           .from('products')
           .select(`*, brand_id( name)`)
           .gte('flowRate', `${parseInt(flowRate)}`)
+          .eq('inStock', true)
           .order('flowRate', { ascending: false });
 
         return { products, error };

@@ -7,94 +7,6 @@ import { supabase } from '../../utils/supabase';
 
 const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
-  const { user } = useUser();
-  const router = useRouter();
-
-  const {
-    children,
-    teenagers,
-    adults,
-    houseType,
-    ownership,
-    gasSupply,
-    gasStove,
-    gasWaterHeating,
-    gasHeating,
-    otherGasUse,
-    locateOutside,
-    gasGeyser,
-    electricGeyser,
-    solarGeyser,
-    otherGeyser,
-    standardShower,
-    rainShower,
-    bathtub,
-    sink,
-    dishwasher,
-    washingmachine,
-    flowRate,
-    offGrid,
-    firstName,
-    lastName,
-    email,
-    streetAddress,
-    city,
-    telephoneNumber,
-    completeSolution,
-  } = quoteInfo;
-
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation(() =>
-    supabase.from('quotes').insert([
-      {
-        children: children,
-        teenagers: teenagers,
-        adults: adults,
-        houseType: houseType,
-        ownership: ownership,
-        gasSupply: gasSupply,
-        gasStove: gasStove,
-        gasWaterHeating: gasWaterHeating,
-        gasHeating: gasHeating,
-        otherGasUse: otherGasUse,
-        locateOutside: locateOutside,
-        gasGeyser: gasGeyser,
-        electricGeyser: electricGeyser,
-        solarGeyser: solarGeyser,
-        otherGeyser: otherGeyser,
-        standardShower: standardShower,
-        rainShower: rainShower,
-        bathtub: bathtub,
-        sink: sink,
-        dishwasher: dishwasher,
-        washingmachine: washingmachine,
-        flowRate: flowRate,
-        offGrid: offGrid,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        streetAddress: streetAddress,
-        city: city,
-        telephoneNumber: telephoneNumber,
-        completeSolution: completeSolution,
-      },
-    ]),
-  );
-
-  const handleSubmit = async () => {
-    try {
-      const quote = await mutation.mutateAsync();
-      queryClient.setQueryData('quote', quote.data[0]);
-      console.log('quote', quote);
-
-      if (quote?.data[0]) {
-        router.push(`/catalogue?flowRate=${quoteInfo.flowRate}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12">
@@ -205,13 +117,31 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </label>
             <input
               type="text"
-              name="streetAddress"
+              name="city"
               className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
               value={quoteInfo.city}
               onChange={(e) =>
                 setQuoteInfo({
                   ...quoteInfo,
                   city: e.target.value,
+                })
+              }
+            />
+          </div>
+
+          <div className="flex flex-col w-full">
+            <label className="text-md font-bold" htmlFor="postalCode">
+              Postal Code
+            </label>
+            <input
+              type="text"
+              name="postalCode"
+              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              value={quoteInfo.postalCode}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  postalCode: e.target.value,
                 })
               }
             />
@@ -236,11 +166,10 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </svg>
 
         <button
-          onClick={handleSubmit}
-          disabled={mutation.isLoading}
+          onClick={nextPage}
           className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
         >
-          {mutation.isLoading ? 'Loading...' : 'Save'}
+          Continue
         </button>
       </div>
     </div>

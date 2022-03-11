@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Savings from '../components/Stats/Savings';
 
 const savings = () => {
-  return <div>savings</div>;
+  return (
+    <Fragment>
+      <Savings />
+    </Fragment>
+  );
 };
 
 export default savings;

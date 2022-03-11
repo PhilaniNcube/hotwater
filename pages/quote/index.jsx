@@ -16,6 +16,7 @@ import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
+import Step11 from '../../components/QuoteSteps/Step11';
 
 const index = () => {
   const [page, setPage] = useState(1);
@@ -52,12 +53,13 @@ const index = () => {
     streetAddress: '',
     city: '',
     telephoneNumber: '',
+    postalCode: '',
     completeSolution: null,
     product_id: null,
   });
 
   const nextPage = () => {
-    if (page === 12) return;
+    if (page === 13) return;
     setPage((page) => page + 1);
   };
   const prevPage = () => {
@@ -168,6 +170,16 @@ const index = () => {
       )}
 
       {page === 11 && (
+        <Step11
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+
+      {page === 12 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
