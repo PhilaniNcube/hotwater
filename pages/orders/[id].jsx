@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import cookie from 'cookie';
+import { supabase } from '../../utils/supabase';
 
-const OrderSummary = () => {
+const OrderSummary = ({ order }) => {
   return (
     <div className="py-14 lg:px-20 md:px-6 px-4  px 2xl:container 2xl:mx-auto ">
       <div className="flex justify-center md:jusitfy-start items-center md:items-start w-full flex-col space-y-4">
@@ -176,3 +178,22 @@ const OrderSummary = () => {
 };
 
 export default OrderSummary;
+
+export async function getServerSideProps({ req, params: { id } }) {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+  const token = cookie.parse(req.headers.cookie)['sb:token'];
+
+  supabase.auth.session = () => ({ access_token: token });
+
+  let { data: orders, error } = await supabase
+    .from('orders')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  return {
+    props: {
+      order: orders,
+    },
+  };
+}
