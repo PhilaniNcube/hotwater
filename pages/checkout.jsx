@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import useCart from '../hooks/useCart';
 export default function Checkout() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -7,6 +8,8 @@ export default function Checkout() {
   const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
+
+  const { cart, cartTotal } = useCart();
 
   return (
     <div className="overflow-y-hidden">
@@ -74,8 +77,10 @@ export default function Checkout() {
               <div className="flex justify-between flex-col sm:flex-row w-full items-start space-y-8 sm:space-y-0 sm:space-x-8">
                 <div className="w-full">
                   <input
-                    className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3   w-full"
+                    className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3 w-full"
                     type="text"
+                    value={postalCode}
+                    onChange={(e) => setPostalCode(e.target.value)}
                     placeholder="Postal Code"
                   />
                 </div>
@@ -90,12 +95,11 @@ export default function Checkout() {
               Proceed to payment
             </button>
             <div className="mt-4 flex justify-start items-center w-full">
-              <a
-                href="javascript:void(0)"
-                className="text-base leading-4 underline focus:outline-none focus:text-gray-500  hover:text-gray-800 text-gray-600"
-              >
-                Back to my bag
-              </a>
+              <Link href="/cart">
+                <a className="text-base leading-4 underline focus:outline-none focus:text-gray-500  hover:text-gray-800 text-gray-600">
+                  Back to cart
+                </a>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col justify-start items-start bg-gray-50 w-full p-6 md:p-14">
@@ -108,13 +112,13 @@ export default function Checkout() {
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Total items</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  20
+                  {cart.length}
                 </p>
               </div>
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Total Charges</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  $2790
+                  R {cartTotal}
                 </p>
               </div>
               <div className="flex justify-between w-full items-center">
@@ -122,22 +126,16 @@ export default function Checkout() {
                   Shipping charges
                 </p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  $90
-                </p>
-              </div>
-              <div className="flex justify-between w-full items-center">
-                <p className="text-lg leading-4 text-gray-600">Sub total </p>
-                <p className="text-lg font-semibold leading-4 text-gray-600">
-                  R
+                  R 200
                 </p>
               </div>
             </div>
             <div className="flex justify-between w-full items-center mt-32">
               <p className="text-xl font-semibold leading-4 text-gray-800">
-                Estimated Total{' '}
+                Total{' '}
               </p>
               <p className="text-lg font-semibold leading-4 text-gray-800">
-                $2900
+                R {cartTotal + 200}
               </p>
             </div>
           </div>
