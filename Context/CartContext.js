@@ -77,11 +77,11 @@ const CartProvider = ({ children }) => {
 
   const exposed = {
     cart,
+    cartTotal,
     addToCart,
     removeItemFromCart,
     addCartQty,
     reduceCartQty,
-    cartTotal,
   };
 
   return (
