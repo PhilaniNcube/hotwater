@@ -40,6 +40,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     streetAddress,
     city,
     telephoneNumber,
+    postalCode,
     completeSolution,
   } = quoteInfo;
 
@@ -77,6 +78,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         streetAddress: streetAddress,
         city: city,
         telephoneNumber: telephoneNumber,
+        postalCode: postalCode,
         completeSolution: completeSolution,
       },
     ]),
@@ -205,13 +207,31 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </label>
             <input
               type="text"
-              name="streetAddress"
+              name="city"
               className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
               value={quoteInfo.city}
               onChange={(e) =>
                 setQuoteInfo({
                   ...quoteInfo,
                   city: e.target.value,
+                })
+              }
+            />
+          </div>
+
+          <div className="flex flex-col w-full">
+            <label className="text-md font-bold" htmlFor="postalCode">
+              Postal Code
+            </label>
+            <input
+              type="text"
+              name="postalCode"
+              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              value={quoteInfo.postalCode}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  postalCode: e.target.value,
                 })
               }
             />

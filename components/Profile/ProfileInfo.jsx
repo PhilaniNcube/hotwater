@@ -173,7 +173,6 @@ const ProfileInfo = ({ profile }) => {
           </div>
         </form>
       </div>
-      ;
     </div>
   );
 };

@@ -2,9 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment, useState } from 'react';
 import { useUser } from '../../Context/AuthContext';
+import useCart from '../../hooks/useCart';
 
 export default function ProductDetail({ product }) {
   const { user } = useUser();
+
+  const { addToCart } = useCart();
 
   return (
     <Fragment>
@@ -50,7 +53,10 @@ export default function ProductDetail({ product }) {
                     </button>
                   </Link>
                 ) : (
-                  <button className="bg-gray-800 h-10 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-800 text-base leading-none text-white py-3 w-full px-2">
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="bg-gray-800 h-10 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-800 text-base leading-none text-white py-3 w-full px-2"
+                  >
                     Add to cart
                   </button>
                 )}

@@ -32,10 +32,7 @@ export async function getServerSideProps({ req }) {
 
   let { data: quotes, error } = await supabase.from('quotes').select('*');
 
-  let { data: profile } = await supabase
-    .from('profile')
-    .select('*')
-    .single();
+  let { data: profile } = await supabase.from('profile').select('*').single();
 
   return {
     props: {

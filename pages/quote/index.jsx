@@ -52,6 +52,7 @@ const index = () => {
     streetAddress: '',
     city: '',
     telephoneNumber: '',
+    postalCode: '',
     completeSolution: null,
     product_id: null,
   });
