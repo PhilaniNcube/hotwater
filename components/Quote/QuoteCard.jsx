@@ -38,6 +38,10 @@ function Index({ quote }) {
                   {`Phone Number: ${quote.telephoneNumber}`}
                 </p>
 
+                <p className="text-gray-600  text-sm font-normal">
+                  {`Postal Code: ${quote.postalCode}`}
+                </p>
+
                 {!!quote.product_id && (
                   <div className="my-4 p-4 bg-sky-700 rounded">
                     <h3 className="text-gray-50 text-md">Selected Geyser</h3>
@@ -61,20 +65,16 @@ function Index({ quote }) {
                     <h3>Installation Cost</h3>
                   </div>
                   <div className="grid grid-cols-2 bg-gray-100 px-2 py-3">
-                    <p className="text-sm font-medium">20l/min Eco Max</p>
-                    <p className="text-sm font-medium">R12 250</p>
+                    <p className="text-xs font-medium">11-16l/min</p>
+                    <p className="text-xs font-medium">R2500 - R4600</p>
                   </div>
                   <div className="grid grid-cols-2 bg-gray-100 px-2 py-3">
-                    <p className="text-sm font-medium">26l/min Eco Max</p>
-                    <p className="text-sm font-medium">R13 450</p>
+                    <p className="text-xs font-medium">20l/min</p>
+                    <p className="text-xs font-medium">R3500 - R6000</p>
                   </div>
                   <div className="grid grid-cols-2 bg-gray-100 px-2 py-3">
-                    <p className="text-sm font-medium">20l/min Rinnai</p>
-                    <p className="text-sm font-medium">R11 850</p>
-                  </div>
-                  <div className="grid grid-cols-2 bg-gray-100 px-2 py-3">
-                    <p className="text-sm font-medium">26l/min Rinnai</p>
-                    <p className="text-sm font-medium">R13 229</p>
+                    <p className="text-xs font-medium">24-26l/min</p>
+                    <p className="text-xs font-medium">R7000 - R9000</p>
                   </div>
                 </div>
               </div>
@@ -244,6 +244,44 @@ function Index({ quote }) {
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.gasHeating ? 'Yes' : 'No'}
+                    </p>
+                  </div>
+                </div>
+
+                <h3 className="text-gray-600 font-bold text-lg mt-8">
+                  Current Geyser:
+                </h3>
+                <div className="flex items-center justify-between py-4 border-t-2 border-gray-200">
+                  <div>
+                    <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
+                      Electric
+                    </h2>
+                    <p className="text-gray-800 text-sm leading-5 text-center">
+                      {quote.electricGeyser ? 'Yes' : 'No'}
+                    </p>
+                  </div>
+                  <div>
+                    <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
+                      Solar
+                    </h2>
+                    <p className="text-gray-800 text-sm leading-5 text-center">
+                      {quote.solarGeyser ? 'Yes' : 'No'}
+                    </p>
+                  </div>
+                  <div>
+                    <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
+                      Gas
+                    </h2>
+                    <p className="text-gray-800 text-sm leading-5 text-center">
+                      {quote.gasGeyser ? 'Yes' : 'No'}
+                    </p>
+                  </div>
+                  <div>
+                    <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
+                      Other
+                    </h2>
+                    <p className="text-gray-800 text-sm leading-5 text-center">
+                      {quote.otherGeyser ? 'Yes' : 'No'}
                     </p>
                   </div>
                 </div>

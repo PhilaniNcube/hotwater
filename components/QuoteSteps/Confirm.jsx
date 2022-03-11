@@ -29,16 +29,6 @@ export default function Confirm({
           </p>
         </div>
       </div>
-      <div className="flex justify-center">
-        <Link
-          href={`/profile/quote/${quote.id}?flowRate=${quoteInfo.flowRate}`}
-          passHref
-        >
-          <button className="bg-sky-500 hover:bg-sky-600 mt-4 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow">
-            View Quote Info
-          </button>
-        </Link>
-      </div>
     </div>
   );
 }

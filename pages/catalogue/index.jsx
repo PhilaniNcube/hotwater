@@ -44,13 +44,14 @@ const Catalogue = ({ data, error, flow }) => {
 
 export default Catalogue;
 
-export async function getServerSideProps({ query: { flowRate = 16 } }) {
+export async function getServerSideProps({ query: { flowRate = 6 } }) {
   const flow = Math.ceil(parseFloat(flowRate));
 
   let { data: products, error } = await supabase
     .from('products')
     .select(`*, brand_id( name)`)
-    .gte('flowRate', `${flow}`);
+    .gte('flowRate', `${flow}`)
+    .eq('inStock', true);
 
   return {
     props: {

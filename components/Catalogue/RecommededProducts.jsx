@@ -18,7 +18,7 @@ export default function RecommendedProducts({ products, quote }) {
     <div className>
       <div className="flex justify-center items-start px-4 md:px-6 xl:px-20 py-12 flex-col">
         <h1 className="text-xl md:text-2xl xl:text-4xl font-semibold leading-5 md:leading-6 lg:leading-9 text-gray-800">
-          Add One of these recommended geysers to your quote
+          Add one of these recommended geysers to your quote
         </h1>
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
           {products.map((product) => (
