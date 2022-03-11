@@ -1,5 +1,5 @@
-import { supabase } from '../../utils/supabase';
 import cookie from 'cookie';
+import { supabase } from '../../../utils/supabase';
 
 export default async function handler(req, res) {
   const {
