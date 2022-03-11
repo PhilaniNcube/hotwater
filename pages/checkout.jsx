@@ -1,15 +1,12 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 export default function Checkout() {
-  const [dropdown1, setDropdown1] = useState(false);
-  const [dropdown2, setDropdown2] = useState(false);
-  const [dropdown3, setDropdown3] = useState(false);
-  const [changeText1, setChangeText1] = useState('City');
-
-  const HandleText1 = (e) => {
-    setChangeText1(e);
-    setDropdown1(false);
-  };
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [streetAddress, setStreetAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [city, setCity] = useState('');
+  const [postalCode, setPostalCode] = useState('');
 
   return (
     <div className="overflow-y-hidden">
@@ -37,16 +34,29 @@ export default function Checkout() {
               <input
                 className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
                 type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 placeholder="First Name"
               />
               <input
                 className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
                 type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 placeholder="Last Name"
               />
               <input
                 className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+              />
+              <input
+                className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
                 type="text"
+                value={streetAddress}
+                onChange={(e) => setStreetAddress(e.target.value)}
                 placeholder="Street Address"
               />
 
@@ -55,6 +65,8 @@ export default function Checkout() {
                   <input
                     className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3   w-full"
                     type="text"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
                     placeholder="City"
                   />
                 </div>
@@ -64,15 +76,7 @@ export default function Checkout() {
                   <input
                     className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3   w-full"
                     type="text"
-                    placeholder="Country"
-                  />
-                </div>
-
-                <div className="w-full">
-                  <input
-                    className="focus:outline-none focus:ring-2 focus:ring-gray-500 px-2 border-b border-gray-200 leading-4 text-base placeholder-gray-600 pt-4 pb-3   w-full"
-                    type="text"
-                    placeholder="Zip Code"
+                    placeholder="Postal Code"
                   />
                 </div>
               </div>
