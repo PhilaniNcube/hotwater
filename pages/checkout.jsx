@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { useUser } from '../Context/AuthContext';
 import useCart from '../hooks/useCart';
 export default function Checkout() {
+  const { user } = useUser();
+
+  console.log('checkout', user);
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
@@ -43,6 +48,7 @@ export default function Checkout() {
         cartTotal,
         shipping,
         orderTotal: cartTotal + shipping,
+        user_id: user.id,
       }),
     });
 

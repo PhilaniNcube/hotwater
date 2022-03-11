@@ -48,9 +48,9 @@ export default async function handler(req, res) {
   const day = tempDay.toUTCString();
 
   const check = {
-    PAYGATE_ID: process.env.PAYGATE_ID,
-    REFERENCE: data.id,
-    AMOUNT: orderTotal * 100,
+    PAYGATE_ID: '10011072130',
+    REFERENCE: `${data.id}`,
+    AMOUNT: Number(orderTotal * 100),
     CURRENCY: 'ZAR',
     RETURN_URL: `https://hotwater24.com/orders/${data.id}`,
     TRANSACTION_DATE: day,
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
   const formdata = new FormData();
   formdata.append('PAYGATE_ID', '10011072130');
   formdata.append('REFERENCE', `${data.id}`);
-  formdata.append('AMOUNT', `${orderTotal * 100}`);
+  formdata.append('AMOUNT', Number(orderTotal * 100));
   formdata.append('CURRENCY', 'ZAR');
   formdata.append('RETURN_URL', `https://hotwater24.com/orders/${data.id}`);
   formdata.append('TRANSACTION_DATE', day);
@@ -83,7 +83,7 @@ export default async function handler(req, res) {
     redirect: 'follow',
   };
 
-  const payRes = await fetch(
+  const payRes = await axios(
     'https://secure.paygate.co.za/payweb3/initiate.trans',
     requestOptions,
   )
@@ -95,4 +95,6 @@ export default async function handler(req, res) {
       return arr;
     })
     .catch((error) => res.status(400).json({ error: error }));
+
+  console.log(payRes);
 }
