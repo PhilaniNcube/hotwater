@@ -35,3 +35,25 @@ export function useProducts(flowRate, data) {
     productsError: query.isError,
   };
 }
+
+export function useCartProducts() {
+  const query = useQuery(PRODUCTS_QUERY_KEY, async () => {
+    try {
+      let { data: products, error } = await supabase
+        .from('products')
+        .select(`*, brand_id( name)`);
+
+      return { products, error };
+    } catch (error) {
+      // not signed in
+      return undefined;
+    }
+  });
+
+  return {
+    products: query.data,
+    productsIsLoading: query.isLoading,
+    productsFetching: query.isFetching,
+    productsError: query.isError,
+  };
+}

@@ -2,10 +2,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
+import useCart from '../../hooks/useCart';
 
 const CatalogueGrid = ({ products }) => {
   const router = useRouter();
+
+  const { addToCart } = useCart();
 
   return (
     <div className="max-w-6xl mx-auto my-4">
@@ -80,11 +83,14 @@ const CatalogueGrid = ({ products }) => {
                 {`R ${product.price}`}
               </p>
               <div className="flex cursor-pointer py-4">
-                <Link href={`/catalogue/${product.id}`} passHref>
-                  <button className="text-md font-bold leading-1 bg-sky-700 text-white py-1 px-4 rounded">
-                    View Geyser
-                  </button>
-                </Link>
+                <button
+                  onClick={() => {
+                    addToCart(product);
+                  }}
+                  className="text-md font-bold leading-1 bg-sky-700 text-white py-1 px-4 rounded"
+                >
+                  Add To Cart
+                </button>
               </div>
             </div>
           </div>

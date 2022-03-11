@@ -2,14 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment, useState } from 'react';
 import { useUser } from '../../Context/AuthContext';
-import { useCart } from '../../Context/CartContext';
 
 export default function ProductDetail({ product }) {
   const { user } = useUser();
-
-  const { cart } = useCart();
-
-  console.log(cart);
 
   return (
     <Fragment>
@@ -46,7 +41,7 @@ export default function ProductDetail({ product }) {
               </p>
             </div>
 
-            <div className="lg:flex items-start justify-between mt-12">
+            <div className="lg:flex items-start justify-between my-8">
               <div className="w-full lg:mt-0 mt-4">
                 {!user ? (
                   <Link href="/signin" passHref>

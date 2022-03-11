@@ -11,17 +11,6 @@ import Head from 'next/head';
 const Catalogue = ({ data, error, flow }) => {
   const router = useRouter();
 
-  const { products, productsIsLoading, productsFetching, productsError } =
-    useProducts(flow, data);
-
-  console.log({
-    productsFetching,
-    products,
-    productsIsLoading,
-    productsError,
-    flow,
-  });
-
   return (
     <Fragment>
       <Head>
