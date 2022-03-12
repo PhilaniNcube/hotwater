@@ -38,9 +38,13 @@ export async function getServerSideProps({ req }) {
     };
   }
 
-  console.log(req.payload);
+  console.log(req);
 
-  return {
-    props: { paymentResult: req.payload },
-  };
+  if (req.method === 'POST') {
+    return {
+      props: {
+        paymentResult: req,
+      },
+    };
+  }
 }
