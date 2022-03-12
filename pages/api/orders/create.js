@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     REFERENCE: `${data.id}`,
     AMOUNT: Number(orderTotal * 100),
     CURRENCY: 'ZAR',
-    RETURN_URL: `http://hotwater24.com/orders/payment`,
+    RETURN_URL: `https://hotwater24.com/orders/payment`,
     TRANSACTION_DATE: day,
     LOCALE: 'en-za',
     COUNTRY: 'ZAF',
@@ -70,7 +70,7 @@ export default async function handler(req, res) {
   formdata.append('REFERENCE', `${data.id}`);
   formdata.append('AMOUNT', Number(orderTotal * 100));
   formdata.append('CURRENCY', 'ZAR');
-  formdata.append('RETURN_URL', `http://hotwater24.com/orders/payment`);
+  formdata.append('RETURN_URL', `https://hotwater24.com/orders/payment`);
   formdata.append('TRANSACTION_DATE', day);
   formdata.append('LOCALE', 'en-za');
   formdata.append('COUNTRY', 'ZAF');

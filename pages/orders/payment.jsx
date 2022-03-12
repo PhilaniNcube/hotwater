@@ -30,7 +30,6 @@ const Payment = ({ paymentResult }) => {
 export default Payment;
 
 export async function getServerSideProps({ req }) {
-  console.log(req.method);
   if (req.method !== 'POST') {
     return {
       props: {
@@ -39,7 +38,9 @@ export async function getServerSideProps({ req }) {
     };
   }
 
+  console.log(req.payload);
+
   return {
-    props: { paymentResult: req },
+    props: { paymentResult: req.payload },
   };
 }
