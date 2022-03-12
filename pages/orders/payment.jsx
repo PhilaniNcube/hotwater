@@ -40,6 +40,6 @@ export async function getServerSideProps({ req }) {
   }
 
   return {
-    props: { paymentResult: req.body },
+    props: { paymentResult: req },
   };
 }
