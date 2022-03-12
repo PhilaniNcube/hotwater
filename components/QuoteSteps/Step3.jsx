@@ -44,6 +44,13 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           <p className="text-lg text-center text-sky-500 font-bold">
             I am renting
           </p>
+
+          {quoteInfo.ownership === false && (
+            <p className="text-xs absolute bottom-2 left-2 px-2 text-red-500 leading-3">
+              Please be aware that you need permission from the property owner
+              before you decide to install a gas geyser.
+            </p>
+          )}
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"

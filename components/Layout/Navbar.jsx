@@ -123,7 +123,7 @@ const Navbar = () => {
             </Link>
             <Link href="/why-us">
               <a className="text-sm md:text-md focus:text-sky-600 px-6">
-                Why Us
+                Why Choose Us
               </a>
             </Link>
             <Link href="/our-approach">
@@ -204,7 +204,7 @@ const Navbar = () => {
                   onClick={() => setShow(false)}
                   className="text-white font-medium text-md py-2"
                 >
-                  Why Us
+                  Why Choose Us
                 </a>
               </Link>
               <Link href="/who-we-are" passHref>

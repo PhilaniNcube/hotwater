@@ -28,22 +28,9 @@ function Index({ quote }) {
                     </p>
                   </div>
                 </div>
-                <h3 className="text-lg text-gray-800 font-bold mt-5 mb-1">
-                  Address:
-                </h3>
-                <p className="text-gray-600  text-sm font-normal">
-                  {`Street Address: ${quote.streetAddress}`}
-                </p>
-                <p className="text-gray-600  text-sm font-normal">
-                  {`Phone Number: ${quote.telephoneNumber}`}
-                </p>
-
-                <p className="text-gray-600  text-sm font-normal">
-                  {`Postal Code: ${quote.postalCode}`}
-                </p>
 
                 <div className="mt-4">
-                  <div className="grid grid-cols-2 bg-gray-200 px-2 py-3 rounded-t-lg">
+                  <div className="grid grid-cols-2 bg-sky-500 text-white px-2 py-3 rounded-t-lg">
                     <h3>Geyser</h3>
                     <h3>Installation Cost</h3>
                   </div>
@@ -60,14 +47,43 @@ function Index({ quote }) {
                     <p className="text-xs font-medium">R7000 - R9000</p>
                   </div>
                 </div>
-              </div>
-              <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 sm:border-l sm:border-r border-gray-300">
-                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
-                  <div className="text-xs text-center w-full bg-sky-100 text-sky-700  rounded font-medium p-3 lg:mr-3">
-                    Quote Date: {new Date(quote.created_at).toDateString()}
+
+                <div className="mt-4">
+                  <h4 className="text-lg">Installation</h4>
+                  <div className="bg-red-500 text-white rounded mt-1 p-2">
+                    <p className="text-xs">
+                      For safety and quality purposes of the installation work
+                      performed. We highly recommend you to only work with
+                      certified installers that are registered with the LPGas
+                      Association of South Africa.
+                    </p>
+                    <p className="text-xs">
+                      Our network of certified installers will offer you the
+                      best guaranteed service for all your installation needs.
+                    </p>
+                    <p className="text-xs">
+                      It is typical for a Gas Geyser installation to have a UPS
+                      as well. The price for a UPS is between R2500 – R4500 and
+                      a water-resistant cover costs about R500.
+                    </p>
                   </div>
                 </div>
-                <div className="mt-6 mb-8 w-full bg-gray-100 rounded p-4 relative">
+              </div>
+              <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 sm:border-l sm:border-r border-gray-300">
+                <h3 className="text-lg text-gray-800 font-bold mt-1 mb-1">
+                  Address:
+                </h3>
+                <p className="text-gray-600  text-sm font-normal">
+                  {`Street Address: ${quote.streetAddress}`}
+                </p>
+                <p className="text-gray-600  text-sm font-normal">
+                  {`Phone Number: ${quote.telephoneNumber}`}
+                </p>
+
+                <p className="text-gray-600  text-sm font-normal">
+                  {`Postal Code: ${quote.postalCode}`}
+                </p>
+                <div className="mt-2 mb-2 w-full bg-gray-100 rounded p-4 relative">
                   <ul>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Home Ownership -{' '}
@@ -95,14 +111,14 @@ function Index({ quote }) {
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal my-4">
-                      Interested In Off Grid Solution -{' '}
+                      Off Grid Solution -{' '}
                       <span className="uppercase font-bold">
                         {quote.offGrid ? 'Yes' : 'No'}
                       </span>
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal my-4">
-                      Can the Geyser Be located on an outside wall -{' '}
+                      Geyser on outside wall -{' '}
                       <span className="uppercase font-bold">
                         {quote.locateOutside ? 'Yes' : 'No'}
                       </span>
@@ -137,7 +153,7 @@ function Index({ quote }) {
                 </div>
               </div>
               <div className="w-full  lg:w-1/3 p-6">
-                <div className="mb-4 flex items-center justify-between">
+                <div className="mb-2 flex items-center justify-between">
                   <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                     Bathubs
                   </p>
@@ -146,7 +162,7 @@ function Index({ quote }) {
                   </p>
                 </div>
 
-                <div className="mb-4 flex items-center justify-between">
+                <div className="mb-2 flex items-center justify-between">
                   <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                     Dishwashers
                   </p>
@@ -155,7 +171,7 @@ function Index({ quote }) {
                   </p>
                 </div>
 
-                <div className="mb-4 flex items-center justify-between">
+                <div className="mb-2 flex items-center justify-between">
                   <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                     Rain Showers
                   </p>
@@ -164,7 +180,7 @@ function Index({ quote }) {
                   </p>
                 </div>
 
-                <div className="mb-4 flex items-center justify-between">
+                <div className="mb-2 flex items-center justify-between">
                   <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                     Sinks
                   </p>
@@ -172,7 +188,7 @@ function Index({ quote }) {
                     {quote.sink}
                   </p>
                 </div>
-                <div className="mb-4 flex items-center justify-between">
+                <div className="mb-2 flex items-center justify-between">
                   <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                     Standard Showers
                   </p>
@@ -180,7 +196,7 @@ function Index({ quote }) {
                     {quote.standardShower}
                   </p>
                 </div>
-                <div className="mb-4 flex items-center justify-between">
+                <div className="mb-2 flex items-center justify-between">
                   <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                     Washing Machine
                   </p>

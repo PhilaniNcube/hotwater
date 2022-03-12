@@ -56,7 +56,7 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                   <img
                     className="h-[200px] w-[200px] md:w-[300px] md:h-[300px]"
                     alt=""
-                    src="/images/icons/wallmount.svg"
+                    src="/images/icons/geyser.svg"
                   />
                 </div>
               </div>

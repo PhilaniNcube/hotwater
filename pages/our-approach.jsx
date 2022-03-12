@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 
 export default function MyApp() {
@@ -17,9 +19,9 @@ export default function MyApp() {
           content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
         />
       </Head>
-      <div className="py-12 2xl:px-20 px-6 xl:mx-auto xl:container">
+      <div className="py-12 2xl:px-20 px-6 max-w-6xl mx-auto">
         <div className="md:flex items-center justify-between">
-          <div className="xl:w-5/12 md:w-1/2 xl:pr-16 md:pr-8">
+          <div className="xl:w-6/12 md:w-1/2 xl:pr-8 md:pr-4">
             <h1
               role="heading"
               className="lg:text-5xl text-3xl font-bold leading-tight text-gray-800"
@@ -45,17 +47,21 @@ export default function MyApp() {
               Please click on the button below to check out your potential
               monthly saving on your energy bill!
             </p>
-            <button
-              role="button"
-              aria-label="explore more"
-              className="sm:w-auto w-full mt-10 text-base font-medium leading-none text-white bg-sky-700 rounded md:p-4 p-6 focus:ring-2 focus:ring-offset-2 focus:ring-sky-700 hover:bg-sky-600 focus:outline-none"
-            >
-              Potential Savings
-            </button>
+            <Link href="/savings" passHref>
+              <button
+                role="button"
+                aria-label="explore more"
+                className="sm:w-auto w-full mt-10 text-base font-medium leading-none text-white bg-sky-700 rounded md:p-4 p-6 focus:ring-2 focus:ring-offset-2 focus:ring-sky-700 hover:bg-sky-600 focus:outline-none"
+              >
+                Potential Savings
+              </button>
+            </Link>
           </div>
           <div className="xl:w-2/5 md:w-1/2 w-full md:mt-0 mt-4">
-            <img
-              src="https://i.ibb.co/wNG9Nk1/pexels-fauxels-3183166-1.png"
+            <Image
+              width={1920}
+              height={1280}
+              src="/images/sink.jpg"
               alt="woman working"
               className="md:w-auto w-full"
             />
@@ -109,6 +115,12 @@ export default function MyApp() {
             </p>
           </div>
         </div>
+
+        <Link href="/quote/start" passHref>
+          <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-8 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+            Find Your Fit
+          </button>
+        </Link>
       </div>
     </div>
   );

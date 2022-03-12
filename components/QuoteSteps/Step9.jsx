@@ -12,26 +12,31 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <div className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Full Off The Grid Solution
+        Total Off The Grid Solution
       </h1>
-
-      <p className="py-3 text-center">
-        We also offer total off-the-grid solutions! Combining solar and gas for
-        your total off-the-grid solution is the least expensive solution that
-        will take your property completely off the grid and independent from
-        Eskom.
-      </p>
-
-      <p className="py-3 text-center">
-        By looking together at your monthly saving potential on your electricity
-        bill and the investment needed to become total -off-the-grid, we can
-        assist you with a financing solution.
-      </p>
-
-      <p className="py-3 text-center">
-        Do you wish to receive extra information regarding a total off-the-grid
-        solution?
-      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 text-sm text-gray-600 px-4 md:px-0 mt-4">
+        <div className="">
+          <p className="py-3 md:py-0 text-center">
+            We also offer total off-the-grid solutions! Combining solar and gas
+            for your total off-the-grid solution is the least expensive solution
+            that will take your property completely off the grid and independent
+            from Eskom.
+          </p>
+        </div>
+        <div>
+          <p className="py-3 md:py-0 text-center">
+            By looking together at your monthly saving potential on your
+            electricity bill and the investment needed to become total
+            -off-the-grid, we can assist you with a financing solution.
+          </p>
+        </div>
+        <div>
+          <p className="py-3 md:py-0 text-center">
+            Do you wish to receive extra information regarding a total
+            off-the-grid solution?
+          </p>
+        </div>
+      </div>
 
       <div className="py-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-16 md:space-y-0 justify-center lg:space-y-0 lg:space-x-6">
         <div

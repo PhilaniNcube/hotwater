@@ -263,7 +263,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             src="/images/icons/washingmachine.svg"
           />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Washing Machine
+            Washing Machine (hotfill*)
           </p>
           <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
             <button
@@ -302,7 +302,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             src="/images/icons/dishwasher.svg"
           />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Dishwasher
+            Dishwasher (hotfill*)
           </p>
           <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
             <button
@@ -335,6 +335,12 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </div>
         </div>
       </div>
+
+      <p className="text-xs text-center text-gray-500">
+        *Hotfill means that the hot water is coming from the geyser (instead of
+        the water being warmed directly from the machine)
+      </p>
+
       <div className="flex items-center justify-center space-x-6 my-3">
         {quoteInfo.standardShower !== 0 ||
         quoteInfo.rainShower !== 0 ||

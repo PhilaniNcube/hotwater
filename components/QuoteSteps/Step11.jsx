@@ -111,10 +111,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12">
-      <h1 className="mt-8 font-sans text-center font-bold text-2xl">Summary</h1>
-
-      <p className="py-1 text-center">
+    <div className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
+      <p className="py-1 text-center font-bold text-gray-600">
         Below is a summary of the information you have provided to us. Please
         select one of our recommended geysers below
       </p>
@@ -128,15 +126,15 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       ) : (
         <div className>
           <div className="flex justify-center items-start px-4 md:px-6 xl:px-20 py-12 flex-col">
-            <p className="text-xl md:text-2xl xl:text-4xl font-semibold leading-5 md:leading-6 lg:leading-9 text-gray-800">
+            <p className="text-xl font-semibold leading-5 md:leading-6 lg:leading-9 text-gray-800">
               Below is our recommendation based on the questions completed by
               you.
             </p>
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-4 xl:gap-8">
               {products.products.map((product) => (
                 <div
                   key={product.id}
-                  className="flex justify-start items-start flex-col space-y-5"
+                  className="flex justify-start items-start flex-col shadow-lg rounded-md"
                 >
                   <div className=" cursor-pointer relative group flex justify-center items-center">
                     <Image
@@ -151,6 +149,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                           ...quoteInfo,
                           product_id: product.id,
                         });
+
+                        router.push('#save');
                       }}
                       className="z-10 transition duration-300 opacity-100 xl:opacity-0 group-hover:opacity-100 ease-in-out absolute bg-white xl:bg-gray-800 bottom-0 shadow-md xl:shadow-none  xl:bottom-6 w-full py-3 text-sm font-medium leading-none text-gray-800  xl:text-white"
                     >
@@ -160,15 +160,38 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                       {' '}
                     </div>
                   </div>
-                  <div className="flex w-full flex-col justify-start items-start">
+                  <div className="flex w-full flex-col justify-start items-start p-2 bg-sky-50">
                     <div className="w-full flex justify-between items-center">
-                      <p className="text-base font-medium leading-none text-gray-800">
+                      <p className="font-medium text-gray-800">
                         {product.name}
                       </p>
                     </div>
-                    <p className="mt-4 text-xl font-medium leading-5 text-gray-600">
+                    <p className="mt-1 font-medium leading-5 text-gray-600">
                       R {product.price} incl VAT
                     </p>
+
+                    <div className="flex justify-between mt-2 w-full">
+                      <span className="text-xs text-gray-500 flex flex-col">
+                        <p>Capacity:</p>{' '}
+                        <p className="font-bold text-gray-700">
+                          {product.flowRate}l/min
+                        </p>
+                      </span>
+
+                      <span className="text-xs text-gray-500 flex flex-col">
+                        <p>Pressure PSI:</p>{' '}
+                        <p className="font-bold text-gray-700">
+                          min: {product.minPressure} max:{product.maxPressure}
+                        </p>
+                      </span>
+
+                      <span className="text-xs text-gray-500 flex flex-col">
+                        <p>Max Temp:</p>{' '}
+                        <p className="font-bold text-gray-700">
+                          {product.maxTemp}&#8451;
+                        </p>
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -177,7 +200,10 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       )}
 
-      <div className="flex items-center justify-center space-x-6 my-3">
+      <div
+        id="save"
+        className="flex items-center justify-center space-x-6 mb-16"
+      >
         <svg
           onClick={prevPage}
           xmlns="http://www.w3.org/2000/svg"
@@ -197,9 +223,9 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <button
           onClick={handleSubmit}
           disabled={mutation.isLoading}
-          className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
+          className="bg-sky-500 hover:bg-sky-600 text-center text-white text-lg md:text-xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
         >
-          {mutation.isLoading ? 'Loading...' : 'Save'}
+          {mutation.isLoading ? 'Loading...' : 'Complete the process'}
         </button>
       </div>
     </div>

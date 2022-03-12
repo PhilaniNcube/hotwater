@@ -53,7 +53,7 @@ const WhyUs = () => {
           </ul>
 
           <Link href="/quote/start" passHref>
-            <button className="bg-gray-800 text-white flex space-x-2 py-1 px-4 items-center mt-4 rounded-full">
+            <button className="bg-gray-900 hover:bg-gray-800 text-white flex space-x-2 py-2 px-4 items-center mt-4 rounded-full shadow-lg hover:shadow-sm ">
               Find Your Fit
               <span>
                 <svg
@@ -249,16 +249,22 @@ const WhyUs = () => {
             </div>
           </div>
         </div>
+
+        <Link href="/quote/start" passHref>
+          <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-12 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+            Find Your Fit
+          </button>
+        </Link>
       </div>
 
-      <div className="my-4 max-w-6xl mx-auto">
+      <div className="my-12 max-w-6xl mx-auto">
         <hr className="z-10  w-full bg-gray-400 my-4" />
 
         <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
           Installations
         </h2>
 
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row ">
           <div className="w-full md:w-2/3 pr-8">
             <p className="font-normal text-base leading-6 text-gray-600 mt-6">
               We work with our network of independent installers. Safety comes
@@ -277,12 +283,18 @@ const WhyUs = () => {
               installer to your area. So you will always be helped safely and
               quickly without too much hassle!
             </p>
-            <p className="font-normal text-base leading-6 text-gray-600 mt-6">
+            <p className="font-bold text-base leading-6 text-gray-800 mt-6">
               Do you want to be sure that your installation remains in top
               condition? Then also think of taking a service & maintenance
               contract with us. Our network of certified installers provide
               high-quality maintenance and the best service.
             </p>
+
+            <Link href="/quote/start" passHref>
+              <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+                Find Your Fit
+              </button>
+            </Link>
           </div>
 
           <div className="w-1/3">

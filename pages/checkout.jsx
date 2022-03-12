@@ -5,6 +5,8 @@ import { useUser } from '../Context/AuthContext';
 import useCart from '../hooks/useCart';
 
 export default function Checkout() {
+  const [loading, setLoading] = useState(false);
+
   const { user } = useUser();
   const formRef = useRef();
   console.log(formRef);
@@ -31,6 +33,8 @@ export default function Checkout() {
   };
 
   const intiatePayment = async () => {
+    setLoading(true);
+
     console.log({
       firstName,
       lastName,
@@ -75,6 +79,8 @@ export default function Checkout() {
     console.log(result);
 
     handleSubmit();
+
+    setLoading(false);
   };
 
   return (
@@ -170,9 +176,10 @@ export default function Checkout() {
             </div>
             <button
               onClick={intiatePayment}
+              disabled={loading}
               className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800"
             >
-              Proceed to payment
+              {!loading ? ' Proceed to payment' : 'Please wait...'}
             </button>{' '}
             <div className="mt-4 flex justify-start items-center w-full">
               <Link href="/cart">
