@@ -26,3 +26,18 @@ const Payment = () => {
 };
 
 export default Payment;
+
+export async function getServerSideProps({ req }) {
+  console.log(req.method);
+  if (req.method !== 'POST') {
+    return {
+      props: {
+        paymentResult: 'none',
+      },
+    };
+  }
+
+  return {
+    props: { hi: 'hi' },
+  };
+}
