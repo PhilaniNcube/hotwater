@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     REFERENCE: `${data.id}`,
     AMOUNT: Number(orderTotal * 100),
     CURRENCY: 'ZAR',
-    RETURN_URL: `https://hotwater24.com/orders/${data.id}`,
+    RETURN_URL: `https://hotwater24.com/orders/payment`,
     TRANSACTION_DATE: day,
     LOCALE: 'en-za',
     COUNTRY: 'ZAF',
@@ -70,7 +70,7 @@ export default async function handler(req, res) {
   formdata.append('REFERENCE', `${data.id}`);
   formdata.append('AMOUNT', Number(orderTotal * 100));
   formdata.append('CURRENCY', 'ZAR');
-  formdata.append('RETURN_URL', `https://hotwater24.com/orders/${data.id}`);
+  formdata.append('RETURN_URL', `https://hotwater24.com/payment`);
   formdata.append('TRANSACTION_DATE', day);
   formdata.append('LOCALE', 'en-za');
   formdata.append('COUNTRY', 'ZAF');
@@ -83,7 +83,7 @@ export default async function handler(req, res) {
     redirect: 'follow',
   };
 
-  const payRes = await axios(
+  const payRes = await fetch(
     'https://secure.paygate.co.za/payweb3/initiate.trans',
     requestOptions,
   )
@@ -94,7 +94,29 @@ export default async function handler(req, res) {
 
       return arr;
     })
-    .catch((error) => res.status(400).json({ error: error }));
+    .catch((error) => console.log('error', error));
 
-  console.log(payRes);
+  const ID_STRING = payRes[0];
+  const REQUEST_ID = payRes[1];
+  const REF = payRes[2];
+  const CHECKER = payRes[3];
+
+  const idArray = ID_STRING.split('=');
+  const PAYGATE_ID = idArray[1];
+
+  const reqArray = REQUEST_ID.split('=');
+  const PAYGATE_REQUEST_ID = reqArray[1];
+
+  const refArr = REF.split('=');
+  const REFERENCE = refArr[1];
+
+  const checkArray = CHECKER.split('=');
+  const SUM = checkArray[1];
+
+  res.send({
+    pagateId: PAYGATE_ID,
+    reqId: PAYGATE_REQUEST_ID,
+    ref: REFERENCE,
+    checksum: SUM,
+  });
 }

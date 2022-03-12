@@ -1,10 +1,13 @@
+import axios from 'axios';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useUser } from '../Context/AuthContext';
 import useCart from '../hooks/useCart';
+
 export default function Checkout() {
   const { user } = useUser();
-
+  const formRef = useRef();
+  console.log(formRef);
   console.log('checkout', user);
 
   const [firstName, setFirstName] = useState('');
@@ -14,9 +17,18 @@ export default function Checkout() {
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
 
+  const [chec, setChc] = useState('');
+  const [payId, setPayId] = useState('');
+
   const { cart, cartTotal } = useCart();
 
   const shipping = 200;
+
+  const handleSubmit = () => {
+    console.log('submit', chec, payId);
+
+    formRef.current.submit();
+  };
 
   const intiatePayment = async () => {
     console.log({
@@ -52,7 +64,17 @@ export default function Checkout() {
       }),
     });
 
-    console.log(await response.json());
+    const result = await response.json();
+
+    const { paygateId, reqId, ref, checksum } = result;
+
+    setChc(checksum);
+    setPayId(reqId);
+
+    console.log({ chec, payId });
+    console.log(result);
+
+    handleSubmit();
   };
 
   return (
@@ -76,8 +98,19 @@ export default function Checkout() {
               <p className="text-xl font-semibold leading-5 text-gray-800">
                 Shipping Details
               </p>
+
+              <form
+                action="https://secure.paygate.co.za/payweb3/process.trans"
+                method="POST"
+                onSubmit={handleSubmit}
+                ref={formRef}
+              >
+                <input type="hidden" name="PAY_REQUEST_ID" value={payId} />
+                <input type="hidden" name="CHECKSUM" value={chec} />
+                <input type="submit" name="sumbit" className="hidden" />
+              </form>
             </div>
-            <div className="mt-8 flex flex-col justify-start items-start w-full space-y-8 ">
+            <div className="mt-8 flex flex-col justify-start items-start w-full space-y-8">
               <input
                 className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
                 type="text"
@@ -140,7 +173,7 @@ export default function Checkout() {
               className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800"
             >
               Proceed to payment
-            </button>
+            </button>{' '}
             <div className="mt-4 flex justify-start items-center w-full">
               <Link href="/cart">
                 <a className="text-base leading-4 underline focus:outline-none focus:text-gray-500  hover:text-gray-800 text-gray-600">
