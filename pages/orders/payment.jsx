@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 
-const Payment = () => {
+const Payment = ({ paymentResult }) => {
+  console.log(paymentResult);
+
   return (
     <div className="dark:bg-gray-800">
       <div className="flex items-center justify-center">
@@ -38,6 +40,6 @@ export async function getServerSideProps({ req }) {
   }
 
   return {
-    props: { hi: 'hi' },
+    props: { paymentResult: req.body },
   };
 }
