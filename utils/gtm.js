@@ -8,13 +8,15 @@ export const pageview = (url) => {
 };
 
 export const start = () => {
+  window.dataLayer = [];
   window.datalayer.push({
     event: 'start_recommendation',
   });
 };
 
 export const savings = () => {
-  window.datalayer.push({
+  window.dataLayer = [];
+  window.dataLayer.push({
     event: 'savings',
   });
 };
