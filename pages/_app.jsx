@@ -12,7 +12,6 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import Script from 'next/script';
 import CartProvider from '../Context/CartContext';
 import { GTMPageView } from '../utils/gtm';
-import TagManager from 'react-gtm-module';
 
 const tagManagerArgs = {
   id: 'GTM-WWK8FMB',
@@ -24,19 +23,28 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    const handleRouteChange = (url) => GTMPageView(url);
-    Router.events.on('routeChangeComplete', handleRouteChange);
+    Router.events.on('routeChangeComplete', GTMPageView);
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange);
+      Router.events.off('routeChangeComplete', GTMPageView);
     };
-  }, []);
-
-  useEffect(() => {
-    TagManager.initialize(tagManagerArgs);
-  }, []);
+  }, [Router.events]);
 
   return (
     <Fragment>
+      {/* Google Tag Manager - Global base code */}
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer', 'GTM-WWK8FMB');
+          `,
+        }}
+      />
+
       <UserProvider>
         <CartProvider>
           <QueryClientProvider client={queryClient}>
