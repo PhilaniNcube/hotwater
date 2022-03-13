@@ -23,11 +23,16 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    Router.events.on('routeChangeComplete', GTMPageView);
-    return () => {
-      Router.events.off('routeChangeComplete', GTMPageView);
+    const handleRouteChange = (url) => {
+      window.gtag('config', 'G-9S7607VTDS', {
+        page_path: url,
+      });
     };
-  }, [Router.events]);
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <Fragment>
