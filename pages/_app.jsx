@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/inline-script-id */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import UserProvider from '../Context/AuthContext';
 import Navbar from '../components/Layout/Navbar';
@@ -8,8 +8,7 @@ import '../styles/globals.css';
 import Footer from '../components/Layout/Footer';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { supabase } from '../utils/supabase';
-import { AnimatePresence } from 'framer-motion';
+
 import Script from 'next/script';
 import CartProvider from '../Context/CartContext';
 
@@ -24,13 +23,6 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeComplete', GTMPageView);
     };
   }, [router.events]);
-
-  useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  }, []);
 
   return (
     <Fragment>

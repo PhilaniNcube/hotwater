@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
-import { supabase } from '../../utils/supabase';
-import { useQueryClient } from 'react-query';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
