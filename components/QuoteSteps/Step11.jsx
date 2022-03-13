@@ -100,6 +100,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     window.dataLayer = [];
     window.dataLayer.push({ event: 'generate_lead' });
 
+    window.dataLayer.push({ event: 'complete_recommendation' });
+
     try {
       const quote = await mutation.mutateAsync();
       queryClient.setQueryData('quote', quote.data[0]);
