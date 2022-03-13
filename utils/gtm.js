@@ -9,7 +9,7 @@ export const pageview = (url) => {
 
 export const start = () => {
   window.dataLayer = [];
-  window.datalayer.push({
+  window.dataLayer.push({
     event: 'start_recommendation',
   });
 };
