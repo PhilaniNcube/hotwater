@@ -85,9 +85,7 @@ const CatalogueGrid = ({ products }) => {
               <div className="flex cursor-pointer py-4">
                 <button
                   onClick={() => {
-                    window.dataLayer = [];
-                    window.dataLayer.push({ ecommerce: null });
-                    window.dataLayer.push({
+                    window.gtag({
                       event: 'add_to_cart',
                       ecommerce: {
                         items: [
