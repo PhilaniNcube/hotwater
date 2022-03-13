@@ -1,9 +1,5 @@
-export const GTMPageView = (url) => {
-  const pageEvent = {
-    event: 'pageview',
-    page: url,
-  };
-
-  window && window.dataLayer && window.dataLayer.push(pageEvent);
-  return pageEvent;
+export const pageview = (url) => {
+  window.gtag('config', 'G-9S7607VTDS', {
+    page_path: url,
+  });
 };

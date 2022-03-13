@@ -11,7 +11,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 
 import Script from 'next/script';
 import CartProvider from '../Context/CartContext';
-import { GTMPageView } from '../utils/gtm';
+import { GTMPageView, pageview } from '../utils/gtm';
 
 const tagManagerArgs = {
   id: 'GTM-WWK8FMB',
@@ -24,11 +24,14 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      window.gtag('config', 'G-9S7607VTDS', {
-        page_path: url,
-      });
+      pageview(url);
     };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
     router.events.on('routeChangeComplete', handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
