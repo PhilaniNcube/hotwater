@@ -4,6 +4,7 @@ import { Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Link from 'next/link';
+import { savings, start } from '../../utils/events';
 
 const Slides = [
   {
@@ -14,6 +15,7 @@ const Slides = [
       'Please click on the button below to check out your potential saving on your monthly energy bill!',
     link: '/savings',
     linkText: 'Calculate your saving',
+    event: savings,
   },
   {
     image: '/images/shower-2.jpg',
@@ -23,6 +25,7 @@ const Slides = [
       'By clicking on the button below we instantly recommend the best water heating solution for your home',
     link: '/quote/start',
     linkText: 'Find your fit',
+    event: start,
   },
   {
     image: '/images/installation.jpg',
@@ -32,6 +35,7 @@ const Slides = [
       'Get our expert opinion on the best gas water heating solution for your home',
     link: '/quote/start',
     linkText: 'Find your fit',
+    event: start,
   },
 ];
 
@@ -64,7 +68,10 @@ const Slider = () => {
                 </p>
 
                 <Link href={slide.link} passHref>
-                  <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit">
+                  <button
+                    onClick={slide.event}
+                    className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
+                  >
                     {slide.linkText}
                     <span>
                       <svg

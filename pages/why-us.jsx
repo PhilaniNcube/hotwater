@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
+import { start } from '../utils/events';
 
 const WhyUs = () => {
   return (
@@ -53,7 +54,10 @@ const WhyUs = () => {
           </ul>
 
           <Link href="/quote/start" passHref>
-            <button className="bg-gray-900 hover:bg-gray-800 text-white flex space-x-2 py-2 px-4 items-center mt-4 rounded-full shadow-lg hover:shadow-sm ">
+            <button
+              onClick={start}
+              className="bg-gray-900 hover:bg-gray-800 text-white flex space-x-2 py-2 px-4 items-center mt-4 rounded-full shadow-lg hover:shadow-sm "
+            >
               Find Your Fit
               <span>
                 <svg
@@ -251,7 +255,10 @@ const WhyUs = () => {
         </div>
 
         <Link href="/quote/start" passHref>
-          <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-12 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+          <button
+            onClick={start}
+            className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-12 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm"
+          >
             Find Your Fit
           </button>
         </Link>
@@ -293,7 +300,10 @@ const WhyUs = () => {
               </p>
 
               <Link href="/quote/start" passHref>
-                <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+                <button
+                  onClick={start}
+                  className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm"
+                >
                   Find Your Fit
                 </button>
               </Link>

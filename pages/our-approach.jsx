@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
+import { savings, start } from '../utils/events';
 
 export default function MyApp() {
   return (
@@ -49,6 +50,7 @@ export default function MyApp() {
             </p>
             <Link href="/savings" passHref>
               <button
+                onClick={savings}
                 role="button"
                 aria-label="explore more"
                 className="sm:w-auto w-full mt-10 text-base font-medium leading-none text-white bg-sky-700 rounded md:p-4 p-6 focus:ring-2 focus:ring-offset-2 focus:ring-sky-700 hover:bg-sky-600 focus:outline-none"
@@ -117,7 +119,10 @@ export default function MyApp() {
         </div>
 
         <Link href="/quote/start" passHref>
-          <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-8 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+          <button
+            onClick={start}
+            className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-8 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm"
+          >
             Find Your Fit
           </button>
         </Link>

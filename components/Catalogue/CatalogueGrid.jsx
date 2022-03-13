@@ -85,6 +85,25 @@ const CatalogueGrid = ({ products }) => {
               <div className="flex cursor-pointer py-4">
                 <button
                   onClick={() => {
+                    window.dataLayer = [];
+                    window.dataLayer.push({ ecommerce: null });
+                    window.dataLayer.push({
+                      event: 'add_to_cart',
+                      ecommerce: {
+                        items: [
+                          {
+                            item_name: product.name, // Name or ID is required.
+                            item_id: product.id,
+                            price: product.price,
+                            item_brand: product.brand_id.name,
+                            item_category: 'geyser',
+                            quantity: 1,
+                            currency: 'ZAR',
+                          },
+                        ],
+                      },
+                    });
+
                     addToCart(product);
                   }}
                   className="text-md font-bold leading-1 bg-sky-700 text-white py-1 px-4 rounded"

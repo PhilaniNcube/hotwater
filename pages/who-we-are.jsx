@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React, { Fragment } from 'react';
 import Link from 'next/link';
+import { start } from '../utils/events';
 
 const WhoWeAre = () => {
   return (
@@ -47,7 +48,10 @@ const WhoWeAre = () => {
           </p>
 
           <Link href="/quote/start" passHref>
-            <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+            <button
+              onClick={start}
+              className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm"
+            >
               Find Your Fit
             </button>
           </Link>

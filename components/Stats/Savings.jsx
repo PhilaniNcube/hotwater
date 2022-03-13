@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { start } from '../../utils/events';
 function Savings() {
   const [bill, setBill] = useState(100);
 
@@ -57,7 +58,10 @@ function Savings() {
 
       <div className="flex justify-center mt-4">
         <Link href="/quote">
-          <a className="bg-gray-800 text-white text-2xl px-8 py-4 rounded-full shadow-xl hover:shadow-sm">
+          <a
+            onClick={start}
+            className="bg-gray-800 text-white text-2xl px-8 py-4 rounded-full shadow-xl hover:shadow-sm"
+          >
             Find Your Fit
           </a>
         </Link>

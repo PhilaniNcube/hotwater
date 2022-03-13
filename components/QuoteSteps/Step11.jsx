@@ -97,6 +97,9 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 
   const handleSubmit = async () => {
+    window.dataLayer = [];
+    window.dataLayer.push({ event: 'generate_lead' });
+
     try {
       const quote = await mutation.mutateAsync();
       queryClient.setQueryData('quote', quote.data[0]);
