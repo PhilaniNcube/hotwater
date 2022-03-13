@@ -76,7 +76,7 @@ const WhyUs = () => {
         </div>
         <div className="w-full bg-blue-100">
           <img
-            src="/images/shower.jpg"
+            src="/images/shower-1.jpeg"
             alt="Shower"
             className="h-full object-cover"
           />
@@ -257,52 +257,47 @@ const WhyUs = () => {
         </Link>
       </div>
 
-      <div className="my-12 max-w-6xl mx-auto">
-        <hr className="z-10  w-full bg-gray-400 my-4" />
+      <div
+        className="bg-right bg-cover"
+        style={{ backgroundImage: 'url(/images/installation-2.jpg)' }}
+      >
+        <div className="max-w-6xl mx-auto py-12">
+          <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
+            Installations
+          </h2>
 
-        <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
-          Installations
-        </h2>
+          <div className="flex flex-col md:flex-row w-5/6">
+            <div className="w-full md:w-2/3 pr-8">
+              <p className="font-medium text-base leading-6 text-gray-800 mt-6">
+                We work with our network of independent installers. Safety comes
+                first, which is why all our installers are certified and
+                registered with the LPGas Association of South Africa. For
+                safety and quality purposes of the installation work performed,
+                the installation has to be checked to be compliant with current
+                rules and regulation. Therefore after every installation a CoC
+                (Certificate of Compliance) will be signed off between installer
+                as well as client.
+              </p>
+              <p className="font-medium text-base leading-6 text-gray-800 mt-6">
+                Are you looking for a reliable installation? Then simply click
+                on the button below to answer some questions in order for us to
+                give you a quote. Upon approval we will organize and assign an
+                installer to your area. So you will always be helped safely and
+                quickly without too much hassle!
+              </p>
+              <p className="font-bold text-base leading-6 text-gray-800 mt-6">
+                Do you want to be sure that your installation remains in top
+                condition? Then also think of taking a service & maintenance
+                contract with us. Our network of certified installers provide
+                high-quality maintenance and the best service.
+              </p>
 
-        <div className="flex flex-col md:flex-row ">
-          <div className="w-full md:w-2/3 pr-8">
-            <p className="font-normal text-base leading-6 text-gray-600 mt-6">
-              We work with our network of independent installers. Safety comes
-              first, which is why all our installers are certified and
-              registered with the LPGas Association of South Africa. For safety
-              and quality purposes of the installation work performed, the
-              installation has to be checked to be compliant with current rules
-              and regulation. Therefore after every installation a CoC
-              (Certificate of Compliance) will be signed off between installer
-              as well as client.
-            </p>
-            <p className="font-normal text-base leading-6 text-gray-600 mt-6">
-              Are you looking for a reliable installation? Then simply click on
-              the button below to answer some questions in order for us to give
-              you a quote. Upon approval we will organize and assign an
-              installer to your area. So you will always be helped safely and
-              quickly without too much hassle!
-            </p>
-            <p className="font-bold text-base leading-6 text-gray-800 mt-6">
-              Do you want to be sure that your installation remains in top
-              condition? Then also think of taking a service & maintenance
-              contract with us. Our network of certified installers provide
-              high-quality maintenance and the best service.
-            </p>
-
-            <Link href="/quote/start" passHref>
-              <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
-                Find Your Fit
-              </button>
-            </Link>
-          </div>
-
-          <div className="w-1/3">
-            <img
-              src="/images/bathroom.jpg"
-              alt=""
-              className="h-full object-cover"
-            />
+              <Link href="/quote/start" passHref>
+                <button className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm">
+                  Find Your Fit
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

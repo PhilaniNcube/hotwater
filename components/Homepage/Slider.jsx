@@ -16,7 +16,7 @@ const Slides = [
     linkText: 'Calculate your saving',
   },
   {
-    image: '/images/slide2.jpeg',
+    image: '/images/shower-2.jpg',
     color: 'white',
     heading: '24 hours supply of hot water for ultimate comfort in your home',
     subheading:
@@ -25,7 +25,7 @@ const Slides = [
     linkText: 'Find your fit',
   },
   {
-    image: '/images/slide3.jpg',
+    image: '/images/installation.jpg',
     color: 'black',
     heading: 'Safe and reliable installation by accredited professionals',
     subheading:
@@ -59,7 +59,9 @@ const Slider = () => {
                 >
                   {slide.heading}
                 </h1>
-                <p className="mt-2 max-w-[40ch]">{slide.subheading}</p>
+                <p className={`mt-2 max-w-[40ch] text-${slide.color}`}>
+                  {slide.subheading}
+                </p>
 
                 <Link href={slide.link} passHref>
                   <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit">
