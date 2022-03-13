@@ -11,6 +11,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 
 import Script from 'next/script';
 import CartProvider from '../Context/CartContext';
+import { GTMPageView } from '../utils/gtm';
 
 const queryClient = new QueryClient();
 
