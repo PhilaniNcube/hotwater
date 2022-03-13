@@ -6,3 +6,15 @@ export const pageview = (url) => {
     page: url,
   });
 };
+
+export const start = () => {
+  window.datalayer.push({
+    event: 'start_recommendation',
+  });
+};
+
+export const savings = () => {
+  window.datalayer.push({
+    event: 'savings',
+  });
+};

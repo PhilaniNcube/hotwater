@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { start } from '../../utils/events';
+import { start } from '../../utils/gtm';
+
 function Savings() {
   const [bill, setBill] = useState(100);
 

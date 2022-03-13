@@ -4,7 +4,7 @@ import { Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Link from 'next/link';
-import { savings, start } from '../../utils/events';
+import { savings, start } from '../../utils/gtm';
 
 const Slides = [
   {

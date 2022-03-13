@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { Fragment } from 'react';
 import Link from 'next/link';
-import { start } from '../utils/events';
+import { start } from '../utils/gtm';
 
 const WhoWeAre = () => {
   return (

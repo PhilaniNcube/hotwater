@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
-import { savings, start } from '../utils/events';
+import { savings, start } from '../utils/gtm';
 
 export default function MyApp() {
   return (
