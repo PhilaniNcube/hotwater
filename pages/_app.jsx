@@ -24,6 +24,13 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
     <Fragment>
       {/* Google Tag Manager - Global base code */}
