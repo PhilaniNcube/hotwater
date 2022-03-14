@@ -3,7 +3,7 @@ import Link from 'next/link';
 import cookie from 'cookie';
 import { supabase } from '../../utils/supabase';
 
-function Orders({ orders }) {
+function Orders({ orders, page, start, end }) {
   console.log(orders);
 
   return (
@@ -96,7 +96,13 @@ function Orders({ orders }) {
 
 export default Orders;
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req, query: { page = 1 } }) {
+  const PER_PAGE = 20;
+
+  const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE;
+
+  const end = start + PER_PAGE;
+
   const { user } = await supabase.auth.api.getUserByCookie(req);
   const token = cookie.parse(req.headers.cookie)['sb:token'];
 
@@ -105,12 +111,15 @@ export async function getServerSideProps({ req }) {
   let { data: orders, error } = await supabase
     .from('orders')
     .select('*')
-    .range(0, 10)
+    .range(start, end)
     .order('created_at', { ascending: false });
 
   return {
     props: {
       orders,
+      page: +page,
+      start,
+      end,
     },
   };
 }
