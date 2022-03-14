@@ -174,6 +174,21 @@ export default function Checkout() {
                 placeholder="Phone Number"
               />
             </div>
+            {!user ? (
+              <Link href="/signin" passHref>
+                <button className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800">
+                  Please Sign In First
+                </button>{' '}
+              </Link>
+            ) : (
+              <button
+                onClick={intiatePayment}
+                disabled={loading}
+                className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800"
+              >
+                {!loading ? ' Proceed to payment' : 'Please wait...'}
+              </button>
+            )}
             <button
               onClick={intiatePayment}
               disabled={loading}
