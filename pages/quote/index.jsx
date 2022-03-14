@@ -17,6 +17,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
 import Step11 from '../../components/QuoteSteps/Step11';
+import Step12 from '../../components/QuoteSteps/Step12';
 
 const index = () => {
   const [page, setPage] = useState(1);
@@ -56,6 +57,7 @@ const index = () => {
     postalCode: '',
     completeSolution: null,
     product_id: null,
+    installation: null,
   });
 
   const nextPage = () => {
@@ -180,6 +182,15 @@ const index = () => {
       )}
 
       {page === 12 && (
+        <Step12
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 13 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}

@@ -92,13 +92,15 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     let dishwasherFlow = quoteInfo.dishwasher * 10.02;
     let washingmachineFlow = quoteInfo.washingmachine * 10.02;
 
-    let totalFowRate =
+    let rate =
       showerFlow +
       rainShowerFlow +
       bathtubFlow +
       sinkFlow +
       dishwasherFlow +
       washingmachineFlow;
+
+    let totalFowRate = rate * 0.8;
 
     setQuoteInfo({ ...quoteInfo, flowRate: +totalFowRate.toFixed(2) });
   };

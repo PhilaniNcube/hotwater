@@ -7,6 +7,7 @@ import { supabaseService } from '../../utils/supabaseService';
 import { useUser } from '../../Context/AuthContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const Admin = ({ brands, products, orders, profile, quotes }) => {
   const { user } = useUser();
@@ -16,6 +17,10 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
   if (user === null) {
     return (
       <Fragment>
+        <Head>
+          <title>Admin</title>
+          <meta name="robots" content="noindex,nofollow" />
+        </Head>
         <div className="h-[70vh] w-screen flex flex-col justify-center items-center">
           <h1 className="text-red-500">UnAuthorized Route</h1>
           <Link href="/" passHref>

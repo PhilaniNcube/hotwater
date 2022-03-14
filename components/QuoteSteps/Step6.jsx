@@ -12,7 +12,7 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         Geyser Location
       </h1>
       <div className="flex justify-center items-center">
-        <p className="py-3 text-center">
+        <p className="py-3 text-center pr-2">
           Can the geyser be installed on an outside wall of the building?
         </p>
         <div
@@ -24,12 +24,12 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <svg
               aria-haspopup="true"
               xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-info-circle"
+              className="icon icon-tabler icon-tabler-info-circle text-sky-600"
               width={25}
               height={25}
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="#A0AEC0"
+              stroke="currentcolor"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
