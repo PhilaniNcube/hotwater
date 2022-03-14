@@ -267,27 +267,52 @@ const Navbar = () => {
           <div>
             {user ? (
               <div className="flex space-x-5">
-                <Link href="/profile" passHref>
-                  <div className="flex items-center text-sky-600 cursor-pointer">
-                    <span className="pl-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-white bg-sky-600 rounded-full p-1"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    <p className="text-xs md:text-sm text-white pl-2">
-                      {!!user && 'Profile'}
-                    </p>
-                  </div>
-                </Link>
+                {user.role === 'main_admin' ? (
+                  <Link href="/admin" passHref>
+                    <div className="flex items-center text-sky-600 cursor-pointer">
+                      <span className="pl-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-8 w-8 text-white bg-sky-600 rounded-full p-1"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <p className="text-xs md:text-sm text-white pl-2">
+                        Admin Dashboard
+                      </p>
+                    </div>
+                  </Link>
+                ) : (
+                  <Link href="/profile" passHref>
+                    <div className="flex items-center text-sky-600 cursor-pointer">
+                      <span className="pl-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-8 w-8 text-white bg-sky-600 rounded-full p-1"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <p className="text-xs md:text-sm text-white pl-2">
+                        {!!user && 'Profile'}
+                      </p>
+                    </div>
+                  </Link>
+                )}
+
                 <Link href="/cart" passHref>
                   <div className="flex items-center text-sky-50 cursor-pointer">
                     <svg
