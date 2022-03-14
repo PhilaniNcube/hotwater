@@ -4,7 +4,7 @@ function Cards({ brands, products, orders, profiles, quotes }) {
     <Fragment>
       {/* Card is full width. Use in 12 col grid for best view. */}
       {/* Card code block start */}
-      <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto my-44 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         <div className="bg-white dark:bg-gray-800 rounded shadow px-8 py-6 flex items-center">
           <div className="p-4 bg-indigo-700 rounded">
             <svg
