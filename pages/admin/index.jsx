@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import cookie from 'cookie';
 import Cards from '../../components/Admin/AdminCards';
 import AdminHeader from '../../components/Layout/AdminHeader';
-import { supabase } from '../../utils/supabase';
+import { supabase, supabaseService } from '../../utils/supabase';
 
 const Admin = ({ brands, products, orders, profiles, quotes }) => {
   return (
@@ -22,20 +22,15 @@ const Admin = ({ brands, products, orders, profiles, quotes }) => {
 export default Admin;
 
 export async function getServerSideProps({ req }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+  let { data: brands } = await supabaseService.from('brands').select('id');
 
-  supabase.auth.session = () => ({ access_token: token });
+  let { data: orders } = await supabaseService.from('orders').select('id');
 
-  let { data: brands } = await supabase.from('brands').select('id');
+  let { data: products } = await supabaseService.from('products').select('id');
 
-  let { data: orders } = await supabase.from('orders').select('id');
+  let { data: profile } = await supabaseService.from('profile').select('id');
 
-  let { data: products } = await supabase.from('products').select('id');
-
-  let { data: profile } = await supabase.from('profile').select('id');
-
-  let { data: quotes } = await supabase.from('quotes').select('id');
+  let { data: quotes } = await supabaseService.from('quotes').select('id');
 
   return {
     props: {
