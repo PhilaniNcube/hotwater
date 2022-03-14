@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-function Cards({ brands, products, orders, profiles, quotes }) {
+function Cards({ brands, products, orders, quotes }) {
   return (
     <Fragment>
       {/* Card is full width. Use in 12 col grid for best view. */}
@@ -28,7 +28,7 @@ function Cards({ brands, products, orders, profiles, quotes }) {
           </div>
           <div className="ml-6">
             <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
-              {quotes.length}
+              {quotes?.length}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
               Leads
@@ -60,7 +60,7 @@ function Cards({ brands, products, orders, profiles, quotes }) {
           </div>
           <div className="ml-6">
             <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
-              {products.length}
+              {products?.length}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
               Products
@@ -88,7 +88,7 @@ function Cards({ brands, products, orders, profiles, quotes }) {
           </div>
           <div className="ml-6">
             <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
-              {orders.length}
+              {orders?.length}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
               Orders
@@ -118,7 +118,7 @@ function Cards({ brands, products, orders, profiles, quotes }) {
           </div>
           <div className="ml-6">
             <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
-              {brands.length}
+              {brands?.length}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
               Brands
