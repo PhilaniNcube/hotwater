@@ -4,7 +4,7 @@ import Link from 'next/link';
 const AdminHeader = () => {
   return (
     <div>
-      <div className="bg-gray-800 py-6 lg:py-8">
+      <div className="bg-gray-600 py-6 lg:py-8">
         <div className="container px-6 mx-auto flex flex-col md:flex-row items-start md:items-center justify-between">
           <div>
             <h4 className="text-2xl font-bold leading-tight text-white">
@@ -25,7 +25,6 @@ const AdminHeader = () => {
           </div>
         </div>
       </div>
-      ;
     </div>
   );
 };

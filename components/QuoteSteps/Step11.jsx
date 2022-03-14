@@ -91,7 +91,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         telephoneNumber: telephoneNumber,
         postalCode: postalCode,
         completeSolution: completeSolution,
-        product_id: product_id,
+        product_id: product_id || null,
       },
     ]),
   );
@@ -131,10 +131,20 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       ) : (
         <div className>
           <div className="flex justify-center items-start px-4 md:px-6 xl:px-20 py-12 flex-col">
-            <p className="text-xl font-semibold leading-5 md:leading-6 lg:leading-9 text-gray-800">
-              Below is our recommendation based on the questions completed by
-              you.
-            </p>
+            {products.products.length === 0 ? (
+              <p className="text-md md:text-xl font-semibold leading-5 md:leading-4 lg:leading-3 text-gray-800">
+                According to the info you have given use you may have gas geyser
+                requirements greater than what we have in stock. We will be in
+                touch with you shortly in order to discuss alternatives with
+                you. Please click the button below to submit your answers.
+              </p>
+            ) : (
+              <p className="text-xl font-semibold leading-5 md:leading-6 lg:leading-9 text-gray-800">
+                Below is our recommendation based on the questions completed by
+                you.
+              </p>
+            )}
+
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-4 xl:gap-8">
               {products.products.map((product) => (
                 <div
