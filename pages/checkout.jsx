@@ -234,10 +234,10 @@ export default function Checkout() {
             </div>
             <div className="flex justify-between w-full items-center mt-32">
               <p className="text-xl font-semibold leading-4 text-gray-800">
-                Total{cartTotal + shipping}
+                Total
               </p>
               <p className="text-lg font-semibold leading-4 text-gray-800">
-                R {cartTotal + 200}
+                R {cartTotal + shipping}
               </p>
             </div>
           </div>
