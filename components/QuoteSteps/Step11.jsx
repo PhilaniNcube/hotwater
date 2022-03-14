@@ -132,7 +132,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <div className>
           <div className="flex justify-center items-start px-4 md:px-6 xl:px-20 py-12 flex-col">
             {products.products.length === 0 ? (
-              <p className="text-md md:text-xl font-semibold leading-5 md:leading-4 lg:leading-3 text-gray-800">
+              <p className="text-md md:text-xl font-semibold leading-5 text-gray-800">
                 According to the info you have given use you may have gas geyser
                 requirements greater than what we have in stock. We will be in
                 touch with you shortly in order to discuss alternatives with
