@@ -56,19 +56,13 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center items-center">
           <div className="text-gray-400 mt-4 flex flex-col">
-            <p className="text-sm">Stay Connected</p>
-            <form className="flex flex-col justify-center items-center space-y-2">
-              <input
-                className="px-4 py-2 mt-2 rounded-full bg-white text-gray-500 w-1/3 lg:w-full min-w-fit"
-                type="text"
-                placeholder="email"
-              />
-              <button className="py-2 px-10 text-center text-white bg-sky-500 hover:bg-sky-600 rounded-full min-w-fit w-1/3 lg:w-full">
-                Subscribe
-              </button>
-            </form>
+            <img
+              className="w-full object-cover"
+              src="/images/card.jpeg"
+              alt="paygate logos"
+            />
           </div>
         </div>
       </div>
