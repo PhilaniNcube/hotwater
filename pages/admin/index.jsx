@@ -4,20 +4,44 @@ import Cards from '../../components/Admin/AdminCards';
 import AdminHeader from '../../components/Layout/AdminHeader';
 import { supabase } from '../../utils/supabase';
 import { supabaseService } from '../../utils/supabaseService';
+import { useUser } from '../../Context/AuthContext';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Admin = ({ brands, products, orders, profile, quotes }) => {
-  return (
-    <Fragment>
-      <AdminHeader />
-      <Cards
-        brands={brands}
-        products={products}
-        profiles={profile}
-        quotes={quotes}
-        orders={orders}
-      />
-    </Fragment>
-  );
+  const { user } = useUser();
+
+  const router = useRouter();
+
+  if (user.role === 'main_admin') {
+    return (
+      <Fragment>
+        <AdminHeader />
+        <Cards
+          brands={brands}
+          products={products}
+          profiles={profile}
+          quotes={quotes}
+          orders={orders}
+        />
+      </Fragment>
+    );
+  } else {
+    router.push('/');
+
+    return (
+      <Fragment>
+        <div className="h-screen w-screen flex justify-center items-center">
+          <h1 className="text-red-500">UnAuthorized Route</h1>
+          <Link href="/" passHref>
+            <button className="px-6 py-2 rounded bg-sky-600 text-white">
+              Home
+            </button>
+          </Link>
+        </div>
+      </Fragment>
+    );
+  }
 };
 
 export default Admin;
