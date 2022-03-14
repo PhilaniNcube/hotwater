@@ -27,8 +27,6 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
       </Fragment>
     );
   } else {
-    router.push('/');
-
     return (
       <Fragment>
         <div className="h-screen w-screen flex justify-center items-center">
