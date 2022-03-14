@@ -13,7 +13,20 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
 
   const router = useRouter();
 
-  if (user.role === 'main_admin') {
+  if (user === null) {
+    return (
+      <Fragment>
+        <div className="h-[70vh] w-screen flex flex-col justify-center items-center">
+          <h1 className="text-red-500">UnAuthorized Route</h1>
+          <Link href="/" passHref>
+            <button className="px-6 py-2 rounded bg-sky-600 text-white">
+              Home
+            </button>
+          </Link>
+        </div>
+      </Fragment>
+    );
+  } else if (user.role === 'main_admin') {
     return (
       <Fragment>
         <AdminHeader />
@@ -26,7 +39,7 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
         />
       </Fragment>
     );
-  } else {
+  } else if (user.role === 'authenticated') {
     return (
       <Fragment>
         <div className="h-screen w-screen flex justify-center items-center">
