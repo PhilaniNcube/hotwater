@@ -13,7 +13,7 @@ function Savings() {
     <div className="container mx-auto py-4">
       <div className="bg-gray-100 xl:px-20 lg:px-20 md:px-12 pt-2 pb-8 sm:pb-0">
         <h1 className="text-center xl:text-3xl text-2xl font-extrabold text-gray-800 w-5/6 mx-auto">
-          Calculate Your Potential Savings From Using Gas
+          Calculate Your Potential Savings From Switchi To Using Gas
         </h1>
         <div className="py-2 px-4 max-w-6xl mx-auto bg-slate-50 shadow-md rounded-md my-4">
           <div className="relative pt-1 px-4">
@@ -27,6 +27,7 @@ function Savings() {
               onChange={(e) => setBill(e.target.value)}
               className="w-full h-8 p-0 focus:outline-none focus:ring-0 focus:shadow-none"
               min={100}
+              step={50}
               max={20000}
               id="bill"
             />

@@ -26,13 +26,15 @@ const Profile = ({ data, error, profile }) => {
 export default Profile;
 
 export async function getServerSideProps({ req }) {
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
-
   supabase.auth.session = () => ({ access_token: `${token}` });
+  const token = cookie.parse(req.headers.cookie)['sb:token'];
 
   let { data: quotes, error } = await supabase.from('quotes').select('*');
 
-  let { data: profile } = await supabase.from('profile').select('*').single();
+  let { data: profile } = await supabase
+    .from('profile')
+    .select('*')
+    .single();
 
   return {
     props: {
