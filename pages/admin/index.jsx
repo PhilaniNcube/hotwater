@@ -22,6 +22,11 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
 export default Admin;
 
 export async function getServerSideProps() {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+  const token = cookie.parse(req.headers.cookie)['sb:token'];
+
+  supabase.auth.session = () => ({ access_token: token });
+
   let { data: brands } = await supabase.from('brands').select('*');
 
   let { data: orders } = await supabase.from('orders').select('*');
