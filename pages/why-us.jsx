@@ -20,72 +20,7 @@ const WhyUs = () => {
           content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
         />
       </Head>
-      <div className="bg-gray-500 grid grid-cols-1 lg:grid-cols-2">
-        <div className="px-8 lg:px-24 2xl:pl-[380px] py-16">
-          <h1 className="text-white font-light text-3xl lg:text-5xl">
-            Why Choose <span className="font-bold">LPG GAS?</span>
-          </h1>
-          <ul className="pl-4 list-disc text-white text-sm">
-            <li className="py-1">
-              LPG is a very safe and reliable source of energy that can be used
-              for cooking and heating. LPG has many advantages, to name a few:
-            </li>
-            <li className="py-1">
-              It can be up to five times more efficient than traditional fuels,
-              resulting in less energy wastage and better use of our planet’s
-              resources.
-            </li>
-            <li className="py-1">
-              LPG is extremely versatile and portable. It can be transported
-              using sea, rail or road transport.
-            </li>
-            <li className="py-1">
-              LPG can be accessible to everyone everywhere today without major
-              infrastructure investment.
-            </li>
-            <li className="py-1">
-              LPG is a clean burning fuel that is low carbon, emits virtually no
-              black carbon and does not spill. Do you know that South Africa is
-              amongst the most polluted countries in the world, this mainly due
-              to the fact that electricity is still being generated through the
-              use of coal. So it is time for us to act accordingly and reduce
-              the CO2 footprint!
-            </li>
-          </ul>
 
-          <Link href="/quote/start" passHref>
-            <button
-              onClick={start}
-              className="bg-gray-900 hover:bg-gray-800 text-white flex space-x-2 py-2 px-4 items-center mt-4 rounded-full shadow-lg hover:shadow-sm "
-            >
-              Find Your Fit
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 pl-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </span>
-            </button>
-          </Link>
-        </div>
-        <div className="w-full bg-blue-100">
-          <img
-            src="/images/shower-1.jpeg"
-            alt="Shower"
-            className="h-full object-cover"
-          />
-        </div>
-      </div>
       <div className="max-w-6xl mx-auto py-8">
         <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
           Why Choose <span className="font-bold">Us?</span>
@@ -257,11 +192,94 @@ const WhyUs = () => {
         <Link href="/quote/start" passHref>
           <button
             onClick={start}
-            className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-12 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm"
+            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
           >
             Find Your Fit
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 pl-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
           </button>
         </Link>
+      </div>
+
+      <div className="bg-gray-500 grid grid-cols-1 lg:grid-cols-2">
+        <div className="px-8 lg:px-24 2xl:pl-[380px] py-16">
+          <h1 className="text-white font-light text-3xl lg:text-5xl">
+            Why Choose <span className="font-bold">LPG GAS?</span>
+          </h1>
+          <ul className="pl-4 list-disc text-white text-sm">
+            <li className="py-1">
+              LPG is a very safe and reliable source of energy that can be used
+              for cooking and heating. LPG has many advantages, to name a few:
+            </li>
+            <li className="py-1">
+              It can be up to five times more efficient than traditional fuels,
+              resulting in less energy wastage and better use of our planet’s
+              resources.
+            </li>
+            <li className="py-1">
+              LPG is extremely versatile and portable. It can be transported
+              using sea, rail or road transport.
+            </li>
+            <li className="py-1">
+              LPG can be accessible to everyone everywhere today without major
+              infrastructure investment.
+            </li>
+            <li className="py-1">
+              LPG is a clean burning fuel that is low carbon, emits virtually no
+              black carbon and does not spill. Do you know that South Africa is
+              amongst the most polluted countries in the world, this mainly due
+              to the fact that electricity is still being generated through the
+              use of coal. So it is time for us to act accordingly and reduce
+              the CO2 footprint!
+            </li>
+          </ul>
+
+          <Link href="/quote/start" passHref>
+            <button
+              onClick={start}
+              className="bg-gray-900 hover:bg-gray-800 text-white flex space-x-2 py-2 px-4 items-center mt-4 rounded-full shadow-lg hover:shadow-sm "
+            >
+              Find Your Fit
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 pl-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            </button>
+          </Link>
+        </div>
+        <div className="w-full bg-blue-100">
+          <img
+            src="/images/shower-1.jpeg"
+            alt="Shower"
+            className="h-full object-cover"
+          />
+        </div>
       </div>
 
       <div
@@ -302,9 +320,25 @@ const WhyUs = () => {
               <Link href="/quote/start" passHref>
                 <button
                   onClick={start}
-                  className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-4 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm"
+                  className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
                 >
                   Find Your Fit
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 pl-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </Link>
             </div>

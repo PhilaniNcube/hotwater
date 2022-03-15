@@ -3,7 +3,7 @@ import React from 'react';
 export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
   return (
     <>
-      <div className="flex items-center justify-start w-1/2 h-full py-12 px-4 overflow-scroll">
+      <div className="flex items-center justify-start w-1/2 h-full py-12 px-4 overflow-x-scroll">
         {products.map((product) => (
           <div className="max-w-[70%] mx-2" key={product.id}>
             <div className="bg-gray-100 shadow-lg rounded-tl rounded-tr">

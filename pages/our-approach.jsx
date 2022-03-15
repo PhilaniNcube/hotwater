@@ -51,11 +51,25 @@ export default function MyApp() {
             <Link href="/savings" passHref>
               <button
                 onClick={savings}
-                role="button"
-                aria-label="explore more"
-                className="sm:w-auto w-full mt-10 text-base font-medium leading-none text-white bg-sky-700 rounded md:p-4 p-6 focus:ring-2 focus:ring-offset-2 focus:ring-sky-700 hover:bg-sky-600 focus:outline-none"
+                className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
               >
                 Potential Savings
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 pl-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
               </button>
             </Link>
           </div>
@@ -72,14 +86,14 @@ export default function MyApp() {
         <div className="flex flex-wrap md:mt-16 mt-8 gap-6 items-start justify-between">
           <div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-sky-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
+              <div className="w-10 h-10 bg-gray-800 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
                 1
               </div>
               <h2 className="ml-4 text-base font-semibold leading-4 text-gray-800">
                 Off The Grid Solutions
               </h2>
             </div>
-            <p className="sm:w-72 w-full text-base mt-5 leading-6 text-gray-600">
+            <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
               We can even offer you a “total off-the-grid” solution. Through
               combining gas (for cooking and heating water) and solar (plugs,
               lights, modem, fridge, etc..) we can prepare your property to
@@ -88,14 +102,14 @@ export default function MyApp() {
           </div>
           <div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-sky-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
+              <div className="w-10 h-10 bg-gray-800 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
                 2
               </div>
               <h2 className="ml-4 text-base font-semibold leading-4 text-gray-800">
                 Full Service
               </h2>
             </div>
-            <p className="sm:w-72 w-full text-base mt-5 leading-6 text-gray-600">
+            <p className="sm:w-72 w-full mt-5 leading-5 text-gray-600 text-sm">
               We can offer you the full service through our platform of
               independent and certified installers who daily ensure reliable and
               safe installation.
@@ -103,14 +117,14 @@ export default function MyApp() {
           </div>
           <div>
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-sky-700 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
+              <div className="w-10 h-10 bg-gray-800 rounded-full text-base font-semibold leading-4 text-white flex items-center justify-center">
                 3
               </div>
               <h2 className="ml-4 text-base font-semibold leading-4 text-gray-800">
                 Financing
               </h2>
             </div>
-            <p className="sm:w-72 w-full text-base mt-5 leading-6 text-gray-600">
+            <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
               Please contact us if you would like to receive more information as
               there are several options we can recommend not only on the product
               & service, but also on possible financing.
@@ -121,9 +135,25 @@ export default function MyApp() {
         <Link href="/quote/start" passHref>
           <button
             onClick={start}
-            className="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 my-8 rounded-full shadow-gray-700 shadow-lg hover:shadow-sm"
+            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
           >
             Find Your Fit
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 pl-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
           </button>
         </Link>
       </div>

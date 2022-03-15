@@ -1,16 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
-import { fetchJson } from '../../lib/requests';
-import CatalogueHero from '../../components/Catalogue/CatalogueHero';
-import CatalogueGrid from '../../components/Catalogue/CatalogueGrid';
-import { useProducts } from '../../hooks/products';
 import { supabase } from '../../utils/supabase';
 import Head from 'next/head';
+import Banner7 from '../../components/Catalogue/Banner';
+import ProductCatalogue from '../../components/Catalogue/ProductCatalogue';
 
-const Catalogue = ({ data, error, flow }) => {
-  const router = useRouter();
-
+const Catalogue = ({ products, error }) => {
   return (
     <Fragment>
       <Head>
@@ -25,38 +21,24 @@ const Catalogue = ({ data, error, flow }) => {
           content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
         />
       </Head>
-      <CatalogueHero loading={false} />
-      {data.length === 0 ? (
-        <div className="text-center text-md bg-red-600 text-gray-50 my-8 max-w-xl mx-auto py-4 px-4 rounded">
-          <p>
-            According to your answers, you need a geyser with a flow rate of{' '}
-            <span className="font-bold"> {`${flow} l/min`}</span>. We do not
-            curently have geysers of that size in stock. We will contact you
-            with alternatives.
-          </p>
-        </div>
-      ) : (
-        <CatalogueGrid products={data} />
-      )}
+      <Banner7 />
+      <ProductCatalogue products={products} />
     </Fragment>
   );
 };
 
 export default Catalogue;
 
-export async function getServerSideProps({ query: { flowRate = 6 } }) {
-  const flow = Math.ceil(parseFloat(flowRate));
-
+export async function getServerSideProps({}) {
   let { data: products, error } = await supabase
     .from('products')
     .select(`*, brand_id( name)`)
-    .gte('flowRate', `${flow}`)
-    .eq('inStock', true);
+    .eq('inStock', true)
+    .order('brand_id', { ascending: false });
 
   return {
     props: {
-      flow,
-      data: products,
+      products,
       error,
     },
   };
