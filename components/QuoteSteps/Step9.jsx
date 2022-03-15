@@ -123,8 +123,12 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center">
-          <ProductSlide products={products} />
+        <div className="flex items-center justify-center overflow-hidden">
+          <ProductSlide
+            products={products}
+            quoteInfo={quoteInfo}
+            setQuoteInfo={setQuoteInfo}
+          />
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 my-3">
