@@ -41,7 +41,7 @@ export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
                   });
                 }}
               >
-                <p className="text-xs leading-1 text-sky-700 bg-gray-300 px-4 py-2 rounded-lg">
+                <p className="text-xs leading-1 bg-sky-700 text-gray-50 px-4 py-2 rounded-lg">
                   Select Geyser
                 </p>
               </div>
