@@ -20,7 +20,7 @@ export default function ProductSlide({ products }) {
           className="relative block sm:hidden"
           naturalSlideWidth={200}
           isIntrinsicHeight={true}
-          totalSlides={3}
+          totalSlides={products.length}
           visibleSlides={1}
           step={1}
           infinite={true}
@@ -49,9 +49,9 @@ export default function ProductSlide({ products }) {
               </svg>
             </ButtonBack>
             <Slider>
-              {products.products.map((product, i) => (
+              {products.map((product, i) => (
                 <Slide index={i} key={i}>
-                  <div className="gallery-cell lg:mr-7 mr-6 lg:w-1/2 sm:w-96 w-full h-full">
+                  <div className="lg:mr-7 mr-6 w-full h-full">
                     <div className="relative w-full h-full lg:block hidden">
                       <img
                         src={product.image}
@@ -141,9 +141,9 @@ export default function ProductSlide({ products }) {
               </svg>
             </ButtonBack>
             <Slider className="carousel__sliderLarge">
-              {products.products.map((product, i) => (
+              {products.map((product, i) => (
                 <Slide className="carousel__inner-slideLarge" index={i} key={i}>
-                  <div className="gallery-cell w-full h-full">
+                  <div className="w-full h-full">
                     <div className="relative w-full h-full lg:block hidden">
                       <img
                         src={product.image}

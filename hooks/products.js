@@ -4,7 +4,7 @@ import { supabase } from '../utils/supabase';
 
 const PRODUCTS_QUERY_KEY = 'products';
 
-export function useProducts(flowRate, data) {
+export function useProducts(flowRate) {
   const query = useQuery(
     PRODUCTS_QUERY_KEY,
     async () => {
@@ -25,7 +25,6 @@ export function useProducts(flowRate, data) {
     {
       staleTime: 0, //ms
       cacheTime: Infinity,
-      initialData: data,
     },
   );
 
