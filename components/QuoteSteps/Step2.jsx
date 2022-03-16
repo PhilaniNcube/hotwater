@@ -29,7 +29,8 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       )}
 
       <p className="py-3 px-8 text-center">
-        Tell us which of the below best describes the type of house you live in
+        Please tell us which of the below properties best describes the type of
+        house you live in
       </p>
 
       <div className="py-8 max-w-6xl mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-y-8">

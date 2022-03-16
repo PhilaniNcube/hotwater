@@ -10,17 +10,22 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const router = useRouter();
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
-      <h1 className="mt-8 font-sans text-center font-bold text-2xl">
+    <div className="max-w-6xl mx-auto mt-4 mb-12">
+      <h1 className="font-sans text-center font-bold text-2xl">
         Total Off The Grid Solution
       </h1>
       <div className="flex flex-col max-w-3xl mx-auto text-gray-600 px-8 md:px-0 mt-4">
         <div className="">
-          <p className="py-3 md:py-2 text-center text-xs">
+          <p className="md:py-2 text-center text-xs">
             We also offer total off-the-grid solutions! Combining solar and gas
             for your total off-the-grid solution is the least expensive solution
             that will take your property completely off the grid and independent
             from Eskom.
+          </p>
+          <p className="text-center text-xs">
+            By looking together at your monthly saving potential on your
+            electricity bill and the investment needed to become total
+            -off-the-grid, we can assist you with a financing solution.
           </p>
         </div>
 
@@ -32,7 +37,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
 
-      <div className="py-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-16 md:space-y-0 justify-center lg:space-y-0 lg:space-x-6">
+      <div className="py-4 max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-16 md:space-y-0 justify-center lg:space-y-0 lg:space-x-6">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => {

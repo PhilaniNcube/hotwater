@@ -57,9 +57,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <div className="text-gray-400 mt-4 flex flex-col">
+          <div className="text-gray-400 mt-4 flex flex-col justify-start items-end">
             <img
-              className="w-full object-cover"
+              className="w-4/6 object-cover"
               src="/images/card.jpeg"
               alt="paygate logos"
             />

@@ -59,7 +59,8 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       </h1>
 
       <p className="py-3 text-center">
-        Tell us how many children, teenagers and adults live in your house
+        Please tell us how many children, teenagers and adults live in your
+        household
       </p>
 
       <div className="flex items-center py-8 justify-around max-w-6xl mx-auto flex-wrap space-y-10 lg:space-y-0">

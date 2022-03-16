@@ -28,7 +28,7 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       )}
 
       <p className="py-3 text-center">
-        How do you currently heat up your water?
+        How do you currently heat up your water? Multiple answers are possible.
       </p>
 
       <div className="py-8 max-w-6xl mx-auto flex flex-col md:flex-row flex-wrap items-center justify-center space-y-4 lg:space-y-0 lg:space-x-6">

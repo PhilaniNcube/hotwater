@@ -119,15 +119,17 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   return (
     <div className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
-      <p className="py-1 text-center font-bold text-gray-600">
-        Below is a summary of the information you have provided to us.
-      </p>
-
       <QuoteCard quote={quoteInfo} />
+
+      <p className="text-sm text-gray-600 font-bold mt-2 text-center">
+        Please click on the button below to fill out a short contact list in
+        order for us to start the process of giving you our tailored quote
+        within 2 working days.
+      </p>
 
       <div
         id="save"
-        className="flex items-center justify-center space-x-6 my-16"
+        className="flex items-center justify-center space-x-6 mb-12"
       >
         <svg
           onClick={prevPage}
@@ -148,7 +150,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <button
           onClick={handleSubmit}
           disabled={mutation.isLoading}
-          className="bg-sky-500 hover:bg-sky-600 text-center text-white text-lg md:text-xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow my-8"
+          className="bg-sky-500 hover:bg-sky-600 text-center text-white text-lg md:text-xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow my-4"
         >
           {mutation.isLoading ? 'Loading...' : 'Complete the process'}
         </button>

@@ -4,12 +4,12 @@ import React, { Fragment } from 'react';
 function Index({ quote }) {
   return (
     <Fragment>
-      <div className="w-full bg-gray-200 py-10">
+      <div className="w-full bg-gray-200 py-4">
         <div className="container mx-auto px-6 flex items-start justify-center">
           <div className="w-full">
             {/* Card is full width. Use in 12 col grid for best view. */}
             {/* Card code block start */}
-            <div className="flex flex-col lg:flex-row mx-auto w-full bg-white  shadow rounded">
+            <div className="flex flex-col lg:flex-row mx-auto w-full bg-white shadow rounded">
               <div className="w-full lg:w-1/3 p-6">
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded shadow">
@@ -29,52 +29,80 @@ function Index({ quote }) {
                   </div>
                 </div>
 
-                <div className="mt-4">
-                  <div className="grid grid-cols-2 bg-sky-500 text-white px-2 py-3 rounded-t-lg">
-                    <h3>Geyser</h3>
-                    <h3>Installation Cost</h3>
-                  </div>
-                  <div className="grid grid-cols-2 bg-gray-100 px-2 py-3">
-                    <p className="text-xs font-medium">11-16l/min</p>
-                    <p className="text-xs font-medium">R2500 - R4600</p>
-                  </div>
-                  <div className="grid grid-cols-2 bg-gray-100 px-2 py-3">
-                    <p className="text-xs font-medium">20l/min</p>
-                    <p className="text-xs font-medium">R3500 - R6000</p>
-                  </div>
-                  <div className="grid grid-cols-2 bg-gray-100 px-2 py-3">
-                    <p className="text-xs font-medium">24-26l/min</p>
-                    <p className="text-xs font-medium">R7000 - R9000</p>
+                <div className="flex items-center justify-between mt-8">
+                  <div>
+                    <p className="text-md text-gray-600 font-bold mb-1 tracking-normal">
+                      Calculated Flow Rate
+                    </p>
+                    <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
+                      {quote.flowRate} L/Min
+                    </h2>
                   </div>
                 </div>
 
                 <div className="mt-4">
-                  <h4 className="text-lg">Installation</h4>
-                  <div className="bg-red-500 text-white rounded mt-1 p-2">
-                    <p className="text-xs">
-                      For safety and quality purposes of the installation work
-                      performed. We highly recommend you to only work with
-                      certified installers that are registered with the LPGas
-                      Association of South Africa.
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Bathubs
                     </p>
-                    <p className="text-xs">
-                      Our network of certified installers will offer you the
-                      best guaranteed service for all your installation needs.
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.bathtub}
                     </p>
-                    <p className="text-xs">
-                      It is typical for a Gas Geyser installation to have a UPS
-                      as well. The price for a UPS is between R2500 – R4500 and
-                      a water-resistant cover costs about R500.
+                  </div>
+
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Dishwashers
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.dishwasher}
+                    </p>
+                  </div>
+
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Rain Showers
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.rainShower}
+                    </p>
+                  </div>
+
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Sinks
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.sink}
+                    </p>
+                  </div>
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Standard Showers
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.standardShower}
+                    </p>
+                  </div>
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Washing Machine
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.washingmachine}
                     </p>
                   </div>
                 </div>
               </div>
               <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 sm:border-l sm:border-r border-gray-300">
-                <h3 className="text-lg text-gray-800 font-bold mt-1 mb-1">
+                <h3 className="text-lg text-gray-600 font-bold mt-1 mb-1">
                   Address:
                 </h3>
                 <p className="text-gray-600  text-sm font-normal">
                   {`Street Address: ${quote.streetAddress}`}
+                </p>
+                <p className="text-gray-600  text-sm font-normal">
+                  {`City: ${quote.city}`}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
                   {`Phone Number: ${quote.telephoneNumber}`}
@@ -83,7 +111,7 @@ function Index({ quote }) {
                 <p className="text-gray-600  text-sm font-normal">
                   {`Postal Code: ${quote.postalCode}`}
                 </p>
-                <div className="mt-2 mb-2 w-full bg-gray-100 rounded p-4 relative">
+                <div className="mt-2 mb-2 bg-gray-100 shadow rounded p-4 relative">
                   <ul>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Home Ownership -{' '}
@@ -91,13 +119,13 @@ function Index({ quote }) {
                         {quote.ownership ? `Owner` : 'Renter'}
                       </span>
                     </li>
-                    <li className="text-xs text-gray-600  font-normal tracking-normal my-4">
+                    <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Porperty Type -{' '}
                       <span className="uppercase font-bold">
                         {quote.houseType}
                       </span>
                     </li>
-                    <li className="text-xs text-gray-600  font-normal tracking-normal my-4">
+                    <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Current Water Heater -{' '}
                       <span className="uppercase font-bold">
                         {quote.gasGeyser
@@ -109,21 +137,21 @@ function Index({ quote }) {
                           : quote.otherGeyser}
                       </span>
                     </li>
-                    <li className="text-xs text-gray-600  font-normal tracking-normal my-4">
+                    <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Current Gas Supply -{' '}
                       <span className="uppercase font-bold">
                         {quote.gasSupply}
                       </span>
                     </li>
 
-                    <li className="text-xs text-gray-600  font-normal tracking-normal my-4">
+                    <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Off Grid Solution -{' '}
                       <span className="uppercase font-bold">
                         {quote.offGrid ? 'Yes' : 'No'}
                       </span>
                     </li>
 
-                    <li className="text-xs text-gray-600  font-normal tracking-normal my-4">
+                    <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Geyser on outside wall -{' '}
                       <span className="uppercase font-bold">
                         {quote.locateOutside ? 'Yes' : 'No'}
@@ -131,7 +159,12 @@ function Index({ quote }) {
                     </li>
                   </ul>
                 </div>
-                <div className="flex items-center justify-between py-4">
+              </div>
+              <div className="w-full  lg:w-1/3 px-6 pt-4">
+                <h3 className="text-gray-600 font-bold text-lg">
+                  Household Size:
+                </h3>
+                <div className="flex items-center border-t-2 justify-between py-2">
                   <div>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
                       {quote.children}
@@ -157,73 +190,8 @@ function Index({ quote }) {
                     </p>
                   </div>
                 </div>
-              </div>
-              <div className="w-full  lg:w-1/3 p-6">
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                    Bathubs
-                  </p>
-                  <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                    {quote.bathtub}
-                  </p>
-                </div>
 
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                    Dishwashers
-                  </p>
-                  <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                    {quote.dishwasher}
-                  </p>
-                </div>
-
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                    Rain Showers
-                  </p>
-                  <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                    {quote.rainShower}
-                  </p>
-                </div>
-
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                    Sinks
-                  </p>
-                  <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                    {quote.sink}
-                  </p>
-                </div>
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                    Standard Showers
-                  </p>
-                  <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                    {quote.standardShower}
-                  </p>
-                </div>
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                    Washing Machine
-                  </p>
-                  <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                    {quote.washingmachine}
-                  </p>
-                </div>
-
-                <hr className="text-gray-900 bg-gray-200 h-1 my-4" />
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-gray-800 font-normal mb-1 tracking-normal">
-                      Calculated Flow Rate
-                    </p>
-                    <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                      {quote.flowRate} L/Min
-                    </h2>
-                  </div>
-                </div>
-                <h3 className="text-gray-600 font-bold text-lg mt-8">
+                <h3 className="text-gray-600 font-bold text-lg">
                   Intended Gas Use:
                 </h3>
                 <div className="flex items-center justify-between py-4 border-t-2 border-gray-200">
@@ -253,7 +221,7 @@ function Index({ quote }) {
                   </div>
                 </div>
 
-                <h3 className="text-gray-600 font-bold text-lg mt-8">
+                <h3 className="text-gray-600 font-bold text-lg">
                   Current Geyser:
                 </h3>
                 <div className="flex items-center justify-between py-4 border-t-2 border-gray-200">

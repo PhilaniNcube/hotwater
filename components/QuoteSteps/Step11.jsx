@@ -28,7 +28,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="firstName"
-              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.firstName}
               onChange={(e) =>
                 setQuoteInfo({
@@ -45,7 +45,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="lastName"
-              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700"
               value={quoteInfo.lastName}
               onChange={(e) =>
                 setQuoteInfo({
@@ -65,7 +65,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               type="email"
               name="email"
               required
-              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700"
               value={quoteInfo.email}
               onChange={(e) =>
                 setQuoteInfo({
@@ -82,7 +82,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="tel"
               name="telephone"
-              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.telephoneNumber}
               onChange={(e) =>
                 setQuoteInfo({
@@ -93,24 +93,24 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             />
           </div>
         </div>
+        <div className="flex flex-col w-full md:w-3/4">
+          <label className="text-md font-bold" htmlFor="streetAddress">
+            Street Address
+          </label>
+          <input
+            type="text"
+            name="streetAddress"
+            className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
+            value={quoteInfo.streetAddress}
+            onChange={(e) =>
+              setQuoteInfo({
+                ...quoteInfo,
+                streetAddress: e.target.value,
+              })
+            }
+          />
+        </div>
         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
-          <div className="flex flex-col w-full">
-            <label className="text-md font-bold" htmlFor="streetAddress">
-              Street Address
-            </label>
-            <input
-              type="text"
-              name="streetAddress"
-              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
-              value={quoteInfo.streetAddress}
-              onChange={(e) =>
-                setQuoteInfo({
-                  ...quoteInfo,
-                  streetAddress: e.target.value,
-                })
-              }
-            />
-          </div>
           <div className="flex flex-col w-full">
             <label className="text-md font-bold" htmlFor="city">
               City
@@ -118,7 +118,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="city"
-              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.city}
               onChange={(e) =>
                 setQuoteInfo({
@@ -136,7 +136,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="postalCode"
-              className="bg-gray-200 py-1 px-4 border-b-2 border-slate-800"
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.postalCode}
               onChange={(e) =>
                 setQuoteInfo({
@@ -148,7 +148,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center space-x-6 my-3">
+      <div className="flex items-center justify-center space-x-6 mt-4 mb-12">
         <svg
           onClick={prevPage}
           xmlns="http://www.w3.org/2000/svg"

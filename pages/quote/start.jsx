@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
+import { start } from '../../utils/gtm';
 
 const Start = () => {
   return (
@@ -79,9 +80,12 @@ const Start = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-12">
           <Link href="/quote" passHref>
-            <button className="bg-sky-500 hover:bg-sky-700 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow">
+            <button
+              onClick={start}
+              className="bg-sky-500 hover:bg-sky-700 text-center text-white text-2xl font-medium rounded-full py-3 px-8 shadow-sky-400 shadow-md hover:shadow"
+            >
               Lets get started
             </button>
           </Link>

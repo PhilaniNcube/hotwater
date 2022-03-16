@@ -115,7 +115,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       </h1>
 
       <p className="py-3 text-center">
-        How many of these water outlets do you have in the house?
+        How many of these warm water outlets do you have in your house?
       </p>
 
       <div className="py-8 max-w-3xl mx-auto flex flex-col items-center md:grid  justify-center md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
