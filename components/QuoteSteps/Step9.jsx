@@ -1,20 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { useProducts } from '../../hooks/products';
 import { supabase } from '../../utils/supabase';
 import ProductSlide from '../ProductSlide/ProductSlide';
 
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const [products, setProducts] = useState([]);
-
-  const flowRate = Math.ceil(quoteInfo.flowRate);
+  const flowRate = Math.ceil(parseInt(quoteInfo.flowRate));
 
   useEffect(async () => {
     let { data: products, error } = await supabase
       .from('products')
-      .select(`*, brand_id( name)`)
+      .select(`*, brand_id(name)`)
       .gte('flowRate', flowRate)
       .eq('inStock', true)
       .order('flowRate', { ascending: false });
@@ -123,6 +120,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </div>
           </div>
         </div>
+
         <div className="flex items-center justify-center overflow-hidden">
           <ProductSlide
             products={products}

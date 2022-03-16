@@ -1,8 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import React, { Fragment } from 'react';
 export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
   return (
-    <>
+    <Fragment>
+      {products.length === 0 && (
+        <p className="text-xs font-light text-gray-700 max-w-40-ch">
+          According to your answers on water consumption we would have to
+          contact you in order to recommend a suitable gas geyser solution.
+          Please continue with the rest of the questionaire.
+        </p>
+      )}
+
       <div className="flex items-center justify-start w-1/2 h-full py-12 px-4 overflow-x-scroll">
         {products.map((product) => (
           <div className="max-w-[70%] mx-2" key={product.id}>
@@ -14,7 +22,7 @@ export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
               />
             </div>
             <div className="bg-white shadow px-5 rounded-b">
-              <p className="w-48 text-base font-semibold leading-5 pt-4 text-gray-800">
+              <p className="w-48 text-xs font-semibold leading-5 pt-4 text-gray-800">
                 {product.name}
               </p>
               <div className="flex items-center pt-2">
@@ -49,6 +57,6 @@ export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
           </div>
         ))}
       </div>
-    </>
+    </Fragment>
   );
 }

@@ -31,7 +31,7 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
         </div>
       </Fragment>
     );
-  } else if (user.role === 'main_admin') {
+  } else if (user.role === 'supabase_admin') {
     return (
       <Fragment>
         <AdminHeader />

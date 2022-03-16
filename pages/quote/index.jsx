@@ -18,9 +18,17 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Step11 from '../../components/QuoteSteps/Step11';
 import Step12 from '../../components/QuoteSteps/Step12';
+import getProducts from '../../lib/getProducts';
+import { useQuery } from 'react-query';
 
-const index = () => {
+const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
+
+  const { data: products } = useQuery('products', getProducts, {
+    initialData: initialProducts,
+  });
+
+  console.log(products);
 
   const { user } = useUser();
 
@@ -204,3 +212,11 @@ const index = () => {
 };
 
 export default index;
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      initialProducts: await getProducts(),
+    },
+  };
+}
