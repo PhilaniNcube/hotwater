@@ -11,7 +11,7 @@ function ProfileNav({ children }) {
   return (
     <Fragment>
       {/* Vertical navigation starts */}
-      <div className="flex flex-no-wrap h-full overflow-scroll ">
+      <div className="flex flex-no-wrap h-full">
         <div className="min-h-[90vh] bg-gray-900 p-4">
           <div className="flex w-full h-full">
             <div className=" flex flex-col h-full justify-between">
@@ -77,67 +77,11 @@ function ProfileNav({ children }) {
                     )}
                   </div>
                 </div>
-                <div className="flex items-center">
-                  <ul>
-                    <li
-                      tabIndex={0}
-                      role="button"
-                      aria-label="Overview"
-                      className="cursor-pointer mt-10"
-                    >
-                      <svg
-                        width={20}
-                        height={20}
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M2.5 2.5H9.16667V9.16667H2.5V2.5ZM2.5 10.8333H9.16667V17.5H2.5V10.8333ZM10.8333 2.5H17.5V9.16667H10.8333V2.5ZM10.8333 10.8333H17.5V17.5H10.8333V10.8333ZM12.5 4.16667V7.5H15.8333V4.16667H12.5ZM12.5 12.5V15.8333H15.8333V12.5H12.5ZM4.16667 4.16667V7.5H7.5V4.16667H4.16667ZM4.16667 12.5V15.8333H7.5V12.5H4.16667Z"
-                          fill="#9CA3AF"
-                        />
-                      </svg>
-                    </li>
-                  </ul>
-                  {show && (
-                    <div className="w-full mt-10">
-                      <Link href="/profile/myquotes" passHref>
-                        <p className="text-xs md:text-base leading-4 pl-1 md:pl-3 cursor-pointer text-gray-400">
-                          My Quotes
-                        </p>
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div
-                className="flex items-center justify-between relative"
-                id="profile"
-              >
-                {show ? (
-                  <Fragment>
-                    <div className="flex flex-col md:flex-row items-center mt-4">
-                      <img
-                        src="/images/avatar.svg"
-                        alt="profile picture"
-                        className="w-7 h-7 rounded-full"
-                      />
-                    </div>
-                  </Fragment>
-                ) : (
-                  <div className="flex items-center justify-between mt-2">
-                    <img
-                      src="/images/avatar.svg"
-                      alt="profile picture"
-                      className="w-7 h-7 rounded-full"
-                    />
-                  </div>
-                )}
               </div>
             </div>
           </div>
         </div>
-        <div className="w-full"> {children}</div>
+        <div className="w-full overflow-hidden"> {children}</div>
       </div>
       {/* Vertical navigation ends */}
     </Fragment>
