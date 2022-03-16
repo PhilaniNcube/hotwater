@@ -158,7 +158,7 @@ const WhyUs = () => {
                   With over 40years of experience in the Dutch gas installation
                   business, we understand your need, especially in a time when
                   energy costs are rising (and almost becomes unaffordable) and
-                  load shedding becomes a daily part of our lives.
+                  load shedding becomes a daily part of our lives
                 </p>
               </div>
               <div>
@@ -166,11 +166,11 @@ const WhyUs = () => {
                   Affordable Alternative
                 </p>
                 <p className="font-normal text-base leading-6 text-gray-600 mt-6">
-                  We offer our clients gas as an alternative source of energy,
-                  we do not only offer you our experience in recommending the
-                  best quality and safe product for your property, we also
-                  recommend you the best (partially) off-the-grid solutions,
-                  minimizing your monthly household expense on electricity.
+                  We offer our clients an alternative source of energy, namely
+                  gas. We do not only offer you our experience in recommending
+                  the best quality and safe product for your property, we also
+                  recommend you the best off-the-grid solutions, minimizing your
+                  monthly household expense on electricity.
                 </p>
               </div>
               <div className="sm:block hidden">
@@ -180,9 +180,8 @@ const WhyUs = () => {
                 <p className="font-normal text-base leading-6 text-gray-600 mt-6">
                   Free yourself from the difficulties of periodic load shedding.
                   Get the comfort of knowing that you will have hot water even
-                  in a black out. If you also go the full Off Grid solution you
-                  can offload the the greatest drain of electricity which is the
-                  geyser onto a gas solution.
+                  during a black out. We offer a one-stop-service for your
+                  entire gas water heating solution
                 </p>
               </div>
             </div>
@@ -192,7 +191,7 @@ const WhyUs = () => {
         <Link href="/quote/start" passHref>
           <button
             onClick={start}
-            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
+            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 mb-8 rounded-full w-fit"
           >
             Find Your Fit
             <span>
@@ -220,33 +219,34 @@ const WhyUs = () => {
           <h1 className="text-white font-light text-3xl lg:text-5xl">
             Why Choose <span className="font-bold">LPG GAS?</span>
           </h1>
-          <ul className="pl-4 list-disc text-white text-sm">
-            <li className="py-1">
-              LPG is a very safe and reliable source of energy that can be used
+          <div className="text-white">
+            <p className="text-white text-md">
+              LPG is a very safe and reliable source of energy, that can be used
               for cooking and heating. LPG has many advantages, to name a few:
-            </li>
-            <li className="py-1">
+            </p>
+
+            <h4 className="text-lg md:text-xl mt-3">Efficient</h4>
+            <p className="text-sm">
               It can be up to five times more efficient than traditional fuels,
               resulting in less energy wastage and better use of our planet’s
               resources.
-            </li>
-            <li className="py-1">
+            </p>
+            <h4 className="text-lg md:text-xl mt-3">Portable & Accessible</h4>
+            <p className="text-sm">
               LPG is extremely versatile and portable. It can be transported
-              using sea, rail or road transport.
-            </li>
-            <li className="py-1">
-              LPG can be accessible to everyone everywhere today without major
-              infrastructure investment.
-            </li>
-            <li className="py-1">
+              using sea, rail or road transport. LPG can be accessible to
+              everyone everywhere today without major infrastructure investment.
+            </p>
+            <h4 className="text-lg md:text-xl mt-3">Clean</h4>
+            <p className="text-sm">
               LPG is a clean burning fuel that is low carbon, emits virtually no
               black carbon and does not spill. Do you know that South Africa is
               amongst the most polluted countries in the world, this mainly due
               to the fact that electricity is still being generated through the
               use of coal. So it is time for us to act accordingly and reduce
               the CO2 footprint!
-            </li>
-          </ul>
+            </p>
+          </div>
 
           <Link href="/quote/start" passHref>
             <button

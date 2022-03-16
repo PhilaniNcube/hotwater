@@ -33,13 +33,18 @@ export default function MyApp() {
               role="contentinfo"
               className="mt-4 text-base leading-6 text-gray-600"
             >
-              With over 40years of experience in the Dutch gas installation
-              business, we understand your needs. Either when it is a need for
-              comfort (on demand hot water 24/7 for your family) or a need out
-              of necessity (tired of load shedding, cold water and high energy
-              bills from Eskom) and want to become “off-the-grid” and
-              independent from Eskom and save money on your energy bill, then
-              heating up your water with a gas heating solution is the answer!
+              With over 40years of experience and knowledge in the Dutch gas
+              installation business, we understand your needs. Either when it is
+              a need for comfort{' '}
+              <span className="font-bold">
+                {' '}
+                (on demand hot water 24/7 for your family)
+              </span>{' '}
+              or a need out of necessity (tired of load shedding, cold water and
+              high energy bills from Eskom) and want to become “off-the-grid”
+              and independent from Eskom and save money on your monthly energy
+              bill at the same time! Then heating up your water with a gas
+              heating solution is the answer!
             </p>
             <p
               role="contentinfo"
@@ -94,10 +99,15 @@ export default function MyApp() {
               </h2>
             </div>
             <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
-              We can even offer you a “total off-the-grid” solution. Through
-              combining gas (for cooking and heating water) and solar (plugs,
-              lights, modem, fridge, etc..) we can prepare your property to
-              become total off-the-grid without any dependency from Eskom.
+              We also offer total off-the-grid solutions! Combining solar and
+              gas for your total off-the-grid solution is the least expensive
+              solution that will take your property completely off the grid and
+              independent from Eskom.
+            </p>
+            <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
+              By looking together at your monthly saving potential on your
+              electricity bill and the investment needed to become total
+              -off-the-grid, we can assist you with a financing solution.
             </p>
           </div>
           <div>
@@ -125,9 +135,8 @@ export default function MyApp() {
               </h2>
             </div>
             <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
-              Please contact us if you would like to receive more information as
-              there are several options we can recommend not only on the product
-              & service, but also on possible financing.
+              Please contact us if you would like to receive more information on
+              possible financing.
             </p>
           </div>
         </div>
