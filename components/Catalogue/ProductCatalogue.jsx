@@ -51,7 +51,7 @@ export default function ProductCatalogue({ products }) {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <div className="mt-4 grid-cols-1 grid sm:grid-cols-2 lg:grid-cols-3 gap-y-12 lg:gap-x-8 lg:gap-y-8 md:gap-x-6 md:gap-y-10 2xl:flex 2xl:flex-wrap justify-between">
+        <div className="mt-4 grid-cols-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 lg:gap-x-8 lg:gap-y-8 md:gap-x-6 md:gap-y-10">
           {products.map((product) => (
             <div
               className="flex justify-center flex-col shadow-xl px-4 py-3 rounded-lg"

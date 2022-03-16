@@ -68,6 +68,7 @@ const CartProvider = ({ children }) => {
       return item.id !== id;
     });
 
+    console.log(newCart);
     setCart(newCart);
   };
 

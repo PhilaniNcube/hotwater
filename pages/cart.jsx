@@ -2,10 +2,17 @@
 import useCart from '../hooks/useCart';
 import Image from 'next/image';
 import Link from 'next/link';
+import formatter from '../lib/format';
+import { format } from 'crypto-js';
 
 export default function Cart({}) {
-  const { cart, removeItemFromCart, addCartQty, reduceCartQty, cartTotal } =
-    useCart();
+  const {
+    cart,
+    removeItemFromCart,
+    addCartQty,
+    reduceCartQty,
+    cartTotal,
+  } = useCart();
 
   return (
     <div className="2xl:container 2xl:mx-auto">
@@ -25,8 +32,8 @@ export default function Cart({}) {
             >
               <div>
                 <Image
-                  width={200}
-                  height={200}
+                  width={500}
+                  height={500}
                   src={item.image}
                   alt="A pair of gray sneakers"
                   role="img"
@@ -45,17 +52,30 @@ export default function Cart({}) {
                   <p className="text-sm leading-tight text-gray-600 ">
                     Flow Rate:{item.flowRate}l/min
                   </p>
-                  <div className="mt-8 flex space-x-6 items-center">
+                  <p className="text-sm leading-tight text-gray-600 ">
+                    Max Temp: {item.maxTemp} &#8451;
+                  </p>
+                  <p className="text-sm leading-tight text-gray-600 ">
+                    Max Pressure: {item.maxPressure}
+                  </p>
+                  <p className="text-sm leading-tight text-gray-600 ">
+                    Width: {item.width} mm
+                  </p>
+                  <p className="text-sm leading-tight text-gray-600 ">
+                    Height: {item.height} mm
+                  </p>
+                  <p className="text-sm leading-tight text-gray-600 ">
+                    Depth: {item.depth} mm
+                  </p>
+
+                  <div className="mt-8 flex space-x-6 items-center justify-between w-[500px]">
                     <a
-                      onClick={() => removeItemFromCart(item)}
+                      onClick={() => removeItemFromCart(item.id)}
                       className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black"
                     >
                       Remove
                     </a>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex md:flex-col h-full lg:flex-row lg:space-x-72">
+
                     <div className="p-3 w-20 h-10 border border-gray-300 flex items-center justify-center space-x-3">
                       <button
                         onClick={() => reduceCartQty(item)}
@@ -101,15 +121,27 @@ export default function Cart({}) {
                         </svg>
                       </button>
                     </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex md:flex-col h-full lg:flex-row lg:space-x-72">
                     <div className="hidden md:block">
                       <p className="mt-24 lg:mt-0 text-xl font-medium text-gray-800 text-right">
-                        R{item.price * item.qty}
+                        {formatter.format(item.price * item.qty)}{' '}
+                        <span className="text-xs">incl VAT</span>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col md:hidden mt-4">
+                <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
+                  Brand:{item.brand_id.name}
+                </p>
+                <p className="text-sm leading-tight text-gray-600 ">
+                  Flow Rate:{item.flowRate}l/min
+                </p>
+
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-gray-800">{item.sku}</p>
@@ -163,22 +195,17 @@ export default function Cart({}) {
                     </button>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
-                  Brand:{item.brand_id.name}
-                </p>
-                <p className="text-sm leading-tight text-gray-600 ">
-                  Flow Rate:{item.flowRate}l/min
-                </p>
                 <div className="mt-8 flex space-x-6 items-center">
                   <a
-                    onClick={() => removeItemFromCart(item)}
+                    onClick={() => removeItemFromCart(item.id)}
                     className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black"
                   >
                     Remove
                   </a>
                 </div>
                 <p className="mt-10 text-xl font-medium text-gray-800">
-                  R{item.price * item.qty}
+                  {formatter.format(item.price * item.qty)}{' '}
+                  <span className="text-xs">incl VAT</span>
                 </p>
               </div>
             </div>
@@ -228,7 +255,7 @@ export default function Cart({}) {
             <div className="flex items-center justify-between">
               <h3 className="text-2xl text-gray-800">Total</h3>
               <p className="text-2xl font-semibold text-gray-800">
-                R {cartTotal}
+                {formatter.format(cartTotal)}
               </p>
             </div>
             <Link href="/checkout" passHref>
