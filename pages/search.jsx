@@ -18,7 +18,7 @@ export async function getServerSideProps({ query }) {
   let { data: products, error } = await supabase
     .from('products')
     .select('*')
-    .ilike('name', `%${query.query}%`);
+    .ilike('description', `%${query.query}%`);
 
   console.log({ products, error });
 

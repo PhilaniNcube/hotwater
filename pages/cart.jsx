@@ -46,6 +46,10 @@ export default function Cart({}) {
                   <h2 className="mt-1 text-xl font-semibold text-gray-800">
                     {item.name}
                   </h2>
+
+                  <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
+                    {item.description}
+                  </p>
                   <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
                     Brand:{item.brand_id.name}
                   </p>
@@ -71,7 +75,7 @@ export default function Cart({}) {
                   <div className="mt-8 flex space-x-6 items-center justify-between w-[500px]">
                     <a
                       onClick={() => removeItemFromCart(item.id)}
-                      className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black"
+                      className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black cursor-pointer"
                     >
                       Remove
                     </a>
@@ -198,7 +202,7 @@ export default function Cart({}) {
                 <div className="mt-8 flex space-x-6 items-center">
                   <a
                     onClick={() => removeItemFromCart(item.id)}
-                    className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black"
+                    className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black cursor-pointer"
                   >
                     Remove
                   </a>
@@ -246,7 +250,7 @@ export default function Cart({}) {
                   />
                 </svg>
               </div>
-              <p className="text-base font-medium underline text-gray-600 hover:text-gray-900">
+              <p className="text-base font-medium underline text-gray-600 hover:text-gray-900 cursor-pointer">
                 Continue shopping
               </p>
             </a>

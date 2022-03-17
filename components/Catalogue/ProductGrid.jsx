@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import formatter from '../../lib/format';
 /* eslint-disable @next/next/no-img-element */
 export default function ProductGrid({ products }) {
   return (
@@ -20,26 +22,29 @@ export default function ProductGrid({ products }) {
           <div className="w-full flex justify-center items-stretch md:flex-row flex-col  space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
             {products.map((product) => {
               return (
-                <div
+                <Link
                   key={product.id}
-                  className="bg-white shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer w-full flex space-y-8 justify-start items-stretch flex-col p-5 xl:p-4"
+                  href={`/catalogue/${product.id}`}
+                  passHref
                 >
-                  <Image
-                    width={400}
-                    height={400}
-                    className="w-full"
-                    src={product.image}
-                    alt="mobile 1"
-                  />
-                  <div className="w-full flex-col flex justify-start">
-                    <p className="text-base leading-none text-gray-600">
-                      {product.name}
-                    </p>
-                    <p className="text-base mt-3 leading-none text-gray-600">
-                      R{product.price}
-                    </p>
+                  <div className="bg-white shadow hover:shadow-xl transition duration-500 ease-in-out cursor-pointer w-full flex space-y-8 justify-start items-stretch flex-col p-5 xl:p-4">
+                    <Image
+                      width={400}
+                      height={400}
+                      className="w-full"
+                      src={product.image}
+                      alt="mobile 1"
+                    />
+                    <div className="w-full flex-col flex justify-start">
+                      <p className="text-base leading-none text-gray-600">
+                        {product.name}
+                      </p>
+                      <p className="text-base mt-3 leading-none text-gray-600">
+                        {formatter.format(product.price)}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
