@@ -205,6 +205,7 @@ const index = ({ initialProducts }) => {
           nextPage={nextPage}
           prevPage={prevPage}
           page={page}
+          products={products}
         />
       )}
     </Fragment>

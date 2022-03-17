@@ -110,7 +110,11 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       console.log('quote', quote);
 
       if (quote?.data[0]) {
-        nextPage();
+        if (quoteInfo.product_id) {
+          router.push(`/catalogue/${quoteInfo.product_id}`);
+        } else {
+          nextPage();
+        }
       }
     } catch (error) {
       console.log(error);
