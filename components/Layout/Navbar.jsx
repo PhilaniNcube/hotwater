@@ -267,7 +267,7 @@ const Navbar = () => {
           <div>
             {user ? (
               <div className="flex space-x-5">
-                {user.role === 'supabase_admin' ? (
+                {user.email === 'supabase_admin' ? (
                   <Link href="/admin" passHref>
                     <div className="flex items-center text-sky-600 cursor-pointer">
                       <span className="pl-2">
