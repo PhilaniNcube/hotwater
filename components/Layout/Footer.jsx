@@ -59,8 +59,8 @@ const Footer = () => {
         <div className="flex flex-col justify-center items-center">
           <div className="text-gray-400 mt-4 flex flex-col justify-start items-end">
             <img
-              className="w-4/6 object-cover"
-              src="/images/card.jpeg"
+              className="w-5/6 md:w-3/6 object-cover"
+              src="/images/footer.png"
               alt="paygate logos"
             />
           </div>

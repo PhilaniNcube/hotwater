@@ -104,11 +104,6 @@ export default function MyApp() {
               solution that will take your property completely off the grid and
               independent from Eskom.
             </p>
-            <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
-              By looking together at your monthly saving potential on your
-              electricity bill and the investment needed to become total
-              -off-the-grid, we can assist you with a financing solution.
-            </p>
           </div>
           <div>
             <div className="flex items-center">
@@ -141,30 +136,32 @@ export default function MyApp() {
           </div>
         </div>
 
-        <Link href="/quote/start" passHref>
-          <button
-            onClick={start}
-            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
-          >
-            Find Your Fit
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 pl-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-          </button>
-        </Link>
+        <div className="flex justify-center my-4">
+          <Link href="/quote/start" passHref>
+            <button
+              onClick={start}
+              className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
+            >
+              Find Your Fit
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 pl-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

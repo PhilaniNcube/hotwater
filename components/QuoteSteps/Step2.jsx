@@ -5,10 +5,13 @@ import Step2Modal from '../Modals/Step2Modal';
 const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
+  const [other, setOther] = useState(false);
+
   const [show, setShow] = useState(false);
 
   const homeType = (type) => {
     setQuoteInfo({ ...quoteInfo, houseType: type });
+    setOther(false);
   };
 
   return (
@@ -21,6 +24,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <Step2Modal
           show={show}
           setShow={setShow}
+          setOther={setOther}
           homeType={homeType}
           page={page}
           setQuoteInfo={setQuoteInfo}
@@ -36,9 +40,9 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       <div className="py-8 max-w-6xl mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-y-8">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg justify-self-center bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-          onClick={() => homeType('appartment')}
+          onClick={() => homeType('apartment')}
         >
-          {quoteInfo.houseType === 'appartment' && (
+          {quoteInfo.houseType === 'apartment' && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -203,7 +207,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           className="relative h-[200px] w-[250px] rounded justify-self-center shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => setShow(true)}
         >
-          {quoteInfo.houseType === 'other' && (
+          {other && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"

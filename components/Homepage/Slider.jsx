@@ -32,7 +32,7 @@ const Slides = [
     color: 'black',
     heading: 'Safe and reliable installation by accredited professionals',
     subheading:
-      'Get our expert opinion on the best gas water heating solution for your home',
+      'Get our expert opinion on the best gas water heating solution for your home by clicking on the link below.',
     link: '/quote/start',
     linkText: 'Find your fit',
     event: start,
@@ -45,7 +45,7 @@ const Slider = () => {
       <Swiper
         centeredSlides={true}
         autoplay={{
-          delay: 4500,
+          delay: 5500,
           disableOnInteraction: false,
         }}
         navigation={true}

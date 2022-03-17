@@ -1,24 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment } from 'react';
+import formatter from '../../lib/format';
+
 export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
   return (
     <Fragment>
-      {products.length === 0 && (
-        <p className="text-xs font-light text-gray-700 max-w-40-ch">
-          According to your answers on water consumption we would have to
-          contact you in order to recommend a suitable gas geyser solution.
-          Please continue with the rest of the questionaire.
-        </p>
-      )}
-
-      <div className="flex items-center justify-start w-1/2 h-full py-12 px-4 overflow-x-scroll">
+      <div className="flex items-center justify-start w-5/6 mx-auto h-[65vh] py-12 px-4 overflow-x-scroll overflow-y-hidden">
         {products.map((product) => (
-          <div className="max-w-[70%] mx-2" key={product.id}>
-            <div className="bg-gray-100 shadow-lg rounded-tl rounded-tr">
+          <div className="max-w-[70%] mx-2 relative" key={product.id}>
+            {quoteInfo.product_id === product.id && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 absolute top-2 right-16 text-sky-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            )}
+
+            <div className="shadow-lg rounded-tl rounded-tr">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full"
+                className="w-[25vh] h-[25vh]"
               />
             </div>
             <div className="bg-white shadow px-5 rounded-b">
@@ -27,12 +36,12 @@ export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
               </p>
               <div className="flex items-center pt-2">
                 <div className="flex items-center">
-                  <p className="text-xs leading-3 text-sky-700 pl-1">
-                    R {product.price}
+                  <p className="text-xs leading-3 font-medium text-sky-700 pl-1">
+                    {formatter.format(product.price)}
                   </p>
                 </div>
                 <div className="flex items-center pl-4">
-                  <p className="text-xs leading-3 text-sky-700 pl-1">
+                  <p className="text-xs leading-3 font-medium text-sky-700 pl-1">
                     {product.flowRate} l/min
                   </p>
                 </div>
@@ -49,7 +58,7 @@ export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
                   });
                 }}
               >
-                <p className="text-xs leading-1 bg-sky-700 text-gray-50 px-4 py-2 rounded-lg">
+                <p className="text-xs text-white font-medium leading-1 px-4 py-2 rounded-md bg-sky-500 hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
                   Select Geyser
                 </p>
               </div>

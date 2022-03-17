@@ -22,11 +22,6 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             that will take your property completely off the grid and independent
             from Eskom.
           </p>
-          <p className="text-center text-xs">
-            By looking together at your monthly saving potential on your
-            electricity bill and the investment needed to become total
-            -off-the-grid, we can assist you with a financing solution.
-          </p>
         </div>
 
         <div>

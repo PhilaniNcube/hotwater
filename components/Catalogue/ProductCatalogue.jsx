@@ -76,7 +76,7 @@ export default function ProductCatalogue({ products }) {
               </div>
               <div className="mt-6 flex justify-between w-full">
                 <div>
-                  <p className="text-2xl font-semibold leading-6 text-gray-800">
+                  <p className="text-xl font-semibold leading-6 text-gray-800">
                     {product.name}
                   </p>
                 </div>

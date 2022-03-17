@@ -248,6 +248,11 @@ const WhyUs = () => {
             </p>
           </div>
 
+          <p className="text-sm max-w-[55ch] text-white mt-6 pb-2">
+            By clicking on the button below we instantly recommend you with the
+            best gas water heating solution for your home
+          </p>
+
           <Link href="/quote/start" passHref>
             <button
               onClick={start}
@@ -315,6 +320,11 @@ const WhyUs = () => {
                 condition? Then also think of taking a service & maintenance
                 contract with us. Our network of certified installers provide
                 high-quality maintenance and the best service.
+              </p>
+
+              <p className="text-sm max-w-[55ch] text-gray-800 mt-6 pb-2">
+                By clicking on the button below we instantly recommend you with
+                the best gas water heating solution for your home
               </p>
 
               <Link href="/quote/start" passHref>
