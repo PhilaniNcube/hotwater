@@ -122,11 +122,18 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
 
         <div className="flex items-center justify-center overflow-hidden">
-          <ProductSlide
-            products={products}
-            quoteInfo={quoteInfo}
-            setQuoteInfo={setQuoteInfo}
-          />
+          {products.length === 0 ? (
+            <p className="text-lg text-center text-gray-600">
+              According to your answers, we will have to contact you in order to
+              give you more information one the best solution for your property.
+            </p>
+          ) : (
+            <ProductSlide
+              products={products}
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+            />
+          )}
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 my-3">
