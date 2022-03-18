@@ -21,7 +21,9 @@ export default function Cart({}) {
           <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800">
             Cart
           </h1>
-          <p className="text-base text-gray-600 mt-4">{cart.length} Items</p>
+          <p className="text-base text-gray-600 mt-4">
+            {cart && cart.length} Items
+          </p>
         </div>
 
         {cart.map((item) => {
