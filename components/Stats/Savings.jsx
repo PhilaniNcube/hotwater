@@ -58,10 +58,15 @@ function Savings() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4 mb-12">
         <Link href="/quote/start" passHref>
           <button
-            onClick={start}
+            onClick={() => {
+              window.dataLayer = [];
+              window.dataLayer.push({
+                event: 'start',
+              });
+            }}
             className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
           >
             Find Your Fit

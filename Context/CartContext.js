@@ -39,6 +39,26 @@ const CartProvider = ({ children }) => {
           qty,
         },
       ]);
+
+      window.gtag('event', 'add_to_cart', {
+        currency: 'ZAR',
+        value: item.price,
+        items: [
+          {
+            item_id: item.sku,
+            item_name: item.name,
+            affiliation: 'Hotwater24',
+            coupon: '',
+            currency: 'ZAR',
+            discount: 0,
+            index: 0,
+            item_brand: item.brand_id.name,
+            item_category: 'geyser',
+            price: item.price,
+            quantity: item.qty,
+          },
+        ],
+      });
     }
 
     router.push('/cart');
