@@ -147,7 +147,7 @@ function Index({ quote }) {
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Off Grid Solution -{' '}
                       <span className="uppercase font-bold">
-                        {quote.offGrid ? 'Yes' : 'No'}
+                        {quote.completeSolution ? 'Yes' : 'No'}
                       </span>
                     </li>
 
@@ -200,12 +200,12 @@ function Index({ quote }) {
                       Cooking
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasStove ? 'Yes' : 'No'}
+                      {quote.gasStove ? 'Yes' : 'No'}s
                     </p>
                   </div>
                   <div>
                     <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
-                      Geyser
+                      Water
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.gasWaterHeating ? 'Yes' : 'No'}
