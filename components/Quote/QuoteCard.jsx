@@ -136,14 +136,22 @@ function Index({ quote }) {
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Off Grid Solution -{' '}
                       <span className="uppercase font-bold">
-                        {quote.completeSolution ? 'Yes' : 'No'}
+                        {quote.completeSolution ? (
+                          <span>&#9745;</span>
+                        ) : (
+                          <span>&#10060;</span>
+                        )}
                       </span>
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Geyser on outside wall -{' '}
                       <span className="uppercase font-bold">
-                        {quote.locateOutside ? 'Yes' : 'No'}
+                        {quote.locateOutside ? (
+                          <span>&#9745;</span>
+                        ) : (
+                          <span>&#10060;</span>
+                        )}
                       </span>
                     </li>
                   </ul>
@@ -189,7 +197,11 @@ function Index({ quote }) {
                       Cooking
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasStove ? 'Yes' : 'No'}
+                      {quote.gasStove ? (
+                        <span>&#9745;</span>
+                      ) : (
+                        <span>&#10060;</span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -197,16 +209,24 @@ function Index({ quote }) {
                       Water
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasWaterHeating ? 'Yes' : 'No'}
+                      {quote.gasWaterHeating ? (
+                        <span>&#9745;</span>
+                      ) : (
+                        <span>&#10060;</span>
+                      )}
                     </p>
                   </div>
                   <div>
                     <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
                       Heating
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasHeating ? 'Yes' : 'No'}
-                    </p>
+                    <div className="text-gray-800 text-sm leading-5 text-center">
+                      {quote.gasHeating ? (
+                        <span>&#9745;</span>
+                      ) : (
+                        <span>&#10060;</span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -219,7 +239,11 @@ function Index({ quote }) {
                       Electric
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.electricGeyser ? 'Yes' : 'No'}
+                      {quote.electricGeyser ? (
+                        <span>&#9745;</span>
+                      ) : (
+                        <span>&#10060;</span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -227,7 +251,11 @@ function Index({ quote }) {
                       Solar
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.solarGeyser ? 'Yes' : 'No'}
+                      {quote.solarGeyser ? (
+                        <span>&#9745;</span>
+                      ) : (
+                        <span>&#10060;</span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -235,7 +263,11 @@ function Index({ quote }) {
                       Gas
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasGeyser ? 'Yes' : 'No'}
+                      {quote.gasGeyser ? (
+                        <span>&#9745;</span>
+                      ) : (
+                        <span>&#10060;</span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -243,7 +275,11 @@ function Index({ quote }) {
                       Other
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.otherGeyser ? 'Yes' : 'No'}
+                      {quote.otherGeyser ? (
+                        <span>&#9745;</span>
+                      ) : (
+                        <span>&#10060;</span>
+                      )}
                     </p>
                   </div>
                 </div>

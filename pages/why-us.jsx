@@ -170,7 +170,7 @@ const WhyUs = () => {
                   gas. We do not only offer you our experience in recommending
                   the best quality and safe product for your property, we also
                   recommend you the best off-the-grid solutions, minimizing your
-                  monthly household expense on electricity.
+                  monthly household expense on electricity
                 </p>
               </div>
               <div className="sm:block hidden">

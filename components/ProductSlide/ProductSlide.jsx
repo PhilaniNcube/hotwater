@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment } from 'react';
 import formatter from '../../lib/format';
-import SimpleBarReact from 'simplebar-react';
 import styles from './Scroll.module.css';
-
-import 'simplebar/src/simplebar.css';
 
 export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
   return (

@@ -18,7 +18,7 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       </h1>
 
       <p className="py-3 px-4 text-center">
-        Please tell us if you are an owner of the property or are renting it.
+        Please tell us if you are the owner of the property or are renting it.
       </p>
 
       <div className="py-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-16 md:space-y-0 justify-center lg:space-y-0 lg:space-x-6">

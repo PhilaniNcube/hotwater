@@ -207,7 +207,8 @@ const ProductDetail = ({ product }) => {
                 }
                 id="sect"
               >
-                Tel: +27 (0)79 341 4075
+                If you have any other questions, please do not hesitate to
+                contact us: info@hotwater24.com
               </div>
             </div>
           </div>

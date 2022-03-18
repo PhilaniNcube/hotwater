@@ -18,7 +18,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       </h1>
 
       <p className="py-3 px-4 text-center">
-        What type of gas supply you have currently present at your property?
+        What type of gas supply do you currently have present at your property?
       </p>
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:flex-wrap items-center justify-center space-y-8 md:space-y-0 lg:space-x-6">
