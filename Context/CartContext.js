@@ -28,19 +28,10 @@ const CartProvider = ({ children }) => {
   const addToCart = (product, qty = 1) => {
     const item = cart.find((i) => i.id === product.id);
 
-    if (item) {
-      item.qty += qty;
-      setCart([...cart]);
-    } else {
-      setCart([
-        ...cart,
-        {
-          ...product,
-          qty,
-        },
-      ]);
-
-      window.gtag('event', 'add_to_cart', {
+    window.dataLayer = [];
+    window.dataLayer.push({
+      event: 'addToCart',
+      params: {
         currency: 'ZAR',
         value: product.price,
         items: [
@@ -58,7 +49,20 @@ const CartProvider = ({ children }) => {
             quantity: 1,
           },
         ],
-      });
+      },
+    });
+
+    if (item) {
+      item.qty += qty;
+      setCart([...cart]);
+    } else {
+      setCart([
+        ...cart,
+        {
+          ...product,
+          qty,
+        },
+      ]);
     }
 
     router.push('/cart');
