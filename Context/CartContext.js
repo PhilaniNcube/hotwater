@@ -12,7 +12,7 @@ const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const initialCart = JSON.parse(localStorage.getItem('cart'));
+    const initialCart = getInitialCart();
 
     if (initialCart) {
       setCart(initialCart);
