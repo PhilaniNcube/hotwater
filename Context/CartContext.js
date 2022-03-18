@@ -5,21 +5,19 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const router = useRouter();
-  const [cart, setCart] = useState();
 
-  const getInitialCart = () => {
-    JSON.parse(localStorage.getItem('cart'));
-  };
+  const getInitialCart = () => JSON.parse(localStorage.getItem('cart'));
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const initialCart = getInitialCart();
-
     if (initialCart) {
       setCart(initialCart);
     }
   }, []);
 
   useEffect(() => {
+    // write to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
@@ -27,16 +25,11 @@ const CartProvider = ({ children }) => {
     const item = cart.find((i) => i.id === product.id);
 
     if (item) {
+      // increase qty
       item.qty += qty;
       setCart([...cart]);
     } else {
-      setCart([
-        ...cart,
-        {
-          ...product,
-          qty,
-        },
-      ]);
+      setCart([...cart, { ...product, qty }]);
     }
 
     router.push('/cart');
@@ -69,7 +62,7 @@ const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
-  const cartTotal = cart?.reduce((acc, item) => {
+  const cartTotal = cart.reduce((acc, item) => {
     return acc + Number(item.price * item.qty);
   }, 0);
 
