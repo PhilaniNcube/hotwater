@@ -4,6 +4,7 @@ const Step2Modal = ({
   show,
   setShow,
   homeType,
+  setOther,
   page,
   setQuoteInfo,
   quoteInfo,
@@ -38,6 +39,7 @@ const Step2Modal = ({
                 onClick={() => {
                   homeType(type);
                   setShow(false);
+                  setOther(true);
                 }}
                 className="focus:outline-none transition duration-150 ease-in-out hover:bg-sky-600 bg-sky-700 rounded text-white px-8 py-2 text-sm"
               >
@@ -48,6 +50,7 @@ const Step2Modal = ({
                 onClick={() => {
                   homeType('');
                   setShow(false);
+                  setOther(false);
                 }}
               >
                 Cancel

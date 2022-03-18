@@ -22,44 +22,70 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   }, []);
 
   return (
-    <div className="my-8">
-      <h3 className="text-2xl text-gray-700 text-center mb-3">
-        Our Expert Recommendations
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-2 lg:gap-8 max-w-6xl mx-auto">
-        <div className="flex flex-col items-center px-8 md:px-4 lg:px-0">
-          <p className="text-xl text-gray-700">Geyser Installations</p>
-          <p className="text-sm  text-gray-700">
-            For safety and quality purposes of the installation work performed
-            we highly recommend you to only work with certified installers that
-            are registered with the LPGas Association of South Africa.
+    <div className="mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-1 lg:gap-2 max-w-6xl mx-auto">
+        <div className="flex flex-col items-center justify-center overflow-hidden border-r-2 border-gray-300 px-4">
+          <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
+            Your Geyser
           </p>
 
-          <div className="mt-4 min-w-[70%]">
-            <div className="grid grid-cols-2 bg-sky-500 text-white px-2 py-3 rounded-t-lg">
-              <h3>Geyser</h3>
-              <h3>Installation Cost</h3>
-            </div>
-            <div className="grid grid-cols-2 bg-gray-100 px-2 py-3 mb-1 rounded-b shadow">
-              <p className="text-xs font-medium">11-16l/min</p>
-              <p className="text-xs font-medium">R2500 - R4600</p>
-            </div>
-            <div className="grid grid-cols-2 bg-gray-100 px-2 py-3 mb-1 rounded shadow">
-              <p className="text-xs font-medium">20l/min</p>
-              <p className="text-xs font-medium">R3500 - R6000</p>
-            </div>
-            <div className="grid grid-cols-2 bg-gray-100 px-2 py-3 rounded shadow">
-              <p className="text-xs font-medium">24-26l/min</p>
-              <p className="text-xs font-medium">R7000 - R9000</p>
-            </div>
-          </div>
+          <p className="text-base text-center mt-6 mb-2 text-gray-700">
+            Based on your answers, you need a geyser with:
+          </p>
 
-          <p className="text-md font-medium text-center py-2 text-gray-700">
-            Arre you interested in getting professional installation from our
+          <p className="text-2xl md:text-3xl font-medium text-center flex flex-col text-sky-600">
+            {quoteInfo.flowRate}l/min
+          </p>
+          <span className="text-3xl font-medium text-center flex flex-col text-sky-600">
+            flow rate
+          </span>
+
+          {products.length > 0 && (
+            <p className="text-base text-center my-3 text-gray-700">
+              Please select your prefered geyser from the availableoptions below
+              (scroll left to see more):
+            </p>
+          )}
+
+          {products.length === 0 ? (
+            <p className="text-base text-center my-3 text-gray-700">
+              According to your answers, we will have to contact you in order to
+              give you more information one the best solution for your property.
+            </p>
+          ) : (
+            <ProductSlide
+              products={products}
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+            />
+          )}
+        </div>
+
+        <div className="flex flex-col items-center px-8 md:px-4 lg:px-0">
+          <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
+            Installation
+          </p>
+
+          <p className="mt-6 mb-4 text-center text-gray-600 text-base">
+            Based on the flow rate of your recommended geyser your installation
+            will be in the range of:
+          </p>
+
+          <h2 className="text-2xl md:text-4xl font-medium text-center text-sky-600">
+            {quoteInfo.flowRate <= 16 && 'R2,500 - R4,600'}
+            {quoteInfo.flowRate > 16 &&
+              quoteInfo.flowRate < 20 &&
+              'R3,500 - R6,000'}
+
+            {quoteInfo.flowRate > 23 && 'R7,000 - R9,000'}
+          </h2>
+
+          <p className="text-base text-center my-3 text-gray-700">
+            Are you interested in getting professional installation from our
             qualified partners?
           </p>
 
-          <div className="grid grid-cols-2 gap-x-12 mt-2">
+          <div className="grid grid-cols-2 gap-x-12 mt-12">
             <div
               className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
               onClick={() => {
@@ -84,9 +110,8 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                 </svg>
               )}
               <img className="h-16 w-16" alt="" src="/images/icons/close.svg" />
-              <p className="text-lg text-center text-sky-500 font-bold">No</p>
-              <p className="text-sm text-red-600 font-medium">
-                I am not interested
+              <p className="text-lg text-center text-sky-500 font-bold">
+                No thanks
               </p>
             </div>
             <div
@@ -113,30 +138,20 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                 </svg>
               )}
               <img className="h-16 w-16" alt="" src="/images/icons/check.svg" />
-              <p className="text-lg text-center text-sky-500 font-bold">Yes</p>
-              <p className="text-sm text-green-600 font-medium">
-                I am interested
+              <p className="text-lg text-center text-sky-500 font-bold">
+                Yes Please
               </p>
             </div>
           </div>
-        </div>
 
-        <div className="flex items-center justify-center overflow-hidden">
-          {products.length === 0 ? (
-            <p className="text-lg text-center text-gray-600">
-              According to your answers, we will have to contact you in order to
-              give you more information one the best solution for your property.
-            </p>
-          ) : (
-            <ProductSlide
-              products={products}
-              quoteInfo={quoteInfo}
-              setQuoteInfo={setQuoteInfo}
-            />
-          )}
+          <p className="text-xs text-center mt-8 text-gray-700">
+            For safety and quality purposes of the installation work performed
+            we highly recommend you to only work with certified installers that
+            are registered with the LPGas Association of South Africa.
+          </p>
         </div>
       </div>
-      <div className="flex items-center justify-center space-x-6 my-3">
+      <div className="flex items-center justify-center space-x-6 mt-8 mb-12">
         {quoteInfo.installation !== null ? (
           <Fragment>
             {' '}

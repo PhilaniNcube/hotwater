@@ -5,6 +5,9 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const router = useRouter();
+  const [cart, setCart] = useState([]);
+
+  console.log('cart', cart);
 
   const getInitialCart = () => {
     JSON.parse(localStorage.getItem('cart'));
@@ -17,10 +20,6 @@ const CartProvider = ({ children }) => {
       setCart(initialCart);
     }
   }, []);
-
-  const [cart, setCart] = useState([]);
-
-  console.log('cart', cart);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));

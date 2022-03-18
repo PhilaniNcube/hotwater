@@ -22,7 +22,7 @@ const Start = () => {
         </h1>
 
         <p className="text-lg text-center px-8 lg:px-60">
-          Answer a few questions and we will instantly give you an expert
+          Answer a few questions and we will instantly give you our expert
           recommendation for a suitable geyser for your home
         </p>
 
@@ -75,7 +75,11 @@ const Start = () => {
           </svg>
 
           <div className="flex flex-col w-64 h-64 shadow-lg rounded bg-gray-50 justify-center items-center hover:bg-gray-100 hover:shadow">
-            <img className="h-16 w-16" alt="" src="/images/icons/mail.svg" />
+            <img
+              className="h-16 w-16"
+              alt=""
+              src="/images/icons/recommendation.svg"
+            />
             <p className="text-sm py-8 text-center px-3">Our Recommendation</p>
           </div>
         </div>

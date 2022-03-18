@@ -66,7 +66,7 @@ export default function ProductCatalogue({ products }) {
                 />
                 <div>
                   <Link href={`/catalogue/${product.id}`} passHref>
-                    <button className="opacity-0 group-hover:opacity-100 py-4 w-10/12 sm:w-11/12 md:w-10/12 xl:w-11/12 flex justify-center items-center bg-sky-800 absolute bottom-6 inset-x-6 sm:inset-x-3 md:inset-x-6 lg:inset-x-5 xl:inset-x-4 items-center shadow">
+                    <button className="opacity-0 group-hover:opacity-100 py-4 w-10/12 sm:w-11/12 md:w-10/12 xl:w-11/12 flex justify-center items-center bg-sky-800 absolute bottom-6 inset-x-6 sm:inset-x-3 md:inset-x-6 lg:inset-x-5 xl:inset-x-4 shadow">
                       <p className="text-base text-center font-medium leading-4 text-gray-50 flex flex-shrink-0">
                         Quick View
                       </p>
@@ -76,7 +76,7 @@ export default function ProductCatalogue({ products }) {
               </div>
               <div className="mt-6 flex justify-between w-full">
                 <div>
-                  <p className="text-2xl font-semibold leading-6 text-gray-800">
+                  <p className="text-xl font-semibold leading-6 text-gray-800">
                     {product.name}
                   </p>
                 </div>
