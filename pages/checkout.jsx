@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import { useUser } from '../Context/AuthContext';
 import useCart from '../hooks/useCart';
+import formatter from '../lib/format';
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);
@@ -214,7 +215,8 @@ export default function Checkout() {
               <div className="flex justify-between w-full items-center">
                 <p className="text-lg leading-4 text-gray-600">Total Charges</p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  R {cartTotal}
+                  {formatter.format(cartTotal)}{' '}
+                  <span className="text-xs">incl VAT</span>
                 </p>
               </div>
               <div className="flex justify-between w-full items-center">
@@ -222,7 +224,7 @@ export default function Checkout() {
                   Shipping charges
                 </p>
                 <p className="text-lg font-semibold leading-4 text-gray-600">
-                  R {shipping}
+                  {formatter.format(shipping)}
                 </p>
               </div>
             </div>
@@ -231,7 +233,8 @@ export default function Checkout() {
                 Total
               </p>
               <p className="text-lg font-semibold leading-4 text-gray-800">
-                R {cartTotal + shipping}
+                {formatter.formate(cartTotal + shipping)}{' '}
+                <span className="text-xs">incl VAT</span>
               </p>
             </div>
           </div>
