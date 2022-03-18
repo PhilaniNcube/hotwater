@@ -28,30 +28,6 @@ const CartProvider = ({ children }) => {
   const addToCart = (product, qty = 1) => {
     const item = cart.find((i) => i.id === product.id);
 
-    window.dataLayer = [];
-    window.dataLayer.push({
-      event: 'addToCart',
-      params: {
-        currency: 'ZAR',
-        value: product.price,
-        items: [
-          {
-            item_id: product.sku,
-            item_name: product.name,
-            affiliation: 'Hotwater24',
-            coupon: '',
-            currency: 'ZAR',
-            discount: 0,
-            index: 0,
-            item_brand: product.brand_id.name,
-            item_category: 'geyser',
-            price: product.price,
-            quantity: 1,
-          },
-        ],
-      },
-    });
-
     if (item) {
       item.qty += qty;
       setCart([...cart]);

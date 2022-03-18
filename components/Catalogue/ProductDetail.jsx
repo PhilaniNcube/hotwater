@@ -80,7 +80,33 @@ const ProductDetail = ({ product }) => {
             </div>
           </div>
           <button
-            onClick={() => addToCart(product)}
+            onClick={() => {
+              addToCart(product);
+
+              window.dataLayer = [];
+              window.dataLayer.push({
+                event: 'addToCart',
+                params: {
+                  currency: 'ZAR',
+                  value: product.price,
+                  items: [
+                    {
+                      item_id: product.sku,
+                      item_name: product.name,
+                      affiliation: 'Hotwater24',
+                      coupon: '',
+                      currency: 'ZAR',
+                      discount: 0,
+                      index: 0,
+                      item_brand: product.brand_id.name,
+                      item_category: 'geyser',
+                      price: product.price,
+                      quantity: 1,
+                    },
+                  ],
+                },
+              });
+            }}
             className="
 						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base	flex items-center	justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700"
           >
