@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
+import useCart from '../../hooks/useCart';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -13,6 +14,8 @@ const Navbar = () => {
   const router = useRouter();
 
   const [query, setQuery] = useState('');
+
+  const { cart } = useCart();
 
   const { user, signOut } = useUser();
 
@@ -314,7 +317,10 @@ const Navbar = () => {
                 )}
 
                 <Link href="/cart" passHref>
-                  <div className="flex items-center text-sky-50 cursor-pointer">
+                  <div className="flex items-center text-sky-50 cursor-pointer relative">
+                    <p className="text-sky-50 h-8 w-8 bg-sky-700 rounded-full p-1 absolute top-1 -right-2">
+                      {cart.length}
+                    </p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-8 w-8"
