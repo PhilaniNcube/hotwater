@@ -61,22 +61,6 @@ const ProductDetail = ({ product }) => {
               <p className="text-sm leading-none text-gray-600 mr-3">
                 {product.maxTemp} Celsius
               </p>
-              <svg
-                className="cursor-pointer"
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 1L5 5L1 9"
-                  stroke="#4B5563"
-                  strokeWidth="1.25"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
             </div>
           </div>
           <button
