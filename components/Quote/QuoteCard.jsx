@@ -189,7 +189,7 @@ function Index({ quote }) {
                       Cooking
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasStove ? 'Yes' : 'No'}s
+                      {quote.gasStove ? 'Yes' : 'No'}
                     </p>
                   </div>
                   <div>

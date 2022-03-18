@@ -74,12 +74,12 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               quoteInfo.flowRate < 20 &&
               'R3,500 - R6,000'}
 
-            {quoteInfo.flowRate > 23 && 'R7,000 - R9,000'}
+            {quoteInfo.flowRate > 20 && 'R7,000 - R9,000'}
           </p>
 
           <p className="text-base text-center my-3 text-gray-700">
-            Are you interested in getting professional installation from our
-            qualified partners?
+            Please indicate below if you would like us to quote and organise the
+            installation for you?
           </p>
 
           <div className="grid grid-cols-2 gap-x-12 mt-8">
