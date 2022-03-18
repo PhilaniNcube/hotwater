@@ -26,62 +26,136 @@ export default function Cart({}) {
           </p>
         </div>
 
-        {cart.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="flex flex-col md:flex-row items-strech mt-10 md:mt-14 lg:mt-16"
-            >
-              <div>
-                <Image
-                  width={500}
-                  height={500}
-                  src={item.image}
-                  alt="A pair of gray sneakers"
-                  role="img"
-                  className="block"
-                />
-              </div>
-              <div className="md:flex hidden w-full justify-between">
-                <div className="flex flex-col justify-center md:ml-6 lg:ml-8">
-                  <p className="text-sm text-gray-800">{item.sku}</p>
-                  <h2 className="mt-1 text-xl font-semibold text-gray-800">
-                    {item.name}
-                  </h2>
+        {cart &&
+          cart.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className="flex flex-col md:flex-row items-strech mt-10 md:mt-14 lg:mt-16"
+              >
+                <div>
+                  <Image
+                    width={500}
+                    height={500}
+                    src={item.image}
+                    alt="A pair of gray sneakers"
+                    role="img"
+                    className="block"
+                  />
+                </div>
+                <div className="md:flex hidden w-full justify-between">
+                  <div className="flex flex-col justify-center md:ml-6 lg:ml-8">
+                    <p className="text-sm text-gray-800">{item.sku}</p>
+                    <h2 className="mt-1 text-xl font-semibold text-gray-800">
+                      {item.name}
+                    </h2>
 
-                  <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
-                    {item.description}
-                  </p>
+                    <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
+                      {item.description}
+                    </p>
+                    <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
+                      Brand:{item.brand_id.name}
+                    </p>
+                    <p className="text-sm leading-tight text-gray-600 ">
+                      Flow Rate:{item.flowRate}l/min
+                    </p>
+                    <p className="text-sm leading-tight text-gray-600 ">
+                      Max Temp: {item.maxTemp} &#8451;
+                    </p>
+                    <p className="text-sm leading-tight text-gray-600 ">
+                      Max Pressure: {item.maxPressure}
+                    </p>
+                    <p className="text-sm leading-tight text-gray-600 ">
+                      Width: {item.width} mm
+                    </p>
+                    <p className="text-sm leading-tight text-gray-600 ">
+                      Height: {item.height} mm
+                    </p>
+                    <p className="text-sm leading-tight text-gray-600 ">
+                      Depth: {item.depth} mm
+                    </p>
+
+                    <div className="mt-8 flex space-x-6 items-center justify-between w-[500px]">
+                      <a
+                        onClick={() => removeItemFromCart(item.id)}
+                        className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black cursor-pointer"
+                      >
+                        Remove
+                      </a>
+
+                      <div className="p-3 w-20 h-10 border border-gray-300 flex items-center justify-center space-x-3">
+                        <button
+                          onClick={() => reduceCartQty(item)}
+                          aria-label="decrease quantity"
+                          className="focus:outline-none focus:ring-2 focus:ring-gray-600 hover:bg-gray-100"
+                        >
+                          <svg
+                            width={16}
+                            height={16}
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10 4L6 8L10 12"
+                              stroke="#1F2937"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                        <p className="quantity1 text-base text-gray-800">
+                          {item.qty}
+                        </p>
+                        <button
+                          onClick={() => addCartQty(item)}
+                          aria-label="increase quantity"
+                          className="focus:outline-none focus:ring-2 focus:ring-gray-600 hover:bg-gray-100"
+                        >
+                          <svg
+                            width={16}
+                            height={16}
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6 4L10 8L6 12"
+                              stroke="#1F2937"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex md:flex-col h-full lg:flex-row lg:space-x-72">
+                      <div className="hidden md:block">
+                        <p className="mt-24 lg:mt-0 text-xl font-medium text-gray-800 text-right">
+                          {formatter.format(item.price * item.qty)}{' '}
+                          <span className="text-xs">incl VAT</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col md:hidden mt-4">
                   <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
                     Brand:{item.brand_id.name}
                   </p>
                   <p className="text-sm leading-tight text-gray-600 ">
                     Flow Rate:{item.flowRate}l/min
                   </p>
-                  <p className="text-sm leading-tight text-gray-600 ">
-                    Max Temp: {item.maxTemp} &#8451;
-                  </p>
-                  <p className="text-sm leading-tight text-gray-600 ">
-                    Max Pressure: {item.maxPressure}
-                  </p>
-                  <p className="text-sm leading-tight text-gray-600 ">
-                    Width: {item.width} mm
-                  </p>
-                  <p className="text-sm leading-tight text-gray-600 ">
-                    Height: {item.height} mm
-                  </p>
-                  <p className="text-sm leading-tight text-gray-600 ">
-                    Depth: {item.depth} mm
-                  </p>
 
-                  <div className="mt-8 flex space-x-6 items-center justify-between w-[500px]">
-                    <a
-                      onClick={() => removeItemFromCart(item.id)}
-                      className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black cursor-pointer"
-                    >
-                      Remove
-                    </a>
-
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-800">{item.sku}</p>
+                      <h2 className="mt-1 text-xl font-semibold leading-tight text-gray-800">
+                        {item.name}
+                      </h2>
+                    </div>
                     <div className="p-3 w-20 h-10 border border-gray-300 flex items-center justify-center space-x-3">
                       <button
                         onClick={() => reduceCartQty(item)}
@@ -128,95 +202,22 @@ export default function Cart({}) {
                       </button>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <div className="flex md:flex-col h-full lg:flex-row lg:space-x-72">
-                    <div className="hidden md:block">
-                      <p className="mt-24 lg:mt-0 text-xl font-medium text-gray-800 text-right">
-                        {formatter.format(item.price * item.qty)}{' '}
-                        <span className="text-xs">incl VAT</span>
-                      </p>
-                    </div>
+                  <div className="mt-8 flex space-x-6 items-center">
+                    <a
+                      onClick={() => removeItemFromCart(item.id)}
+                      className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black cursor-pointer"
+                    >
+                      Remove
+                    </a>
                   </div>
+                  <p className="mt-10 text-xl font-medium text-gray-800">
+                    {formatter.format(item.price * item.qty)}{' '}
+                    <span className="text-xs">incl VAT</span>
+                  </p>
                 </div>
               </div>
-              <div className="flex flex-col md:hidden mt-4">
-                <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
-                  Brand:{item.brand_id.name}
-                </p>
-                <p className="text-sm leading-tight text-gray-600 ">
-                  Flow Rate:{item.flowRate}l/min
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-gray-800">{item.sku}</p>
-                    <h2 className="mt-1 text-xl font-semibold leading-tight text-gray-800">
-                      {item.name}
-                    </h2>
-                  </div>
-                  <div className="p-3 w-20 h-10 border border-gray-300 flex items-center justify-center space-x-3">
-                    <button
-                      onClick={() => reduceCartQty(item)}
-                      aria-label="decrease quantity"
-                      className="focus:outline-none focus:ring-2 focus:ring-gray-600 hover:bg-gray-100"
-                    >
-                      <svg
-                        width={16}
-                        height={16}
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M10 4L6 8L10 12"
-                          stroke="#1F2937"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                    <p className="quantity1 text-base text-gray-800">
-                      {item.qty}
-                    </p>
-                    <button
-                      onClick={() => addCartQty(item)}
-                      aria-label="increase quantity"
-                      className="focus:outline-none focus:ring-2 focus:ring-gray-600 hover:bg-gray-100"
-                    >
-                      <svg
-                        width={16}
-                        height={16}
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 4L10 8L6 12"
-                          stroke="#1F2937"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div className="mt-8 flex space-x-6 items-center">
-                  <a
-                    onClick={() => removeItemFromCart(item.id)}
-                    className="text-base text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-gray-600 hover:text-black cursor-pointer"
-                  >
-                    Remove
-                  </a>
-                </div>
-                <p className="mt-10 text-xl font-medium text-gray-800">
-                  {formatter.format(item.price * item.qty)}{' '}
-                  <span className="text-xs">incl VAT</span>
-                </p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
         <div className="flex justify-center flex-col-reverse md:flex-row md:justify-end mt-16 md:mt-36 lg:mt-40 md:space-x-6 w-full">
           <Link href="/catalogue">
