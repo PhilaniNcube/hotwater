@@ -5,16 +5,14 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const router = useRouter();
-  const [cart, setCart] = useState([]);
-
-  console.log('cart', cart);
+  const [cart, setCart] = useState();
 
   const getInitialCart = () => {
     JSON.parse(localStorage.getItem('cart'));
   };
 
   useEffect(() => {
-    const initialCart = getInitialCart();
+    const initialCart = JSON.parse(localStorage.getItem('cart'));
 
     if (initialCart) {
       setCart(initialCart);
@@ -71,7 +69,7 @@ const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
-  const cartTotal = cart.reduce((acc, item) => {
+  const cartTotal = cart?.reduce((acc, item) => {
     return acc + Number(item.price * item.qty);
   }, 0);
 
