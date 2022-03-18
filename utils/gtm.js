@@ -8,14 +8,18 @@ export const pageview = (url) => {
 };
 
 export const start = () => {
-  window.dataLayer = [];
+  console.log('start');
+
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'start_recommendation',
   });
 };
 
 export const savings = () => {
-  window.dataLayer = [];
+  console.log('saving');
+
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'savings',
   });

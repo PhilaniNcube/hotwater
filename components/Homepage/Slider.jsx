@@ -46,7 +46,7 @@ const Slider = () => {
         centeredSlides={true}
         autoplay={{
           delay: 5500,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         navigation={true}
         modules={[Autoplay, Navigation]}
@@ -68,10 +68,7 @@ const Slider = () => {
                 </p>
 
                 <Link href={slide.link} passHref>
-                  <button
-                    onClick={slide.event}
-                    className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
-                  >
+                  <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit">
                     {slide.linkText}
                     <span>
                       <svg

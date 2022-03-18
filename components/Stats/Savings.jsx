@@ -13,7 +13,7 @@ function Savings() {
     <div className="container mx-auto py-4">
       <div className="bg-gray-100 xl:px-20 lg:px-20 md:px-12 pt-2 pb-8 sm:pb-0">
         <h1 className="text-center xl:text-3xl text-2xl font-extrabold text-gray-800 w-5/6 mx-auto">
-          Calculate Your Potential Savings From Switchi To Using Gas
+          Calculate Your Potential Savings From Switching To Gas
         </h1>
         <div className="py-2 px-4 max-w-6xl mx-auto bg-slate-50 shadow-md rounded-md my-4">
           <div className="relative pt-1 px-4">
@@ -58,15 +58,52 @@ function Savings() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-4">
-        <Link href="/quote">
-          <a
-            onClick={start}
-            className="bg-gray-800 text-white text-2xl px-8 py-4 rounded-full shadow-xl hover:shadow-sm"
+      <div className="flex justify-center items-center mt-4 mb-12">
+        <Link href="/quote/start" passHref>
+          <button
+            onClick={() => {
+              window.dataLayer = [];
+              window.dataLayer.push({
+                event: 'start',
+              });
+            }}
+            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 mb-8 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
           >
             Find Your Fit
-          </a>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 pl-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+          </button>
         </Link>
+      </div>
+
+      <div className="max-w-[500px] mx-auto columns-1 md:columns-2 mb-12">
+        <p className="text-xs text-center text-gray-600">
+          The calculator on this website produces mere estimates which are based
+          on information provided and flactuating factors and may therefore not
+          reflect the probable savings. The results and savings shown of the
+          calculations are not a promise or guarantee of a customer’s savings. 
+        </p>
+
+        <p className="text-xs text-center text-gray-600">
+          Hotwater24, its agents, employees, contractors and any other
+          representatives are not responsible for the content, results, or
+          accuracy of the information on the calculators. Actual savings may
+          vary. No rights or obligations flow from these calculations.
+        </p>
       </div>
     </div>
   );

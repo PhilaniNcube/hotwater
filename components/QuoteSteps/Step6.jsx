@@ -49,7 +49,8 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                 Geyser Dimensions
               </p>
               <p className="text-xs leading-4 text-gray-600 pb-3 text-center">
-                Please take note of the overall footprint of the geyser
+                Please take note of the overall dimensions of an average size
+                geyser:
               </p>
               <div className="flex justify-center items-center">
                 <div className="flex flex-col justify-center items-center">

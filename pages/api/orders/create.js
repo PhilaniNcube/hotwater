@@ -43,6 +43,10 @@ export default async function handler(req, res) {
     ])
     .single();
 
+  console.log('error', error);
+
+  console.log(data);
+
   const tempDay = new Date();
 
   const day = tempDay.toUTCString();

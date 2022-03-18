@@ -125,18 +125,7 @@ function Index({ quote }) {
                         {quote.houseType}
                       </span>
                     </li>
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Current Water Heater -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.gasGeyser
-                          ? 'Gas'
-                          : quote.electricGeyser
-                          ? 'Electric'
-                          : quote.solarGeyser
-                          ? 'Solar'
-                          : quote.otherGeyser}
-                      </span>
-                    </li>
+
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Current Gas Supply -{' '}
                       <span className="uppercase font-bold">
@@ -147,7 +136,7 @@ function Index({ quote }) {
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Off Grid Solution -{' '}
                       <span className="uppercase font-bold">
-                        {quote.offGrid ? 'Yes' : 'No'}
+                        {quote.completeSolution ? 'Yes' : 'No'}
                       </span>
                     </li>
 
@@ -166,28 +155,28 @@ function Index({ quote }) {
                 </h3>
                 <div className="flex items-center border-t-2 justify-between py-2">
                   <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Children
+                    </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
                       {quote.children}
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      Children
-                    </p>
                   </div>
                   <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Teenagers
+                    </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
                       {quote.teenagers}
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      Teenagers
-                    </p>
                   </div>
                   <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Adults
+                    </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
                       {quote.adults}
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      Adults
-                    </p>
                   </div>
                 </div>
 
@@ -205,7 +194,7 @@ function Index({ quote }) {
                   </div>
                   <div>
                     <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
-                      Geyser
+                      Water
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.gasWaterHeating ? 'Yes' : 'No'}
