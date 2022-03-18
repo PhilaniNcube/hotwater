@@ -166,28 +166,28 @@ function Index({ quote }) {
                 </h3>
                 <div className="flex items-center border-t-2 justify-between py-2">
                   <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Children
+                    </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
                       {quote.children}
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      Children
-                    </p>
                   </div>
                   <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Teenagers
+                    </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
                       {quote.teenagers}
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      Teenagers
-                    </p>
                   </div>
                   <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Adults
+                    </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
                       {quote.adults}
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      Adults
-                    </p>
                   </div>
                 </div>
 
