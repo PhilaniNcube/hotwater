@@ -233,7 +233,7 @@ export default function Checkout() {
                 Total
               </p>
               <p className="text-lg font-semibold leading-4 text-gray-800">
-                {formatter.formate(cartTotal + shipping)}{' '}
+                {formatter.format(cartTotal + shipping)}{' '}
                 <span className="text-xs">incl VAT</span>
               </p>
             </div>
