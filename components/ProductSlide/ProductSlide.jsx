@@ -1,11 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment } from 'react';
 import formatter from '../../lib/format';
+import SimpleBarReact from 'simplebar-react';
+import styles from './Scroll.module.css';
+
+import 'simplebar/src/simplebar.css';
 
 export default function ProductsSlide({ products, setQuoteInfo, quoteInfo }) {
   return (
     <Fragment>
-      <div className="flex items-center justify-start w-5/6 mx-auto h-[65vh] py-12 px-4 overflow-x-scroll overflow-y-hidden">
+      <div className={styles.slide}>
         {products.map((product) => (
           <div className="max-w-[70%] mx-2 relative" key={product.id}>
             {quoteInfo.product_id === product.id && (
