@@ -125,18 +125,7 @@ function Index({ quote }) {
                         {quote.houseType}
                       </span>
                     </li>
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Current Water Heater -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.gasGeyser
-                          ? 'Gas'
-                          : quote.electricGeyser
-                          ? 'Electric'
-                          : quote.solarGeyser
-                          ? 'Solar'
-                          : quote.otherGeyser}
-                      </span>
-                    </li>
+
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Current Gas Supply -{' '}
                       <span className="uppercase font-bold">
