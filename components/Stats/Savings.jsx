@@ -88,6 +88,9 @@ function Savings() {
             </span>
           </button>
         </Link>
+      </div>
+
+      <div>
         <p className="text-xs text-center text-gray-600">
           The calculator on this website produces mere estimates which are based
           on information provided and flactuating factors and may therefore not
