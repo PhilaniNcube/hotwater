@@ -318,7 +318,7 @@ const Navbar = () => {
 
                 <Link href="/cart" passHref>
                   <div className="flex items-center text-sky-50 cursor-pointer relative">
-                    <p className="text-sky-50 h-4 w-4 bg-sky-700 rounded-full p-1 absolute top-1 -right-2 flex justify-center items-center">
+                    <p className="text-sky-50 h-4 w-4 bg-sky-700 rounded-full p-1 absolute -top-4 -right-2 flex justify-center items-center">
                       {cart.length}
                     </p>
                     <svg
