@@ -24,7 +24,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <div className="mt-8">
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-1 lg:gap-2 max-w-6xl mx-auto">
-        <div className="flex flex-col items-center justify-center overflow-hidden border-r-2 border-gray-300 px-4">
+        <div className="flex flex-col items-center justify-center overflow-hidden border-r-2 border-gray-300 px-4 md:px-12">
           <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
             Your Geyser
           </p>
@@ -34,11 +34,8 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </p>
 
           <p className="text-2xl md:text-3xl font-medium text-center flex flex-col text-sky-600">
-            {quoteInfo.flowRate}l/min
+            {quoteInfo.flowRate}l/min flow rate
           </p>
-          <span className="text-3xl font-medium text-center flex flex-col text-sky-600">
-            flow rate
-          </span>
 
           {products.length > 0 && (
             <p className="text-base text-center my-3 text-gray-700">
@@ -61,7 +58,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
         </div>
 
-        <div className="flex flex-col items-center px-8 md:px-4 lg:px-0">
+        <div className="flex flex-col items-center px-4 md:px-12">
           <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
             Installation
           </p>
@@ -71,21 +68,21 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             will be in the range of:
           </p>
 
-          <h2 className="text-2xl md:text-4xl font-medium text-center text-sky-600">
+          <p className="text-2xl  font-medium text-center text-sky-600">
             {quoteInfo.flowRate <= 16 && 'R2,500 - R4,600'}
             {quoteInfo.flowRate > 16 &&
               quoteInfo.flowRate < 20 &&
               'R3,500 - R6,000'}
 
             {quoteInfo.flowRate > 23 && 'R7,000 - R9,000'}
-          </h2>
+          </p>
 
           <p className="text-base text-center my-3 text-gray-700">
             Are you interested in getting professional installation from our
             qualified partners?
           </p>
 
-          <div className="grid grid-cols-2 gap-x-12 mt-12">
+          <div className="grid grid-cols-2 gap-x-12 mt-8">
             <div
               className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
               onClick={() => {
