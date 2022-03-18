@@ -39,8 +39,8 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
           {products.length > 0 && (
             <p className="text-base text-center my-3 text-gray-700">
-              Please select your prefered geyser from the availableoptions below
-              (scroll left to see more):
+              Please select your prefered geyser from the available options
+              below (scroll left to see more):
             </p>
           )}
 
