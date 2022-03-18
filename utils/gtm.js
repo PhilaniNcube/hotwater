@@ -10,7 +10,7 @@ export const pageview = (url) => {
 export const start = () => {
   console.log('start');
 
-  window.dataLayer = [];
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'start_recommendation',
   });
@@ -19,7 +19,7 @@ export const start = () => {
 export const savings = () => {
   console.log('saving');
 
-  window.dataLayer = [];
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'savings',
   });

@@ -83,7 +83,7 @@ const ProductDetail = ({ product }) => {
             onClick={() => {
               addToCart(product);
 
-              window.dataLayer = [];
+              window.dataLayer = window.dataLayer || [];
               window.dataLayer.push({
                 event: 'addToCart',
                 params: {
