@@ -90,7 +90,7 @@ function Savings() {
         </Link>
       </div>
 
-      <div>
+      <div className="max-w-[500px] mx-auto columns-1 md:columns-2 mb-12">
         <p className="text-xs text-center text-gray-600">
           The calculator on this website produces mere estimates which are based
           on information provided and flactuating factors and may therefore not
