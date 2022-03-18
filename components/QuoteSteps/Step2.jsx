@@ -62,7 +62,7 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             src="/images/icons/appartment.svg"
           />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Appartment
+            Apartment
           </p>
         </div>
         <div
