@@ -10,11 +10,11 @@ const ProfileInfo = ({ profile }) => {
 
   const { user } = useUser();
 
-  const [firstName, setFirstName] = useState(profile.firstName);
-  const [lastName, setLastName] = useState(profile.lastName);
-  const [city, setCity] = useState(profile.city);
-  const [streetAddress, setStreetAddress] = useState(profile.streetAddress);
-  const [phoneNumber, setPhoneNumber] = useState(profile.phoneNumber);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [city, setCity] = useState('');
+  const [streetAddress, setStreetAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
