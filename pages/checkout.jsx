@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import { useUser } from '../Context/AuthContext';
 import useCart from '../hooks/useCart';
 import formatter from '../lib/format';
+import analytics from '../utils/analytics';
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);
@@ -35,6 +36,11 @@ export default function Checkout() {
 
   const intiatePayment = async () => {
     setLoading(true);
+
+    analytics.track('begin_checkout', {
+      currency: 'ZAR',
+      value: cartTotal,
+    });
 
     console.log({
       firstName,

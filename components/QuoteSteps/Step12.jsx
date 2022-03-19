@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useUser } from '../../Context/AuthContext';
 import { useProducts } from '../../hooks/products';
+import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
 import QuoteCard from '../Quote/QuoteCard';
 
@@ -99,10 +100,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 
   const handleSubmit = async () => {
-    window.dataLayer = [];
-    window.dataLayer.push({ event: 'generate_lead' });
-
-    window.dataLayer.push({ event: 'complete_recommendation' });
+    analytics.track('generate_lead');
 
     try {
       const quote = await mutation.mutateAsync();
