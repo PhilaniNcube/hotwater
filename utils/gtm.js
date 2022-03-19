@@ -1,4 +1,4 @@
-import analytics from 'analytics';
+import analytics from '../utils/analytics';
 
 export const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
 
