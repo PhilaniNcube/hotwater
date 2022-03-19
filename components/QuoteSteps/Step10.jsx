@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Fragment } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import CatalogueHero from '../Catalogue/CatalogueHero';
 import CatalogueGrid from '../Catalogue/CatalogueGrid';
 import { supabase } from '../../utils/supabase';
@@ -11,9 +12,16 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   return (
     <div className="max-w-6xl mx-auto mt-4 mb-12">
-      <h1 className="font-sans text-center font-bold text-2xl">
+      <h1 className="font-sans text-center font-bold text-gray-700 text-2xl">
         Total Off The Grid Solution
       </h1>
+      <div className="md:w-1/2 mx-auto flex justify-center">
+        <img
+          src="/images/OTG.svg"
+          alt="off the grid"
+          className="w-full object-cover"
+        />
+      </div>
       <div className="flex flex-col max-w-3xl mx-auto text-gray-600 px-8 md:px-0 mt-4">
         <div className="">
           <p className="md:py-2 text-center text-xs">
