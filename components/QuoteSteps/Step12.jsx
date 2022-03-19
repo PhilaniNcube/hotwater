@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
+import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
@@ -108,6 +109,48 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       console.log('quote', quote);
 
       if (quote?.data[0]) {
+        const mail = await fetch(`/api/mail/leads`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            children: children,
+            teenagers: teenagers,
+            adults: adults,
+            houseType: houseType,
+            ownership: ownership,
+            gasSupply: gasSupply,
+            gasStove: gasStove,
+            gasWaterHeating: gasWaterHeating,
+            gasHeating: gasHeating,
+            otherGasUse: otherGasUse,
+            locateOutside: locateOutside,
+            gasGeyser: gasGeyser,
+            electricGeyser: electricGeyser,
+            solarGeyser: solarGeyser,
+            otherGeyser: otherGeyser,
+            standardShower: standardShower,
+            rainShower: rainShower,
+            bathtub: bathtub,
+            sink: sink,
+            dishwasher: dishwasher,
+            washingmachine: washingmachine,
+            flowRate: flowRate,
+            offGrid: offGrid,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            streetAddress: streetAddress,
+            city: city,
+            telephoneNumber: telephoneNumber,
+            postalCode: postalCode,
+            completeSolution: completeSolution,
+            product_id: product_id || null,
+            installation: installation,
+          }),
+        });
+
+        console.log(mail);
+
         if (quoteInfo.product_id) {
           router.push(`/catalogue/${quoteInfo.product_id}`);
         } else {

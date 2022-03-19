@@ -2,6 +2,7 @@
 import React, { Fragment, useState } from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
+import Whatsapp from '../Whatsapp';
 import useCart from '../../hooks/useCart';
 import formatter from '../../lib/format';
 import { add_to_cart } from '../../utils/gtm';
@@ -186,8 +187,7 @@ const ProductDetail = ({ product }) => {
                 }
                 id="sect"
               >
-                If you have any other questions, please do not hesitate to
-                contact us: info@hotwater24.com
+                <Whatsapp />
               </div>
             </div>
           </div>

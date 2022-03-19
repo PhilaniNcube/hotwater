@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment } from 'react';
+import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
 
 function Index({ quote }) {
   return (
@@ -136,22 +137,14 @@ function Index({ quote }) {
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Off Grid Solution -{' '}
                       <span className="uppercase font-bold">
-                        {quote.completeSolution ? (
-                          <span>&#9745;</span>
-                        ) : (
-                          <span>&#10060;</span>
-                        )}
+                        {quote.completeSolution ? 'Yes' : 'No'}
                       </span>
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Geyser on outside wall -{' '}
                       <span className="uppercase font-bold">
-                        {quote.locateOutside ? (
-                          <span>&#9745;</span>
-                        ) : (
-                          <span>&#10060;</span>
-                        )}
+                        {quote.locateOutside ? 'Yes' : 'No'}
                       </span>
                     </li>
                   </ul>
@@ -198,9 +191,13 @@ function Index({ quote }) {
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.gasStove ? (
-                        <span>&#9745;</span>
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
                       ) : (
-                        <span>&#10060;</span>
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
                       )}
                     </p>
                   </div>
@@ -210,9 +207,13 @@ function Index({ quote }) {
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.gasWaterHeating ? (
-                        <span>&#9745;</span>
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
                       ) : (
-                        <span>&#10060;</span>
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
                       )}
                     </p>
                   </div>
@@ -222,9 +223,13 @@ function Index({ quote }) {
                     </h2>
                     <div className="text-gray-800 text-sm leading-5 text-center">
                       {quote.gasHeating ? (
-                        <span>&#9745;</span>
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
                       ) : (
-                        <span>&#10060;</span>
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
                       )}
                     </div>
                   </div>
@@ -240,9 +245,13 @@ function Index({ quote }) {
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.electricGeyser ? (
-                        <span>&#9745;</span>
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
                       ) : (
-                        <span>&#10060;</span>
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
                       )}
                     </p>
                   </div>
@@ -252,9 +261,13 @@ function Index({ quote }) {
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.solarGeyser ? (
-                        <span>&#9745;</span>
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
                       ) : (
-                        <span>&#10060;</span>
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
                       )}
                     </p>
                   </div>
@@ -264,9 +277,13 @@ function Index({ quote }) {
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.gasGeyser ? (
-                        <span>&#9745;</span>
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
                       ) : (
-                        <span>&#10060;</span>
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
                       )}
                     </p>
                   </div>
@@ -276,9 +293,13 @@ function Index({ quote }) {
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
                       {quote.otherGeyser ? (
-                        <span>&#9745;</span>
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
                       ) : (
-                        <span>&#10060;</span>
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
                       )}
                     </p>
                   </div>

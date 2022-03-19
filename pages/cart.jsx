@@ -53,27 +53,32 @@ export default function Cart({}) {
                     <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
                       {item.description}
                     </p>
-                    <p className="mt-4 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-10/12">
-                      Brand:{item.brand_id.name}
-                    </p>
-                    <p className="text-sm leading-tight text-gray-600 ">
-                      Flow Rate:{item.flowRate}l/min
-                    </p>
-                    <p className="text-sm leading-tight text-gray-600 ">
-                      Max Temp: {item.maxTemp} &#8451;
-                    </p>
-                    <p className="text-sm leading-tight text-gray-600 ">
-                      Max Pressure: {item.maxPressure}
-                    </p>
-                    <p className="text-sm leading-tight text-gray-600 ">
-                      Width: {item.width} mm
-                    </p>
-                    <p className="text-sm leading-tight text-gray-600 ">
-                      Height: {item.height} mm
-                    </p>
-                    <p className="text-sm leading-tight text-gray-600 ">
-                      Depth: {item.depth} mm
-                    </p>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span>Brand:</span> {item.brand_id.name}
+                    </div>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span>Flow Rate:</span> {item.flowRate} l/min
+                    </div>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span>Max Temp:</span> {item.maxTemp} &#8451;
+                    </div>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span> Max Water Pressure:</span> {item.maxPressure}{' '}
+                      &#13172;
+                    </div>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span> Min Water Pressure:</span> {item.minPressure}{' '}
+                      &#13172;
+                    </div>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span>Width:</span> {item.width} mm
+                    </div>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span>Height:</span> {item.height} mm
+                    </div>
+                    <div className="mt-1 text-sm leading-tight text-gray-600 md:w-8/12 lg:w-3/12 flex justify-between">
+                      <span>Depth:</span> {item.depth} mm
+                    </div>
 
                     <div className="mt-8 flex space-x-6 items-center justify-between w-[500px]">
                       <a
@@ -212,7 +217,7 @@ export default function Cart({}) {
                   </div>
                   <p className="mt-10 text-xl font-medium text-gray-800">
                     {formatter.format(item.price * item.qty)}{' '}
-                    <span className="text-xs">incl VAT</span>
+                    <span className="text-xs">(incl VAT)</span>
                   </p>
                 </div>
               </div>
@@ -263,6 +268,7 @@ export default function Cart({}) {
               <h3 className="text-2xl text-gray-800">Total</h3>
               <p className="text-2xl font-semibold text-gray-800">
                 {formatter.format(cartTotal)}
+                <span className="text-xs">(incl VAT)</span>
               </p>
             </div>
             <Link href="/checkout" passHref>
