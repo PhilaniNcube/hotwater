@@ -3,6 +3,7 @@ import React, { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useUser } from '../Context/AuthContext';
 import { supabase } from '../utils/supabase';
+import analytics from '../utils/analytics';
 
 export default function SignIn() {
   const router = useRouter();
@@ -14,6 +15,10 @@ export default function SignIn() {
     setLoading(true);
     let { user, error } = await supabase.auth.signIn({ provider: 'google' });
 
+    analytics.track('login', {
+      provider: 'google',
+    });
+
     setLoading(false);
   };
 
@@ -24,6 +29,10 @@ export default function SignIn() {
       email: email,
     });
     console.log('sign in', user);
+
+    analytics.track('login', {
+      provider: 'email',
+    });
 
     if (!user) {
       alert('Please check your email address for the login link');
