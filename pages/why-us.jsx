@@ -327,6 +327,19 @@ const WhyUs = () => {
                 the best gas water heating solution for your home
               </p>
 
+              <div className="flex space-x-4">
+                <img
+                  className="h-24 object-cover"
+                  src="/images/lpg.jpeg"
+                  alt="LPGA"
+                />
+                <img
+                  className="h-24 object-contain"
+                  src="/images/lpg-2.jpeg"
+                  alt="LPGA"
+                />
+              </div>
+
               <Link href="/quote/start" passHref>
                 <button
                   onClick={start}
