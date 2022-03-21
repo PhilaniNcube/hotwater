@@ -16,6 +16,10 @@ export default function Home() {
         <title>Hotwater24</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
+          name="facebook-domain-verification"
+          content="xzxztrfeisy3fc2yb2pzfep46ec009"
+        />
+        <meta
           name="description"
           content="The online platform to assist and advise you on the most cost-effective and efficient gas water heating solution for your household."
         />
