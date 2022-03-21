@@ -187,6 +187,10 @@ const ProductDetail = ({ product }) => {
                 }
                 id="sect"
               >
+                <p className="text-base">
+                  If you have any other questions, please do not hesitate to
+                  contact us: info@hotwater24.com
+                </p>
                 <Whatsapp />
               </div>
             </div>
