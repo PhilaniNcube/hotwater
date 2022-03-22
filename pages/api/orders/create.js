@@ -52,7 +52,7 @@ export default async function handler(req, res) {
   const day = tempDay.toUTCString();
 
   const check = {
-    PAYGATE_ID: '10011072130',
+    PAYGATE_ID: '1046125100012',
     REFERENCE: `${data.id}`,
     AMOUNT: Number(orderTotal * 100),
     CURRENCY: 'ZAR',
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
     LOCALE: 'en-za',
     COUNTRY: 'ZAF',
     EMAIL: email,
-    PAYGATE_SECRET: 'secret',
+    PAYGATE_SECRET: process.env.PAYGATE_SECRET,
   };
 
   const checkString = `${check.PAYGATE_ID}${check.REFERENCE}${check.AMOUNT}${check.CURRENCY}${check.RETURN_URL}${check.TRANSACTION_DATE}${check.LOCALE}${check.COUNTRY}${check.EMAIL}${check.PAYGATE_SECRET}`;
@@ -70,7 +70,7 @@ export default async function handler(req, res) {
   console.log(checksum.toString());
 
   const formdata = new FormData();
-  formdata.append('PAYGATE_ID', '10011072130');
+  formdata.append('PAYGATE_ID', '1046125100012');
   formdata.append('REFERENCE', `${data.id}`);
   formdata.append('AMOUNT', Number(orderTotal * 100));
   formdata.append('CURRENCY', 'ZAR');
