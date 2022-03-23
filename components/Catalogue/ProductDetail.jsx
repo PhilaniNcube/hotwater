@@ -62,7 +62,6 @@ const ProductDetail = ({ product }) => {
               url: `https://www.hotwater24.com/catalogue/${product.id}`,
               priceCurrency: 'ZAR',
               price: product.price,
-              priceValidUntil: new Date.now(),
               itemCondition: 'https://schema.org/NewCondition',
               availability: `${
                 product.inStock
