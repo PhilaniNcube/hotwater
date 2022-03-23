@@ -25,6 +25,54 @@ const ProductDetail = ({ product }) => {
         <meta name="condition" content="New" />
       </Head>
       <Script src="https://mobicred.co.za/plugins/instalment.js"></Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'Product',
+            name: product.name,
+            image: [product.image],
+            description: product.description,
+            sku: product.sku,
+
+            brand: {
+              '@type': 'Brand',
+              name: product.brand_id.name,
+            },
+            review: {
+              '@type': 'Review',
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '0',
+                bestRating: '5',
+              },
+              author: {
+                '@type': 'Person',
+                name: 'Hotwater24',
+              },
+            },
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '0',
+              reviewCount: '0',
+            },
+            offers: {
+              '@type': 'Offer',
+              url: `https://www.hotwater24.com/catalogue/${product.id}`,
+              priceCurrency: 'ZAR',
+              price: product.price,
+              priceValidUntil: new Date.now(),
+              itemCondition: 'https://schema.org/NewCondition',
+              availability: `${
+                product.inStock
+                  ? 'https://schema.org/InStock'
+                  : 'https://schema.org/OutOfStock'
+              }`,
+            },
+          }),
+        }}
+      />
       <div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
         <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
           <img
@@ -65,17 +113,28 @@ const ProductDetail = ({ product }) => {
               </p>
             </div>
           </div>
-          <button
-            onClick={() => {
-              addToCart(product);
 
-              add_to_cart(product);
-            }}
-            className="
+          {product.inStock ? (
+            <button
+              onClick={() => {
+                addToCart(product);
+
+                add_to_cart(product);
+              }}
+              className="
 						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base	flex items-center	justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700"
-          >
-            Add To Cart
-          </button>
+            >
+              Add To Cart
+            </button>
+          ) : (
+            <button
+              className="
+						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 text-base	flex items-center	justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700"
+            >
+              Out Of Stock
+            </button>
+          )}
+
           <div>
             <p className="xl:pr-16 text-base lg:leading-tight leading-normal text-gray-600 mt-7">
               {product.description}
