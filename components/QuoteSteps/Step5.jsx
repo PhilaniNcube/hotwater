@@ -30,7 +30,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       )}
 
       <p className="py-3 px-4 text-center">
-        What is your intention for using gas in your house?
+        For which purpose(s) do you intend to use gas in your home/property?
       </p>
 
       <div className="py-8 max-w-6xl mx-auto flex flex-wrap justify-around space-y-8  lg:space-y-0 lg:space-x-4">

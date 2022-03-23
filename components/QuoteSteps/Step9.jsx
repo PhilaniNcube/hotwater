@@ -6,13 +6,15 @@ import ProductSlide from '../ProductSlide/ProductSlide';
 
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const [products, setProducts] = useState([]);
-  const flowRate = Math.ceil(parseInt(quoteInfo.flowRate));
+  const flowRate = Math.ceil(parseInt(quoteInfo.flowRate + 1));
+  const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 5));
 
   useEffect(async () => {
     let { data: products, error } = await supabase
       .from('products')
       .select(`*, brand_id(name)`)
       .gte('flowRate', flowRate)
+      .lte('flowRate', topRate)
       .eq('inStock', true)
       .order('flowRate', { ascending: false });
 

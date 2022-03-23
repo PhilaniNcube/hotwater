@@ -11,8 +11,9 @@ export default async function handler(req, res) {
   console.log(req.body);
 
   const msg = {
-    to: 'webdev@hotwater24.com', // Change to your recipient
-    from: 'webdev@hotwater24.com', // Change to your verified sender
+    to: 'info@hotwater24.com', // Change to your recipient
+    from: 'info@hotwater24.com', // Change to your verified sender
+    cc: req.body.email,
     subject: 'Website Contact Form',
     text: `Name: ${req.body.name},
              Email: ${req.body.email},

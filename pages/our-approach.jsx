@@ -95,7 +95,7 @@ export default function MyApp() {
                 1
               </div>
               <h2 className="ml-4 text-base font-semibold leading-4 text-gray-800">
-                Off The Grid Solutions
+                Off-The-Grid Solutions
               </h2>
             </div>
             <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
@@ -137,12 +137,9 @@ export default function MyApp() {
         </div>
 
         <div className="flex justify-center my-4">
-          <Link href="/quote/start" passHref>
-            <button
-              onClick={start}
-              className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
-            >
-              Find Your Fit
+          <Link href="/contact" passHref>
+            <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit">
+              Get in touch
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

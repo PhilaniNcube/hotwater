@@ -20,6 +20,7 @@ import Step11 from '../../components/QuoteSteps/Step11';
 import Step12 from '../../components/QuoteSteps/Step12';
 import getProducts from '../../lib/getProducts';
 import { useQuery } from 'react-query';
+import analytics from '../../utils/analytics';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -70,6 +71,7 @@ const index = ({ initialProducts }) => {
 
   const nextPage = () => {
     if (page === 13) return;
+    analytics.track(`step_${page}`);
     setPage((page) => page + 1);
   };
   const prevPage = () => {

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment } from 'react';
+import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
 
 function Index({ quote }) {
   return (
@@ -189,7 +190,15 @@ function Index({ quote }) {
                       Cooking
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasStove ? 'Yes' : 'No'}
+                      {quote.gasStove ? (
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
+                      ) : (
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -197,16 +206,32 @@ function Index({ quote }) {
                       Water
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasWaterHeating ? 'Yes' : 'No'}
+                      {quote.gasWaterHeating ? (
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
+                      ) : (
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
+                      )}
                     </p>
                   </div>
                   <div>
                     <h2 className="text-gray-600  font-medium leading-6 mb-1 text-center">
                       Heating
                     </h2>
-                    <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasHeating ? 'Yes' : 'No'}
-                    </p>
+                    <div className="text-gray-800 text-sm leading-5 text-center">
+                      {quote.gasHeating ? (
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
+                      ) : (
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -219,7 +244,15 @@ function Index({ quote }) {
                       Electric
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.electricGeyser ? 'Yes' : 'No'}
+                      {quote.electricGeyser ? (
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
+                      ) : (
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -227,7 +260,15 @@ function Index({ quote }) {
                       Solar
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.solarGeyser ? 'Yes' : 'No'}
+                      {quote.solarGeyser ? (
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
+                      ) : (
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -235,7 +276,15 @@ function Index({ quote }) {
                       Gas
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.gasGeyser ? 'Yes' : 'No'}
+                      {quote.gasGeyser ? (
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
+                      ) : (
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
+                      )}
                     </p>
                   </div>
                   <div>
@@ -243,7 +292,15 @@ function Index({ quote }) {
                       Other
                     </h2>
                     <p className="text-gray-800 text-sm leading-5 text-center">
-                      {quote.otherGeyser ? 'Yes' : 'No'}
+                      {quote.otherGeyser ? (
+                        <span className="text-lg bg-green-700 text-white">
+                          <AiFillCheckSquare className="text-lg bg-green-700 text-white" />
+                        </span>
+                      ) : (
+                        <span className="text-lg text-white bg-red-500">
+                          <AiFillCloseSquare className="text-lg text-white bg-red-500" />
+                        </span>
+                      )}
                     </p>
                   </div>
                 </div>

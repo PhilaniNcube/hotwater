@@ -2,6 +2,7 @@ import { createContext, useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../utils/supabase';
 import axios from 'axios';
+import analytics from '../utils/analytics';
 
 const Context = createContext();
 
@@ -13,6 +14,7 @@ const Provider = ({ children }) => {
   const signOut = async () => {
     let { error } = await supabase.auth.signOut();
     setUser(null);
+    analytics.track('logout');
     router.push('/');
   };
 

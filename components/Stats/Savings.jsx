@@ -42,31 +42,36 @@ function Savings() {
       <div className="xl:flex xl:w-9/12 lg:flex md:flex justify-around bg-white w-full flex-wrap shadow-lg mx-auto -mt-16 rounded">
         <div className="w-full xl:w-3/12 lg:w-3/12 md:w-3/12 bg-white py-4 ">
           <p className="text-lg lg:text-2xl text-gray-500 text-center">
-            Monthly Saving
+            Monthly Saving*
           </p>
           <p className="text-5xl font-bold text-center text-sky-700 pt-1">
-            R{savings.toFixed(2)}
+            R{savings.toFixed(2)}*
           </p>
         </div>
         <div className="w-full xl:w-3/12 lg:w-3/12 md:w-3/12 bg-white py-4 ">
           <p className="text-lg lg:text-2xl text-gray-500 text-center">
-            Savings/Year
+            Savings/Year*
           </p>
           <p className="text-5xl font-bold text-center text-green-500 pt-1">
-            R{year.toFixed(2)}
+            R{year.toFixed(2)}*
           </p>
         </div>
+      </div>
+
+      <div className="max-w-[500px] mt-6">
+        <p className="text-[9px] text text-slate-700">
+          *The calculator on this website produces mere estimates which are
+          based on information provided and flactuating factors and may
+          therefore not reflect the probable savings. The results and savings
+          shown of the calculations are not a promise or guarantee of a
+          customer’s savings. 
+        </p>
       </div>
 
       <div className="flex justify-center items-center mt-4 mb-12">
         <Link href="/quote/start" passHref>
           <button
-            onClick={() => {
-              window.dataLayer = [];
-              window.dataLayer.push({
-                event: 'start',
-              });
-            }}
+            onClick={start}
             className="bg-gray-800 text-white flex space-x-2 py-2 px-4 mb-8 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
           >
             Find Your Fit
@@ -88,22 +93,6 @@ function Savings() {
             </span>
           </button>
         </Link>
-      </div>
-
-      <div className="max-w-[500px] mx-auto columns-1 md:columns-2 mb-12">
-        <p className="text-xs text-center text-gray-600">
-          The calculator on this website produces mere estimates which are based
-          on information provided and flactuating factors and may therefore not
-          reflect the probable savings. The results and savings shown of the
-          calculations are not a promise or guarantee of a customer’s savings. 
-        </p>
-
-        <p className="text-xs text-center text-gray-600">
-          Hotwater24, its agents, employees, contractors and any other
-          representatives are not responsible for the content, results, or
-          accuracy of the information on the calculators. Actual savings may
-          vary. No rights or obligations flow from these calculations.
-        </p>
       </div>
     </div>
   );

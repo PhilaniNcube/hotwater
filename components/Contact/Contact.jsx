@@ -42,7 +42,7 @@ export default function ContactComponent() {
           </div>
           <form
             onSubmit={handleSubmit}
-            className="lg:w-full 2xl:w-2/5 flex w-full bg-gray-50 flex flex-col justify-center px-5 py-5 md:px-7 md:py-7 lg:py-12 lg:px-20 mt-2 md:mt-6 lg:mt-0"
+            className="lg:w-full 2xl:w-2/5 w-full bg-gray-50 flex flex-col justify-center px-5 py-5 md:px-7 md:py-7 lg:py-12 lg:px-20 mt-2 md:mt-6 lg:mt-0"
           >
             <h2 className="text-lg font-semibold text-gray-800">
               Send us a message

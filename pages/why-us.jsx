@@ -170,7 +170,7 @@ const WhyUs = () => {
                   gas. We do not only offer you our experience in recommending
                   the best quality and safe product for your property, we also
                   recommend you the best off-the-grid solutions, minimizing your
-                  monthly household expense on electricity.
+                  monthly household expense on electricity
                 </p>
               </div>
               <div className="sm:block hidden">
@@ -326,6 +326,19 @@ const WhyUs = () => {
                 By clicking on the button below we instantly recommend you with
                 the best gas water heating solution for your home
               </p>
+
+              <div className="flex space-x-4">
+                <img
+                  className="h-24 object-cover"
+                  src="/images/lpg.jpeg"
+                  alt="LPGA"
+                />
+                <img
+                  className="h-24 object-contain"
+                  src="/images/lpg-2.jpeg"
+                  alt="LPGA"
+                />
+              </div>
 
               <Link href="/quote/start" passHref>
                 <button

@@ -2,8 +2,10 @@
 import React, { Fragment, useState } from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
+import Whatsapp from '../Whatsapp';
 import useCart from '../../hooks/useCart';
 import formatter from '../../lib/format';
+import { add_to_cart } from '../../utils/gtm';
 
 const ProductDetail = ({ product }) => {
   const [show, setShow] = useState(false);
@@ -67,29 +69,7 @@ const ProductDetail = ({ product }) => {
             onClick={() => {
               addToCart(product);
 
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({
-                event: 'addToCart',
-                params: {
-                  currency: 'ZAR',
-                  value: product.price,
-                  items: [
-                    {
-                      item_id: product.sku,
-                      item_name: product.name,
-                      affiliation: 'Hotwater24',
-                      coupon: '',
-                      currency: 'ZAR',
-                      discount: 0,
-                      index: 0,
-                      item_brand: product.brand_id.name,
-                      item_category: 'geyser',
-                      price: product.price,
-                      quantity: 1,
-                    },
-                  ],
-                },
-              });
+              add_to_cart(product);
             }}
             className="
 						focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base	flex items-center	justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700"
@@ -207,7 +187,11 @@ const ProductDetail = ({ product }) => {
                 }
                 id="sect"
               >
-                Tel: +27 (0)79 341 4075
+                <p className="text-base">
+                  If you have any other questions, please do not hesitate to
+                  contact us: info@hotwater24.com
+                </p>
+                <Whatsapp />
               </div>
             </div>
           </div>
