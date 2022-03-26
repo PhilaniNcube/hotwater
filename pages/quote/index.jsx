@@ -82,7 +82,7 @@ const index = ({ initialProducts }) => {
   return (
     <Fragment>
       <Head>
-        <title>Hotwater24 | Quote</title>
+        <title>Hotwater24 | Submit A Request</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Submit a quote request." />
         <meta

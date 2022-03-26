@@ -8,7 +8,7 @@ const Start = () => {
   return (
     <div className="max-w-6xl mx-auto">
       <Head>
-        <title>Hotwater24 | Quote</title>
+        <title>Hotwater24 | Get A Recommendation</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Submit a quote request." />
         <meta

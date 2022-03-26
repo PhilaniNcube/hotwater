@@ -19,10 +19,42 @@ const ProductDetail = ({ product }) => {
     <Fragment>
       <Head>
         <title>Hotwater24 | {product.name}</title>
-        <meta name="description" content={product.description} />
+
         <meta name="price" content={product.price} />
         <meta name="currency" content="ZAR" />
         <meta name="condition" content="New" />
+
+        <meta name="description" content={product.description} />
+        <meta
+          name="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        />
+        <meta itemProp="name" content={product.name} />
+        <meta itemProp="description" content={product.description} />
+
+        <meta
+          itemProp="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        ></meta>
+
+        <meta name="og:title" content={product.name} />
+        <meta name="og:description" content={product.description} />
+        <meta name="og:image" content={product.image} />
+        <meta
+          name="og:url"
+          content={`https://www.hotwater24.com/catalogue/${product.id}`}
+        />
+        <meta name="og:site_name" content="Hotwater24" />
+        <meta name="og:locale" content="en_ZA" />
+        <meta name="og:type" content="product"></meta>
+
+        <meta
+          name="product:availability"
+          content={product.inStock ? 'in stock' : 'out of stock'}
+        />
+        <meta name="product:price:currency" content="ZAR" />
+        <meta name="product:price:amount" content={product.price} />
+        <meta name="product:brand" content={product.brand_id.name}></meta>
       </Head>
       <Script src="https://mobicred.co.za/plugins/instalment.js"></Script>
       <script
