@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useUser } from '../Context/AuthContext';
 import { supabase } from '../utils/supabase';
@@ -45,6 +46,11 @@ export default function SignIn() {
 
   return (
     <Fragment>
+      <Head>
+        <title>Hotwater24 | Sign In</title>
+        <meta name="description" content="Sign in or sign up to Hotwater24" />
+        <meta name="keywords" content="account, create an account" />
+      </Head>
       <div className="h-full bg-gradient-to-tl from-gray-100 to-sky-900 w-full py-16">
         <div className="flex flex-col items-center justify-center">
           <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">

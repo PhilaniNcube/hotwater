@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 const AdminHeader = () => {
   return (
-    <div>
+    <div className="w-full">
       <div className="bg-gray-600 py-6 lg:py-8">
-        <div className="container px-6 mx-auto flex flex-col md:flex-row items-start md:items-center justify-between">
+        <div className="px-6 mx-auto flex flex-col md:flex-row items-start md:items-center justify-between">
           <div>
             <h4 className="text-2xl font-bold leading-tight text-white">
               Dashboard

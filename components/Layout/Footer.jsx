@@ -43,16 +43,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col justify-start w-full items-start">
-          <div className="text-gray-400 mt-4 flex flex-col">
-            <Link href="/profile">
-              <a className="text-sm">My Profile</a>
-            </Link>
-            <Link href="/account/orders">
-              <a className="text-sm">My Orders</a>
-            </Link>
-          </div>
-        </div>
+        <div className="flex flex-col justify-start w-full items-start"></div>
         <div className="flex flex-col justify-center items-center">
           <div className="text-gray-400 mt-4 flex flex-col justify-start items-end">
             <img
