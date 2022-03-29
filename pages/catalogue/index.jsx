@@ -14,7 +14,7 @@ const Catalogue = ({ products, error }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Our collection of gas geysers for sale"
+          content="Our collection of gas geysers for sale. We provide a range of quality geysers that are installed professionally."
         />
         <meta
           name="keywords"

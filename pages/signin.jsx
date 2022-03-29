@@ -48,19 +48,22 @@ export default function SignIn() {
     <Fragment>
       <Head>
         <title>Hotwater24 | Sign In</title>
-        <meta name="description" content="Sign in or sign up to Hotwater24" />
+        <meta
+          name="description"
+          content="Sign in or sign up to Hotwater24 to create a account and get access to full information."
+        />
         <meta name="keywords" content="account, create an account" />
       </Head>
       <div className="h-full bg-gradient-to-tl from-gray-100 to-sky-900 w-full py-16">
         <div className="flex flex-col items-center justify-center">
           <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
-            <p
+            <h1
               tabIndex={0}
               aria-label="Login to your account"
               className="text-2xl font-extrabold leading-6 text-gray-800"
             >
               Sign In/Sign Up
-            </p>
+            </h1>
 
             <button
               onClick={signInWithGoogle}

@@ -20,9 +20,9 @@ const Banner7 = () => {
           </div>
           <div className="absolute flex justify-start items-start flex-col px-4 md:pl-6 xl:pl-12">
             <div>
-              <p className="xl:text-4xl text-3xl font-bold tracking-wider leading-9 md:leading-4 text-gray-800 pr-6 md:pr-0">
+              <h1 className="xl:text-4xl text-3xl font-bold tracking-wider leading-9 md:leading-4 text-gray-800 pr-6 md:pr-0">
                 Our Quality Gas Geysers
-              </p>
+              </h1>
             </div>
             <div className="mt-2">
               <p className="text-base tracking-wider xl:text-xl leading-normal xl:leading-7 pr-6 md:pr-0 text-gray-800 w-11/12 md:w-3/5">

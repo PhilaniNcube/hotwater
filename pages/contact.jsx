@@ -10,7 +10,7 @@ const Contact = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Hotwater24, supplier of qulaity gas geysers"
+          content="Hotwater24, supplier of qulaity gas geysers. Contact us and we will get back to you as soon as we can."
         />
         <meta name="keywords" content="contact us" />
       </Head>
