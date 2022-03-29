@@ -27,6 +27,7 @@ export default function Home() {
           name="keywords"
           content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
         />
+        <link rel="canonical" href="https://www.hotwater24.com" />
       </Head>
       <Slider />
     </Fragment>

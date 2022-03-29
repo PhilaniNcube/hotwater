@@ -19,6 +19,7 @@ export default function MyApp() {
           name="keywords"
           content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
         />
+        <link rel="canonical" href="https://www.hotwater24.com/our-approach" />
       </Head>
       <div className="py-12 2xl:px-20 px-6 max-w-6xl mx-auto">
         <div className="md:flex items-center justify-between">
