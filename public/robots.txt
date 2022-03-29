@@ -1,0 +1,22 @@
+User-agent: *
+Disallow: /orders/*
+Disallow: /orders
+Disallow: /admin
+Disallow: /admin/*
+
+User-agent: *
+Allow: /
+Allow: /quote
+Allow: /quote/start
+Allow: /contact
+Allow: /why-us
+Allow: /our-approach
+Allow: /search
+Allow: /who-we-are
+Allow: /register
+Allow: /promo/save
+Allow: /catalogue
+Allow: /catalogue/*
+
+
+Sitemap: http://www.hotwater24.com/sitemap.xml
