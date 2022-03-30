@@ -144,7 +144,7 @@ export default async function handler(req, res) {
 
             </div>
            </div >
-           <style>
+           <style type="text/css">
            .parent {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
