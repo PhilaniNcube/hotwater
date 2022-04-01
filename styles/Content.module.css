@@ -1,0 +1,13 @@
+.content {
+  @apply text-sm text-gray-600;
+}
+
+.content p {
+  line-height: 1.5;
+  padding-bottom: 0.5em;
+  max-width: 100ch;
+}
+
+.content a {
+  @apply text-sky-600 underline;
+}

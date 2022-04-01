@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { getPosts } from '../lib/getPosts';
 
 function cn(...classes) {
@@ -31,37 +32,40 @@ export function BlurImage({ post }) {
   const [isLoading, setLoading] = useState(true);
 
   return (
-    <a href="#" className="group">
-      <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
-        <Image
-          layout="fill"
-          src={`http:${post.fields.featuredImage.fields.file.url}`}
-          className={cn(
-            'group-hover:opacity-75 ease-in-out object-cover',
-            isLoading
-              ? 'grayscale blur-2xl scale-110'
-              : 'grayscale-0 blur-0 scale-100',
-          )}
-          alt="blog image"
-          onLoadingComplete={() => setLoading(false)}
-        />
-      </div>
-      <h3 className="mt-4 text-md text-gray-700">{post.fields.title}</h3>
-      <p className="mt-1 text-sm font-medium text-gray-900">
-        Author: {post.fields.author.fields.name}
-      </p>
-    </a>
+    <Link href={`/blog/${post.fields.slug}`} passHref>
+      <a className="group">
+        <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
+          <Image
+            layout="fill"
+            src={`http:${post.fields.featuredImage.fields.file.url}`}
+            className={cn(
+              'group-hover:opacity-75 ease-in-out object-cover',
+              isLoading
+                ? 'grayscale blur-2xl scale-110'
+                : 'grayscale-0 blur-0 scale-100',
+            )}
+            alt="blog image"
+            onLoadingComplete={() => setLoading(false)}
+          />
+        </div>
+        <h3 className="mt-4 text-md text-gray-700">{post.fields.title}</h3>
+        <p className="mt-1 text-sm font-medium text-gray-900">
+          Author: {post.fields.author.fields.name}
+        </p>
+      </a>
+    </Link>
   );
 }
 
 export default blog;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const blogs = await getPosts();
 
   return {
     props: {
       blogs,
+      revalidate: 60,
     },
   };
 }

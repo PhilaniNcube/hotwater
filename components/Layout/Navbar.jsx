@@ -137,6 +137,9 @@ const Navbar = () => {
                 Our Catalogue
               </a>
             </Link>
+            <Link href="/blog">
+              <a className="text-sm md:text-md focus:text-sky-600 px-6">Blog</a>
+            </Link>
           </nav>
 
           {/*Mobile Bottom Nav*/}
@@ -238,6 +241,14 @@ const Navbar = () => {
                   className="text-white font-medium text-md py-2"
                 >
                   Our Catalogue
+                </a>
+              </Link>
+              <Link href="/blog" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Blog
                 </a>
               </Link>
 
