@@ -11,7 +11,26 @@ function cn(...classes) {
 const Post = ({ post }) => {
   const [isLoading, setLoading] = useState(true);
 
-  console.log(post);
+  if (!post)
+    return (
+      <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
+        <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
+          <Image
+            layout="fill"
+            src="/images/bathroom.jpg"
+            className={cn(
+              'group-hover:opacity-75 ease-in-out object-cover',
+              isLoading
+                ? 'grayscale blur-2xl scale-110'
+                : 'grayscale-0 blur-0 scale-100',
+            )}
+            alt="blog image"
+            onLoadingComplete={() => setLoading(false)}
+          />
+        </div>
+        <h1 className="text-lg md:text-2xl lg:text-4xl mt-4">Loading....</h1>
+      </div>
+    );
 
   return (
     <Fragment>
@@ -57,7 +76,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
