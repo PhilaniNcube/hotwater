@@ -7,6 +7,11 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ['tqindzrnxqulmtsuoqaz.supabase.in', 'tuk-cdn.s3.amazonaws.com'],
+    domains: [
+      'tqindzrnxqulmtsuoqaz.supabase.in',
+      'tuk-cdn.s3.amazonaws.com',
+      'images.ctfassets.net',
+      'bit.ly',
+    ],
   },
 };
