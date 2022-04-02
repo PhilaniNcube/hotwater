@@ -78,7 +78,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               quoteInfo.flowRate < 20 &&
               'R3,500 - R6,000'}
 
-            {quoteInfo.flowRate > 20 &&
+            {quoteInfo.flowRate >= 20 &&
               quoteInfo.flowRate <= 25.9 &&
               'R7,000 - R9,000'}
           </p>
