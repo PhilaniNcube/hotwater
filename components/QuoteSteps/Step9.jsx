@@ -75,7 +75,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           <p className="text-2xl  font-medium text-center text-sky-600">
             {quoteInfo.flowRate <= 16 && 'R2,500 - R4,600'}
             {quoteInfo.flowRate > 16 &&
-              quoteInfo.flowRate < 20 &&
+              quoteInfo.flowRate <= 20 &&
               'R3,500 - R6,000'}
 
             {quoteInfo.flowRate >= 20 &&
