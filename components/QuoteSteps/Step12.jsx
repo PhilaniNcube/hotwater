@@ -12,6 +12,8 @@ import { supabase } from '../../utils/supabase';
 import QuoteCard from '../Quote/QuoteCard';
 
 const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+  const [loading, setLoading] = useState(false);
+
   console.log('Step', page, quoteInfo);
 
   const { products, productsIsLoading, productsError } = useProducts(
@@ -101,6 +103,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 
   const handleSubmit = async () => {
+    setLoading(true);
+
     analytics.track('generate_lead');
 
     try {
@@ -152,6 +156,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         console.log(mail);
 
         if (quoteInfo.product_id) {
+          setLoading(false);
           router.push(`/catalogue/${quoteInfo.product_id}`);
         } else {
           nextPage();
@@ -194,10 +199,10 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
         <button
           onClick={handleSubmit}
-          disabled={mutation.isLoading}
+          disabled={loading}
           className="bg-sky-500 hover:bg-sky-600 text-center text-white text-lg md:text-xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow my-4"
         >
-          {mutation.isLoading ? 'Loading...' : 'Complete the process'}
+          {loading ? 'Loading...' : 'Complete the process'}
         </button>
       </div>
     </div>
