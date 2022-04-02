@@ -5,7 +5,7 @@ import { supabase } from '../../utils/supabase';
 import ProductSlide from '../ProductSlide/ProductSlide';
 
 const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
-  cosole.log('Step9', quoteInfo);
+  console.log('Step9', quoteInfo);
 
   const [products, setProducts] = useState([]);
   const flowRate = Math.ceil(parseInt(quoteInfo.flowRate + 1));
