@@ -147,6 +147,13 @@ function Index({ quote }) {
                         {quote.locateOutside ? 'Yes' : 'No'}
                       </span>
                     </li>
+
+                    <li className="text-xs text-gray-600  font-normal tracking-normal">
+                      Require Installation -{' '}
+                      <span className="uppercase font-bold">
+                        {quote.installation ? 'Yes' : 'No'}
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>

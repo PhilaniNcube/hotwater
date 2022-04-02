@@ -272,7 +272,14 @@ Postal Code: ${postalCode}</div><div></div></div></td>
 <div style="font-family: inherit; text-align: inherit">Off Grid Solution: ${
       completeSolution ? 'Yes' : 'No'
     }</div>
-<div style="font-family: inherit; text-align: inherit">Geyser on outside wall:</div><div></div></div></td>
+
+    <div style="font-family: inherit; text-align: inherit">Off Grid Solution: ${
+      installation ? 'Yes' : 'No'
+    }</div>
+
+<div style="font-family: inherit; text-align: inherit">Geyser on outside wall:${
+      locateOutside ? 'Yes' : 'No'
+    }</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="7befbb98-3151-4495-b824-8b3f4fe31655.1.1" data-mc-module-version="2019-10-22">
