@@ -46,7 +46,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </p>
           )}
 
-          {products.length === 0 ? (
+          {products && products.length === 0 ? (
             <p className="text-base text-center my-3 text-gray-700">
               According to your answers, we will have to contact you in order to
               give you more information one the best solution for your property.
