@@ -203,14 +203,6 @@ const Navbar = () => {
                   Home
                 </a>
               </Link>
-              <Link href="/why-us" passHref>
-                <a
-                  onClick={() => setShow(false)}
-                  className="text-white font-medium text-md py-2"
-                >
-                  Why Choose Us
-                </a>
-              </Link>
               <Link href="/who-we-are" passHref>
                 <a
                   onClick={() => setShow(false)}
@@ -219,6 +211,16 @@ const Navbar = () => {
                   Who We Are
                 </a>
               </Link>
+
+              <Link href="/why-us" passHref>
+                <a
+                  onClick={() => setShow(false)}
+                  className="text-white font-medium text-md py-2"
+                >
+                  Why Choose Us
+                </a>
+              </Link>
+
               <Link href="/our-approach" passHref>
                 <a
                   onClick={() => setShow(false)}
@@ -227,14 +229,7 @@ const Navbar = () => {
                   Our Approach
                 </a>
               </Link>
-              <Link href="/our-promise" passHref>
-                <a
-                  onClick={() => setShow(false)}
-                  className="text-white font-medium text-md py-2"
-                >
-                  Our Promise
-                </a>
-              </Link>
+
               <Link href="/catalogue" passHref>
                 <a
                   onClick={() => setShow(false)}
