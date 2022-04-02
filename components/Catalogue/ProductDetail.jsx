@@ -277,14 +277,14 @@ const ProductDetail = ({ product }) => {
                 }
                 id="sect"
               >
-                <p className="text-base flex justify-between">
+                <p className="text-base">
                   If you have any other questions, please do not hesitate to
-                  contact us: info@hotwater24.com or you can send us a text
-                  using{' '}
-                  <span className="flex items-end">
-                    <Whatsapp />
-                  </span>
+                  contact us: info@hotwater24.com
                 </p>
+
+                <span className="flex items-center space-x-2">
+                  <p>Or you can send us a text using</p> <Whatsapp />
+                </span>
               </div>
             </div>
           </div>

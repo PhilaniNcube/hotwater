@@ -9,7 +9,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   const [products, setProducts] = useState([]);
   const flowRate = Math.ceil(parseInt(quoteInfo.flowRate + 1));
-  const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 5));
+  const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 7));
 
   useEffect(async () => {
     let { data: products, error } = await supabase
@@ -48,7 +48,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </p>
           )}
 
-          {products && products.length === 0 ? (
+          {products.length === 0 ? (
             <p className="text-base text-center my-3 text-gray-700">
               According to your answers, we will have to contact you in order to
               give you more information on the best gas water heating solution
@@ -165,7 +165,8 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 mt-8 mb-12">
-        {quoteInfo.installation !== null ? (
+        {(quoteInfo.installation !== null && quoteInfo.product_id !== null) ||
+        quoteInfo.flowRate > 26 ? (
           <Fragment>
             {' '}
             <svg
