@@ -49,7 +49,8 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           {products && products.length === 0 ? (
             <p className="text-base text-center my-3 text-gray-700">
               According to your answers, we will have to contact you in order to
-              give you more information one the best solution for your property.
+              give you more information on the best gas water heating solution
+              for your property.
             </p>
           ) : (
             <ProductSlide
@@ -64,11 +65,12 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
             Installation
           </p>
-
-          <p className="mt-6 mb-4 text-center text-gray-600 text-base">
-            Based on the flow rate of your recommended geyser your installation
-            will be in the range of:
-          </p>
+          {quoteInfo.flowRate < 26 && (
+            <p className="mt-6 mb-4 text-center text-gray-600 text-base">
+              Based on the flow rate of your recommended geyser your
+              installation will be in the range of:
+            </p>
+          )}
 
           <p className="text-2xl  font-medium text-center text-sky-600">
             {quoteInfo.flowRate <= 16 && 'R2,500 - R4,600'}
@@ -78,6 +80,14 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
             {quoteInfo.flowRate > 20 && 'R7,000 - R9,000'}
           </p>
+
+          {quoteInfo.flowRate > 26 && (
+            <p className="text-base text-center my-3 text-gray-700">
+              According to your answers, we will have to contact you in order to
+              give you more information on the best gas water heating solution
+              for your property.
+            </p>
+          )}
 
           <p className="text-base text-center my-3 text-gray-700">
             Please indicate below if you would like us to quote and organise the
