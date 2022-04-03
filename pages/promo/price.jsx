@@ -127,28 +127,34 @@ const Price = ({ product }) => {
                 className="aspect-square h-[50vh]"
               />
             </div>
+
             <div className="w-full">
               <p className="text-2xl font-medium text-gray-600">
                 {product.name}
               </p>
-              <p className="text-lg text-gray-700 font-bold">
+              <p className="text-lg text-gray-700 font-bold mb-8">
                 {' '}
                 Price: {formatter.format(product.price)}
               </p>
-              <div className="flex items-center space-x-3">
-                <img
-                  className="h-12 object-cover"
-                  src="/images/mobicred.png"
-                  alt="mobicred logo"
-                />
-                <span className="flex flex-col">
-                  <p>Get it on Credit for:</p>
-                  <p className="text-2xl font-bold text-gray-600">
-                    {formatter.format(Math.ceil(repayment))}
-                    <small className="ml-2 text-xs">incl VAT</small>
-                  </p>
-                </span>
-              </div>
+              <Link
+                href="https://live.mobicred.co.za/web_mcrliv/run.w?run=application&merchantId=7160&returnUrl=https://www.hotwater24.com"
+                passHref
+              >
+                <div className="flex items-center space-x-3 cursor-pointer mb-8">
+                  <img
+                    className="h-10 object-cover"
+                    src="/images/mobicred.png"
+                    alt="mobicred logo"
+                  />
+                  <span className="flex flex-col">
+                    <p>Get it on Credit for:</p>
+                    <p className="text-2xl font-bold text-gray-600">
+                      {formatter.format(Math.ceil(repayment))}
+                      <small className="ml-2 text-xs">incl VAT</small>
+                    </p>
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
