@@ -12,6 +12,7 @@
     "@contentful/rich-text-react-renderer": "^15.12.0",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
+    "@sendgrid/client": "^7.6.2",
     "@sendgrid/mail": "^7.6.1",
     "@supabase/supabase-js": "^1.29.3",
     "analytics": "^0.8.1",
