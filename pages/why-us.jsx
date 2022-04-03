@@ -22,7 +22,7 @@ const WhyUs = () => {
         <link rel="canonical" href="https://www.hotwater24.com/why-us" />
       </Head>
 
-      <div className="max-w-6xl mx-auto py-8">
+      <div className="max-w-6xl mx-auto px-6 md:px-4 lg:px-0 py-8">
         <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
           Why Choose <span className="font-bold">Us?</span>
         </h2>
@@ -174,7 +174,7 @@ const WhyUs = () => {
                   monthly household expense on electricity
                 </p>
               </div>
-              <div className="sm:block hidden">
+              <div className="">
                 <p className="font-semibold text-xl lg:leading-6 leading-5 text-gray-800 mt-6">
                   Seamless Service
                 </p>
@@ -289,10 +289,10 @@ const WhyUs = () => {
       </div>
 
       <div
-        className="bg-right bg-cover"
+        className="md:bg-right bg-cover bg-center"
         style={{ backgroundImage: 'url(/images/installation-2.jpg)' }}
       >
-        <div className="max-w-6xl mx-auto py-12">
+        <div className="max-w-6xl mx-auto px-6 md:px-4 lg:px-0 py-12">
           <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
             Installations
           </h2>
@@ -323,7 +323,7 @@ const WhyUs = () => {
                 high-quality maintenance and the best service.
               </p>
 
-              <p className="text-sm max-w-[55ch] text-gray-800 mt-6 pb-2">
+              <p className="text-sm max-w-[55ch] text-gray-800 font-medium mt-6 pb-2">
                 By clicking on the button below we instantly recommend you with
                 the best gas water heating solution for your home
               </p>

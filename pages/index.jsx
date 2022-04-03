@@ -27,8 +27,24 @@ export default function Home() {
         />
         <meta
           name="keywords"
-          content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
+          content="water heaters, geysers, gas geysers, gas geyser installation, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater, switch to a gas geyser"
         />
+        <meta name="og:title" content="Hotwater24" />
+        <meta
+          name="og:description"
+          content="The online platform to assist and advise you on the most cost-effective and efficient gas water heating solution for your household."
+        />
+        <meta
+          name="og:image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        />
+        <meta name="og:url" content={`https://www.hotwater24.com`} />
+        <meta name="og:site_name" content="Hotwater24" />
+        <meta name="og:locale" content="en_ZA" />
+        <meta name="og:type" content="home page"></meta>
+
+        <meta name="product:price:currency" content="ZAR" />
+
         <link rel="canonical" href="https://www.hotwater24.com" />
       </Head>
       <Slider />

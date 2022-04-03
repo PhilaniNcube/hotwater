@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPosts } from '../lib/getPosts';
@@ -14,6 +15,40 @@ const blog = ({ blogs }) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Hotwater24 | Blog</title>
+
+        <meta
+          name="description"
+          content="The Hotwater24 Blog. Atricles on the the right gas geysers for your home as well as the benefits of switching to a gas geyser"
+        />
+        <meta
+          name="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        />
+        <meta itemProp="name" content="Blog" />
+
+        <meta
+          itemProp="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        ></meta>
+
+        <meta name="og:title" content="Blog" />
+        <meta
+          name="og:description"
+          content="The Hotwater24 Blog. Atricles on the the right gas geysers for your home as well as the benefits of switching to a gas geyser"
+        />
+        <meta
+          name="og:image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        />
+        <meta name="og:url" content={`https://www.hotwater24.com/blog`} />
+        <meta name="og:site_name" content="Hotwater24" />
+        <meta name="og:locale" content="en_ZA" />
+        <meta name="og:type" content="blog"></meta>
+
+        <meta name="product:price:currency" content="ZAR" />
+      </Head>
       <div className="max-w-2xl mx-auto py-8 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 className="text-2xl md:text-4xl lg:text-7xl text-gray-700 mb-6">
           Hotwater24 Blog

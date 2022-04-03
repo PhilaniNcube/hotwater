@@ -3,6 +3,7 @@ import useCart from '../hooks/useCart';
 import Image from 'next/image';
 import Link from 'next/link';
 import formatter from '../lib/format';
+import Head from 'next/head';
 import { format } from 'crypto-js';
 
 export default function Cart({}) {
@@ -16,6 +17,34 @@ export default function Cart({}) {
 
   return (
     <div className="2xl:container 2xl:mx-auto">
+      <Head>
+        <title>Hotwater24 | Cart</title>
+
+        <meta name="description" content="The Hotwater24 Cart Page" />
+        <meta
+          name="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        />
+        <meta itemProp="name" content="Cart" />
+
+        <meta
+          itemProp="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        ></meta>
+
+        <meta name="og:title" content="Cart" />
+        <meta name="og:description" content="The Hotwater24 Cart Page" />
+        <meta
+          name="og:image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        />
+        <meta name="og:url" content={`https://www.hotwater24.com/cart`} />
+        <meta name="og:site_name" content="Hotwater24" />
+        <meta name="og:locale" content="en_ZA" />
+        <meta name="og:type" content="cart"></meta>
+
+        <meta name="product:price:currency" content="ZAR" />
+      </Head>
       <div className="lg:px-20 md:px-6 px-4 md:py-12 py-8">
         <div className="flex items-center space-x-4">
           <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800">
