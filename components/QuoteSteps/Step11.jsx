@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useUser } from '../../Context/AuthContext';
 import { supabase } from '../../utils/supabase';
@@ -28,6 +28,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="firstName"
+              required
               className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.firstName}
               onChange={(e) =>
@@ -45,6 +46,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="lastName"
+              required
               className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700"
               value={quoteInfo.lastName}
               onChange={(e) =>
@@ -82,6 +84,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="tel"
               name="telephone"
+              required
               className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.telephoneNumber}
               onChange={(e) =>
@@ -100,6 +103,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           <input
             type="text"
             name="streetAddress"
+            required
             className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
             value={quoteInfo.streetAddress}
             onChange={(e) =>
@@ -118,6 +122,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="city"
+              required
               className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.city}
               onChange={(e) =>
@@ -136,6 +141,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             <input
               type="text"
               name="postalCode"
+              required
               className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
               value={quoteInfo.postalCode}
               onChange={(e) =>
@@ -149,28 +155,55 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 mt-4 mb-12">
-        <svg
-          onClick={prevPage}
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-
-        <button
-          onClick={nextPage}
-          className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
-        >
-          Continue
-        </button>
+        <div className="flex items-center justify-center space-x-6 my-3">
+          {quoteInfo.firstName !== '' ? (
+            <Fragment>
+              {' '}
+              <svg
+                onClick={prevPage}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              <button
+                onClick={nextPage}
+                className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
+              >
+                Continue
+              </button>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <svg
+                onClick={prevPage}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              <p className="text-md text-sky-600 font-bold text-center">
+                Please answer the questions
+              </p>
+            </Fragment>
+          )}
+        </div>
       </div>
     </div>
   );

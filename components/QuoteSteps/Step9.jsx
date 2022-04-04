@@ -9,7 +9,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   const [products, setProducts] = useState([]);
   const flowRate = Math.ceil(parseInt(quoteInfo.flowRate + 1));
-  const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 7));
+  const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 8.5));
 
   useEffect(async () => {
     let { data: products, error } = await supabase
@@ -98,7 +98,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             installation for you?
           </p>
 
-          <div className="grid grid-cols-2 gap-x-12 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-4 md:gap-x-12 mt-8">
             <div
               className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
               onClick={() => {
