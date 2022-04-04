@@ -41,7 +41,7 @@ const index = ({ initialProducts }) => {
     ownership: null,
     gasSupply: '',
     gasStove: null,
-    gasWaterHeating: null,
+    gasWaterHeating: true,
     gasHeating: null,
     otherGasUse: '',
     locateOutside: null,
