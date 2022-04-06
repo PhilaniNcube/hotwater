@@ -9,7 +9,10 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   return (
-    <div className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12">
+    <form
+      onSubmit={nextPage}
+      className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12"
+    >
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Personal Contact Information
       </h1>
@@ -175,7 +178,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                 />
               </svg>
               <button
-                onClick={nextPage}
+                type="submit"
                 className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
               >
                 Continue
@@ -205,7 +208,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
