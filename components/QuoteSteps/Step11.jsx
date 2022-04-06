@@ -159,7 +159,13 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       </div>
       <div className="flex items-center justify-center space-x-6 mt-4 mb-12">
         <div className="flex items-center justify-center space-x-6 my-3">
-          {quoteInfo.firstName !== '' ? (
+          {quoteInfo.firstName !== '' ||
+          quoteInfo.lastName !== '' ||
+          quoteInfo.email !== '' ||
+          quoteInfo.telephoneNumber !== '' ||
+          quoteInfo.streetAddress !== '' ||
+          quoteInfo.city !== '' ||
+          quoteInfo.postalCode !== '' ? (
             <Fragment>
               {' '}
               <svg
