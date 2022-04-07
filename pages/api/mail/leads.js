@@ -1,5 +1,6 @@
 import sgMail from '@sendgrid/mail';
 import client from '@sendgrid/client';
+import axios from 'axios';
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 client.setApiKey(process.env.SENDGRID_API_KEY);
@@ -93,17 +94,18 @@ export default async function handler(req, res) {
     body: data,
   };
 
-  client
-    .request(request)
-    .then(([response]) => {
-      console.log(response.statusCode);
-      console.log(response.body);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  const response = await axios.put(
+    `https://api.sendgrid.com/v3/marketing/contacts`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    },
+  );
 
-  console.log(req.body.email);
+  console.log(response.data);
 
   const msg = {
     to: 'info@hotwater24.com', // Change to your recipient
