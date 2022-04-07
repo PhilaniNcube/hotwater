@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from 'axios';
+import cookie from 'cookie';
 import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { supabaseService } from '../../../utils/supabaseService';
+import { supabase } from '../../../utils/supabase';
 
 const Leads = ({ leads }) => {
   const router = useRouter();
@@ -123,6 +125,20 @@ const Leads = ({ leads }) => {
 export default Leads;
 
 export async function getServerSideProps({ req, query: { term = '' } }) {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+  const token = cookie.parse(req.headers.cookie)['sb:token'];
+
+  supabase.auth.session = () => ({ access_token: token });
+
+  if (user?.role !== 'supabase_admin') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
   let { data: quotes, error } = await supabaseService
     .from('quotes')
     .select('*, product_id(*)')

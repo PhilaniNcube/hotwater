@@ -63,6 +63,20 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
 export default Admin;
 
 export async function getServerSideProps({ req }) {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+  const token = cookie.parse(req.headers.cookie)['sb:token'];
+
+  supabase.auth.session = () => ({ access_token: token });
+
+  if (user?.role !== 'supabase_admin') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
   let { data: brands } = await supabaseService.from('brands').select('*');
 
   let { data: orders } = await supabaseService.from('orders').select('*');
