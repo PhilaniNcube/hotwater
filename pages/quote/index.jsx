@@ -21,6 +21,7 @@ import Step12 from '../../components/QuoteSteps/Step12';
 import getProducts from '../../lib/getProducts';
 import { useQuery } from 'react-query';
 import analytics from '../../utils/analytics';
+import { supabase } from '../../utils/supabase';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -216,10 +217,17 @@ const index = ({ initialProducts }) => {
 
 export default index;
 
-export async function getServerSideProps() {
+export async function getServerSideProps({}) {
+  let { data: products, error } = await supabase
+    .from('products')
+    .select(`*`)
+    .eq('inStock', true)
+    .order('brand_id', { ascending: false });
+
   return {
     props: {
-      initialProducts: await getProducts(),
+      initialProducts: products,
+      error,
     },
   };
 }

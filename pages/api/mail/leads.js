@@ -2,7 +2,6 @@ import sgMail from '@sendgrid/mail';
 import client from '@sendgrid/client';
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-client.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -175,6 +174,13 @@ export default async function handler(req, res) {
     <body>
       <center class="wrapper" data-link-color="#1188E6" data-body-style="font-size:14px; font-family:arial,helvetica,sans-serif; color:#000000; background-color:#FFFFFF;">
         <div class="webkit">
+
+        <p style="font-size:14px; color: black;">Thank you for visiting our website. Please find below a summary of the information you provided, as well as our recommendation on the size geyser which suits your need. 
+
+<p style="font-size:14px; color: black;">We will contact you shortly if additional information is required from you in order for us to send you our customized quote.</p>
+
+<p style="font-size:14px; color: black;">We are here to assist you in making your choice easy!</p>
+
           <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="#FFFFFF">
             <tr>
               <td valign="top" bgcolor="#FFFFFF" width="100%">

@@ -9,12 +9,12 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   const [products, setProducts] = useState([]);
   const flowRate = Math.ceil(parseInt(quoteInfo.flowRate + 1));
-  const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 8.5));
+  const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 8.3));
 
   useEffect(async () => {
     let { data: products, error } = await supabase
       .from('products')
-      .select(`*, brand_id(name)`)
+      .select(`*`)
       .gte('flowRate', flowRate)
       .lte('flowRate', topRate)
       .eq('inStock', true)
@@ -41,14 +41,14 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             {quoteInfo.flowRate}l/min flow rate
           </p>
 
-          {products.length > 0 && (
+          {products && products.length > 0 && (
             <p className="text-base text-center my-3 text-gray-700">
               Please select your preferred geyser from the available options
               below (scroll left to see more):
             </p>
           )}
 
-          {products.length === 0 ? (
+          {products && products.length === 0 ? (
             <p className="text-base text-center my-3 text-gray-700">
               According to your answers, we will have to contact you in order to
               give you more information on the best gas water heating solution
