@@ -2,6 +2,7 @@ import sgMail from '@sendgrid/mail';
 import client from '@sendgrid/client';
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+client.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -44,6 +45,63 @@ export default async function handler(req, res) {
     product_id,
     installation,
   } = req.body;
+
+  const data = {
+    contacts: [
+      {
+        email: email,
+        first_name: firstName,
+        last_name: lastName,
+        address_line_1: streetAddress,
+        city: city,
+        postal_code: postalCode,
+        phone_number: telephoneNumber,
+        custom_fields: {
+          e1_N: children,
+          e2_N: teenagers,
+          e3_N: adults,
+          e4_T: completeSolution,
+          e5_N: dishwasher,
+          e6_T: electricGeyser,
+          e7_N: flowRate,
+          e8_T: gasGeyser,
+          e9_T: gasHeating,
+          e10_T: gasStove,
+          e11_T: gasSupply,
+          e12_T: gasWaterHeating,
+          e13_T: houseType,
+          e14_T: installation,
+          e15_T: locateOutside,
+          e16_T: offGrid,
+          e17_T: otherGasUse,
+          e18_T: otherGeyser,
+          e19_T: ownership,
+          e26_N: washingmachine,
+          e21_T: product_id,
+          e22_N: rainShower,
+          e23_N: sink,
+          e24_T: solarGeyser,
+          e25_N: standardShower,
+        },
+      },
+    ],
+  };
+
+  const request = {
+    url: `/v3/marketing/contacts`,
+    method: 'PUT',
+    body: data,
+  };
+
+  client
+    .request(request)
+    .then(([response]) => {
+      console.log(response.statusCode);
+      console.log(response.body);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
   console.log(req.body.email);
 
