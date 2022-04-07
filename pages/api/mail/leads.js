@@ -358,12 +358,14 @@ Postal Code: ${postalCode}</div><div></div></div></td>
     <tbody>
       <tr>
         <td style="padding:5px 0px 5px 0px; line-height:7px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><h5 style="text-align: inherit">Electric: ${
-          electricGeyser ? 'Yes' : 'No'
+          electricGeyser === true ? 'Yes' : 'No'
         }</h5>
-<h5 style="text-align: inherit">Solar: ${solarGeyser ? 'Yes' : 'No'}</h5>
-<h5 style="text-align: inherit">Gas: ${gasGeyser ? 'Yes' : 'No'}</h5>
+<h5 style="text-align: inherit">Solar: ${
+      solarGeyser === true ? 'Yes' : 'No'
+    }</h5>
+<h5 style="text-align: inherit">Gas: ${gasGeyser === true ? 'Yes' : 'No'}</h5>
 <h5 style="text-align: inherit">Other: ${
-      otherGeyser ? 'Yes' : 'No'
+      otherGeyser === true ? 'Yes' : 'No'
     }</h5><div></div></div></td>
       </tr>
     </tbody>
@@ -397,11 +399,13 @@ Postal Code: ${postalCode}</div><div></div></div></td>
     <tbody>
       <tr>
         <td style="padding:5px 0px 5px 0px; line-height:7px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><h5 style="text-align: inherit">Cooking: ${
-          gasStove ? 'Yes' : 'No'
+          gasStove === true ? 'Yes' : 'No'
         }</h5>
-<h5 style="text-align: inherit">Water: ${gasWaterHeating ? 'Yes' : 'No'}</h5>
+<h5 style="text-align: inherit">Water: ${
+      gasWaterHeating === true ? 'Yes' : 'No'
+    }</h5>
 <h5 style="text-align: inherit">Heating: ${
-      gasHeating ? 'Yes' : 'No'
+      gasHeating === true ? 'Yes' : 'No'
     }</h5><div></div></div></td>
       </tr>
     </tbody>
