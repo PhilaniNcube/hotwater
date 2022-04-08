@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import cookie from 'cookie';
 import { supabase } from '../../utils/supabase';
 
@@ -8,6 +9,9 @@ function Orders({ orders, page, start, end }) {
 
   return (
     <Fragment>
+      <Head>
+        <title>Orders</title>
+      </Head>
       <div className="xl:w-3/4 2xl:w-4/5 mx-auto my-8 w-full bg-white rounded-lg shadow">
         <div className="border rounded-lg border-gray-100">
           <div className="py-4 md:py-6 pl-8">

@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from 'axios';
 import cookie from 'cookie';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { supabaseService } from '../../../utils/supabaseService';
 import { supabase } from '../../../utils/supabase';
@@ -20,6 +21,9 @@ const Leads = ({ leads }) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Admin</title>
+      </Head>
       <div className="bg-gray-100 rounded-lg shadow-xl xl:w-3/4 2xl:w-4/5 w-full px-6 sm:px-12 py-5 sm:py-10 mx-auto my-6">
         <div className="mb-5 sm:mb-10 rounded-tl-lg rounded-tr-lg">
           <div className="sm:flex items-center justify-between">

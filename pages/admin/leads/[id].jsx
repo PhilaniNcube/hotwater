@@ -3,11 +3,15 @@ import React, { Fragment } from 'react';
 import { supabase } from '../../../utils/supabase';
 import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
+import { Head } from 'next/head';
 
 function Lead({ lead }) {
   console.log(lead);
   return (
     <Fragment>
+      <Head>
+        <title>Admin | Lead</title>
+      </Head>
       <div className="w-full bg-gray-200 dark:bg-gray-900 py-10">
         <div className="container mx-auto px-6 flex items-start justify-center">
           <div className="w-full">

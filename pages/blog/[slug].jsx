@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import client from '../../utils/contentful';
 import styles from '../../styles/Content.module.css';
@@ -34,6 +35,36 @@ const Post = ({ post }) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Blog | {post.fields.title}</title>
+
+        <meta name="description" content={product.description} />
+        <meta
+          name="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        />
+        <meta itemProp="title" content={post.fields.title} />
+
+        <meta
+          itemProp="image"
+          content="https://www.hotwater24.com/images/hw24-logo.svg"
+        ></meta>
+
+        <meta name="og:title" content={post.fields.title} />
+
+        <meta
+          name="og:image"
+          content={`http:${post.fields.featuredImage.fields.file.url}`}
+        />
+        <meta
+          name="og:url"
+          content={`https://www.hotwater24.com/blog/${post.fields.slug}`}
+        />
+        <meta name="og:site_name" content="Hotwater24" />
+        <meta name="og:locale" content="en_ZA" />
+        <meta name="og:type" content="blog"></meta>
+      </Head>
+
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
         <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
           <Image
