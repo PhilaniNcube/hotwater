@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { supabase } from '../../../utils/supabase';
 import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
-import { Head } from 'next/head';
+import Head from 'next/head';
 
 function Lead({ lead }) {
   console.log(lead);
