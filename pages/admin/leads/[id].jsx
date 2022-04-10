@@ -66,7 +66,7 @@ function Lead({ lead }) {
                     </div>
 
                     <div className="flex space-x-5">
-                      <div className="flex lg:block flex-row-reverse items-center mb-4 lg:mb-0">
+                      <div className="flex lg:block md:flex-row-reverse items-center md:mb-4 lg:mb-0">
                         <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
                           Cooking
                         </h3>
@@ -74,7 +74,7 @@ function Lead({ lead }) {
                           {lead.gasStove === true ? 'Yes' : 'No'}
                         </h2>
                       </div>
-                      <div className="flex lg:block flex-row-reverse items-center">
+                      <div className="flex lg:block md:flex-row-reverse items-center">
                         <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
                           Heating
                         </h3>
@@ -82,17 +82,29 @@ function Lead({ lead }) {
                           {lead.gasHeating === true ? 'Yes' : 'No'}
                         </h2>
                       </div>
-                      <div className="flex lg:block flex-row-reverse items-center">
+                      <div className="flex lg:block md:flex-row-reverse items-center">
                         <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                          Heating
+                          Water Heating
                         </h3>
                         <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                          {lead.gasHeating === true ? 'Yes' : 'No'}
+                          {lead.gasWaterHeating === true ? 'Yes' : 'No'}
+                        </h2>
+                      </div>
+                      <div className="flex lg:block md:flex-row-reverse items-center">
+                        <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
+                          Other Gas Use
+                        </h3>
+                        <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
+                          {lead.otherGasUse === '' ? 'None' : lead.otherGasUse}
                         </h2>
                       </div>
                     </div>
                   </div>
 
+                  <h3 className="dark:text-gray-100 text-gray-700 my-6 block font-bold text-lg">
+                    Property Type:{' '}
+                    <span className="text-2xl ml-4"> {lead.houseType}</span>
+                  </h3>
                   <h3 className="dark:text-gray-100 text-gray-700 my-6 block font-bold text-lg">
                     Can the geyser be located on an outside wall:{' '}
                     <span className="text-2xl ml-4">
