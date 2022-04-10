@@ -10,11 +10,15 @@ const Start = () => {
       <Head>
         <title>Hotwater24 | Get A Recommendation</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Submit a quote request." />
+        <meta
+          name="description"
+          content="Start answering our online process so that we can recommend the perfect gas geyser for your home. We can also arrange for installation of that geyser."
+        />
         <meta
           name="keywords"
           content="water heaters, geysers, gas geysers, gas, instant hot water, hot water, loadshedding, save on electricity, tankless, tankless water heater"
         />
+        <link rel="canonical" href={`https://www.hotwater24.com/quote/start`} />
       </Head>
       <div className="pt-4">
         <h1 className="font-sans text-2xl text-center font-semibold text-gray-800">

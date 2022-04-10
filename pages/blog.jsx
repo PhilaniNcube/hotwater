@@ -48,6 +48,7 @@ const blog = ({ blogs }) => {
         <meta name="og:type" content="blog"></meta>
 
         <meta name="product:price:currency" content="ZAR" />
+        <link rel="canonical" href={`https://www.hotwater24.com/blog`} />
       </Head>
       <div className="max-w-2xl mx-auto py-8 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 className="text-2xl md:text-4xl lg:text-7xl text-gray-700 mb-6">

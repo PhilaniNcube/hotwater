@@ -42,6 +42,7 @@ const Post = ({ post }) => {
           name="image"
           content="https://www.hotwater24.com/images/hw24-logo.svg"
         />
+        <meta name="description" content={post.fields.title} />
         <meta itemProp="title" content={post.fields.title} />
 
         <meta
@@ -50,6 +51,7 @@ const Post = ({ post }) => {
         ></meta>
 
         <meta name="og:title" content={post.fields.title} />
+        <meta name="og:description" content={post.fields.title} />
 
         <meta
           name="og:image"
@@ -62,6 +64,10 @@ const Post = ({ post }) => {
         <meta name="og:site_name" content="Hotwater24" />
         <meta name="og:locale" content="en_ZA" />
         <meta name="og:type" content="blog"></meta>
+        <link
+          rel="canonical"
+          href={`https://www.hotwater24.com/blog/${post.fields.slug}`}
+        />
       </Head>
 
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">

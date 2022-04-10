@@ -53,6 +53,7 @@ export default function SignIn() {
           content="Sign in or sign up to Hotwater24 to create a account and get access to full information."
         />
         <meta name="keywords" content="account, create an account" />
+        <link rel="canonical" href={`https://www.hotwater24.com/signin`} />
       </Head>
       <div className="h-full bg-gradient-to-tl from-gray-100 to-sky-900 w-full py-16">
         <div className="flex flex-col items-center justify-center">

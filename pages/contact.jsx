@@ -13,6 +13,7 @@ const Contact = () => {
           content="Hotwater24, supplier of qulaity gas geysers. Contact us and we will get back to you as soon as we can."
         />
         <meta name="keywords" content="contact us" />
+        <link rel="canonical" href={`https://www.hotwater24.com/contact`} />
       </Head>
       <ContactPage />
     </Fragment>
