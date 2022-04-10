@@ -38,7 +38,6 @@ const Post = ({ post }) => {
       <Head>
         <title>Blog | {post.fields.title}</title>
 
-        <meta name="description" content={product.description} />
         <meta
           name="image"
           content="https://www.hotwater24.com/images/hw24-logo.svg"
