@@ -19,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="facebook-domain-verification"
-          content="xzxztrfeisy3fc2yb2pzfep46ec009"
+          content="7q8nm0mqvlm0sru220aybuo5y5o1ca"
         />
         <meta
           name="description"
