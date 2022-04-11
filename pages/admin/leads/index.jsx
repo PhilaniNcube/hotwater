@@ -85,7 +85,7 @@ const Leads = ({ leads }) => {
               </thead>
               <tbody className="w-full">
                 {leads?.map((lead) => (
-                  <Link key={lead.id} passHref href={'/admin/leads/${lead.id}'}>
+                  <Link key={lead.id} passHref href={`/admin/leads/${lead.id}`}>
                     <tr className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-50 cursor-pointer px-4">
                       <td className="pl-4">
                         {new Date(lead.created_at).toDateString()}
