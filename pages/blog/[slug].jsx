@@ -72,7 +72,7 @@ const Post = ({ post }) => {
       </Head>
 
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
-        <div className="h-40 w-60 overflow-hidden rounded-lg shadow">
+        <div className="h-[45vw] w-[60vw] overflow-hidden rounded-lg shadow">
           <Image
             width={600}
             height={450}
