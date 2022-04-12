@@ -30,8 +30,6 @@ const index = ({ initialProducts }) => {
     initialData: initialProducts,
   });
 
-  console.log(products);
-
   const { user } = useUser();
 
   const [quoteInfo, setQuoteInfo] = useState({
