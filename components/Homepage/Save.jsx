@@ -17,11 +17,13 @@ const Save = () => {
               Save Money By Switching To Gas
             </p>
           </div>
-          <div className="xl:mt-4 mt-2">
+          <div className="lg:my-4 my-2">
             <p className="text-base xl:text-xl leading-7 text-gray-600 pr-4">
               Calculations have shown that you could save up to 20% on your
               monthly electricity bill
             </p>
+
+            <Link href="/savings"><a className="px-6 py-2 text-white bg-slate-800 text-center text-base">Calculate Your Savings</a></Link>
           </div>
         </div>
         <div className="hidden md:block h-44 md:h-60 xl:h-72">
