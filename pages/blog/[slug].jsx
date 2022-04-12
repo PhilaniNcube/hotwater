@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -71,8 +72,8 @@ const Post = ({ post }) => {
       </Head>
 
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
-        <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg bg-gray-200 shadow">
-          <Image
+        <div className="aspect-w-3 aspect-h-2 h-40 w-60 overflow-hidden rounded-lg shadow">
+          <img
             width={600}
             height={450}
             src={`http:${post.fields.featuredImage.fields.file.url}`}
