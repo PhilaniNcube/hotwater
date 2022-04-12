@@ -15,9 +15,8 @@ const Post = ({ post }) => {
   if (!post)
     return (
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
-        <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
+        <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg bg-gray-200 shadow">
           <Image
-            layout="fill"
             src="/images/bathroom.jpg"
             className={cn(
               'group-hover:opacity-75 ease-in-out object-cover',
