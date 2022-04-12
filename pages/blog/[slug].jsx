@@ -15,8 +15,9 @@ const Post = ({ post }) => {
   if (!post)
     return (
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
-        <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg bg-gray-200 shadow">
+        <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
           <Image
+            layout="fill"
             src="/images/bathroom.jpg"
             className={cn(
               'group-hover:opacity-75 ease-in-out object-cover',
@@ -41,7 +42,7 @@ const Post = ({ post }) => {
           name="image"
           content="https://www.hotwater24.com/images/hw24-logo.svg"
         />
-        <meta name="description" content={post.fields.snippet} />
+        <meta name="description" content={post.fields.title} />
         <meta itemProp="title" content={post.fields.title} />
 
         <meta
@@ -70,7 +71,7 @@ const Post = ({ post }) => {
       </Head>
 
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
-        <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
+        <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg bg-gray-200 shadow">
           <Image
             width={600}
             height={450}
