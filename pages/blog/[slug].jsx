@@ -74,8 +74,7 @@ const Post = ({ post }) => {
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
         <div className="h-[45vw] w-[60vw] overflow-hidden rounded-lg shadow">
           <Image
-            width={600}
-            height={450}
+            layout="fill"
             src={`http:${post.fields.featuredImage.fields.file.url}`}
             className={cn(
               'group-hover:opacity-75 ease-in-out w-full object-cover',
