@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Hero = () => {
   return (
     <div className="relative ">
-      <div className="absolute aspect-video inset-0 z-[-1]">
+      <div className="absolute inset-0 z-[-1]">
         <div className="min-h-[80vh] isolate bg-gray-700 overflow-hidden">
           <Image
             src="/images/shower-2.jpg"
@@ -13,7 +13,7 @@ const Hero = () => {
             layout="fill"
             objectFit="cover"
             quality={75}
-            className="z-[-1] h-[100%] aspect-video"
+            className="z-[-1] h-[100%]"
           />
         </div>
       </div>
