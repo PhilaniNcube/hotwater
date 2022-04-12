@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div className="relative ">
       <div className="absolute inset-0 z-[-1]">
-        <div className="min-h-[80vh] isolate bg-gray-700 overflow-hidden">
+        <div className="min-h-[70vh] isolate bg-gray-700 overflow-hidden">
           <Image
             src="/images/shower-2.jpg"
             alt="background"
