@@ -72,13 +72,13 @@ const Post = ({ post }) => {
       </Head>
 
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
-        <div className="aspect-w-3 aspect-h-2 h-40 w-60 overflow-hidden rounded-lg shadow">
-          <img
+        <div className="h-40 w-60 overflow-hidden rounded-lg shadow">
+          <Image
             width={600}
             height={450}
             src={`http:${post.fields.featuredImage.fields.file.url}`}
             className={cn(
-              'group-hover:opacity-75 ease-in-out object-cover',
+              'group-hover:opacity-75 ease-in-out w-full object-cover',
               isLoading
                 ? 'grayscale blur-2xl scale-110'
                 : 'grayscale-0 blur-0 scale-100',
