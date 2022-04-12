@@ -23,10 +23,14 @@ const Save = () => {
               monthly electricity bill
             </p>
 
-            <Link href="/savings"><a className="px-6 py-2 text-white bg-slate-800 text-center text-base">Calculate Your Savings</a></Link>
+            <Link href="/savings">
+              <a className="px-6 py-2 rounded-full text-white bg-slate-800 text-center text-base">
+                Calculate Your Savings
+              </a>
+            </Link>
           </div>
         </div>
-        <div className="hidden md:block h-44 md:h-60 xl:h-72">
+        <div className="hidden md:block min-h-44 md:min-h-60 xl:min-h-72">
           <img
             className="hidden h-full xl:block"
             src="/images/kitchen-sink.jpg"
