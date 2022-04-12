@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import analytics from '../../utils/analytics';
 import { useRouter } from 'next/router';
 
 export default function ContactComponent() {
@@ -11,7 +12,10 @@ export default function ContactComponent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submit', message);
+
+    analytics.track('generate_lead', {
+      location: 'contact_page',
+    });
 
     const conatctMessage = await fetch(`/api/mail/contact`, {
       method: 'POST',

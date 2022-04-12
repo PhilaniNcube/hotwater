@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import CTA from '../components/Homepage/CTA';
 import Save from '../components/Homepage/Save';
+import Hero from '../components/Homepage/Hero';
 import Slider from '../components/Homepage/Slider';
 
 import { useQuotes } from '../hooks/quotes';
@@ -47,7 +48,7 @@ export default function Home() {
 
         <link rel="canonical" href="https://www.hotwater24.com" />
       </Head>
-      <Slider />
+      <Hero />
       <CTA />
       <Save />
     </Fragment>

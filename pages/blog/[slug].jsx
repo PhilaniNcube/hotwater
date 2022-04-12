@@ -43,7 +43,7 @@ const Post = ({ post }) => {
           name="image"
           content="https://www.hotwater24.com/images/hw24-logo.svg"
         />
-        <meta name="description" content={post.fields.title} />
+        <meta name="description" content={post.fields.snippet} />
         <meta itemProp="title" content={post.fields.title} />
 
         <meta
