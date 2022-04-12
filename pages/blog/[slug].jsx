@@ -42,7 +42,7 @@ const Post = ({ post }) => {
           name="image"
           content="https://www.hotwater24.com/images/hw24-logo.svg"
         />
-        <meta name="description" content={post.fields.title} />
+        <meta name="description" content={post.fields.snippet} />
         <meta itemProp="title" content={post.fields.title} />
 
         <meta
@@ -51,7 +51,7 @@ const Post = ({ post }) => {
         ></meta>
 
         <meta name="og:title" content={post.fields.title} />
-        <meta name="og:description" content={post.fields.title} />
+        <meta name="og:description" content={post.fields.snippet} />
 
         <meta
           name="og:image"
@@ -73,7 +73,8 @@ const Post = ({ post }) => {
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
         <div className="aspect-w-3 aspect-h-2 w-full overflow-hidden rounded-lg bg-gray-200 shadow">
           <Image
-            layout="fill"
+            width={600}
+            height={450}
             src={`http:${post.fields.featuredImage.fields.file.url}`}
             className={cn(
               'group-hover:opacity-75 ease-in-out object-cover',
