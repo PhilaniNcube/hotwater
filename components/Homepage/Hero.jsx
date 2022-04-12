@@ -12,7 +12,7 @@ const Hero = () => {
             alt="background"
             layout="fill"
             objectFit="cover"
-            quality={100}
+            quality={75}
             className="z-[-1] aspect-video"
           />
         </div>
