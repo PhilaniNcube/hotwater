@@ -11,7 +11,7 @@ const Save = () => {
             Save 20%
           </p>
         </div>
-        <div className="flex justify-center items-start flex-col xl:w-2/5 md:w-5/12 xl:px-7 px-6 md:px-0 md:py-0 py-5">
+        <div className="flex flex-1 justify-center items-start flex-col lg:w-3/5 md:w-5/12 xl:px-7 px-6 md:px-0 md:py-0 py-5">
           <div>
             <p className="text-3xl xl:text-4xl font-semibold leading-9 text-sky-900">
               Save Money By Switching To Gas
@@ -30,20 +30,8 @@ const Save = () => {
             </Link>
           </div>
         </div>
-        <div className="hidden md:block min-h-44 md:min-h-60 xl:min-h-72">
-          <img
-            className="hidden h-full xl:block"
-            src="/images/kitchen-sink.jpg"
-            alt="Kitchen Sink"
-          />
-          <img
-            className="xl:hidden h-full"
-            src="/images/kitchen-sink.jpg"
-            alt="Kitchen Sink"
-          />
-        </div>
       </div>
-      <div className="md:hidden mt-6 w-full">
+      <div className="mt-6 w-full">
         <img
           src="/images/kitchen-sink.jpg"
           alt="Kitchen Sink"

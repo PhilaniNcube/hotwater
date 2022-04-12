@@ -50,7 +50,6 @@ export default function Home() {
       </Head>
       <Hero />
       <CTA />
-      <Save />
     </Fragment>
   );
 }
