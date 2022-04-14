@@ -27,7 +27,9 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   return (
     <div className="mt-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-1 lg:gap-2 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-1 md:gap-1 lg:gap-2 max-w-6xl mx-auto">
+        {/**
+      
         <div className="flex flex-col items-center justify-center overflow-hidden border-r-2 border-gray-300 px-4 md:px-12">
           <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
             Your Geyser
@@ -62,6 +64,8 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             />
           )}
         </div>
+      
+      */}
 
         <div className="flex flex-col items-center px-4 md:px-12">
           <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
@@ -165,8 +169,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-6 mt-8 mb-12">
-        {(quoteInfo.installation !== null && quoteInfo.product_id !== null) ||
-        quoteInfo.flowRate > 26 ? (
+        {quoteInfo.installation !== null || quoteInfo.flowRate > 26 ? (
           <Fragment>
             {' '}
             <svg
