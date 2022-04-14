@@ -69,7 +69,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
         <div className="flex flex-col items-center px-4 md:px-12">
           <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
-            Installation
+            Installation for a Flow Rate of {quoteInfo.flowRate}L/min
           </p>
           {quoteInfo.flowRate < 26 && (
             <p className="mt-6 mb-4 text-center text-gray-600 text-base">
