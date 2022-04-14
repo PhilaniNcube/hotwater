@@ -99,24 +99,45 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col w-full md:w-3/4">
-          <label className="text-md font-bold" htmlFor="streetAddress">
-            Street Address
-          </label>
-          <input
-            type="text"
-            name="streetAddress"
-            required
-            className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
-            value={quoteInfo.streetAddress}
-            onChange={(e) =>
-              setQuoteInfo({
-                ...quoteInfo,
-                streetAddress: e.target.value,
-              })
-            }
-          />
+        <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
+          <div className="flex flex-col w-full md:w-1/2">
+            <label className="text-md font-bold" htmlFor="streetAddress">
+              Street Address
+            </label>
+            <input
+              type="text"
+              name="streetAddress"
+              required
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
+              value={quoteInfo.streetAddress}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  streetAddress: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="flex flex-col w-full md:w-1/2">
+            <label className="text-md font-bold" htmlFor="suburb">
+              Suburb
+            </label>
+            <input
+              type="text"
+              name="suburb"
+              required
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
+              value={quoteInfo.suburb}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  suburb: e.target.value,
+                })
+              }
+            />
+          </div>
         </div>
+
         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full">
             <label className="text-md font-bold" htmlFor="city">
