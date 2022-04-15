@@ -190,12 +190,16 @@ const WhyUs = () => {
           </div>
         </div>
 
+        <p className="text-sm max-w-[55ch] text-gray-700 mt-6 pb-2">
+          By clicking on the button below we instantly recommend you with the
+          best gas water heating solution for your home
+        </p>
         <Link href="/quote/start" passHref>
           <button
             onClick={start}
-            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 mb-8 rounded-full w-fit"
+            className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 mb-8 rounded-full w-fit uppercase"
           >
-            Find Your Fit
+            Choose Your Geyser!
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +223,7 @@ const WhyUs = () => {
       <div className="bg-gray-500 grid grid-cols-1 lg:grid-cols-2">
         <div className="px-8 lg:px-24 2xl:pl-[380px] py-16">
           <h1 className="text-white font-light text-3xl lg:text-5xl">
-            Why Choose <span className="font-bold">LPG GAS?</span>
+            Why Choose <span className="font-bold">LPG?</span>
           </h1>
           <div className="text-white">
             <p className="text-white text-md">
@@ -258,9 +262,9 @@ const WhyUs = () => {
           <Link href="/quote/start" passHref>
             <button
               onClick={start}
-              className="bg-gray-900 hover:bg-gray-800 text-white flex space-x-2 py-2 px-4 items-center mt-4 rounded-full shadow-lg hover:shadow-sm "
+              className="bg-gray-900 hover:bg-gray-800 text-white flex space-x-2 py-2 px-4 items-center mt-4 rounded-full shadow-lg hover:shadow-sm uppercase"
             >
-              Find Your Fit
+              Choose Your Geyser!
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -301,32 +305,28 @@ const WhyUs = () => {
           <div className="flex flex-col md:flex-row w-5/6">
             <div className="w-full md:w-2/3 pr-8">
               <p className="font-medium text-base leading-6 text-gray-800 mt-6">
-                We work with our network of independent installers. Safety comes
-                first, which is why all our installers are certified and
-                registered with the LPGas Association of South Africa. For
-                safety and quality purposes of the installation work performed,
-                the installation has to be checked to be compliant with current
-                rules and regulation. Therefore after every installation a CoC
-                (Certificate of Compliance) will be signed off between installer
-                as well as client.
+                Safety comes first, which is why all our installers we work with
+                are certified and registered with the LPGas Association of South
+                Africa. For safety and quality purposes of the installation work
+                performed, the installation must be checked to be compliant with
+                current rules and regulation. Therefore, after every
+                installation a CoC (Certificate of Compliance) will be signed
+                off between installer as well as you as our client.
               </p>
               <p className="font-medium text-base leading-6 text-gray-800 mt-6">
                 Are you looking for a reliable installation? Then simply click
-                on the button below to answer some questions in order for us to
-                give you a quote. Upon approval we will organize and assign an
-                installer to your area. So you will always be helped safely and
-                quickly without too much hassle!
+                on the button below to answer some questions for us to give you,
+                our recommendation. If you agree with our quote, we will start
+                organizing the installation process and assign an installer to
+                your area, so you will always be helped safely and quickly
+                without too much hassle!
               </p>
-              <p className="font-bold text-base leading-6 text-gray-800 mt-6">
+              <p className="font-medium text-base leading-6 text-gray-800 mt-6">
                 Do you want to be sure that your installation remains in top
-                condition? Then also think of taking a service & maintenance
-                contract with us. Our network of certified installers provide
-                high-quality maintenance and the best service.
-              </p>
-
-              <p className="text-sm max-w-[55ch] text-gray-800 font-medium mt-6 pb-2">
-                By clicking on the button below we instantly recommend you with
-                the best gas water heating solution for your home
+                condition and always operates in the most efficient way? Then
+                think of taking a service & maintenance contract with us. Our
+                network of certified installers provides high-quality
+                maintenance and the best service for a monthly fixed price.
               </p>
 
               <div className="flex">
@@ -339,12 +339,17 @@ const WhyUs = () => {
                 </div>
               </div>
 
+              <p className="text-sm max-w-[55ch] text-gray-800 font-medium mt-6 pb-2">
+                By clicking on the button below we instantly recommend you with
+                the best gas water heating solution for your home
+              </p>
+
               <Link href="/quote/start" passHref>
                 <button
                   onClick={start}
-                  className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
+                  className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit uppercase"
                 >
-                  Find Your Fit
+                  Choose Your Geyser!
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

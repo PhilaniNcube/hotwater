@@ -52,14 +52,14 @@ export default function MyApp() {
               className="mt-4 text-base leading-6 text-gray-600"
             >
               Please click on the button below to check out your potential
-              monthly saving on your energy bill!
+              saving on your monthly energy bill!
             </p>
             <Link href="/savings" passHref>
               <button
                 onClick={savings}
-                className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
+                className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit uppercase"
               >
-                Potential Savings
+                Calculate Your Saving!
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -117,8 +117,8 @@ export default function MyApp() {
             </div>
             <p className="sm:w-72 w-full mt-5 leading-5 text-gray-600 text-sm">
               We can offer you the full service through our platform of
-              independent and certified installers who daily ensure reliable and
-              safe installation.
+              independent and certified installers to ensure reliable and safe
+              installation every day.
             </p>
           </div>
           <div>
@@ -139,7 +139,7 @@ export default function MyApp() {
 
         <div className="flex justify-center my-4">
           <Link href="/contact" passHref>
-            <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit">
+            <button className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit uppercase">
               Get in touch
               <span>
                 <svg

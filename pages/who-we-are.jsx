@@ -39,8 +39,8 @@ const WhoWeAre = () => {
           </p>
           <p className="text-sm max-w-[55ch] text-white pb-2">
             We can offer you the full service through our platform of
-            independent and certified installers who daily ensure reliable and
-            safe installation.
+            independent and certified installers who ensure reliable and safe
+            installation every day.
           </p>
           <p className="text-sm max-w-[55ch] text-white pb-2">
             With over 40years of experience in the Dutch gas installation
@@ -55,9 +55,9 @@ const WhoWeAre = () => {
           <Link href="/quote/start" passHref>
             <button
               onClick={start}
-              className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
+              className="bg-gray-800 text-white flex space-x-2 py-2 px-4 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit uppercase"
             >
-              Find Your Fit
+              Choose Your Geyser
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

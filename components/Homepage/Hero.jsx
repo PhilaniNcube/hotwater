@@ -33,7 +33,7 @@ const Hero = () => {
           on the best gas water heating solution.
         </p>
         <Link href="/quote/start" passHref>
-          <button className="bg-gray-50 text-slate-800 max-w-[220px] justify-center text-center font-bold flex space-x-2 py-2  items-center mt-6 rounded-full">
+          <button className="bg-gray-50 text-slate-800 max-w-[220px] justify-center text-center font-bold flex space-x-2 py-2  items-center mt-6 rounded-full uppercase">
             Choose Your Geyser
             <span className="text-lg ml-2 font-bold">&rarr;</span>
           </button>
