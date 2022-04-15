@@ -20,6 +20,10 @@ const Leads = ({ leads }) => {
   };
 
   const deleteLead = async (id) => {
+
+alert('Are You Sure You Want To Delete This Record?')
+
+
     const { data, error } = await supabase
       .from('quotes')
       .delete()
