@@ -111,7 +111,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <div className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Bathroom & Kitchen Usage
+        Warm water outlests
       </h1>
 
       <p className="py-3 text-center">
@@ -122,7 +122,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img className="h-16 w-16" alt="" src="/images/icons/shower.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Standard Shower
+            Standard shower
           </p>
           <div className="flex flex-row justify-between items-center h-10 rounded-lg relative bg-transparent mt-1">
             <button
@@ -161,7 +161,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             src="/images/icons/rainshower.svg"
           />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Rain Shower
+            Rain shower
           </p>
           <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
             <button
@@ -196,7 +196,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img className="h-16 w-16" alt="" src="/images/icons/sink.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Bathroom/Kitchen Sinks
+            Bathroom/Kitchen sinks
           </p>
           <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
             <button
@@ -341,9 +341,9 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
       </div>
 
-      <p className="text-xs text-center text-gray-500">
-        *Hotfill means that the hot water is coming from the geyser (instead of
-        the water being warmed directly from the machine)
+      <p className="text-xs text-center text-blue-500 font-bold">
+        *Hotfill means that the hot water is coming directly from the geyser.
+        The machine often has a cold and warm water inlet.
       </p>
 
       <div className="flex items-center justify-center space-x-6 my-3">

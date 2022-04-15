@@ -15,7 +15,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Intended Gas Use
+        Intended gas use
       </h1>
 
       {show && (
@@ -87,7 +87,7 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
           <img className="h-16 w-16" alt="" src="/images/icons/under.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Water Heating
+            Water heating
           </p>
         </div>
         <div

@@ -20,16 +20,21 @@ const Hero = () => {
       <div className="max-w-7xl flex flex-col space-y-3 justify-center aspect-video min-h-[70vh] mx-auto bg-cover z-20 bg-center bg-no-repeat px-4 lg:px-16 py-12">
         <h1 className="text-2xl lg:text-4xl font-sans font-bold mb-3 text-white">
           Save up to <span className="lg:text-6xl ">20%</span> <br />
-          on your monthly electricity bill.
+          on your monthly electricity bill
         </h1>
         <p className="text-md lg:text-xl mb-4 font-medium leading-3 text-white">
           Say goodbye to soaring electricity prices
           <br /> and enjoy the comfort of a gas geyser <br />
           installation for your home.
         </p>
+        <p className="text-base mb-4 leading-6 text-white">
+          By clicking on the button below, <br />
+          we instantly give you a recommendation <br />
+          on the best gas water heating solution.
+        </p>
         <Link href="/quote/start" passHref>
-          <button className="bg-gray-50 text-slate-800 max-w-[200px] text-center font-bold flex space-x-2 py-2 px-4 items-center mt-6 rounded-full">
-            Get Your Geyser
+          <button className="bg-gray-50 text-slate-800 max-w-[220px] justify-center text-center font-bold flex space-x-2 py-2  items-center mt-6 rounded-full">
+            Choose Your Geyser
             <span className="text-lg ml-2 font-bold">&rarr;</span>
           </button>
         </Link>

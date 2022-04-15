@@ -66,7 +66,7 @@ const index = ({ initialProducts }) => {
     postalCode: '',
     completeSolution: null,
     product_id: null,
-    installation: null,
+    installation: true,
   });
 
   const nextPage = () => {

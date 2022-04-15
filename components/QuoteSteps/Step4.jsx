@@ -14,7 +14,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Current Gas Supply Installation
+        Current gas supply installation
       </h1>
 
       <p className="py-3 px-4 text-center">
@@ -42,7 +42,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
           <img className="h-16 w-16" alt="" src="/images/icons/piped.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Piped Gas
+            Piped gas
           </p>
         </div>
         <div
@@ -65,7 +65,7 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
           <img className="h-16 w-16" alt="" src="/images/icons/cylinder.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
-            Gas Cylinder
+            Gas cylinder
           </p>
         </div>
         <div

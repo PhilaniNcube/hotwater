@@ -55,7 +55,7 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <Fragment>
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Size of Household
+        Size of household
       </h1>
 
       <p className="py-3 text-center">
@@ -66,7 +66,7 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       <div className="flex items-center py-8 justify-around max-w-6xl mx-auto flex-wrap space-y-10 lg:space-y-0">
         <div className="flex flex-col w-64 h-64 shadow-lg rounded bg-gray-50 justify-center items-center hover:bg-gray-100 hover:shadow">
           <img className="h-16 w-16" alt="" src="/images/icons/child.svg" />
-          <p className="text-sm py-8">How Many Children?</p>
+          <p className="text-sm py-8">How many children?</p>
           <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
             <button
               disabled={quoteInfo.children === 0}

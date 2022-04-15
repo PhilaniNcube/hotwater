@@ -14,11 +14,11 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12"
     >
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Personal Contact Information
+        Personal contact information
       </h1>
 
       <p className="py-1 text-center">
-        Please fill this in to complete the questionnaire so we can get in touch
+        Please fill in this form to complete the process so we can get in touch
         with you with the recommended solution for your home.
       </p>
 
@@ -26,7 +26,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full md:w-1/2">
             <label className="text-md font-bold" htmlFor="firstName">
-              First Name
+              First name
             </label>
             <input
               type="text"
@@ -44,7 +44,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </div>
           <div className="flex flex-col mt-3 md:mt-0 w-full md:w-1/2">
             <label className="text-md font-bold" htmlFor="lastName">
-              Last Name
+              Last name
             </label>
             <input
               type="text"
@@ -102,7 +102,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full md:w-1/2">
             <label className="text-md font-bold" htmlFor="streetAddress">
-              Street Address
+              Street address
             </label>
             <input
               type="text"
@@ -160,7 +160,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
           <div className="flex flex-col w-full">
             <label className="text-md font-bold" htmlFor="postalCode">
-              Postal Code
+              Postal code
             </label>
             <input
               type="text"

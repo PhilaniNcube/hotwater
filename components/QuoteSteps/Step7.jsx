@@ -13,7 +13,7 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   return (
     <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Water Heater
+        Water heating
       </h1>
 
       {show && (

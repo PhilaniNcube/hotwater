@@ -174,10 +174,10 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     <div className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
       <QuoteCard quote={quoteInfo} />
 
-      <p className="text-sm text-gray-600 font-bold mt-2 text-center">
-        Please click on the button below to fill out a short contact list in
-        order for us to start the process of giving you our tailored quote
-        within 2 working days.
+      <p className="text-sm lg:px-36 text-gray-600 font-bold mt-2 text-center">
+        Please click on the button below to complete the process. You will
+        instantly receive an e-mail with the information you provided and we
+        will get in touch with you as soon as possible.
       </p>
 
       <div

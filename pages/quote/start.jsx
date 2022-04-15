@@ -22,7 +22,7 @@ const Start = () => {
       </Head>
       <div className="pt-4">
         <h1 className="font-sans text-2xl text-center font-semibold text-gray-800">
-          Let us help you find your fit.
+          Let us help you find your fit
         </h1>
 
         <p className="text-lg text-center px-8 lg:px-60">
@@ -94,7 +94,7 @@ const Start = () => {
               onClick={start}
               className="bg-sky-500 hover:bg-sky-700 text-center text-white text-2xl font-medium rounded-full py-3 px-8 shadow-sky-400 shadow-md hover:shadow"
             >
-              Lets get started
+              Let&#39;s get started!
             </button>
           </Link>
         </div>

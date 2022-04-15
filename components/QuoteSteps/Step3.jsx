@@ -72,7 +72,7 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
           <img className="h-16 w-16" alt="" src="/images/icons/key.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
-            I am the home owner
+            I am the homeowner
           </p>
         </div>
       </div>

@@ -69,12 +69,16 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
         <div className="flex flex-col items-center px-4 md:px-12">
           <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
-            Installation for a Flow Rate of {quoteInfo.flowRate}L/min
+            Installation for your flow rate of{' '}
+            <span className="underline text-sky-600">
+              {quoteInfo.flowRate}
+              <span className="text-md font-normal">L/min</span>
+            </span>
           </p>
           {quoteInfo.flowRate < 26 && (
             <p className="mt-6 mb-4 text-center text-gray-600 text-base">
               Based on the flow rate of your recommended geyser your
-              installation will be in the range of:
+              installation cost will be in the range of:
             </p>
           )}
 
@@ -98,39 +102,11 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
 
           <p className="text-base text-center my-3 text-gray-700">
-            Please indicate below if you would like us to quote and organise the
-            installation for you?
+            Please indicate below if you would like us to quote and organize the
+            installation* for you?
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-4 md:gap-x-12 mt-8">
-            <div
-              className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-              onClick={() => {
-                setQuoteInfo({
-                  ...quoteInfo,
-                  installation: false,
-                });
-              }}
-            >
-              {quoteInfo.installation === false && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 absolute top-2 right-2 text-sky-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
-              <img className="h-16 w-16" alt="" src="/images/icons/close.svg" />
-              <p className="text-lg text-center text-sky-500 font-bold">
-                No thanks
-              </p>
-            </div>
             <div
               className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
               onClick={() => {
@@ -159,12 +135,44 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                 Yes Please
               </p>
             </div>
+            <div
+              className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+              onClick={() => {
+                setQuoteInfo({
+                  ...quoteInfo,
+                  installation: false,
+                });
+              }}
+            >
+              {quoteInfo.installation === false && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 absolute top-2 right-2 text-sky-500"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+              <img className="h-16 w-16" alt="" src="/images/icons/close.svg" />
+              <p className="text-lg text-center text-sky-500 font-bold">
+                No thanks
+              </p>
+            </div>
           </div>
 
-          <p className="text-xs text-center mt-8 text-gray-700">
-            For safety and quality purposes of the installation work performed
+          <p className="text-xs max-w-[80ch] mt-8 text-gray-700">
+            *For safety and quality purposes of the installation work performed,
             we highly recommend you to only work with certified installers that
             are registered with the LPGas Association of South Africa.
+          </p>
+          <p className="text-xs max-w-[80ch] mt-8 text-gray-700">
+            With our network of independent installers we can assure you you are
+            in good hands!
           </p>
         </div>
       </div>
