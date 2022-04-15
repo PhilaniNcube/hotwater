@@ -19,6 +19,17 @@ const Leads = ({ leads }) => {
     router.push(`/admin/leads?term=${query}`);
   };
 
+  const deleteLead = async (id) => {
+    const { data, error } = await supabase
+      .from('quotes')
+      .delete()
+      .eq('id', id);
+
+    if (data) {
+      router.push('/admin/leads');
+    }
+  };
+
   return (
     <Fragment>
       <Head>
@@ -78,7 +89,7 @@ const Leads = ({ leads }) => {
                   <th className="font-normal text-left pl-10">ID #</th>
                   <th className="font-normal text-left pl-10">Name</th>
                   <th className="font-normal text-left pl-10">Flow Rate</th>
-                  <th className="font-normal text-left pl-10">Product</th>
+
                   <th className="font-normal text-left pl-10">Property</th>
                   <th className="font-normal text-left pl-10 w-32">Actions</th>
                 </tr>
@@ -95,13 +106,7 @@ const Leads = ({ leads }) => {
                         <div className="flex items-center">{`${lead.firstName} ${lead.lastName}`}</div>
                       </td>
                       <td className="pl-10">{lead.flowRate} l/min</td>
-                      <td className="pl-10">
-                        <div className="w-20 h-6 flex items-center justify-center bg-slate-600 rounded-full">
-                          <p className="text-xs leading-3 font-medium text-blue-50">
-                            {lead.product_id ? 'Yes' : 'No'}
-                          </p>
-                        </div>
-                      </td>
+
                       <td className="pl-10 uppercase text-xs">
                         {lead.houseType}
                       </td>
@@ -112,6 +117,13 @@ const Leads = ({ leads }) => {
                               View
                             </button>
                           </Link>
+
+                          <button
+                            onClick={() => deleteLead(lead.id)}
+                            className="focus:outline-none bg-red-400 mr-5 hover:bg-red-700 py-2.5 px-5 rounded text-sm leading-3 text-gray-50"
+                          >
+                            Delete
+                          </button>
                         </div>
                       </td>
                     </tr>
