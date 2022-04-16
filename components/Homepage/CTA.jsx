@@ -37,7 +37,7 @@ export default function CTA() {
               src="/images/video.mp4"
               autoPlay
               loop
-              muted="true"
+              muted={true}
               className="aspect-video h-full rounded-md shadow"
             ></video>
           </div>

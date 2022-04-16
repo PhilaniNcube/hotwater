@@ -19,6 +19,7 @@ export default function Checkout() {
   const [lastName, setLastName] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
   const [email, setEmail] = useState('');
+  const [suburb, setSuburb] = useState('');
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
 
@@ -56,39 +57,77 @@ export default function Checkout() {
       orderTotal: cartTotal + shipping,
     });
 
-    const response = await fetch(`/api/orders/create`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstName,
-        lastName,
-        streetAddress,
-        email,
-        city,
-        postalCode,
-        cart,
-        cartTotal,
-        shipping,
-        orderTotal: cartTotal + shipping,
-        user_id: user.id,
-      }),
-    });
+    if (user !== null) {
+      const response = await fetch(`/api/orders/create`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          streetAddress,
+          email,
+          suburb,
+          city,
+          postalCode,
+          cart,
+          cartTotal,
+          shipping,
+          orderTotal: cartTotal + shipping,
+          user_id: user.id,
+        }),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    const { paygateId, reqId, ref, checksum } = result;
+      const { paygateId, reqId, ref, checksum } = result;
 
-    setChc(checksum);
-    setPayId(reqId);
+      setChc(checksum);
+      setPayId(reqId);
 
-    console.log({ chec, payId });
-    console.log(result);
+      console.log({ chec, payId });
+      console.log(result);
 
-    handleSubmit();
+      handleSubmit();
 
-    setLoading(false);
+      setLoading(false);
+    } else {
+      const response = await fetch(`/api/orders/create`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          streetAddress,
+          email,
+          suburb,
+          city,
+          postalCode,
+          cart,
+          cartTotal,
+          shipping,
+          orderTotal: cartTotal + shipping,
+          user_id: 'a7bf95ea-fab4-4db8-8fd3-079c7cbe71c0',
+        }),
+      });
+
+      const result = await response.json();
+
+      const { paygateId, reqId, ref, checksum } = result;
+
+      setChc(checksum);
+      setPayId(reqId);
+
+      console.log({ chec, payId });
+      console.log(result);
+
+      handleSubmit();
+
+      setLoading(false);
+    }
   };
 
   return (
@@ -183,6 +222,13 @@ export default function Checkout() {
                 onChange={(e) => setStreetAddress(e.target.value)}
                 placeholder="Street Address"
               />
+              <input
+                className="px-2 focus:outline-none focus:ring-2 focus:ring-gray-500 border-b border-gray-200 leading-4 text-base placeholder-gray-600 py-4 w-full"
+                type="text"
+                value={suburb}
+                onChange={(e) => setSuburb(e.target.value)}
+                placeholder="Suburb"
+              />
 
               <div className="flex justify-between flex-col sm:flex-row w-full items-start space-y-8 sm:space-y-0 sm:space-x-8">
                 <div className="w-full">
@@ -212,21 +258,14 @@ export default function Checkout() {
                 placeholder="Phone Number"
               />
             </div>
-            {!user ? (
-              <Link href="/signin" passHref>
-                <button className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800">
-                  Please Sign In First
-                </button>
-              </Link>
-            ) : (
-              <button
-                onClick={intiatePayment}
-                disabled={loading}
-                className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800"
-              >
-                {!loading ? ' Proceed to payment' : 'Please wait...'}
-              </button>
-            )}
+
+            <button
+              onClick={intiatePayment}
+              disabled={loading}
+              className="focus:outline-none  focus:ring-gray-500 focus:ring-offset-2 mt-8 text-base font-medium focus:ring-2 focus:ring-ocus:ring-gray-800 leading-4 hover:bg-black py-4 w-full md:w-4/12 lg:w-full text-white bg-gray-800"
+            >
+              {!loading ? ' Proceed to payment' : 'Please wait...'}
+            </button>
 
             <div className="mt-4 flex justify-start items-center w-full">
               <Link href="/cart">

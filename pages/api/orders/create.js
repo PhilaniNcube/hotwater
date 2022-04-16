@@ -13,14 +13,18 @@ export default async function handler(req, res) {
     email,
     city,
     postalCode,
+    suburb,
     cart,
     cartTotal,
     shipping,
     orderTotal,
+    user_id,
   } = req.body;
 
   const { user } = await supabase.auth.api.getUserByCookie(req);
   const token = cookie.parse(req.headers.cookie)['sb:token'];
+
+  console.log('user', user);
 
   supabase.auth.session = () => ({ access_token: token });
 
@@ -28,12 +32,13 @@ export default async function handler(req, res) {
     .from('orders')
     .insert([
       {
-        user_id: user.id,
+        user_id: user_id,
         orderItems: cart,
         shippingCost: shipping,
         orderTotal: orderTotal,
         subtotal: cartTotal,
         postalCode: postalCode,
+        suburb: suburb,
         city: city,
         firstName: firstName,
         lastName: lastName,

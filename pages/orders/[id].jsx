@@ -142,6 +142,15 @@ export async function getServerSideProps({ req, params: { id } }) {
 
   supabase.auth.session = () => ({ access_token: token });
 
+  if (user === null) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
   let { data: orders, error } = await supabase
     .from('orders')
     .select('*')

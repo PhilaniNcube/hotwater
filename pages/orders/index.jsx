@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+
 import cookie from 'cookie';
 import { supabase } from '../../utils/supabase';
 
 function Orders({ orders, page, start, end }) {
-  console.log(orders);
-
   return (
     <Fragment>
       <Head>
@@ -112,6 +111,15 @@ export async function getServerSideProps({ req, query: { page = 1 } }) {
 
   supabase.auth.session = () => ({ access_token: token });
 
+  if (user === null) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
   let { data: orders, error } = await supabase
     .from('orders')
     .select('*')
@@ -124,6 +132,7 @@ export async function getServerSideProps({ req, query: { page = 1 } }) {
       page: +page,
       start,
       end,
+      user,
     },
   };
 }
