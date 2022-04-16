@@ -1,12 +1,93 @@
 import React, { Fragment, useState } from 'react';
 import Head from 'next/head';
 import { supabase } from '../utils/supabase';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
+const Alert = ({ flag, setFlag }) => {
+  return (
+    <div className="max-w-5xl">
+      {/* Code block starts */}
+      <div
+        className={
+          flag
+            ? 'absolute top-0 mt-12 w-full bg-green-400 shadow mb-8'
+            : 'absolute top-0 mt-12 w-full bg-green-400 shadow mb-8 translate-hide'
+        }
+      >
+        <div className="container mx-auto xl:w-full lg:transition duration-150 ease-in-out w-11/12">
+          <div className="w-full xl:flex lg:flex py-6 items-center">
+            <div className="xl:w-5/6 lg:w-5/6 w-full flex xl:flex-row lg:flex-row flex-col justify-center items-center xl:justify-start lg:justify-start">
+              <div className="text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width={24}
+                  height={24}
+                  fill="currentColor"
+                >
+                  <path
+                    className="heroicon-ui"
+                    d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-2.3-8.7l1.3 1.29 3.3-3.3a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-2-2a1 1 0 0 1 1.4-1.42z"
+                  />
+                </svg>
+              </div>
+              <p className="mx-4 text-lg text-white text-center sm:text-left">
+                Your submission was successful. Please check your inbox for our
+                email.
+              </p>
+            </div>
+            <div className="w-2/12 flex justify-end">
+              <div
+                onClick={() => setFlag(false)}
+                className="cursor-pointer xl:relative lg:relative absolute top-0 right-0 mr-2 mt-2 xl:mt-0 xl:mr-0 lg:mt-0 lg:mr-0 text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-x"
+                >
+                  <line x1={18} y1={6} x2={6} y2={18} />
+                  <line x1={6} y1={6} x2={18} y2={18} />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Code block ends */}
+      <style>
+        {`
+                .translate-show{
+                    transform : translateY(0%);
+                }
+                .translate-hide{
+                    transform : translateY(18vh);
+                }
+                `}
+      </style>
+    </div>
+  );
+};
+
 const GetIt = () => {
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
+
+  const [flag, setFlag] = useState(false);
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -18,6 +99,8 @@ const GetIt = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     console.log({
       installation,
       showers,
@@ -42,7 +125,28 @@ const GetIt = () => {
       },
     ]);
 
-    console.log({ data, error });
+    if (data) {
+      setFlag(true);
+    }
+
+    const mail = await fetch('/api/mail/short-lead', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        date: Date.now(),
+        installation: installation,
+        showers: parseInt(showers),
+        sinks: parseInt(sinks),
+        bathtubs: parseInt(bathtubs),
+        phoneNumber: phoneNumber,
+        email: email,
+        lastName: lastName,
+        firstName: firstName,
+      }),
+    });
+
+    const response = await mail;
+    setLoading(false)
   };
 
   return (
@@ -73,7 +177,9 @@ const GetIt = () => {
 
         <link rel="canonical" href="https://www.hotwater24.com/get-it" />
       </Head>
-      <div className="max-w-6xl mx-auto py-12">
+
+      <div className="max-w-6xl mx-auto py-12 relative">
+        {flag && <Alert flag={flag} setFlag={setFlag} />}
         <div className="grid grid-cols-1 md:grid-cols-2 px-4 lg:px-0 gap-6">
           <div className="text-gray-700">
             <h1 className="text-2xl  font-extrabold leading-5">
@@ -258,10 +364,11 @@ const GetIt = () => {
                 </style>
               </div>
               <button
+                disabled={loading}
                 type="submit"
                 className="my-2 bg-sky-700 transition duration-150 ease-in-out rounded  px-12 py-2 text-base font-medium text-white hover:bg-sky-900"
               >
-                Save
+                {loading ? 'Loading' : 'Save'}
               </button>
             </form>
           </div>
