@@ -22,8 +22,6 @@ export default async function handler(req, res) {
     firstName,
   } = req.body;
 
-  console.log(new Date(date).toDateString('en-ZA'));
-
   const msg = {
     to: 'info@hotwater24.com', // Change to your recipient
     from: 'info@hotwater24.com', // Change to your verified sender
