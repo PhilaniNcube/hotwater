@@ -2,7 +2,9 @@ User-agent: *
 Disallow: /orders/*
 Disallow: /orders
 Disallow: /admin
+Disallow: /catalogue/[id]
 Disallow: /admin/*
+Disallow: /blog/[slug]
 
 User-agent: *
 Allow: /
@@ -13,10 +15,12 @@ Allow: /why-us
 Allow: /our-approach
 Allow: /search
 Allow: /who-we-are
+Allow: /blog
+Allow: /blog/*
 Allow: /register
 Allow: /promo/save
 Allow: /catalogue
 Allow: /catalogue/*
 
 
-Sitemap: http://www.hotwater24.com/sitemap.xml
+Sitemap: https://www.hotwater24.com/sitemap.xml
