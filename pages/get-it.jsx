@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Head from 'next/head';
 import { supabase } from '../utils/supabase';
 import axios from 'axios';
+import analytics from '../utils/analytics';
 import { useRouter } from 'next/router';
 
 function classNames(...classes) {
@@ -127,6 +128,9 @@ const GetIt = () => {
 
     if (data) {
       setFlag(true);
+      analytics.track('generate_lead', {
+        email: email,
+      });
     }
 
     const mail = await fetch('/api/mail/short-lead', {
@@ -146,7 +150,7 @@ const GetIt = () => {
     });
 
     const response = await mail;
-    setLoading(false)
+    setLoading(false);
   };
 
   return (
