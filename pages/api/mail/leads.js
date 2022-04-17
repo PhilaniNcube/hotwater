@@ -399,7 +399,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Cooking</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit;font-weight: bold; text-align: center; color: #80817f">Cooking</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8.1" data-mc-module-version="2019-10-22">
@@ -419,7 +419,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Water heating</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit;font-weight: bold; text-align: center; color: #80817f">Water heating</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e.1" data-mc-module-version="2019-10-22">
@@ -439,7 +439,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Heating</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; font-weight: bold;text-align: center; color: #80817f">Heating</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149.1" data-mc-module-version="2019-10-22">
@@ -459,7 +459,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Other</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; font-weight: bold;text-align: center; color: #80817f">Other</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca.1" data-mc-module-version="2019-10-22">
@@ -505,7 +505,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Gas geyser</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center;font-weight: bold; color: #80817f">Gas geyser</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8.1.1" data-mc-module-version="2019-10-22">
@@ -525,7 +525,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Electric geyser</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center;font-weight: bold; color: #80817f">Electric geyser</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e.1.1" data-mc-module-version="2019-10-22">
@@ -545,7 +545,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Solar geyser</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f;font-weight: bold;">Solar geyser</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149.1.1" data-mc-module-version="2019-10-22">
@@ -565,7 +565,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">Other</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; font-weight: bold; text-align: center; color: #80817f">Other</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca.1.1" data-mc-module-version="2019-10-22">
@@ -805,7 +805,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 24px"><strong>FLOWRATE</strong></span></div><div></div></div></td>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 24px"><strong style="display:flex; justify-content:center;">FLOWRATE</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
