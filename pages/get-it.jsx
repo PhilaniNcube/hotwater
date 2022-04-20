@@ -113,6 +113,14 @@ const GetIt = () => {
       firstName,
     });
 
+    let showerFlow = showers * 6.42;
+    let bathtubFlow = bathtubs * 4.98;
+    let sinkFlow = sinks * 4.98;
+
+    let flow = showerFlow + bathtubFlow + sinkFlow;
+
+    let flowRate = flow * 0.6;
+
     const { data, error } = await supabase.from('leads').insert([
       {
         installation: installation,
@@ -123,6 +131,7 @@ const GetIt = () => {
         firstName: firstName,
         sinks: parseInt(sinks),
         bathtubs: parseInt(bathtubs),
+        flowRate: parseFloat(flowRate),
       },
     ]);
 
@@ -142,6 +151,7 @@ const GetIt = () => {
         showers: parseInt(showers),
         sinks: parseInt(sinks),
         bathtubs: parseInt(bathtubs),
+        flowRate: parseFloat(flowRate),
         phoneNumber: phoneNumber,
         email: email,
         lastName: lastName,
@@ -150,7 +160,9 @@ const GetIt = () => {
     });
 
     const response = await mail;
+
     setLoading(false);
+    router.push('/');
   };
 
   return (
