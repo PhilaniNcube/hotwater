@@ -97,6 +97,7 @@ const GetIt = () => {
   const [sinks, setSinks] = useState(0);
   const [showers, setShowers] = useState(0);
   const [installation, setInstallation] = useState(false);
+  const [city, setCity] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,6 +112,7 @@ const GetIt = () => {
       email,
       lastName,
       firstName,
+      city,
     });
 
     let showerFlow = showers * 6.42;
@@ -132,6 +134,7 @@ const GetIt = () => {
         sinks: parseInt(sinks),
         bathtubs: parseInt(bathtubs),
         flowRate: parseFloat(flowRate),
+        city: city,
       },
     ]);
 
@@ -156,6 +159,7 @@ const GetIt = () => {
         email: email,
         lastName: lastName,
         firstName: firstName,
+        city: city,
       }),
     });
 
@@ -258,7 +262,7 @@ const GetIt = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 mt-5 gap-4">
                 <div className="flex flex-col  ">
                   <label
                     htmlFor="email"
@@ -293,6 +297,24 @@ const GetIt = () => {
                     required
                     className="text-gray-600 focus:outline-none focus:border focus:border-sky-700 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
                     placeholder="Phone Number"
+                  />
+                </div>
+                <div className="flex flex-col  ">
+                  <label
+                    htmlFor="city"
+                    className="text-gray-700 text-sm font-bold leading-tight tracking-normal mb-2"
+                  >
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    required
+                    className="text-gray-600 focus:outline-none focus:border focus:border-sky-700 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
+                    placeholder="City"
                   />
                 </div>
               </div>
