@@ -286,7 +286,7 @@ const GetIt = () => {
                     htmlFor="phoneNumber"
                     className="text-gray-700 text-sm font-bold leading-tight tracking-normal mb-2"
                   >
-                    Phone Number
+                    Cell number
                   </label>
                   <input
                     type="tel"
