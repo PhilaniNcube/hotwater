@@ -35,7 +35,7 @@ export default function MyApp() {
               className="mt-4 text-base leading-6 text-gray-600"
             >
               With over 40years of experience and knowledge in the Dutch gas
-              installation business, we understand your needs. Either when it is
+              installation business, we understand your need. Either when it is
               a need for comfort{' '}
               <span className="font-bold">
                 {' '}
@@ -47,13 +47,7 @@ export default function MyApp() {
               bill at the same time! Then heating up your water with a gas
               heating solution is the answer!
             </p>
-            <p
-              role="contentinfo"
-              className="mt-4 text-base leading-6 text-gray-600"
-            >
-              Please click on the button below to check out your potential
-              saving on your monthly energy bill!
-            </p>
+
             <Link href="/savings" passHref>
               <button
                 onClick={savings}
@@ -118,7 +112,7 @@ export default function MyApp() {
             <p className="sm:w-72 w-full mt-5 leading-5 text-gray-600 text-sm">
               We can offer you the full service through our platform of
               independent and certified installers to ensure reliable and safe
-              installation every day.
+              installations every day.
             </p>
           </div>
           <div>
@@ -130,10 +124,6 @@ export default function MyApp() {
                 Financing
               </h2>
             </div>
-            <p className="sm:w-72 w-full text-sm mt-5 leading-5 text-gray-600">
-              Please contact us if you would like to receive more information on
-              possible financing.
-            </p>
           </div>
         </div>
 
