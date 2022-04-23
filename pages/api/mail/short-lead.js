@@ -22,6 +22,8 @@ export default async function handler(req, res) {
     firstName,
     flowRate,
     city,
+    suburb,
+    streetAddress,
   } = req.body;
 
   const msg = {
@@ -83,6 +85,8 @@ We will contact you shortly if additional information is required from you in or
         <td style="padding:0px 40px 40px 40px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Name:</strong></span><span style="color: #80817f; font-size: 12px"> ${firstName} ${lastName}</span></div>
 <div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Phone Number:</strong></span><span style="color: #80817f; font-size: 12px"> ${phoneNumber}</span> &nbsp;&nbsp;</div>
 <div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Email:</strong></span><span style="color: #80817f; font-size: 12px"> ${email}</span></div>
+<div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Street Address:</strong></span><span style="color: #80817f; font-size: 12px"> ${streetAddress}</span></div>
+<div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Suburb:</strong></span><span style="color: #80817f; font-size: 12px"> ${suburb}</span></div>
 <div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>City:</strong></span><span style="color: #80817f; font-size: 12px"> ${city}</span></div>
 <div style="font-family: inherit; text-align: inherit"><br></div><div></div></div></td>
       </tr>

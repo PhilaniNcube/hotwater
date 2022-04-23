@@ -97,6 +97,8 @@ const GetIt = () => {
   const [sinks, setSinks] = useState(0);
   const [showers, setShowers] = useState(0);
   const [installation, setInstallation] = useState(false);
+  const [streetAddress, setStreetAddress] = useState('');
+  const [suburb, setSuburb] = useState('');
   const [city, setCity] = useState('');
 
   const handleSubmit = async (e) => {
@@ -134,6 +136,8 @@ const GetIt = () => {
         sinks: parseInt(sinks),
         bathtubs: parseInt(bathtubs),
         flowRate: parseFloat(flowRate),
+        streetAddress: streetAddress,
+        suburb: suburb,
         city: city,
       },
     ]);
@@ -159,6 +163,8 @@ const GetIt = () => {
         email: email,
         lastName: lastName,
         firstName: firstName,
+        streetAddress: streetAddress,
+        suburb: suburb,
         city: city,
       }),
     });
@@ -262,7 +268,7 @@ const GetIt = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 mt-5 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-4">
                 <div className="flex flex-col  ">
                   <label
                     htmlFor="email"
@@ -297,6 +303,44 @@ const GetIt = () => {
                     required
                     className="text-gray-600 focus:outline-none focus:border focus:border-sky-700 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
                     placeholder="Phone Number"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 mt-5 gap-4">
+                <div className="flex flex-col  ">
+                  <label
+                    htmlFor="streetAddress"
+                    className="text-gray-700 text-sm font-bold leading-tight tracking-normal mb-2"
+                  >
+                    Street Address
+                  </label>
+                  <input
+                    type="text"
+                    id="streetAddress"
+                    name="streetAddress"
+                    value={streetAddress}
+                    onChange={(e) => setStreetAddress(e.target.value)}
+                    required
+                    className="text-gray-600 focus:outline-none focus:border focus:border-sky-700 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
+                    placeholder="Street Address"
+                  />
+                </div>
+                <div className="flex flex-col  ">
+                  <label
+                    htmlFor="suburb"
+                    className="text-gray-700 text-sm font-bold leading-tight tracking-normal mb-2"
+                  >
+                    Suburb
+                  </label>
+                  <input
+                    type="text"
+                    id="suburb"
+                    name="suburb"
+                    value={suburb}
+                    onChange={(e) => setSuburb(e.target.value)}
+                    required
+                    className="text-gray-600 focus:outline-none focus:border focus:border-sky-700 bg-white font-normal h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
+                    placeholder="Suburb"
                   />
                 </div>
                 <div className="flex flex-col  ">
