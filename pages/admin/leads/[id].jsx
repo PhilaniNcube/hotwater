@@ -134,6 +134,7 @@ function Lead({ lead }) {
             <input
               id="receipient"
               required
+              type="email"
               value={receipient}
               onChange={(e) => setReceipient(e.target.value)}
               className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700  bg-white font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
@@ -149,6 +150,7 @@ function Lead({ lead }) {
               </label>
               <textarea
                 id="message"
+                type="text"
                 name="message"
                 value={messages}
                 onChange={(e) => setMessage(e.target.value)}
