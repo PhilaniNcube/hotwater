@@ -1,264 +1,171 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { supabase } from '../../../utils/supabase';
+import QuoteCard from '../../../components/Quote/QuoteCard';
 import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
 import Head from 'next/head';
 
 function Lead({ lead }) {
   console.log(lead);
+
+  const {
+    children,
+    teenagers,
+    adults,
+    houseType,
+    ownership,
+    gasSupply,
+    gasStove,
+    gasWaterHeating,
+    gasHeating,
+    otherGasUse,
+    locateOutside,
+    gasGeyser,
+    electricGeyser,
+    solarGeyser,
+    otherGeyser,
+    standardShower,
+    rainShower,
+    bathtub,
+    sink,
+    dishwasher,
+    washingmachine,
+    flowRate,
+    offGrid,
+    firstName,
+    lastName,
+    email,
+    streetAddress,
+    city,
+    telephoneNumber,
+    suburb,
+    postalCode,
+    completeSolution,
+    product_id,
+    installation,
+  } = lead;
+
+  const [receipient, setReceipient] = useState('');
+  const [messages, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const mail = await fetch(`/api/mail/installers`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        children: children,
+        teenagers: teenagers,
+        adults: adults,
+        houseType: houseType,
+        ownership: ownership,
+        gasSupply: gasSupply,
+        gasStove: gasStove,
+        gasWaterHeating: gasWaterHeating,
+        gasHeating: gasHeating,
+        otherGasUse: otherGasUse,
+        locateOutside: locateOutside,
+        gasGeyser: gasGeyser,
+        electricGeyser: electricGeyser,
+        solarGeyser: solarGeyser,
+        otherGeyser: otherGeyser,
+        standardShower: standardShower,
+        rainShower: rainShower,
+        bathtub: bathtub,
+        sink: sink,
+        dishwasher: dishwasher,
+        washingmachine: washingmachine,
+        flowRate: flowRate,
+        offGrid: offGrid,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        streetAddress: streetAddress,
+        suburb: suburb,
+        city: city,
+        telephoneNumber: telephoneNumber,
+        postalCode: postalCode,
+        completeSolution: completeSolution,
+        installation: installation,
+        messages: messages,
+        receipient: receipient,
+      }),
+    });
+
+    console.log(mail);
+
+    if (mail.status === 200) {
+      alert(`Email sent to ${receipient}`);
+    }
+  };
+
   return (
     <Fragment>
       <Head>
         <title>Admin | Lead</title>
       </Head>
-      <div className="w-full bg-gray-200 dark:bg-gray-900 py-10">
+      <div className="w-full bg-gray-200 py-10">
         <div className="container mx-auto px-6 flex items-start justify-center">
           <div className="w-full">
             {/* Card is full width. Use in 12 col grid for best view. */}
             {/* Card code block start */}
-            <div className="mx-auto w-full p-5 lg:p-10 bg-white dark:bg-gray-800 shadow rounded">
-              <div className="flex flex-col lg:flex-row items-start lg:items-center mb-8">
-                <h1 className="mr-12 text-xl lg:text-2xl text-gray-800 dark:text-gray-100 font-bold lg:w-1/2">
-                  Lead
-                </h1>
-                <div className="flex flex-col md:flex-row items-start md:items-center">
-                  <div className="mt-4 lg:mt-0 mr-0 xl:mr-8 text-sm bg-indigo-100 text-indigo-700 dark:text-indigo-600 rounded font-medium py-2 w-48 flex justify-center">
-                    Submitted: {new Date(lead.created_at).toDateString()}
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col lg:flex-row items-start lg:items-center">
-                <div className="w-full lg:w-1/2 pr-0 lg:pr-48">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 rounded">
-                      <img
-                        className="w-full h-full overflow-hidden object-cover rounded object-center"
-                        src="/images/avatar.svg"
-                        alt="logo"
-                      />
-                    </div>
-                    <div className="ml-2">
-                      <h5 className="text-gray-800 dark:text-gray-100 font-medium text-base">
-                        {lead.firstName} {lead.lastName}
-                      </h5>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs font-normal">
-                        Address: {lead.streetAddress}, {lead.city},{' '}
-                        {lead.postalCode}
-                      </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs font-normal">
-                        Email: {lead.email}
-                      </p>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs font-normal">
-                        Contact: {lead.telephoneNumber}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col lg:flex-row mt-12 w-full items-start lg:items-center mb-8 lg:mb-0">
-                    <div className="mr-24 flex lg:block flex-row-reverse items-center mb-4 lg:mb-0">
-                      <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                        Gas Supply
-                      </h3>
-                      <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                        {lead.gasSupply}
-                      </h2>
-                    </div>
-
-                    <div className="flex space-x-5">
-                      <div className="flex lg:block md:flex-row-reverse items-center md:mb-4 lg:mb-0">
-                        <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                          Cooking
-                        </h3>
-                        <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                          {lead.gasStove === true ? 'Yes' : 'No'}
-                        </h2>
-                      </div>
-                      <div className="flex lg:block md:flex-row-reverse items-center">
-                        <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                          Heating
-                        </h3>
-                        <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                          {lead.gasHeating === true ? 'Yes' : 'No'}
-                        </h2>
-                      </div>
-                      <div className="flex lg:block md:flex-row-reverse items-center">
-                        <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                          Water Heating
-                        </h3>
-                        <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                          {lead.gasWaterHeating === true ? 'Yes' : 'No'}
-                        </h2>
-                      </div>
-                      <div className="flex lg:block md:flex-row-reverse items-center">
-                        <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                          Other Gas Use
-                        </h3>
-                        <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                          {lead.otherGasUse === '' ? 'None' : lead.otherGasUse}
-                        </h2>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h3 className="dark:text-gray-100 text-gray-700 my-6 block font-bold text-lg">
-                    Property Type:{' '}
-                    <span className="text-2xl ml-4"> {lead.houseType}</span>
-                  </h3>
-                  <h3 className="dark:text-gray-100 text-gray-700 my-6 block font-bold text-lg">
-                    Can the geyser be located on an outside wall:{' '}
-                    <span className="text-2xl ml-4">
-                      {' '}
-                      {lead.locateOutside === true ? 'Yes' : 'No'}
-                    </span>
-                  </h3>
-                  <h3 className="dark:text-gray-100 text-gray-700 my-6 block font-bold text-lg">
-                    Requires Installation:{' '}
-                    <span className="text-2xl ml-4">
-                      {' '}
-                      {lead.installation === true ? 'Yes' : 'No'}
-                    </span>
-                  </h3>
-                  <h3 className="dark:text-gray-100 text-gray-700 my-6 block font-bold text-lg">
-                    Off-Grid-Solution:{' '}
-                    <span className="text-2xl ml-4">
-                      {' '}
-                      {lead.completeSolution === true ? 'Yes' : 'No'}
-                    </span>
-                  </h3>
-                </div>
-                <div className="flex flex-col space-y-6">
-                  <div className="w-full  grid grid-cols-3">
-                    <div className="mr-12 flex lg:block items-center lg:mr-6 xl:mr-12 mt-5 lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.children}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Children
-                      </p>
-                    </div>
-                    <div className="mr-12 flex lg:block lg:mr-6 xl:mr-12 mt-5 lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.teenagers}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Teenagers
-                      </p>
-                    </div>
-                    <div className="mt-5 flex lg:block lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.adults}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Adults
-                      </p>
-                    </div>
-                  </div>
-                  <div className="w-full  grid grid-cols-3">
-                    <div className="mr-12 flex lg:block items-center lg:mr-6 xl:mr-12 mt-5 lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.standardShower}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Standard Shower
-                      </p>
-                    </div>
-                    <div className="mr-12 flex lg:block lg:mr-6 xl:mr-12 mt-5 lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.rainShower}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Rain Shower
-                      </p>
-                    </div>
-                    <div className="mt-5 flex lg:block lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.bathtub}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Bath Tubs
-                      </p>
-                    </div>
-                  </div>
-                  <div className="w-full  grid grid-cols-3">
-                    <div className="mr-12 flex lg:block items-center lg:mr-6 xl:mr-12 mt-5 lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.sink}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Sink
-                      </p>
-                    </div>
-                    <div className="mr-12 flex lg:block lg:mr-6 xl:mr-12 mt-5 lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.dishwasher}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Dishwasher
-                      </p>
-                    </div>
-                    <div className="mt-5 flex lg:block lg:mt-0">
-                      <h2 className="text-gray-600 dark:text-gray-400 font-bold text-xl lg:text-2xl leading-6 mb-1 lg:text-center">
-                        {lead.washingmachine}
-                      </h2>
-                      <p className="ml-2 lg:ml-0 text-gray-800 dark:text-gray-100 text-sm leading-5 text-center">
-                        Washing machine
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <hr className="my-4 h-1 rounded bg-gray-200" />
-                <hr className="absolute top-0 h-1 w-full rounded bg-indigo-400" />
-              </div>
-              <div className="flex flex-col lg:flex-row items-start lg:items-center">
-                <div className="flex flex-col lg:flex-row w-full lg:w-2/3 items-start lg:items-center mb-8 lg:mb-0">
-                  <div className="mr-24 flex lg:block flex-row-reverse items-center mb-4 lg:mb-0">
-                    <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                      Flow Rate
-                    </h3>
-                    <h2 className="mr-2 lg:mr-0 text-gray-800 dark:text-gray-100 text-xl lg:text-2xl font-bold">
-                      {lead.flowRate} l/min
-                    </h2>
-                  </div>
-                </div>
-                <div className="flex flex-col lg:flex-row w-full lg:w-2/3 items-start lg:items-center mb-8 lg:mb-0">
-                  <div className="mr-24 flex lg:block flex-row-reverse items-center mb-4 lg:mb-0">
-                    <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                      Solar Geyser
-                    </h3>
-                    <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                      {lead.solarGeyser ? 'Yes' : 'No'}
-                    </h2>
-                  </div>
-                  <div className="mr-24 flex lg:block flex-row-reverse items-center mb-4 lg:mb-0">
-                    <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                      Gas Geyser
-                    </h3>
-                    <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                      {lead.gasGeyser === true ? 'Yes' : 'No'}
-                    </h2>
-                  </div>
-                  <div className="flex lg:block flex-row-reverse items-center">
-                    <h3 className="text-indigo-700 dark:text-indigo-600 leading-6 text-lg">
-                      Electric Geyser
-                    </h3>
-                    <h2 className="mr-2 lg:mr-0 text-gray-600 dark:text-gray-400 text-xl lg:text-2xl font-bold">
-                      {lead.electricGeyser ? 'Yes' : 'No'}
-                    </h2>
-                  </div>
-                </div>
-              </div>
-              <div className="relative">
-                <hr className="my-4 h-1 rounded bg-gray-200" />
-                <hr className="absolute top-0 h-1 w-full rounded bg-indigo-400" />
-              </div>
-            </div>
+            <QuoteCard quote={lead} />
             {/* Card code block end */}
           </div>
         </div>
+
+        <form
+          className="md:w-1/2 mx-auto px-6 bg-white py-4 rounded mt-4"
+          onSubmit={handleSubmit}
+        >
+          <p className="text-lg font-bold my-4">
+            Send message to the installer
+          </p>
+          <div className="flex flex-col ">
+            <label
+              htmlFor="receipient"
+              className="text-gray-800  text-sm font-bold leading-tight tracking-normal mb-2"
+            >
+              Email Address
+            </label>
+            <input
+              id="receipient"
+              required
+              value={receipient}
+              onChange={(e) => setReceipient(e.target.value)}
+              className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700  bg-white font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
+              placeholder="Placeholder"
+            />
+
+            <div className="mt-8 flex flex-col xl:w-3/5 lg:w-1/2 md:w-1/2 w-full">
+              <label
+                htmlFor="message"
+                className="pb-2 text-sm font-bold text-gray-800"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={messages}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                className="bg-transparent border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none placeholder-gray-500 text-gray-500 "
+                placeholder="Short Message"
+                rows={5}
+              />
+            </div>
+            <button
+              disabled={loading}
+              className="mt-4 bg-sky-700 text-white py-2 rounded-md"
+            >
+              {loading ? 'Sending...' : 'Send'}
+            </button>
+          </div>
+        </form>
       </div>
     </Fragment>
   );
