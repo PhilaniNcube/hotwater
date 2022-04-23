@@ -295,16 +295,16 @@ const WhyUs = () => {
 
       <div
         className="md:bg-right bg-cover bg-center"
-        style={{ backgroundImage: 'url(/images/installation-2.jpg)' }}
+      
       >
         <div className="max-w-6xl mx-auto px-6 md:px-4 lg:px-0 py-12">
           <h2 className="text-gray-700 font-light text-3xl lg:text-5xl">
-            Installations
+            Safe & reliable installations
           </h2>
 
           <div className="flex flex-col md:flex-row w-5/6">
-            <div className="w-full md:w-2/3 pr-8">
-              <p className="font-medium text-base leading-6 text-gray-800 mt-6">
+            <div className="w-full pr-8">
+              <p className="font-medium text-sm leading-6 text-gray-800 mt-6">
                 Safety comes first, which is why all our installers we work with
                 are certified and registered with the LPGas Association of South
                 Africa. For safety and quality purposes of the installation work
@@ -313,7 +313,7 @@ const WhyUs = () => {
                 installation a CoC (Certificate of Compliance) will be signed
                 off between installer as well as you as our client.
               </p>
-              <p className="font-medium text-base leading-6 text-gray-800 mt-6">
+              <p className="font-medium text-sm leading-6 text-gray-800 mt-6">
                 Are you looking for a reliable installation? Then simply click
                 on the button below to answer some questions for us to give you,
                 our recommendation. If you agree with our quote, we will start
@@ -321,7 +321,7 @@ const WhyUs = () => {
                 your area, so you will always be helped safely and quickly
                 without too much hassle!
               </p>
-              <p className="font-medium text-base leading-6 text-gray-800 mt-6">
+              <p className="font-medium text-sm leading-6 text-gray-800 mt-6">
                 Do you want to be sure that your installation remains in top
                 condition and always operates in the most efficient way? Then
                 think of taking a service & maintenance contract with us. Our
@@ -329,8 +329,8 @@ const WhyUs = () => {
                 maintenance and the best service for a monthly fixed price.
               </p>
 
-              <div className="flex">
-                <div className="h-24 object-cover">
+              <div className="flex mt-4">
+                <div className="h-24 bg-gray-300 rounded-lg object-cover">
                   <img
                     className="h-24 object-cover"
                     src="/images/lpgas.png"
@@ -339,10 +339,7 @@ const WhyUs = () => {
                 </div>
               </div>
 
-              <p className="text-sm max-w-[55ch] text-gray-800 font-medium mt-6 pb-2">
-                By clicking on the button below we instantly recommend you with
-                the best gas water heating solution for your home
-              </p>
+          
 
               <Link href="/quote/start" passHref>
                 <button

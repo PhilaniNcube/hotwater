@@ -27,15 +27,26 @@ const Hero = () => {
           <br /> and enjoy the comfort of a gas geyser <br />
           installation for your home.
         </p>
-        <p className="text-base mb-4 leading-6 text-white">
-          By clicking on the button below, <br />
-          we instantly give you a recommendation <br />
-          on the best gas water heating solution.
-        </p>
+
         <Link href="/quote/start" passHref>
-          <button className="bg-gray-50 text-slate-800 max-w-[220px] justify-center text-center font-bold flex space-x-2 py-2  items-center mt-6 rounded-full uppercase">
+          <button className="bg-gray-50 text-slate-800 max-w-[240px] shadow-md shadow-gray-600 hover:shadow  justify-center text-center font-bold flex space-x-2 py-2  items-center mt-6 rounded-full uppercase">
             Choose Your Geyser
-            <span className="text-lg ml-2 font-bold">&rarr;</span>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 pl-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
           </button>
         </Link>
       </div>

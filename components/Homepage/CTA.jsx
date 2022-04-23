@@ -21,25 +21,20 @@ export default function CTA() {
               you money on your monthly electricity bill.
             </p>
 
-            <p className="text-sm text-gray-700 mt-6">
-              Please click on the button below to check out your potential
-              saving on your monthly energy bill!
-            </p>
-
             <Link href="/savings" passHref>
               <button className="focus:bg-gray-900 rounded-full shadow-lg hover:shadow mt-6 py-4 px-8 text-base font-medium leading-none text-white bg-gray-800 hover:bg-gray-700 uppercase">
                 Calculate Your Saving
               </button>
             </Link>
           </div>
-          <div className="aspect-video">
-            <video
-              src="/images/video.mp4"
-              autoPlay
-              loop
-              muted={true}
-              className="aspect-video h-full rounded-md shadow"
-            ></video>
+          <div className="aspect-video lg:w-1/2">
+            <Image
+              width={1920}
+              height={1280}
+              src="/images/white-bathroom.jpg"
+              alt="white-bathroom"
+              className="aspect-video rounded lg:w-1/2"
+            />
           </div>
         </div>
       </div>

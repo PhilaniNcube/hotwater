@@ -132,7 +132,7 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               )}
               <img className="h-16 w-16" alt="" src="/images/icons/check.svg" />
               <p className="text-lg text-center text-sky-500 font-bold">
-                Yes Please
+                Yes please
               </p>
             </div>
             <div
@@ -171,8 +171,8 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             are registered with the LPGas Association of South Africa.
           </p>
           <p className="text-xs max-w-[80ch] mt-8 text-gray-700">
-            With our network of independent installers we can assure you you are
-            in good hands!
+            With our network of independent installers, we can assure you are in
+            good hands!
           </p>
         </div>
       </div>

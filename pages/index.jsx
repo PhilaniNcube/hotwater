@@ -2,16 +2,13 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import CTA from '../components/Homepage/CTA';
-import Save from '../components/Homepage/Save';
+import Safe from '../components/Homepage/Safe';
 import Hero from '../components/Homepage/Hero';
-import Slider from '../components/Homepage/Slider';
 
 import { useQuotes } from '../hooks/quotes';
 
 export default function Home() {
   const router = useRouter();
-
-  const { quotes } = useQuotes();
 
   return (
     <Fragment>
@@ -50,6 +47,7 @@ export default function Home() {
       </Head>
       <Hero />
       <CTA />
+      <Safe />
     </Fragment>
   );
 }

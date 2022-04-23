@@ -40,7 +40,7 @@ const WhoWeAre = () => {
           <p className="text-sm max-w-[55ch] text-white pb-2">
             We can offer you the full service through our platform of
             independent and certified installers who ensure reliable and safe
-            installation every day.
+            installations every day.
           </p>
           <p className="text-sm max-w-[55ch] text-white pb-2">
             With over 40years of experience in the Dutch gas installation
