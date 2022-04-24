@@ -32,8 +32,6 @@ async function generateSitemap() {
     '!pages/admin/products/index{.jsx,.mdx}',
     '!pages/orders/**/*{.jsx,.mdx}',
     '!pages/orders/[id]{.jsx,.mdx}',
-    '!pages/blog/[slug]{.jsx,.mdx}',
-    '!pages/catalogue/[id]{.jsx,.mdx}',
   ]);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
