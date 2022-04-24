@@ -34,7 +34,6 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
   } else if (user.role === 'supabase_admin') {
     return (
       <Fragment>
-        <AdminHeader />
         <Cards
           brands={brands}
           products={products}
