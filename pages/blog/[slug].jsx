@@ -70,6 +70,18 @@ const Post = ({ post }) => {
           href={`https://www.hotwater24.com/blog/${post.fields.slug}`}
         />
       </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'Blog Post',
+            name: post.fields.title,
+            description: post.fields.snippet,
+            author: post.fields.author,
+          }),
+        }}
+      />
 
       <div className="max-w-2xl mx-auto lg:max-w-6xl px-4 md:px-6 lg:px-0 py-8">
         <div className="overflow-hidden rounded-lg">
