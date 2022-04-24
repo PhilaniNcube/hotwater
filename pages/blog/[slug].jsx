@@ -79,6 +79,7 @@ const Post = ({ post }) => {
             name: post.fields.title,
             description: post.fields.snippet,
             author: post.fields.author,
+            headline: post.fields.title,
           }),
         }}
       />

@@ -1,10 +1,4 @@
-User-agent: *
-Disallow: /orders/*
-Disallow: /orders
-Disallow: /admin
-Disallow: /catalogue/[id]
-Disallow: /admin/*
-Disallow: /blog/[slug]
+
 
 User-agent: *
 Allow: /
@@ -21,6 +15,14 @@ Allow: /register
 Allow: /promo/save
 Allow: /catalogue
 Allow: /catalogue/*
+
+User-agent: *
+Disallow: /orders/*
+Disallow: /orders
+Disallow: /admin
+Disallow: /catalogue/[id]
+Disallow: /admin/*
+Disallow: /blog/[slug]
 
 
 Sitemap: https://www.hotwater24.com/sitemap.xml
