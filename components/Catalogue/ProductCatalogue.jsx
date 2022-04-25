@@ -58,9 +58,8 @@ export default function ProductCatalogue({ products }) {
               key={product.id}
             >
               <div className="relative group flex justify-center items-center">
-                <Image
-                  width={500}
-                  height={500}
+                <img
+                  className="w-full object-cover"
                   src={product.image}
                   alt={product.name}
                 />
