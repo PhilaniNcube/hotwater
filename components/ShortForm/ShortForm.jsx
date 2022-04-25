@@ -377,7 +377,7 @@ flex flex-row-reverse	 justify-end gap-x-2
                             onClick={swaptexttwo}
                             className="
     flex flex-row-reverse	 justify-end gap-x-2
-text-base font-medium leading-none text-gray-600 group-hover:text-sky-700 mt-[1px] cursor-pointer group-hover:bg-sky-100 group-hover:font-medium group-hover:text-sky-700 group-hover:rounded w-full p-3"
+text-base font-medium leading-none text-gray-600 mt-[1px] cursor-pointer group-hover:bg-sky-100 group-hover:font-medium group-hover:text-sky-700 group-hover:rounded w-full p-3"
                           >
                             Product
                             <svg
@@ -412,7 +412,7 @@ text-base font-medium leading-none text-gray-600 group-hover:text-sky-700 mt-[1p
                         <div className="flex   gap-x-2 group">
                           <p
                             onClick={swaptexttwo}
-                            className=" flex flex-row-reverse	 justify-end gap-x-2  text-base font-medium leading-none text-gray-600 group-hover:text-sky-700 mt-[1px] cursor-pointer group-hover:bg-sky-100 group-hover:font-medium group-hover:text-sky-700 group-hover:rounded w-full p-3"
+                            className=" flex flex-row-reverse	 justify-end gap-x-2  text-base font-medium leading-none text-gray-600  mt-[1px] cursor-pointer group-hover:bg-sky-100 group-hover:font-medium group-hover:text-sky-700 group-hover:rounded w-full p-3"
                           >
                             Location
                             <svg
@@ -441,7 +441,7 @@ text-base font-medium leading-none text-gray-600 group-hover:text-sky-700 mt-[1p
                         <div className="flex   gap-x-2 group">
                           <p
                             onClick={swaptexttwo}
-                            className=" flex flex-row-reverse	 justify-end gap-x-2 text-base font-medium leading-none text-gray-600 group-hover:text-sky-700 mt-[1px] cursor-pointer group-hover:bg-sky-100 group-hover:font-medium group-hover:text-sky-700 group-hover:rounded w-full p-3"
+                            className=" flex flex-row-reverse	 justify-end gap-x-2 text-base font-medium leading-none text-gray-600 mt-[1px] cursor-pointer group-hover:bg-sky-100 group-hover:font-medium group-hover:text-sky-700 group-hover:rounded w-full p-3"
                           >
                             Customer
                             <svg

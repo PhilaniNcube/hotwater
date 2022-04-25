@@ -5,6 +5,7 @@ import { Popover } from '@headlessui/react';
 import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import useCart from '../../hooks/useCart';
+import { RiWhatsappLine } from 'react-icons/ri';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -86,12 +87,15 @@ const Navbar = () => {
           </form>
 
           {/*Quote Button */}
-          <div>
-            <Link href="/savings" passHref>
-              <button className="bg-sky-600 text-white flex items-center px-6 md:px-8 py-2 rounded-full font-bold">
-                Caclulate Your Savings{' '}
-              </button>
-            </Link>
+          <div className="flex items-center">
+            <a
+              href="https://wa.me/27793414075?text=I'm%20interested%20in%20your%20products"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-green-600 text-white flex items-center justify-between px-3  space-x-4 rounded-full font-bold"
+            >
+              Get in touch <RiWhatsappLine className="text-4xl" />
+            </a>
           </div>
 
           {/*Quote Button Ends*/}
