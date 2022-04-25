@@ -35,7 +35,8 @@ export async function getServerSideProps({}) {
     .from('products')
     .select(`*, brand_id( name)`)
     .eq('inStock', true)
-    .order('brand_id', { ascending: false });
+    .order('brand_id', { ascending: false })
+    .order('flowRate', { ascending: true });
 
   return {
     props: {
