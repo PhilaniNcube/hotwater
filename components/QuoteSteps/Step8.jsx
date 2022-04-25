@@ -398,7 +398,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please answer the questions
+              Please answer the question
             </p>
           </Fragment>
         )}

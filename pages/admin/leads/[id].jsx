@@ -5,6 +5,7 @@ import QuoteCard from '../../../components/Quote/QuoteCard';
 import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
 import Head from 'next/head';
+import LeadCard from '../../../components/Quote/LeadCard';
 
 function Lead({ lead }) {
   console.log(lead);
@@ -112,7 +113,7 @@ function Lead({ lead }) {
           <div className="w-full">
             {/* Card is full width. Use in 12 col grid for best view. */}
             {/* Card code block start */}
-            <QuoteCard quote={lead} />
+            <LeadCard quote={lead} />
             {/* Card code block end */}
           </div>
         </div>

@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
 
-function Index({ quote }) {
+function LeadCard({ quote }) {
   return (
     <Fragment>
       <div className="w-full bg-gray-200 py-4">
@@ -27,6 +27,17 @@ function Index({ quote }) {
                     <p className="text-gray-600  text-xs font-normal">
                       {quote.email}
                     </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between mt-8">
+                  <div>
+                    <p className="text-md text-gray-600 font-bold mb-1 tracking-normal">
+                      Date Submitted
+                    </p>
+                    <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
+                      {new Date(quote.created_at).toDateString()}
+                    </h2>
                   </div>
                 </div>
 
@@ -323,4 +334,4 @@ function Index({ quote }) {
     </Fragment>
   );
 }
-export default Index;
+export default LeadCard;
