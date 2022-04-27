@@ -179,7 +179,7 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         ) : (
           <Fragment>
             <p className="text-md text-sky-600 font-bold text-center">
-              Please answer the questions
+              Please answer the question
             </p>
           </Fragment>
         )}
