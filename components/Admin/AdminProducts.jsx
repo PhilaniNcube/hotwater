@@ -81,7 +81,7 @@ function AdminProducts({ products }) {
                     </p>
                   </td>
                   <td className="px-7 2xl:px-0">
-                    <Link href={`/admin/products/${product.id}`} passHref>
+                    <Link href={`/admin/products/${product.sku}`} passHref>
                       <button className="bg-sky-700 text-white text-xs px-6 py-2 rounded shadow">
                         Edit
                       </button>
