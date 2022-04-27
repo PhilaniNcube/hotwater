@@ -74,7 +74,7 @@ function Savings() {
             onClick={start}
             className="bg-gray-800 text-white flex space-x-2 py-2 px-4 mb-8 shadow-gray-600 shadow-lg hover:shadow-sm focus:focus-ring-sky-400 items-center mt-4 rounded-full w-fit"
           >
-            Find Your Fit
+            Choose your geyser
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

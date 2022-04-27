@@ -124,6 +124,17 @@ export default function MyApp() {
                 Financing
               </h2>
             </div>
+            <p className="sm:w-72 w-full mt-5 leading-5 text-gray-600 text-sm">
+              We have partnered with{' '}
+              <span className="hover:underline text-sky-600">
+                <Link href="https://mobicred.co.za" target="_blank">
+                  Mobicred
+                </Link>
+              </span>{' '}
+              in order to privide 12 months of financing for qualifiying
+              clients. With Mobicred you will be able to pay for your gas geyser
+              over 12 installments.
+            </p>
           </div>
         </div>
 

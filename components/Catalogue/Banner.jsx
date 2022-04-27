@@ -21,7 +21,7 @@ const Banner7 = () => {
           <div className="absolute flex justify-start items-start flex-col px-4 md:pl-6 xl:pl-12">
             <div>
               <h1 className="xl:text-4xl text-3xl font-bold tracking-wider leading-9 md:leading-4 text-gray-800 pr-6 md:pr-0">
-                Our selection of cost-effective and efficient gas geysers.
+                Our selection of cost-effective and <br></br>efficient gas geysers.
               </h1>
             </div>
             <div className="mt-2">
