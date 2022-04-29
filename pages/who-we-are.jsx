@@ -29,7 +29,7 @@ const WhoWeAre = () => {
           </h1>
 
           <p className="text-sm max-w-[55ch] text-white pb-2">
-            We are Hotwater24, the online platform to assist and advise you on
+            We are Hotwater24, the specialist to assist and advise you on
             the most cost-effective and efficient gas water heating solution for
             your household. We do not only offer the best geysers, we also offer
             you the installation and maintenance service.

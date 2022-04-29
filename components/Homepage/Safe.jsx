@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function index() {
   return (
@@ -30,6 +31,15 @@ export default function index() {
                 safety!
               </p>
             </div>
+
+            <div>
+              <img
+                src="/images/lpgas.png"
+                alt="logo"
+                className="h-16 object-cover"
+              />
+            </div>
+
             <div className="md:mt-12 mt-20">
               <Link href="/quote/start" passHref>
                 <button className="bg-gray-50 text-slate-800 px-6 shadow-md shadow-gray-600 hover:shadow  justify-center text-center font-bold flex space-x-2 py-2  items-center mt-6 rounded-full uppercase">
