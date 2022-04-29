@@ -17,7 +17,7 @@ export default function index() {
             alt="geyser"
             className="w-full h-full rounded-md absolute object-right-top object-cover sm:hidden"
           />
-          <div className="text-xl relative z-20 bg-gradient-to-r from-gray-700 to-transparent w-full h-full z-40 top-0 md:p-16 p-6 flex flex-col justify-between rounded-md ">
+          <div className="text-xl relative bg-gradient-to-r from-gray-700 to-transparent w-full h-full z-40 top-0 md:p-16 p-6 flex flex-col justify-between rounded-md ">
             <div>
               <h1 className="md:text-5xl text-3xl font-bold md:leading-10 leading-9 text-white sm:w-auto w-64">
                 Safe and reliable installation by accredited professionals
