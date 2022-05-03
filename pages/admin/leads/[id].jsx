@@ -5,10 +5,13 @@ import QuoteCard from '../../../components/Quote/QuoteCard';
 import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import LeadCard from '../../../components/Quote/LeadCard';
 
 function Lead({ lead }) {
   console.log(lead);
+
+  const router = useRouter();
 
   const {
     children,
@@ -50,6 +53,10 @@ function Lead({ lead }) {
   const [receipient, setReceipient] = useState('');
   const [messages, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const [confirm, setConfirm] = useState(false);
+  const [show, setShow] = useState(false);
+  const [processing, setProcessing] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -103,17 +110,52 @@ function Lead({ lead }) {
     }
   };
 
+  const deleteLead = async (id) => {
+    console.log('delete');
+    const { data, error } = await supabase
+      .from('quotes')
+      .delete()
+      .eq('id', id);
+
+    if (data) {
+      router.push('/admin/leads');
+    }
+  };
+
   return (
     <Fragment>
       <Head>
         <title>Admin | Lead</title>
       </Head>
-      <div className="w-full bg-gray-200 py-10">
+      <div className="w-full bg-gray-200 py-10 relative">
+        <div className="max-w-6xl mx-auto px-6 lg:px-0">
+          <button
+            onClick={() => {
+              setShow(true);
+            }}
+            className="bg-red-600 px-12 py-2 rounded text-white my-4 text-base font-medium"
+          >
+            Delete
+          </button>
+        </div>
+
         <div className="container mx-auto px-6 flex items-start justify-center">
+          {show && (
+            <Alert
+              confirm={confirm}
+              setConfirm={setConfirm}
+              show={show}
+              setShow={setShow}
+              deleteLead={deleteLead}
+              lead={lead}
+            />
+          )}
+
           <div className="w-full">
             {/* Card is full width. Use in 12 col grid for best view. */}
             {/* Card code block start */}
             <LeadCard quote={lead} />
+
             {/* Card code block end */}
           </div>
         </div>
@@ -205,3 +247,76 @@ export async function getServerSideProps({ req, params: { id } }) {
     },
   };
 }
+
+const Alert = ({ show, setShow, confirm, setConfirm, deleteLead, lead }) => {
+  return (
+    <div className="absolute top-16 left-4 py-5">
+      {/* Code block starts */}
+      <div className="flex items-center justify-center px-4 py-6">
+        <div
+          id="alert"
+          className={
+            show
+              ? 'transition duration-150 ease-in-out w-full lg:w-full mx-auto bg-white dark:bg-gray-800 shadow py-4 md:py-0 rounded flex flex-col items-center md:flex-row  justify-between '
+              : 'transition duration-150 ease-in-out w-full lg:w-full mx-auto bg-white py-4 md:py-0 dark:bg-gray-800 shadow rounded flex flex-col items-center md:flex-row  justify-between translate-hide'
+          }
+        >
+          <div className="flex flex-col items-center md:flex-row w-full">
+            <div className="mr-3 p-4 bg-red-400  rounded md:rounded-tr-none md:rounded-br-none text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width={22}
+                height={22}
+                fill="currentColor"
+              >
+                <path
+                  className="heroicon-ui"
+                  d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 9a1 1 0 0 1-1-1V8a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1zm0 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                />
+              </svg>
+            </div>
+            <p className="mr-2 text-base font-bold text-gray-800 dark:text-gray-100 mt-2 md:my-0">
+              Delete Warning
+            </p>
+            <div className="h-1 w-1 bg-gray-300 dark:bg-gray-700 rounded-full mr-2 hidden xl:block" />
+            <p className="text-sm lg:text-base dark:text-gray-400 text-gray-600 lg:pt-1 xl:pt-0 sm:mb-0 mb-2 text-center sm:text-left px-16">
+              Are you sure you want to delete this record.
+            </p>
+          </div>
+          <div className="flex xl:items-center lg:items-center sm:justify-end justify-center pr-4 ">
+            <span
+              onClick={() => {
+                deleteLead(lead.id);
+              }}
+              className="text-sm mr-12 font-bold cursor-pointer text-indigo-50 dark:text-indigo-50"
+            >
+              Yes
+            </span>
+            <span
+              className="text-sm cursor-pointer text-gray-600 dark:text-gray-400"
+              onClick={() => {
+                setShow(false);
+              }}
+            >
+              Cancel
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Code block ends */}
+
+      <style>
+        {`
+                .translate-show{
+                    transform : translateY(0%);
+                }
+                .translate-hide{
+                    transform : translateY(18vh);
+                }
+                `}
+      </style>
+    </div>
+  );
+};

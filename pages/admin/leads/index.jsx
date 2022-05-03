@@ -19,27 +19,12 @@ const Leads = ({ leads }) => {
     router.push(`/admin/leads?term=${query}`);
   };
 
-  const deleteLead = async (id) => {
-
-alert('Are You Sure You Want To Delete This Record?')
-
-
-    const { data, error } = await supabase
-      .from('quotes')
-      .delete()
-      .eq('id', id);
-
-    if (data) {
-      router.push('/admin/leads');
-    }
-  };
-
   return (
     <Fragment>
       <Head>
         <title>Admin</title>
       </Head>
-      <div className="bg-gray-100 rounded-lg shadow-xl xl:w-3/4 2xl:w-4/5 w-full px-6 sm:px-12 py-5 sm:py-10 mx-auto my-6">
+      <div className="bg-gray-100 rounded-lg shadow-xl xl:w-3/4 2xl:w-4/5 w-full px-6 sm:px-12 py-5 sm:py-10 mx-auto my-6 relative">
         <div className="mb-5 sm:mb-10 rounded-tl-lg rounded-tr-lg">
           <div className="sm:flex items-center justify-between">
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">
@@ -99,7 +84,7 @@ alert('Are You Sure You Want To Delete This Record?')
                 </tr>
               </thead>
               <tbody className="w-full">
-                {leads?.map((lead) => (
+                {leads.map((lead) => (
                   <Link key={lead.id} passHref href={`/admin/leads/${lead.id}`}>
                     <tr className="h-20 text-sm leading-none text-gray-700 border-b border-t border-gray-200 bg-white hover:bg-gray-50 cursor-pointer px-4">
                       <td className="pl-4">
@@ -121,13 +106,6 @@ alert('Are You Sure You Want To Delete This Record?')
                               View
                             </button>
                           </Link>
-
-                          <button
-                            onClick={() => deleteLead(lead.id)}
-                            className="focus:outline-none bg-red-400 mr-5 hover:bg-red-700 py-2.5 px-5 rounded text-sm leading-3 text-gray-50"
-                          >
-                            Delete
-                          </button>
                         </div>
                       </td>
                     </tr>
@@ -173,3 +151,4 @@ export async function getServerSideProps({ req, query: { term = '' } }) {
     },
   };
 }
+
