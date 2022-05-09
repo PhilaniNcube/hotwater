@@ -4,8 +4,6 @@ import { supabaseService } from '../../../utils/supabaseService';
 import { supabase } from '../../../utils/supabase';
 
 const index = ({ leads }) => {
-  console.log(leads);
-
   return (
     <Fragment>
       <div className="sm:px-6 w-full my-8">
