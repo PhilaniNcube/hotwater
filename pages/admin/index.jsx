@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-const Admin = ({ brands, products, orders, profile, quotes }) => {
+const Admin = ({ brands, products, orders, profile, quotes, shortLeads }) => {
   const { user } = useUser();
 
   const router = useRouter();
@@ -35,7 +35,7 @@ const Admin = ({ brands, products, orders, profile, quotes }) => {
     return (
       <Fragment>
         <Cards
-          brands={brands}
+          shortLeads={shortLeads}
           products={products}
           profiles={profile}
           quotes={quotes}
@@ -86,6 +86,8 @@ export async function getServerSideProps({ req }) {
 
   let { data: quotes } = await supabaseService.from('quotes').select('*');
 
+  let { data: leads, error } = await supabaseService.from('leads').select('*');
+
   return {
     props: {
       brands,
@@ -93,6 +95,7 @@ export async function getServerSideProps({ req }) {
       products,
       profile,
       quotes,
+      shortLeads: leads,
     },
   };
 }

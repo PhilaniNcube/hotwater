@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 
-function Cards({ brands, products, orders, quotes }) {
+function Cards({ brands, products, orders, quotes, shortLeads }) {
   return (
     <Fragment>
       {/* Card is full width. Use in 12 col grid for best view. */}
@@ -41,6 +41,40 @@ function Cards({ brands, products, orders, quotes }) {
             </Fragment>
           </div>
         </Link>
+
+        <Link href="/admin/short-leads" passHref>
+          <div className="bg-white dark:bg-gray-800 rounded shadow px-8 py-6 flex items-center cursor-pointer">
+            <div className="p-4 bg-indigo-700 rounded text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-credit-card"
+                width={32}
+                height={32}
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <rect x={3} y={5} width={18} height={14} rx={3} />
+                <line x1={3} y1={10} x2={21} y2={10} />
+                <line x1={7} y1={15} x2="7.01" y2={15} />
+                <line x1={11} y1={15} x2={13} y2={15} />
+              </svg>
+            </div>
+            <div className="ml-6">
+              <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
+                {shortLeads.length}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
+                Short Leads
+              </p>
+            </div>
+          </div>
+        </Link>
+
         <Link href="/admin/products" passHref>
           <div className="bg-white dark:bg-gray-800 rounded shadow px-8 py-6 flex items-center cursor-pointer">
             <div className="p-4 bg-indigo-700 rounded text-white">
@@ -101,38 +135,6 @@ function Cards({ brands, products, orders, quotes }) {
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
                 Orders
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link href="/admin/brands" passHref>
-          <div className="bg-white dark:bg-gray-800 rounded shadow px-8 py-6 flex items-center cursor-pointer">
-            <div className="p-4 bg-indigo-700 rounded text-white">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-credit-card"
-                width={32}
-                height={32}
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <rect x={3} y={5} width={18} height={14} rx={3} />
-                <line x1={3} y1={10} x2={21} y2={10} />
-                <line x1={7} y1={15} x2="7.01" y2={15} />
-                <line x1={11} y1={15} x2={13} y2={15} />
-              </svg>
-            </div>
-            <div className="ml-6">
-              <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
-                {brands.length}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
-                Brands
               </p>
             </div>
           </div>
