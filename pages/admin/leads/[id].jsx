@@ -51,6 +51,7 @@ function Lead({ lead }) {
   } = lead;
 
   const [receipient, setReceipient] = useState('');
+  const [secondary, setSecondary] = useState('');
   const [messages, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -100,6 +101,7 @@ function Lead({ lead }) {
         installation: installation,
         messages: messages,
         receipient: receipient,
+        secondary: secondary,
       }),
     });
 
@@ -183,6 +185,24 @@ function Lead({ lead }) {
               className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700  bg-white font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
               placeholder="Placeholder"
             />
+
+            <div className="flex flex-col mt-4">
+              <label
+                htmlFor="secondary"
+                className="text-gray-800  text-sm font-bold leading-tight tracking-normal mb-2"
+              >
+                CC:Email Address
+              </label>
+              <input
+                id="secondary"
+                required
+                type="email"
+                value={secondary}
+                onChange={(e) => setSecondary(e.target.value)}
+                className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700  bg-white font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
+                placeholder="Placeholder"
+              />
+            </div>
 
             <div className="mt-8 flex flex-col xl:w-3/5 lg:w-1/2 md:w-1/2 w-full">
               <label

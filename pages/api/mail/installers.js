@@ -12,6 +12,7 @@ export default async function handler(req, res) {
 
   const {
     messages,
+    secondary,
     receipient,
     children,
     teenagers,
@@ -52,7 +53,7 @@ export default async function handler(req, res) {
   const msg = {
     to: receipient, // Change to your recipient
     from: 'info@hotwater24.com', // Change to your verified sender
-
+    cc: secondary,
     subject: 'Hotwater24 | New Geyser Installation Lead',
     text: `Thank you for answering questions about your property and gas geyser needs. We will be in touch shortly`,
     html: `
