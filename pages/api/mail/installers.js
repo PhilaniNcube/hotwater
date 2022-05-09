@@ -1072,7 +1072,5 @@ center {font-family: 'Poppins', sans-serif;}
 
   const message = await sgMail.send(msg);
 
-  console.log({ message });
-
   res.json({ data: { message } });
 }
