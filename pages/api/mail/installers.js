@@ -51,9 +51,10 @@ export default async function handler(req, res) {
   } = req.body;
 
   const msg = {
-    to: `${receipient}, info@hotwater24.com`, // Change to your recipient
+    to: receipient, // Change to your recipient
     from: 'info@hotwater24.com', // Change to your verified sender
     cc: secondary,
+    bcc: 'info@hotwater24.com',
     subject: 'Hotwater24 | New Geyser Installation Lead',
     text: `Thank you for answering questions about your property and gas geyser needs. We will be in touch shortly`,
     html: `
