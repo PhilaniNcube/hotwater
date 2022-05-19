@@ -59,6 +59,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     completeSolution,
     product_id,
     installation,
+    contactDay,
+    contactTime,
   } = quoteInfo;
 
   const queryClient = useQueryClient();
@@ -100,6 +102,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         completeSolution: completeSolution,
         product_id: product_id || null,
         installation: installation,
+        contactDay: contactDay,
+        contactTime: contactTime,
       },
     ]),
   );
@@ -153,6 +157,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             completeSolution: completeSolution,
             product_id: product_id || null,
             installation: installation,
+            contactDay: contactDay,
+            contactTime: contactTime,
           }),
         });
 

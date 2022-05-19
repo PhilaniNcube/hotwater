@@ -177,6 +177,59 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             />
           </div>
         </div>
+
+        <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
+          <div className="flex flex-col w-full">
+            <label className="text-xs font-bold" htmlFor="contactDay">
+              What day can we contact you?
+            </label>
+            <select
+              type="text"
+              name="contactDay"
+              required
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
+              value={quoteInfo.contactDay}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  contactDay: e.target.value,
+                })
+              }
+            >
+              <option value="" disabled>
+                Select Day
+              </option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+            </select>
+          </div>
+          <div className="flex flex-col w-full">
+            <label className="text-xs font-bold" htmlFor="contactTime">
+              What time can we contact you?
+            </label>
+            <select
+              type="text"
+              name="contactTime"
+              required
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
+              value={quoteInfo.contactTime}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  contactTime: e.target.value,
+                })
+              }
+            >
+              <option value="">Select Time</option>
+              <option value="8AM - 10AM">8AM - 10AM</option>
+              <option value="11AM - 1PM">11AM - 1PM</option>
+              <option value="2PM - 4PM">2PM - 4PM</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div className="flex items-center justify-center space-x-6 mt-4 mb-12">
         <div className="flex items-center justify-center space-x-6 my-3">
