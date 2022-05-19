@@ -48,6 +48,8 @@ function Lead({ lead }) {
     completeSolution,
     product_id,
     installation,
+    contactTime,
+    contactDay,
   } = lead;
 
   const [receipient, setReceipient] = useState('');
