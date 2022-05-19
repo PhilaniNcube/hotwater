@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Link from 'next/link';
 import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
 import { supabase } from '../../../utils/supabase';
@@ -73,9 +74,11 @@ const index = ({ leads }) => {
                   </td>
                   <td>
                     <div className="flex items-center">
-                      <button className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none">
-                        View
-                      </button>
+                      <Link href={`/admin/short-leads/${lead.id}`} passHref>
+                        <button className="bg-gray-100 mr-3 hover:bg-gray-200 py-2.5 px-5 rounded text-sm leading-3 text-gray-500 focus:outline-none">
+                          View
+                        </button>
+                      </Link>
                     </div>
                   </td>
                 </tr>
