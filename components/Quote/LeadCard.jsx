@@ -125,7 +125,7 @@ function LeadCard({ quote }) {
                 <p className="text-gray-600  text-sm font-normal">
                   {`Phone Number: ${quote.telephoneNumber}`}
                 </p>
-                <span className="text-gray-600 flex space-x-8 mt-3 text-xs font-normal">
+                <span className="text-gray-50 mb-2 font-medium bg-sky-800 px-4 py-1 flex space-x-8 mt-3 text-sm">
                   <p>{`Contact Day: ${quote.contactDay}`}</p>{' '}
                   <p>{`Contact Time: ${quote.contactTime}`}</p>
                 </span>
