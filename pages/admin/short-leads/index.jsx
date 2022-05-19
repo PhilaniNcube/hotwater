@@ -36,7 +36,7 @@ const index = ({ leads }) => {
                   <td className="pl-11 ">
                     <div className="flex items-center">
                       <div className="flex flex-col">
-                        <span>{`${lead.firstName} ${lead.lastName}`}</span>
+                        <span className="uppercase">{`${lead.firstName} ${lead.lastName}`}</span>
                         <p className="text-xs text-slate-500">{lead.email}</p>
                         <p className="text-xs text-slate-500">
                           {lead.phoneNumber}
