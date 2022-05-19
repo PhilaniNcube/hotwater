@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { supabase } from '../../../utils/supabase';
+import cookie from 'cookie';
 
 function ShortLead({ lead }) {
   console.log({ lead });
