@@ -201,9 +201,9 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               </option>
               <option value="Monday">Monday</option>
               <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
+
               <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
+
             </select>
           </div>
           <div className="flex flex-col w-full">
@@ -226,7 +226,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               <option value="">Select Time</option>
               <option value="8AM - 10AM">8AM - 10AM</option>
               <option value="11AM - 1PM">11AM - 1PM</option>
-              <option value="2PM - 4PM">2PM - 4PM</option>
+              <option value="2PM - 5PM">2PM - 5PM</option>
             </select>
           </div>
         </div>
