@@ -316,7 +316,7 @@ const Alert = ({ show, setShow, confirm, setConfirm, deleteLead, lead }) => {
               Yes
             </span>
             <span
-              className="text-sm cursor-pointer text-gray-600 "
+              className="text-sm cursor-pointer bg-gray-300 shadow rounded px-4 py-2 text-gray-700 "
               onClick={() => {
                 setShow(false);
               }}
