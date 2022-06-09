@@ -279,8 +279,8 @@ const Alert = ({ show, setShow, confirm, setConfirm, deleteLead, lead }) => {
           id="alert"
           className={
             show
-              ? 'transition duration-150 ease-in-out w-full lg:w-full mx-auto bg-white dark:bg-gray-800 shadow py-4 md:py-0 rounded flex flex-col items-center md:flex-row  justify-between '
-              : 'transition duration-150 ease-in-out w-full lg:w-full mx-auto bg-white py-4 md:py-0 dark:bg-gray-800 shadow rounded flex flex-col items-center md:flex-row  justify-between translate-hide'
+              ? 'transition duration-150 ease-in-out w-full lg:w-full mx-auto bg-white shadow py-4 md:py-0 rounded flex flex-col items-center md:flex-row  justify-between '
+              : 'transition duration-150 ease-in-out w-full lg:w-full mx-auto bg-white py-4 md:py-0 shadow rounded flex flex-col items-center md:flex-row  justify-between translate-hide'
           }
         >
           <div className="flex flex-col items-center md:flex-row w-full">
@@ -311,12 +311,12 @@ const Alert = ({ show, setShow, confirm, setConfirm, deleteLead, lead }) => {
               onClick={() => {
                 deleteLead(lead.id);
               }}
-              className="text-sm mr-12 font-bold cursor-pointer text-indigo-50 dark:text-indigo-50"
+              className="text-sm mr-12 font-bold cursor-pointer text-gray-50 bg-red-500 "
             >
               Yes
             </span>
             <span
-              className="text-sm cursor-pointer text-gray-600 dark:text-gray-400"
+              className="text-sm cursor-pointer text-gray-600 "
               onClick={() => {
                 setShow(false);
               }}

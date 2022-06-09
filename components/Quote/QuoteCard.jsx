@@ -50,8 +50,11 @@ function Index({ quote }) {
                       {quote.bathtub}
                     </p>
                   </div>
+                    
 
-                  <div className="mb-2 flex items-center justify-between">
+                    {/***
+                     * ********************************
+                     *   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                       Dishwashers
                     </p>
@@ -59,6 +62,9 @@ function Index({ quote }) {
                       {quote.dishwasher}
                     </p>
                   </div>
+                     * 
+                     */}
+                
 
                   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
@@ -85,7 +91,9 @@ function Index({ quote }) {
                       {quote.standardShower}
                     </p>
                   </div>
-                  <div className="mb-2 flex items-center justify-between">
+
+                   {/****
+                    *    <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                       Washing Machine
                     </p>
@@ -93,6 +101,12 @@ function Index({ quote }) {
                       {quote.washingmachine}
                     </p>
                   </div>
+                    * 
+                    * 
+                    */}
+
+
+               
                 </div>
               </div>
               <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 sm:border-l sm:border-r border-gray-300">

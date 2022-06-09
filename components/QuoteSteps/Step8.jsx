@@ -92,18 +92,16 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     let rainShowerFlow = quoteInfo.rainShower * 12.84;
     let bathtubFlow = quoteInfo.bathtub * 4.98;
     let sinkFlow = quoteInfo.sink * 4.98;
-    let dishwasherFlow = quoteInfo.dishwasher * 10.02;
-    let washingmachineFlow = quoteInfo.washingmachine * 10.02;
+   // let dishwasherFlow = quoteInfo.dishwasher * 10.02;
+   //  let washingmachineFlow = quoteInfo.washingmachine * 10.02;
 
     let rate =
       showerFlow +
       rainShowerFlow +
       bathtubFlow +
-      sinkFlow +
-      dishwasherFlow +
-      washingmachineFlow;
+      sinkFlow;
 
-    let totalFowRate = rate * 0.6;
+    let totalFowRate = rate * 0.80;
 
     setQuoteInfo({ ...quoteInfo, flowRate: +totalFowRate.toFixed(2) });
   };
@@ -261,7 +259,14 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </div>
         </div>
-        <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+
+
+       
+
+        {/** 
+         * 
+         * 
+         *  <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img
             className="h-16 w-16"
             alt=""
@@ -300,7 +305,10 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </div>
         </div>
-        <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+         * 
+         * 
+         * 
+         *  <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img
             className="h-16 w-16"
             alt=""
@@ -339,6 +347,11 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </div>
         </div>
+         * 
+         * **/}
+       
+
+
       </div>
 
       <p className="text-xs text-center text-blue-500 font-bold">
@@ -350,9 +363,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         {quoteInfo.standardShower !== 0 ||
         quoteInfo.rainShower !== 0 ||
         quoteInfo.sink !== 0 ||
-        quoteInfo.bathtub !== 0 ||
-        quoteInfo.washingmachine !== 0 ||
-        quoteInfo.dishwasher !== 0 ? (
+        quoteInfo.bathtub !== 0 ? (
           <Fragment>
             {' '}
             <svg
