@@ -311,7 +311,7 @@ const Alert = ({ show, setShow, confirm, setConfirm, deleteLead, lead }) => {
               onClick={() => {
                 deleteLead(lead.id);
               }}
-              className="text-sm mr-12 font-bold cursor-pointer text-gray-50 bg-red-500 "
+              className="text-sm mr-12 font-bold cursor-pointer text-gray-200 px-4 py-2 rounded bg-red-500 "
             >
               Yes
             </span>
