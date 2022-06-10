@@ -91,7 +91,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     let showerFlow = quoteInfo.standardShower * 6.42;
     let rainShowerFlow = quoteInfo.rainShower * 12.84;
     let bathtubFlow = quoteInfo.bathtub * 4.98;
-    let sinkFlow = quoteInfo.sink * 4.98;
+    let sinkFlow = quoteInfo.sink * 2.52;
    // let dishwasherFlow = quoteInfo.dishwasher * 10.02;
    //  let washingmachineFlow = quoteInfo.washingmachine * 10.02;
 
