@@ -64,10 +64,18 @@ function LeadCard({ quote }) {
 
                   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                      Dishwashers
+                      Kitchen Sinks
                     </p>
                     <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                      {quote.dishwasher}
+                      {quote.kitchenSink}
+                    </p>
+                  </div>
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Bathroom Sinks
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.bathroomSink}
                     </p>
                   </div>
 
@@ -82,26 +90,10 @@ function LeadCard({ quote }) {
 
                   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                      Sinks
-                    </p>
-                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                      {quote.sink}
-                    </p>
-                  </div>
-                  <div className="mb-2 flex items-center justify-between">
-                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                       Standard Showers
                     </p>
                     <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
                       {quote.standardShower}
-                    </p>
-                  </div>
-                  <div className="mb-2 flex items-center justify-between">
-                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                      Washing Machine
-                    </p>
-                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                      {quote.washingmachine}
                     </p>
                   </div>
                 </div>
