@@ -50,9 +50,8 @@ function Index({ quote }) {
                       {quote.bathtub}
                     </p>
                   </div>
-                    
 
-                    {/***
+                  {/***
                      * ********************************
                      *   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
@@ -64,7 +63,6 @@ function Index({ quote }) {
                   </div>
                      * 
                      */}
-                
 
                   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
@@ -77,10 +75,18 @@ function Index({ quote }) {
 
                   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                      Sinks
+                      Kitchen Sinks
                     </p>
                     <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                      {quote.sink}
+                      {quote.kitchenSink}
+                    </p>
+                  </div>
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Bathroom Sinks
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.bathroomSink}
                     </p>
                   </div>
                   <div className="mb-2 flex items-center justify-between">
@@ -92,7 +98,7 @@ function Index({ quote }) {
                     </p>
                   </div>
 
-                   {/****
+                  {/****
                     *    <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                       Washing Machine
@@ -104,9 +110,6 @@ function Index({ quote }) {
                     * 
                     * 
                     */}
-
-
-               
                 </div>
               </div>
               <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 sm:border-l sm:border-r border-gray-300">

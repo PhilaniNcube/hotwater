@@ -44,27 +44,27 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     setInteraction(true);
   };
 
-  const incrementSink = () => {
-    const qty = quoteInfo.sink + 1;
-    setQuoteInfo({ ...quoteInfo, sink: qty });
+  const incrementBathroomSink = () => {
+    const qty = quoteInfo.bathroomSink + 1;
+    setQuoteInfo({ ...quoteInfo, bathroomSink: qty });
     setInteraction(true);
   };
 
-  const decrementSink = () => {
-    const qty = quoteInfo.sink - 1;
-    setQuoteInfo({ ...quoteInfo, sink: qty });
+  const decrementBathroomSink = () => {
+    const qty = quoteInfo.bathroomSink - 1;
+    setQuoteInfo({ ...quoteInfo, bathroomSink: qty });
     setInteraction(true);
   };
 
-  const incrementDishwasher = () => {
-    const qty = quoteInfo.dishwasher + 1;
-    setQuoteInfo({ ...quoteInfo, dishwasher: qty });
+  const incrementKitchenSink = () => {
+    const qty = quoteInfo.kitchenSink + 1;
+    setQuoteInfo({ ...quoteInfo, kitchenSink: qty });
     setInteraction(true);
   };
 
-  const decrementDishwasher = () => {
-    const qty = quoteInfo.dishwasher - 1;
-    setQuoteInfo({ ...quoteInfo, dishwasher: qty });
+  const decrementKitchenSink = () => {
+    const qty = quoteInfo.kitchenSink - 1;
+    setQuoteInfo({ ...quoteInfo, kitchenSink: qty });
     setInteraction(true);
   };
 
@@ -91,17 +91,19 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     let showerFlow = quoteInfo.standardShower * 6.42;
     let rainShowerFlow = quoteInfo.rainShower * 12.84;
     let bathtubFlow = quoteInfo.bathtub * 4.98;
-    let sinkFlow = quoteInfo.sink * 2.52;
-   // let dishwasherFlow = quoteInfo.dishwasher * 10.02;
-   //  let washingmachineFlow = quoteInfo.washingmachine * 10.02;
+    let bathroomSinkFlow = quoteInfo.bathroomSink * 2.52;
+    let kitchenSinkFlow = quoteInfo.kitchenSink * 4.98;
+    // let dishwasherFlow = quoteInfo.dishwasher * 10.02;
+    //  let washingmachineFlow = quoteInfo.washingmachine * 10.02;
 
     let rate =
       showerFlow +
       rainShowerFlow +
       bathtubFlow +
-      sinkFlow;
+      bathroomSinkFlow +
+      kitchenSinkFlow;
 
-    let totalFowRate = rate * 0.80;
+    let totalFowRate = rate * 0.8;
 
     setQuoteInfo({ ...quoteInfo, flowRate: +totalFowRate.toFixed(2) });
   };
@@ -116,8 +118,8 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         How many of these warm water outlets do you have in your house?
       </p>
 
-      <div className="py-8 max-w-3xl mx-auto flex flex-col items-center md:grid  justify-center md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
-        <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+      <div className="py-8 max-w-3xl mx-auto flex flex-col items-center md:flex-row md:justify-between justify-center md:flex-wrap gap-y-8">
+        <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img className="h-16 w-16" alt="" src="/images/icons/shower.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
             Standard shower
@@ -152,7 +154,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </div>
         </div>
-        <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+        <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img
             className="h-16 w-16"
             alt=""
@@ -191,42 +193,8 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </div>
         </div>
-        <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
-          <img className="h-16 w-16" alt="" src="/images/icons/sink.svg" />
-          <p className="text-lg text-center text-sky-500 font-bold">
-            Bathroom/Kitchen sinks
-          </p>
-          <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
-            <button
-              disabled={quoteInfo.sink === 0}
-              onClick={decrementSink}
-              data-action="decrement"
-              className=" bg-transparent text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-l cursor-pointer outline-none"
-            >
-              <span className="m-auto text-2xl font-thin">−</span>
-            </button>
-            <input
-              type="number"
-              onChange={(e) =>
-                setQuoteInfo({ ...quoteInfo, sink: e.target.value })
-              }
-              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default hidden items-center text-gray-700  outline-none"
-              name="custom-input-number"
-              value={quoteInfo.sink}
-            ></input>
-            <p className="h-10 w-10 flex justify-center items-center">
-              {quoteInfo.sink}
-            </p>
-            <button
-              data-action="increment"
-              onClick={incrementSink}
-              className="bg-transparent text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-r cursor-pointer"
-            >
-              <span className="m-auto text-2xl font-thin">+</span>
-            </button>
-          </div>
-        </div>
-        <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+
+        <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img className="h-16 w-16" alt="" src="/images/icons/bath.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">Bathtubs</p>
           <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
@@ -260,13 +228,82 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </div>
         </div>
 
+        <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+          <img className="h-16 w-16" alt="" src="/images/icons/sink.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">
+            Kitchen sinks
+          </p>
+          <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
+            <button
+              disabled={quoteInfo.kitchenSink === 0}
+              onClick={decrementKitchenSink}
+              data-action="decrement"
+              className=" bg-transparent text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-l cursor-pointer outline-none"
+            >
+              <span className="m-auto text-2xl font-thin">−</span>
+            </button>
+            <input
+              type="number"
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, kitchenSink: e.target.value })
+              }
+              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default hidden items-center text-gray-700  outline-none"
+              name="custom-input-number"
+              value={quoteInfo.kitchenSink}
+            ></input>
+            <p className="h-10 w-10 flex justify-center items-center">
+              {quoteInfo.kitchenSink}
+            </p>
+            <button
+              data-action="increment"
+              onClick={incrementKitchenSink}
+              className="bg-transparent text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-r cursor-pointer"
+            >
+              <span className="m-auto text-2xl font-thin">+</span>
+            </button>
+          </div>
+        </div>
 
-       
+        <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+          <img className="h-16 w-16" alt="" src="/images/icons/sink.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">
+            Bathroom sinks
+          </p>
+          <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
+            <button
+              disabled={quoteInfo.bathroomSink === 0}
+              onClick={decrementBathroomSink}
+              data-action="decrement"
+              className=" bg-transparent text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-l cursor-pointer outline-none"
+            >
+              <span className="m-auto text-2xl font-thin">−</span>
+            </button>
+            <input
+              type="number"
+              onChange={(e) =>
+                setQuoteInfo({ ...quoteInfo, bathroomSink: e.target.value })
+              }
+              className="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default hidden items-center text-gray-700  outline-none"
+              name="custom-input-number"
+              value={quoteInfo.bathroomSink}
+            ></input>
+            <p className="h-10 w-10 flex justify-center items-center">
+              {quoteInfo.bathroomSink}
+            </p>
+            <button
+              data-action="increment"
+              onClick={incrementBathroomSink}
+              className="bg-transparent text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-10 rounded-r cursor-pointer"
+            >
+              <span className="m-auto text-2xl font-thin">+</span>
+            </button>
+          </div>
+        </div>
 
         {/** 
          * 
          * 
-         *  <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+         *  <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img
             className="h-16 w-16"
             alt=""
@@ -308,7 +345,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
          * 
          * 
          * 
-         *  <div className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
+         *  <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img
             className="h-16 w-16"
             alt=""
@@ -349,15 +386,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
          * 
          * **/}
-       
-
-
       </div>
-
-      <p className="text-xs text-center text-blue-500 font-bold">
-        *Hotfill means that hot water is coming directly from the geyser. The
-        machine often has a cold and warm water inlet.
-      </p>
 
       <div className="flex items-center justify-center space-x-6 my-3">
         {quoteInfo.standardShower !== 0 ||
