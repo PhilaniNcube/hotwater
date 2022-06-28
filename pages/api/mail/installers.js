@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     rainShower,
     bathtub,
     kitchenSink,
-    bathroonSink,
+    bathroomSink,
     dishwasher,
     washingmachine,
     flowRate,
