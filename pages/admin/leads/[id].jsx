@@ -118,10 +118,7 @@ function Lead({ lead }) {
 
   const deleteLead = async (id) => {
     console.log('delete');
-    const { data, error } = await supabase
-      .from('quotes')
-      .delete()
-      .eq('id', id);
+    const { data, error } = await supabase.from('quotes').delete().eq('id', id);
 
     if (data) {
       router.push('/admin/leads');
@@ -187,7 +184,7 @@ function Lead({ lead }) {
               value={receipient}
               onChange={(e) => setReceipient(e.target.value)}
               className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700  bg-white font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
-              placeholder="Placeholder"
+              placeholder="Primary Email Address"
             />
 
             <div className="flex flex-col mt-4">
@@ -199,12 +196,11 @@ function Lead({ lead }) {
               </label>
               <input
                 id="secondary"
-                required
                 type="email"
                 value={secondary}
                 onChange={(e) => setSecondary(e.target.value)}
                 className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700  bg-white font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
-                placeholder="Placeholder"
+                placeholder="Email Addresss"
               />
             </div>
 
