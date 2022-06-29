@@ -19,7 +19,7 @@ function Index({ quote }) {
    } else {
     setGeyserPrice((12200*1.15))
    }
- },[])
+ },[quote.flowRate])
 
   return (
     <Fragment>
