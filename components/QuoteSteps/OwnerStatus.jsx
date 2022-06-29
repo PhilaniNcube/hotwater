@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 
-const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const OwnerStatus = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   const [interaction, setInteraction] = useState(false);
@@ -129,4 +129,4 @@ const Step3 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step3;
+export default OwnerStatus;

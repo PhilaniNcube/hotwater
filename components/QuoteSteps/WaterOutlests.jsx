@@ -4,7 +4,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { supabase } from '../../utils/supabase';
 
-const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const WaterOutlets = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
   const [interaction, setInteraction] = useState(false);
 
@@ -88,11 +88,11 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   // flowRate: 0,
 
   const calculateFlowRate = () => {
-    let showerFlow = quoteInfo.standardShower * 6.42;
-    let rainShowerFlow = quoteInfo.rainShower * 12.84;
-    let bathtubFlow = quoteInfo.bathtub * 4.98;
-    let bathroomSinkFlow = quoteInfo.bathroomSink * 2.52;
-    let kitchenSinkFlow = quoteInfo.kitchenSink * 4.98;
+    let showerFlow = quoteInfo.standardShower * 6.5;
+    let rainShowerFlow = quoteInfo.rainShower * 12.5;
+    let kitchenSinkFlow = quoteInfo.kitchenSink * 5;
+    let bathtubFlow = quoteInfo.bathtub * 5;
+    let bathroomSinkFlow = quoteInfo.bathroomSink * 2.5;
     // let dishwasherFlow = quoteInfo.dishwasher * 10.02;
     //  let washingmachineFlow = quoteInfo.washingmachine * 10.02;
 
@@ -300,9 +300,9 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </div>
         </div>
 
-        {/** 
-         * 
-         * 
+        {/**
+         *
+         *
          *  <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img
             className="h-16 w-16"
@@ -342,9 +342,9 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </div>
         </div>
-         * 
-         * 
-         * 
+         *
+         *
+         *
          *  <div className="relative h-[200px] w-[230px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer">
           <img
             className="h-16 w-16"
@@ -384,7 +384,7 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             </button>
           </div>
         </div>
-         * 
+         *
          * **/}
       </div>
 
@@ -447,4 +447,4 @@ const Step8 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step8;
+export default WaterOutlets;

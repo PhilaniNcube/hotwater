@@ -2,7 +2,7 @@
 import React, { Fragment, useState } from 'react';
 import Step2Modal from '../Modals/Step2Modal';
 
-const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const PropertyType = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   const [other, setOther] = useState(false);
@@ -279,4 +279,4 @@ const Step2 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step2;
+export default PropertyType;

@@ -1,83 +1,50 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
+import Step5Modal from '../Modals/Step5Modal';
 
-const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
-  const [tooltipStatus, setTooltipStatus] = useState(0);
-  const [interaction, setInteraction] = useState(false);
+const GasUse = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
+  const [interaction, setInteraction] = useState(false);
+
+  const [show, setShow] = useState(false);
+
+  const setGasUse = (type) => {
+    setQuoteInfo({ ...quoteInfo, otherGasUse: type });
+  };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <div className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-        Geyser Location
+        Intended gas use
       </h1>
-      <div className="flex justify-center items-center">
-        <p className="py-3 text-center pr-2">
-          Can the geyser be installed on an outside wall of the building?
-        </p>
-        <div
-          className="relative mt-20 md:mt-0"
-          onMouseEnter={() => setTooltipStatus(1)}
-          onMouseLeave={() => setTooltipStatus(0)}
-        >
-          <div className="mr-2 cursor-pointer">
-            <svg
-              aria-haspopup="true"
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-info-circle text-sky-600"
-              width={25}
-              height={25}
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentcolor"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <circle cx={12} cy={12} r={9} />
-              <line x1={12} y1={8} x2="12.01" y2={8} />
-              <polyline points="11 12 12 12 12 16 13 16" />
-            </svg>
-          </div>
-          {tooltipStatus == 1 && (
-            <div
-              role="tooltip"
-              className="z-20 mt-4 -translate-x-[200px] md:-translate-x-[400px] w-[300px] h-[300px] md:w-[400px] md:h-[400px] absolute transition duration-150 ease-in-out left-0 ml-8 shadow-lg bg-white p-4 rounded"
-            >
-              <p className="text-sm font-bold text-gray-800 pb-1 text-center">
-                Geyser Dimensions
-              </p>
-              <p className="text-xs leading-4 text-gray-600 pb-3 text-center">
-                Please take note of the overall dimensions of an average size
-                geyser:
-              </p>
-              <div className="flex justify-center items-center">
-                <div className="flex flex-col justify-center items-center">
-                  <img
-                    className="h-[200px] w-[200px] md:w-[300px] md:h-[300px]"
-                    alt=""
-                    src="/images/icons/geyser.svg"
-                  />
-                </div>
-              </div>
-            </div>
-          )}{' '}
-        </div>
-      </div>
 
-      <div className="py-8 max-w-6xl mx-auto flex flex-col items-center md:flex-row justify-center space-y-8 md:space-y-0 lg:space-x-6">
+      {show && (
+        <Step5Modal
+          show={show}
+          setShow={setShow}
+          setGasUse={setGasUse}
+          page={page}
+          setQuoteInfo={setQuoteInfo}
+          quoteInfo={quoteInfo}
+        />
+      )}
+
+      <p className="py-3 px-4 text-center">
+        For which purpose(s) do you intend to use gas in your home/property?
+      </p>
+
+      <div className="py-8 max-w-6xl mx-auto flex flex-wrap justify-around space-y-8  lg:space-y-0 lg:space-x-4">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              locateOutside: true,
+              gasStove: !quoteInfo.gasStove,
             });
             setInteraction(true);
           }}
         >
-          {quoteInfo.locateOutside && (
+          {quoteInfo.gasStove && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -91,20 +58,20 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
-          <img className="h-16 w-16" alt="" src="/images/icons/check.svg" />
-          <p className="text-lg text-center text-sky-500 font-bold">Yes</p>
+          <img className="h-16 w-16" alt="" src="/images/icons/stove.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">Cooking</p>
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => {
             setQuoteInfo({
               ...quoteInfo,
-              locateOutside: false,
+              gasWaterHeating: !quoteInfo.gasWaterHeating,
             });
             setInteraction(true);
           }}
         >
-          {quoteInfo.locateOutside === false && (
+          {quoteInfo.gasWaterHeating && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -118,12 +85,65 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               />
             </svg>
           )}
-          <img className="h-16 w-16" alt="" src="/images/icons/close.svg" />
-          <p className="text-lg text-center text-sky-500 font-bold">No</p>
+          <img className="h-16 w-16" alt="" src="/images/icons/under.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">
+            Water heating
+          </p>
+        </div>
+        <div
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          onClick={() => {
+            setQuoteInfo({
+              ...quoteInfo,
+              gasHeating: !quoteInfo.gasHeating,
+            });
+            setInteraction(true);
+          }}
+        >
+          {quoteInfo.gasHeating && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 absolute top-2 right-2 text-sky-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
+            </svg>
+          )}
+          <img className="h-16 w-16" alt="" src="/images/icons/heater.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">Heating</p>
+        </div>
+        <div
+          className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
+          onClick={() => setShow(true)}
+        >
+          {quoteInfo.otherGasUse && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 absolute top-2 right-2 text-sky-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
+            </svg>
+          )}
+          <img className="h-16 w-16" alt="" src="/images/icons/dots.svg" />
+          <p className="text-lg text-center text-sky-500 font-bold">Other</p>
         </div>
       </div>
-      <div className="flex items-center justify-center space-x-6 my-3">
-        {quoteInfo.locateOutside !== null ? (
+      <div className="flex items-center justify-center my-3 space-x-6">
+        {quoteInfo.gasStove !== null ||
+        quoteInfo.gasWaterHeating !== null ||
+        quoteInfo.gasHeating !== null ||
+        quoteInfo.otherGasUse !== '' ? (
           <Fragment>
             {' '}
             <svg
@@ -175,4 +195,4 @@ const Step6 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step6;
+export default GasUse;

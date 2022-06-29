@@ -2,7 +2,7 @@
 import React, { Fragment, useState } from 'react';
 import Step7Modal from '../Modals/Step7Modal';
 
-const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const WaterHeating = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
   const [show, setShow] = useState(false);
 
@@ -194,4 +194,4 @@ const Step7 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step7;
+export default WaterHeating;

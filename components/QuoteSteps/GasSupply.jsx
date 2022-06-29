@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 
-const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const GasSupply = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   const [interaction, setInteraction] = useState(false);
@@ -144,4 +144,4 @@ const Step4 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step4;
+export default GasSupply;

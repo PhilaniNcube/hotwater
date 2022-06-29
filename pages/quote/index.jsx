@@ -1,16 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { Fragment, useState } from 'react';
-import Step1 from '../../components/QuoteSteps/Step1';
-import Step2 from '../../components/QuoteSteps/Step2';
-import Step3 from '../../components/QuoteSteps/Step3';
-import Step4 from '../../components/QuoteSteps/Step4';
-import Step5 from '../../components/QuoteSteps/Step5';
-import Step6 from '../../components/QuoteSteps/Step6';
+import PropertyType from '../../components/QuoteSteps/PropertyType';
 import Confirm from '../../components/QuoteSteps/Confirm';
 import PageTransitions from '../../components/PageTransitions';
-import Step7 from '../../components/QuoteSteps/Step7';
-import Step8 from '../../components/QuoteSteps/Step8';
-import Step9 from '../../components/QuoteSteps/Step9';
 import Step10 from '../../components/QuoteSteps/Step10';
 import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
@@ -22,6 +14,13 @@ import getProducts from '../../lib/getProducts';
 import { useQuery } from 'react-query';
 import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
+import OwnerStatus from '../../components/QuoteSteps/OwnerStatus';
+import GasSupply from '../../components/QuoteSteps/GasSupply';
+import GasUse from '../../components/QuoteSteps/GasUse';
+import WaterHeating from '../../components/QuoteSteps/WaterHeating';
+import WaterOutlets from '../../components/QuoteSteps/WaterOutlests';
+import Recommendations from '../../components/QuoteSteps/Recommendations';
+import Savings from '../../components/QuoteSteps/Savings';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -151,8 +150,9 @@ const index = ({ initialProducts }) => {
           }}
         />
       </Head>
+
       {page === 1 && (
-        <Step1
+        <PropertyType
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -161,7 +161,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 2 && (
-        <Step2
+        <OwnerStatus
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -170,7 +170,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 3 && (
-        <Step3
+        <GasSupply
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -179,7 +179,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 4 && (
-        <Step4
+        <GasUse
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -188,7 +188,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 5 && (
-        <Step5
+        <WaterHeating
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -196,8 +196,9 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
+
       {page === 6 && (
-        <Step6
+        <WaterOutlets
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -206,7 +207,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 7 && (
-        <Step7
+        <Recommendations
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -215,16 +216,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 8 && (
-        <Step8
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 9 && (
-        <Step9
+        <Savings
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
