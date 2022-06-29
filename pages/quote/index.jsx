@@ -8,8 +8,6 @@ import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
-
-import Step12 from '../../components/QuoteSteps/Step12';
 import getProducts from '../../lib/getProducts';
 import { useQuery } from 'react-query';
 import analytics from '../../utils/analytics';
@@ -23,6 +21,7 @@ import Recommendations from '../../components/QuoteSteps/Recommendations';
 import Savings from '../../components/QuoteSteps/Savings';
 import Financing from '../../components/QuoteSteps/Financing';
 import PersonalDetails from '../../components/QuoteSteps/PersonalDetails';
+import Summary from '../../components/QuoteSteps/Summary';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -258,7 +257,7 @@ const index = ({ initialProducts }) => {
       )}
 
       {page === 12 && (
-        <Step12
+        <Summary
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}

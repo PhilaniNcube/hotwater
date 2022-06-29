@@ -164,38 +164,22 @@ function LeadCard({ quote }) {
                         {quote.installation ? 'Yes' : 'No'}
                       </span>
                     </li>
+                     <li className="text-xs text-gray-600  font-normal tracking-normal">
+                      Mobicred Financing -{' '}
+                      <span className="uppercase font-bold">
+                        {quote.financing ? 'Yes' : 'No'}
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
-                <h3 className="text-gray-600 font-bold text-lg">
-                  Household Size:
-                </h3>
+                 <h3 className="font-bold text-lg text-gray-600">Estimated Cost</h3>
                 <div className="flex items-center border-t-2 justify-between py-2">
-                  <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
-                      Children
-                    </h2>
-                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
-                      {quote.children}
-                    </h2>
-                  </div>
-                  <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
-                      Teenagers
-                    </h2>
-                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
-                      {quote.teenagers}
-                    </h2>
-                  </div>
-                  <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
-                      Adults
-                    </h2>
-                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
-                      {quote.adults}
-                    </h2>
-                  </div>
+
+              <h3 className="text-sm text-green-700">Geyser Cost: {formatter.format(geyserPrice)}</h3>
+              <h3 className="text-sm text-orange-700">Approx Installation Cost: {formatter.format(5000*1.15)} - {formatter.format(8000*1.15)}</h3>
+              <h3 className="text-sm text-violet-700 mb-3">Approx Plumbing Cost: {formatter.format(2500 * 1.15)} - {formatter.format(4000 * 1.15)}</h3>
                 </div>
 
                 <h3 className="text-gray-600 font-bold text-lg">

@@ -192,6 +192,12 @@ function Index({ quote }) {
                         {quote.installation ? 'Yes' : 'No'}
                       </span>
                     </li>
+                    <li className="text-xs text-gray-600  font-normal tracking-normal">
+                      Mobicred Financing -{' '}
+                      <span className="uppercase font-bold">
+                        {quote.financing ? 'Yes' : 'No'}
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>

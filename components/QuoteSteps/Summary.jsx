@@ -11,7 +11,7 @@ import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
 import QuoteCard from '../Quote/QuoteCard';
 
-const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const [loading, setLoading] = useState(false);
 
   console.log('Step', page, quoteInfo);
@@ -62,6 +62,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     installation,
     contactDay,
     contactTime,
+    financing
   } = quoteInfo;
 
   const queryClient = useQueryClient();
@@ -106,6 +107,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         installation: installation,
         contactDay: contactDay,
         contactTime: contactTime,
+        financing: financing
       },
     ]),
   );
@@ -162,6 +164,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             installation: installation,
             contactDay: contactDay,
             contactTime: contactTime,
+            financing:financing
           }),
         });
 
@@ -221,4 +224,4 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step11;
+export default Summary;
