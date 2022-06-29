@@ -29,6 +29,8 @@ const [geyserPrice, setGeyserPrice] = useState();
      useEffect(() => {
 
    if(quoteInfo.flowRate < 12) {
+
+
    setGeyserPrice((5200*1.15) + (750*1.15))
    } else if (quoteInfo.flowRate >= 12 && quoteInfo.flowRate < 16) {
     setGeyserPrice((6800*1.15) + (820*1.15))
@@ -132,24 +134,34 @@ const [geyserPrice, setGeyserPrice] = useState();
           <div className="text-lg md:text-xl  font-medium text-center text-sky-600">
 
           </div>
+          {quoteInfo.flowRate < 26 && (
+            <div className="flex gap-y-6 flex-col md:flex-row md:gap-x-6">
 
-              <div
-                ref={ref}
-                id="chart"
-                className="bg-sky-200 my-3 mx-auto w-[300px] flex justify-center items-center h-[350px] shadow-md rounded-lg relative"
-                >
-                <div className="absolute inset-0 flex flex-col justify-center items-center">
+                  <div
+                      ref={ref}
+                      id="chart"
+                      className="bg-sky-200 my-3 mx-auto w-[300px] flex justify-center items-center h-[350px] shadow-md rounded-lg relative"
+                      >
 
-                <p className="text-sm text-gray-700 font-semibold">Approx. Cost</p>
+                            <svg className="mx-auto w-full" ref={pieChart}></svg>
+                    </div>
+                  <div>
+                    <div className="flex flex-col h-full max-w-[350px] justify-center items-center">
 
-                <p className="text-xs font-medium text-center px-2 rounded py-1 text-white" style={{backgroundColor: '#ffaB22'}}>Geyser Cost: {formatter.format(parseInt(geyserPrice))}* </p>
-                <p className="text-xs font-medium text-center px-2 rounded py-1 mt-1 text-white" style={{backgroundColor: '#134e6f'}}>Installation Cost: {formatter.format(5000)}* </p>
-                <p className="text-xs font-medium text-center px-2 rounded py-1 mt-1 text-white" style={{backgroundColor: '#134500'}}>Plumbing Cost: {formatter.format(2500)}* </p>
-                </div>
-        <svg className="mx-auto w-full" ref={pieChart}></svg>
+                            <p className="text-sm text-gray-700 font-semibold">Approx. Cost</p>
+
+                            <p className="text-md font-medium text-center px-2 rounded py-1 text-white" style={{backgroundColor: '#ffaB22'}}>Geyser Cost: {formatter.format(parseInt(geyserPrice))}** </p>
+                            <p className="text-md font-medium text-center px-2 rounded py-1 mt-1 text-white" style={{backgroundColor: '#134e6f'}}>Installation Cost: Between {formatter.format(5000*1.15)} - {formatter.format(8000*1.15)}** </p>
+                            <p className="text-md font-medium text-center px-2 rounded py-1 mt-1 text-white" style={{backgroundColor: '#134500'}}>Plumbing Cost: Between {formatter.format(2500 * 1.15)} - {formatter.format(4000 * 1.15)}** </p>
+
+                            <p className="text-gray-700 text-xs">** Costs are based on estimates, which are based on information provided and fluctuating factors (mileage, size and set-up of property). These estimates are not a promise or guarantee of a customer’s savings. 
+                            </p>
+                    </div>
+                  </div>
+              </div>
+        )}
 
 
-        </div>
 
            <p className=" text-white bg-red-500 text-xs text-center my-1 px-2 py-1 rounded-lg">*Above prices are estimates and include VAT</p>
 

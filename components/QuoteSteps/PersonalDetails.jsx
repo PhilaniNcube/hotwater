@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useUser } from '../../Context/AuthContext';
 import { supabase } from '../../utils/supabase';
 
-const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   return (
@@ -224,7 +224,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               }
             >
               <option value="">Select Time</option>
-              <option value="8AM - 10AM">8AM - 10AM</option>
+              <option value="9AM - 11AM">9AM - 11AM</option>
               <option value="11AM - 1PM">11AM - 1PM</option>
               <option value="2PM - 5PM">2PM - 5PM</option>
             </select>
@@ -292,4 +292,4 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step10;
+export default PersonalDetails;

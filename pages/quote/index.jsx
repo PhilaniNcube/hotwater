@@ -8,7 +8,7 @@ import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
-import Step11 from '../../components/QuoteSteps/Step11';
+
 import Step12 from '../../components/QuoteSteps/Step12';
 import getProducts from '../../lib/getProducts';
 import { useQuery } from 'react-query';
@@ -21,6 +21,8 @@ import WaterHeating from '../../components/QuoteSteps/WaterHeating';
 import WaterOutlets from '../../components/QuoteSteps/WaterOutlests';
 import Recommendations from '../../components/QuoteSteps/Recommendations';
 import Savings from '../../components/QuoteSteps/Savings';
+import Financing from '../../components/QuoteSteps/Financing';
+import PersonalDetails from '../../components/QuoteSteps/PersonalDetails';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -69,6 +71,8 @@ const index = ({ initialProducts }) => {
     installation: null,
     contactDay: '',
     contactTime: '',
+    financing: false,
+    geyserPrice: null
   });
 
   const nextPage = () => {
@@ -224,6 +228,15 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
+      {page === 9 && (
+        <Financing
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
       {page === 10 && (
         <Step10
           quoteInfo={quoteInfo}
@@ -235,7 +248,7 @@ const index = ({ initialProducts }) => {
       )}
 
       {page === 11 && (
-        <Step11
+        <PersonalDetails
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}

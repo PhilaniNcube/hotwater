@@ -1,8 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
+import formatter from '../../lib/format';
 
 function Index({ quote }) {
+
+ const [geyserPrice, setGeyserPrice] = useState();
+
+ useEffect(() => {
+  if(quote.flowRate < 12) {
+
+
+   setGeyserPrice((5200*1.15) + (750*1.15))
+   } else if (quote.flowRate >= 12 && quote.flowRate < 16) {
+    setGeyserPrice((6800*1.15) + (820*1.15))
+   } else if (quote.flowRate >= 16 && quote.flowRate < 20) {
+    setGeyserPrice((11200*1.15))
+   } else {
+    setGeyserPrice((12200*1.15))
+   }
+ },[])
+
   return (
     <Fragment>
       <div className="w-full bg-gray-200 py-4">
@@ -61,7 +79,7 @@ function Index({ quote }) {
                       {quote.dishwasher}
                     </p>
                   </div>
-                     * 
+                     *
                      */}
 
                   <div className="mb-2 flex items-center justify-between">
@@ -107,8 +125,8 @@ function Index({ quote }) {
                       {quote.washingmachine}
                     </p>
                   </div>
-                    * 
-                    * 
+                    *
+                    *
                     */}
                 </div>
               </div>
@@ -178,9 +196,17 @@ function Index({ quote }) {
                 </div>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
+
+              <h3 className="font-bold text-lg text-gray-600">Estimated Cost</h3>
+              <h3 className="text-sm text-green-700">Geyser Cost: {formatter.format(geyserPrice)}</h3>
+              <h3 className="text-sm text-orange-700">Approx Installation Cost: {formatter.format(5000*1.15)} - {formatter.format(8000*1.15)}</h3>
+              <h3 className="text-sm text-violet-700 mb-3">Approx Plumbing Cost: {formatter.format(2500 * 1.15)} - {formatter.format(4000 * 1.15)}</h3>
+
+                {/**
                 <h3 className="text-gray-600 font-bold text-lg">
                   Household Size:
                 </h3>
+
                 <div className="flex items-center border-t-2 justify-between py-2">
                   <div>
                     <h2 className="text-gray-800  leading-5 text-center">
@@ -207,6 +233,7 @@ function Index({ quote }) {
                     </h2>
                   </div>
                 </div>
+              */}
 
                 <h3 className="text-gray-600 font-bold text-lg">
                   Intended Gas Use:
