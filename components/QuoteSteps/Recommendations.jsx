@@ -6,12 +6,15 @@ import { supabase } from '../../utils/supabase';
 import * as d3 from 'd3';
 import formatter from '../../lib/format';
 import { parse } from 'cookie';
+import roundUp from '../../lib/roundUp';
 
 const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const [ref, { height, width }] = useMeasure();
   console.log('Step9', quoteInfo);
 
 const [geyserPrice, setGeyserPrice] = useState();
+const [geyserSize, setGeyserSize] = useState();
+
 
 
 
@@ -25,251 +28,139 @@ const [geyserPrice, setGeyserPrice] = useState();
   // const flowRate = Math.ceil(parseInt(quoteInfo.flowRate + 1));
   // const topRate = Math.ceil(parseInt(quoteInfo.flowRate + 8.3));
 
+   let ups;
+   let min;
+   let max;
+
+    if(geyserSize < 20) {
+      ups = 0
+    } else {
+      ups = 2500 * 1.15
+    }
+
+
+    if(quoteInfo.gasSupply === 'none') {
+      let cageCost = 3500 * 1.15
+
+       min = ((5000*1.15) + cageCost + (2500*1.15) + ups);
+      max = ((8000*1.15) + cageCost + (4000*1.15) + ups);
+
+
+    } else {
+      min = ((5000*1.15) +  (2500*1.15) + ups);
+      max = ((8000*1.15) +  (4000*1.15) + ups);
+    }
+
+
+
+
+
 
      useEffect(() => {
 
    if(quoteInfo.flowRate < 12) {
 
 
-   setGeyserPrice((5200*1.15) + (750*1.15))
+   setGeyserPrice(roundUp((5200*1.15) + (750*1.15)))
+    setGeyserSize(12)
+
    } else if (quoteInfo.flowRate >= 12 && quoteInfo.flowRate < 16) {
-    setGeyserPrice((6800*1.15) + (820*1.15))
+    setGeyserPrice(roundUp((6800*1.15) + (820*1.15)))
+        setGeyserSize(16)
    } else if (quoteInfo.flowRate >= 16 && quoteInfo.flowRate < 20) {
-    setGeyserPrice((11200*1.15))
+    setGeyserPrice(roundUp((11200*1.15)))
+     setGeyserSize(20)
+   } else if (quoteInfo.flowRate < 26) {
+    setGeyserPrice(roundUp(12200*1.15))
+     setGeyserSize(26)
    } else {
-    setGeyserPrice((12200*1.15))
+    return
    }
 
-     console.log(geyserPrice)
-    const piedata = d3.pie().value((d) => d.count)([{item: 'geyser price', count: parseInt(geyserPrice), color: '#ffab22'},
-                                          {item: 'installation cost', count: 5000, color: '#134e6f'},
-                                          {item: 'plumbing cost', count: 2500, color: '#134500'},
-  ]);
-    console.log(piedata);
 
-    const arc = d3.arc().innerRadius(110).outerRadius(140);
+  },[]);
 
-    const colors = d3.scaleOrdinal(['#ffaB22', '#134e6f', '#134500']);
 
-    const svg = d3
-      .select(pieChart.current)
-      .attr('width', width)
-      .attr('height', 500)
-      .append('g')
-      .attr('transform', `translate(150, 240)`);
 
-    svg
-      .append('g')
-      .selectAll('path')
-      .data(piedata)
-      .join('path')
-      .attr('d', arc)
-      .attr('fill', (d, i) => colors(i))
-      .attr('stroke', 'white');
 
-    svg
-      .append('text')
-      .selectAll('path')
-      .data(piedata)
-      .attr('x', 30)
-      .attr('y', 30)
-      .attr('font-size', '14px')
-      .attr('color', 'green')
-      .text((d) => d.data.item);
-  });
 
 
   return (
     <div className="mt-8">
-      <div className="grid grid-cols-1 md:grid-cols-1 md:gap-1 lg:gap-2 max-w-6xl mx-auto">
-        {/**
+      <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl px-4 mx-auto">
+         <div className="md:border-r md:border-gray-300 w-full">
+            <p className="text-gray-800 font-bold text-3xl text-center">Your Geyser</p>
 
-        <div className="flex flex-col items-center justify-center overflow-hidden border-r-2 border-gray-300 px-4 md:px-12">
-          <p className="text-xl md:text-3xl font-bold text-center text-gray-800">
-            Your Geyser
-          </p>
+            {quoteInfo.flowRate < 26 ? (
+              <div>
+                  <p className=" text-gray-700 font-bold text-sm md:text-base">Based on your answers, you need a gas geyser with the following flow rate</p>
+                  <p className="font-bold text-sky-500 text-5xl text-center flex flex-col">
+                    <span>{geyserSize}l/min</span>
+                    <span className="text-lg">flow rate</span>
+                  </p>
 
-          <p className="text-base text-center mt-6 mb-2 text-gray-700">
-            Based on your answers, you need a geyser with:
-          </p>
-
-          <p className="text-2xl md:text-3xl font-medium text-center flex flex-col text-sky-600">
-            {quoteInfo.flowRate}l/min flow rate
-          </p>
-
-          {products && products.length > 0 && (
-            <p className="text-base text-center my-3 text-gray-700">
-              Please select your preferred geyser from the available options
-              below (scroll left to see more):
-            </p>
-          )}
-
-          {products && products.length === 0 ? (
-            <p className="text-base text-center my-3 text-gray-700">
-              According to your answers, we will have to contact you in order to
-              give you more information on the best gas water heating solution
-              for your property.
-            </p>
-          ) : (
-            <ProductSlide
-              products={products}
-              quoteInfo={quoteInfo}
-              setQuoteInfo={setQuoteInfo}
-            />
-          )}
-        </div>
-
-      */}
-
-        <div className="flex flex-col items-center px-4 md:px-12">
-          <p className="text-xl font-bold text-center text-sky-600 md:px-16 lg:px-24">
-           Based on the information provided we have calculated the following size gas geyser for your property{' '}
-            <span className="underline text-sky-600">
-              {quoteInfo.flowRate}
-              <span className="text-md font-normal">L/min</span>
-            </span>
-          </p>
+                  <p className="text-center text-gray-700 font-bold text-sm mt-3 md:text-base">You are looking at:</p>
+                   <p className="font-bold text-sky-500 text-5xl text-center flex flex-col">{formatter.format(parseInt(geyserPrice))}</p>
+                    <p className="text-center text-gray-700 font-bold text-sm mt-3 md:text-base">for the geyser</p>
+                </div>
+              ) : (
+                <article>
+                <p className="text-sm text-gray-700">Based on your answers, we have calculated that you will need a geysers exceeding a flow rate of <span className="font-bold">26 L/min.</span> This will require a specialised installation. Please complete the following questions so that we can get in touch a suitable solution. </p>
+                </article>
+              )}
 
 
-          <div className="text-lg md:text-xl  font-medium text-center text-sky-600">
-
-          </div>
-          {quoteInfo.flowRate < 26 && (
-            <div className="flex gap-y-6 flex-col md:flex-row md:gap-x-6">
-
-                  <div
-                      ref={ref}
-                      id="chart"
-                      className="bg-sky-200 my-3 mx-auto w-[300px] flex justify-center items-center h-[350px] shadow-md rounded-lg relative"
-                      >
-
-                            <svg className="mx-auto w-full" ref={pieChart}></svg>
-                    </div>
-                  <div>
-                    <div className="flex flex-col h-full max-w-[350px] justify-center items-center">
-
-                            <p className="text-sm text-gray-700 font-semibold">Approx. Cost</p>
-
-                            <p className="text-md font-medium text-center px-2 rounded py-1 text-white" style={{backgroundColor: '#ffaB22'}}>Geyser Cost: {formatter.format(parseInt(geyserPrice))}** </p>
-                            <p className="text-md font-medium text-center px-2 rounded py-1 mt-1 text-white" style={{backgroundColor: '#134e6f'}}>Installation Cost: Between {formatter.format(5000*1.15)} - {formatter.format(8000*1.15)}** </p>
-                            <p className="text-md font-medium text-center px-2 rounded py-1 mt-1 text-white" style={{backgroundColor: '#134500'}}>Plumbing Cost: Between {formatter.format(2500 * 1.15)} - {formatter.format(4000 * 1.15)}** </p>
-
-                            <p className="text-gray-700 text-xs">** Costs are based on estimates, which are based on information provided and fluctuating factors (mileage, size and set-up of property). These estimates are not a promise or guarantee of a customer’s savings. 
-                            </p>
-                    </div>
-                  </div>
+              <div className="flex w-full flex-col items-center space-y-3 md:flex-row md:justify-center md:space-x-3 md:space-y-0 mt-4">
+              <span className="flex py-3 px-6 cursor-pointer rounded-full items-center space-x-3 text-white font-bold bg-sky-500 text-xl">
+                 <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                 </svg>
+                 <p>Yes please</p>
+              </span>
+              <span className="flex py-3 px-6 rounded-full cursor-pointer space-x-3 items-center text-white font-bold bg-red-500 text-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                 <p>No thanks</p>
+              </span>
               </div>
-        )}
 
+         </div>
 
+         <div className="md:border-l flex flex-col mt-10 md:mt-0 items-center  md:border-gray-300 w-full px-8">
+             <p className="text-gray-800 font-bold text-3xl text-center">Installation & Plumbing</p>
+              <p className=" text-gray-700 font-bold text-sm text-center md:text-base">Based on the flowrate of your recommended geyser, your installation will be in the range of:</p>
+                  <p className="font-bold text-sky-500 text-center mt-3 flex flex-col">
 
-           <p className=" text-white bg-red-500 text-xs text-center my-1 px-2 py-1 rounded-lg">*Above prices are estimates and include VAT</p>
+                    <span className="text-xl">{`${formatter.format((roundUp(min)))} - ${formatter.format(roundUp(max))}`}</span>
+                  </p>
 
-          {quoteInfo.flowRate > 26 && (
-            <p className="text-base text-center my-3 text-gray-700">
-              According to your answers, we will have to contact you in order to
-              give you more information on the best gas water heating solution
-              for your property.
-            </p>
-          )}
+                   <p className=" text-gray-700 font-bold text-sm text-center md:text-base mt-8">Are you interested in getting a certified technician to install your gas geyser?</p>
 
-
-            {/*quoteInfo.gasSupply === '' ?
-          <span>
-          <p className="text-gray-700 text-md text-center ">Based on the current gas supply, you have indicated that you do not have gas supply at your property.</p>
-          <p className="text-gray-700 text-sm py-2 text-center ">We don’t offer pricing information on gas cages, gas cylinders and gas supply</p>
-          </span>
-          :
-          <span>
-          <p className="text-gray-700 mt-4 text-md text-center ">Based on the current gas supply, you have indicated that you  have gas supply at your property. </p>
-          <p className="text-gray-700 text-sm py-2 text-center ">Please be aware that above mentioned price ranges are excluding the
-             supply of gas, gas cylinders or gas cylinder cages.</p>
-          <p className="text-gray-700 text-sm py-2 text-center ">Gas cages: Prices on gas cages ranges between R1.8K (single 19kg cage) to R3.5K (double 48kg).</p>
-          <p className="text-gray-700 text-sm py-2 text-center ">Gas supply: Currently (June 2022) the market is offering LPG prices between R35.00 tot R40.00 per kg. </p>
-          </span>
-          */}
-
-          <p className="text-md text-center my-3 text-sky-600 font-medium">
-            Please indicate below if you would like us to quote and organize the
-            installation* for you?
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-4 md:gap-x-12">
-            <div
-              className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-              onClick={() => {
-                setQuoteInfo({
-                  ...quoteInfo,
-                  installation: true,
-                });
+                    <div className="flex flex-1  w-full flex-col items-center space-y-3 md:flex-row md:justify-center md:items-end md:space-x-3 md:space-y-0 mt-4">
+              <span onClick={() => {
+                setQuoteInfo({...quoteInfo, installation: true })
               }}
-            >
-              {quoteInfo.installation && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 absolute top-2 right-2 text-sky-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
+              className="flex py-3 px-6 cursor-pointer rounded-full items-center space-x-3 text-white font-bold bg-sky-500 text-xl">
+                 <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                 </svg>
+                 <p>Yes please</p>
+              </span>
+              <span onClick={() => {
+                setQuoteInfo({...quoteInfo, installation: false })
+              }} className="flex py-3 px-6 rounded-full cursor-pointer space-x-3 items-center text-white font-bold bg-red-500 text-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-              )}
-              <img className="h-16 w-16" alt="" src="/images/icons/check.svg" />
-              <p className="text-lg text-center text-sky-500 font-bold">
-                Yes please
-              </p>
-            </div>
-            <div
-              className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-              onClick={() => {
-                setQuoteInfo({
-                  ...quoteInfo,
-                  installation: false,
-                });
-              }}
-            >
-              {quoteInfo.installation === false && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 absolute top-2 right-2 text-sky-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
-              <img className="h-16 w-16" alt="" src="/images/icons/close.svg" />
-              <p className="text-lg text-center text-sky-500 font-bold">
-                No thanks
-              </p>
-            </div>
-          </div>
-
-
-
-
-
-                    <p className="text-xs max-w-[80ch] mt-8 text-gray-700">
-            *For safety and quality purposes of the installation work performed,
-            we highly recommend you to only work with certified installers that
-            are registered with the LPGas Association of South Africa.
-          </p>
-          <p className="text-xs max-w-[80ch] mt-8 text-gray-700">
-            With our network of independent installers, we can assure you are in
-            good hands!
-          </p>
-        </div>
+                 <p>No thanks</p>
+              </span>
+              </div>
+         </div>
       </div>
-      <div className="flex items-center justify-center space-x-6 mt-8 mb-12">
-        {quoteInfo.installation !== null || quoteInfo.flowRate > 26 ? (
+       <div className="flex items-center justify-center space-x-6 mt-12 mb-8">
+        {quoteInfo.installation !== null ?
+        (
           <Fragment>
             {' '}
             <svg

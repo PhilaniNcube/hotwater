@@ -29,8 +29,10 @@ const Hero = () => {
         </p>
 
         <Link href="/quote/start" passHref>
-          <button className="bg-gray-50 text-slate-800 max-w-[260px] shadow-md shadow-gray-600 hover:shadow  justify-center text-center font-bold flex space-x-2 py-2 text-xs md:text-md lg:text-base items-center mt-6 rounded-full uppercase">
-            Choose Your Gas Geyser
+          <button className="bg-gray-50 text-slate-800 flex justify-center items-center max-w-[280px] text-center font-bold py-2 text-xs md:text-md lg:text-base mt-6 rounded-full uppercase">
+          <span>
+          Choose Your Gas Geyser
+          </span>
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

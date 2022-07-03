@@ -8,16 +8,16 @@ function Index({ quote }) {
  const [geyserPrice, setGeyserPrice] = useState();
 
  useEffect(() => {
-  if(quote.flowRate < 12) {
 
 
-   setGeyserPrice((5200*1.15) + (750*1.15))
-   } else if (quote.flowRate >= 12 && quote.flowRate < 16) {
-    setGeyserPrice((6800*1.15) + (820*1.15))
-   } else if (quote.flowRate >= 16 && quote.flowRate < 20) {
-    setGeyserPrice((11200*1.15))
-   } else {
-    setGeyserPrice((12200*1.15))
+   if(quote.flowRate < 12) {
+        setGeyserPrice((5200*1.15) + (750*1.15))
+        } else if (quote.flowRate >= 12 && quote.flowRate < 16) {
+        setGeyserPrice((6800*1.15) + (820*1.15))
+        } else if (quote.flowRate >= 16 && quote.flowRate < 20) {
+        setGeyserPrice((11200*1.15))
+        } else {
+        setGeyserPrice((12200*1.15))
    }
  },[quote.flowRate])
 
