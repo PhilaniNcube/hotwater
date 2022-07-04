@@ -1,6 +1,7 @@
 import {motion, useMotionTemplate, useMotionValue, useTransform} from 'framer-motion'
 import { useEffect, useRef, useState } from 'react';
 import formatter from '../../lib/format';
+import roundUp from '../../lib/roundUp';
 
 function clamp(number, min, max) {
   return Math.max(min, Math.min( number, max));
@@ -40,7 +41,7 @@ const Slider = () => {
 
   return (
     <div className="p-8">
-    <p className="font-medium text-md text-gray-700">My Current Electricity Bill: <span className={`${value <= 500 ? 'text-green-400' : value <= 800 ? 'text-red-400' : value <= 1100 ? 'text-red-600' : value > 1100 && 'text-red-800' } transition-all duration-300`}>{formatter.format(value)}</span></p>
+    <p className="font-medium text-md text-gray-700">My Current Electricity Bill: <span className="font-extrabold">{formatter.format(roundUp(value))}</span></p>
           <div data-test="slider" className="relative flex flex-col justify-center">
               <motion.div data-test="slider-background" style={{background}} className="h-4 w-full rounded-full absolute"></motion.div>
               <div ref={progressBarRef} data-test="slider-progress" className="absolute"
@@ -76,7 +77,7 @@ const Slider = () => {
                     </div>
 
                     <p className="font-bold text-lg mt-4 text-emerald-700 text-center">Potential Monthly Savings:</p>
-                    <h2 className="font-bold text-4xl text-center text-zinc-700">{formatter.format(monthlySavings)}</h2>
+                    <h2 className="font-bold text-4xl text-center text-zinc-700">{formatter.format(roundUp(monthlySavings))}</h2>
            </div>
   )
 };

@@ -39,7 +39,7 @@ const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
 
   const keys = ['GeyserPrice', 'Installation', 'Plumbing']
 
-  const colors = {"GeyserPrice":"#345ac0", "Installation":"#a4b0a0", "Plumbing":"#c0ba0c"}
+  const colors = {"GeyserPrice":"#16a34a", "Installation":"#2563eb", "Plumbing":"#eab308"}
 
 
 
@@ -72,6 +72,9 @@ const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
     {range: 'Maximum Cost', GeyserPrice: geyserPrice, Installation: installationMax, Plumbing: 4000*1.15 },
   ]
 
+  const minTotal = data[0].GeyserPrice + data[0].Installation + data[0].Plumbing
+  const maxTotal = data[1].GeyserPrice + data[1].Installation + data[1].Plumbing
+
   useEffect(() => {
     const svg = select(svgRef.current)
 
@@ -79,14 +82,14 @@ const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
     const layers = stackGenerator(data)
 
     const extent = [0, max(layers, layer => max(layer, sequence => sequence[1]))]
-    console.log({extent})
+
 
     const xScale = scaleBand().domain(data.map(d =>  d.range)).range([0, width*.9]).padding(0.4)
 
     const xAxis = axisBottom(xScale)
-    svg.select(".x-axis").attr("transform", `translate(0, ${height * 0.8})`).call(xAxis)
+    svg.select(".x-axis").attr("transform", `translate(0, ${height * 0.7})`).call(xAxis)
 
-    const yScale = scaleLinear().domain(extent).range([(height *0.8) , 0])
+    const yScale = scaleLinear().domain(extent).range([(height *0.7) , 0])
 
     const yAxis = axisLeft(yScale)
     svg.select(".y-axis").call(yAxis)
@@ -111,43 +114,28 @@ const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
 
     <p className="text-center text-4xl text-gray-700 mb-3 font-bold">Geyser Size: {geyserSize}L/Min</p>
     <h2 className="text-center text-4xl text-gray-700  font-bold">Estimated Cost</h2>
-    <div className="flex max-w-7xl px-6 min-h-[500px] mx-auto flex-col bg-gray-100 py-3 mb-8 "  ref={ref} >
-     <svg ref={svgRef} className="w-full mx-auto translate-x-3 h-[500px] ">
+    <div className="flex max-w-7xl px-6 min-h-[500px] mx-auto flex-col bg-gray-100 py-3 mb-8 relative"  ref={ref} >
+               <span className="flex justify-between absolute left-0 right-0 top-8 w-[65%] mx-auto">
+         <small className=" text-xs md:text-lg text-sky-500 font-bold translate-x-6">{formatter.format(roundUp(minTotal))}</small>
+         <small className="text-sky-500 text-xs md:text-lg font-bold lg:-translate-x-16">{formatter.format(roundUp(maxTotal))}</small>
+       </span>
+     <svg ref={svgRef} className="w-full mx-auto translate-y-16 translate-x-3 h-[500px] ">
+
        <g className="x-axis" />
        <g className="y-axis" />
        </svg>
+
+       <p className="text-xs text-gray-600">Costs are based on estimates, which are based on information provided and fluctuating factors (mileage, size and set-up of property). These estimates are not a promise or guarantee of a customer’s savings. </p>
       </div>
+
+       <p className="mt-4 text-gray-700 font-medium text-sm md:text-lg px-8 text-center">Would you like us to get in touch with you to discuss your requirements and to advise and quote you for a water heating solution for your property?</p>
+
+
 
 
 
        <div className="flex items-center justify-center space-x-6 mt-6 mb-8">
-        {quoteInfo.installation !== null ?
-        (
-          <Fragment>
-            {' '}
-            <svg
-              onClick={prevPage}
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            <button
-              onClick={nextPage}
-              className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
-            >
-              Continue
-            </button>
-          </Fragment>
-        ) : (
+        {
           <Fragment>
             <svg
               onClick={prevPage}
@@ -164,11 +152,34 @@ const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            <p className="text-md text-sky-600 font-bold text-center">
-              Please answer the question
-            </p>
+           <div className="flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0">
+           <span onClick={() => {
+             setQuoteInfo({ ...quoteInfo,
+           installation: false}
+           )
+           nextPage()
+           }}
+
+           className="flex items-center bg-red-500 cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium ">
+           <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p>No thanks</p>
+           </span>
+           <span onClick={() => {
+             setQuoteInfo({ ...quoteInfo,
+           installation: false}
+           )
+            nextPage()
+           }} className="flex bg-sky-500 items-center cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium ">
+           <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p>Yes thanks</p>
+           </span>
+           </div>
           </Fragment>
-        )}
+        }
       </div>
     </div>
   );
