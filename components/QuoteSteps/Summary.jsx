@@ -10,6 +10,7 @@ import { useProducts } from '../../hooks/products';
 import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
 import QuoteCard from '../Quote/QuoteCard';
+import { motion } from 'framer-motion';
 
 const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const [loading, setLoading] = useState(false);
@@ -183,7 +184,13 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
+    <motion.div
+       transition={{duration: 0.3}}
+        key="summary"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+    className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
       <QuoteCard quote={quoteInfo} />
 
       <p className="text-sm lg:px-36 text-gray-600 font-bold mt-2 text-center">
@@ -220,7 +227,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           {loading ? 'Loading...' : 'Complete the process'}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

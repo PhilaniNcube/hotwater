@@ -22,6 +22,7 @@ import Savings from '../../components/QuoteSteps/Savings';
 import Financing from '../../components/QuoteSteps/Financing';
 import PersonalDetails from '../../components/QuoteSteps/PersonalDetails';
 import Summary from '../../components/QuoteSteps/Summary';
+import { AnimatePresence } from 'framer-motion';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -153,7 +154,8 @@ const index = ({ initialProducts }) => {
           }}
         />
       </Head>
-
+      <div className="relative">
+      <AnimatePresence exitBeforeEnter={true} >
       {page === 1 && (
         <PropertyType
           quoteInfo={quoteInfo}
@@ -274,7 +276,10 @@ const index = ({ initialProducts }) => {
           page={page}
           products={products}
         />
-      )}
+        )}
+
+        </AnimatePresence>
+        </div>
     </Fragment>
   );
 };

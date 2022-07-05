@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const OwnerStatus = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
@@ -12,7 +13,14 @@ const OwnerStatus = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <motion.div
+
+        key="owner"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+          transition={{ duration: 0.3}}
+    className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Owner or renting?
       </h1>
@@ -125,7 +133,7 @@ const OwnerStatus = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </Fragment>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

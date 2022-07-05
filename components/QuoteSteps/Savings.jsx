@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import Slider from '../Slider/Slider';
+import { motion } from 'framer-motion';
 
 const Savings = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
@@ -13,7 +14,13 @@ const Savings = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <motion.div
+       transition={{duration: 0.3}}
+        key="savings"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+    className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
       Savings
       </h1>
@@ -74,7 +81,7 @@ const Savings = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </Fragment>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

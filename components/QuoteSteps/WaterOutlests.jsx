@@ -3,6 +3,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { supabase } from '../../utils/supabase';
+import { motion } from 'framer-motion';
 
 const WaterOutlets = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
@@ -109,7 +110,13 @@ const WaterOutlets = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => 
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16">
+    <motion.div
+       transition={{duration: 0.3}}
+        key="outlets"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+    className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Warm water outlets
       </h1>
@@ -443,7 +450,7 @@ const WaterOutlets = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => 
           </Fragment>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
