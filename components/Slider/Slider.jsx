@@ -9,7 +9,7 @@ function clamp(number, min, max) {
 
 const Slider = () => {
   let min = 0
-  let max = 5000
+  let max = 12000
   const [value, setValue] = useState(500)
   let constraintsRef = useRef()
   let handleRef = useRef()
@@ -20,6 +20,7 @@ const Slider = () => {
   let background = useMotionTemplate`linear-gradient(90deg, #374151 ${progress}px, #d1d5db 0)`
 
   let monthlySavings = value * .2
+  let yearlySavings = monthlySavings *12
 
 
   useEffect(() => {
@@ -75,9 +76,17 @@ const Slider = () => {
                       setValue(clamp(newValue, min, max))
                     }} />
                     </div>
+                    <div className="flex flex-col space-x-4">
+                        <span>
+                            <p className="font-bold text-lg mt-4 text-emerald-700 text-center">Potential Monthly Savings:</p>
+                            <h2 className="font-bold text-4xl text-center text-zinc-700">{formatter.format(roundUp(monthlySavings))}</h2>
+                        </span>
+                        <span>
+                            <p className="font-bold text-lg mt-4 text-emerald-700 text-center">Potential Yearly Savings:</p>
+                            <h2 className="font-bold text-4xl text-center text-zinc-700">{formatter.format(roundUp(yearlySavings))}</h2>
+                        </span>
+                    </div>
 
-                    <p className="font-bold text-lg mt-4 text-emerald-700 text-center">Potential Monthly Savings:</p>
-                    <h2 className="font-bold text-4xl text-center text-zinc-700">{formatter.format(roundUp(monthlySavings))}</h2>
            </div>
   )
 };

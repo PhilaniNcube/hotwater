@@ -154,8 +154,8 @@ const index = ({ initialProducts }) => {
           }}
         />
       </Head>
-      <div className="relative">
       <AnimatePresence exitBeforeEnter={true} >
+      <div className="relative ">
       {page === 1 && (
         <PropertyType
           quoteInfo={quoteInfo}
@@ -278,8 +278,8 @@ const index = ({ initialProducts }) => {
         />
         )}
 
-        </AnimatePresence>
         </div>
+        </AnimatePresence>
     </Fragment>
   );
 };

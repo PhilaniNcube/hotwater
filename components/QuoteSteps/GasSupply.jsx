@@ -1,16 +1,49 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { Fragment, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { Fragment, useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { RadioGroup } from '@headlessui/react'
+import {CheckCircleIcon} from '@heroicons/react/outline'
+
+
+const cylinders = [
+  {
+    name: 'Weight',
+    size: 'Less than 19kg Cylinder',
+
+  },
+  {
+    name: 'Weight',
+    size: '19kg Cylinder',
+
+  },
+  {
+    name: 'Weight',
+    size: '48kg Cylinder',
+
+  },
+]
+
+
+
+
+
 
 const GasSupply = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
-  const [interaction, setInteraction] = useState(false);
+  const [selected, setSelected] = useState(cylinders[0])
+  const [show, setShow] = useState(false);
+
+  console.log({info: quoteInfo.gasSupply})
+
+
+
 
   const gasType = (type) => {
     setQuoteInfo({ ...quoteInfo, gasSupply: type });
-    setInteraction(true);
   };
+
+
 
   return (
     <motion.div
@@ -20,10 +53,97 @@ const GasSupply = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         animate={{ x: 0 }}
         exit={{ x: '-100%' }}
         transition={{ duration: 0.3}}
-    className="max-w-6xl mx-auto my-16 relative">
+    className="max-w-6xl mx-auto my-16 ">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Current gas supply installation
       </h1>
+      <AnimatePresence exitBeforeEnter initial={false}>
+         {show && (
+          <motion.div
+           key="cylinder"
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           exit={{ opacity: 0 }}
+           transition={{ duration: 0.5}}
+           className="absolute inset-0 bg-slate-500/80 z-30 flex justify-center items-center">
+             <div className="w-full px-4 py-16">
+                 <div className="mx-auto w-full max-w-md">
+                    <RadioGroup value={selected} onChange={setSelected}>
+                    <RadioGroup.Label className="sr-only">Cylinder size</RadioGroup.Label>
+                        <div className="space-y-2">
+                            {cylinders.map((cylinder, i) => (
+                              <RadioGroup.Option
+                                key={i}
+                                value={cylinder}
+                                className={({ active, checked }) =>
+                                  `${
+                                    active
+                                      ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300'
+                                      : ''
+                                  }
+                                  ${
+                                    checked ? 'bg-sky-900 bg-opacity-75 text-white' : 'bg-white'
+                                  }
+                                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+                                }
+                                 >
+                                            {({ active, checked }) => (
+                                              <Fragment>
+                                                <div className="flex w-full items-center justify-between">
+                                                  <div className="flex items-center">
+                                                    <div className="text-sm">
+                                                      <RadioGroup.Label
+                                                        as="p"
+                                                        className={`font-medium  ${
+                                                          checked ? 'text-white' : 'text-gray-900'
+                                                        }`}
+                                                      >
+                                                        {cylinder.name}
+                                                      </RadioGroup.Label>
+                                                      <RadioGroup.Description
+                                                        as="span"
+                                                        className={`inline ${
+                                                          checked ? 'text-sky-100' : 'text-gray-500'
+                                                        }`}
+                                                      >
+                                                        <span>
+                                                          {cylinder.size}
+                                                        </span>
+                                                      </RadioGroup.Description>
+                                                    </div>
+                                                  </div>
+                                                  {checked && (
+                                                    <div className="shrink-0 text-white">
+                                                      <CheckCircleIcon className="h-6 w-6" />
+                                                    </div>
+                                                  )}
+                                                </div>
+                                              </Fragment>
+                                            )}
+                                          </RadioGroup.Option>
+                                        ))}
+                                        </div>
+
+                                   </RadioGroup>
+
+                                      </div>
+                                      <div className="flex justify-center space-x-3 items-center mt-4">
+                                            <button className="px-4 py-2 bg-red-600 text-white w-1/3 max-w-[200px] rounded-full text-base" onClick={() => {
+                                            gasType('')
+                                            setShow(false)
+                                            }}>
+                                            Cancel
+                                          </button>
+                                          <button className="px-4 py-2 bg-sky-600 text-white w-1/3 max-w-[200px] rounded-full text-base" onClick={() =>  {
+                                          gasType(selected.size)
+                                          setShow(false)
+                                          } }>Save</button>
+                                      </div>
+
+                                    </div>
+          </motion.div>
+         )}
+      </AnimatePresence>
 
       <p className="py-3 px-4 text-center">
         What type of gas supply do you currently have present at your property?
@@ -55,9 +175,13 @@ const GasSupply = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         </div>
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
-          onClick={() => gasType('cylinder')}
+          onClick={() => setShow(true)}
         >
-          {quoteInfo.gasSupply === 'cylinder' && (
+          {
+            quoteInfo.gasSupply === "Less than 19kg Cylinder" ||
+            quoteInfo.gasSupply === "19kg Cylinder" ||
+            quoteInfo.gasSupply === "48kg Cylinder"
+       ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8 absolute top-2 right-2 text-sky-500"
@@ -70,7 +194,7 @@ const GasSupply = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
                 clipRule="evenodd"
               />
             </svg>
-          )}
+          ): null}
           <img className="h-16 w-16" alt="" src="/images/icons/cylinder.svg" />
           <p className="text-lg text-center text-sky-500 font-bold">
             Gas cylinder

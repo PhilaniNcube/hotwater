@@ -21,14 +21,14 @@ const Financing = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       Financing
       </h1>
 
-      <p className="py-3 px-4 text-center">
-     <span className="font-bold" >Hotwater24 offers Mobicred financing.</span> Please click on the link below to calculate your monthly cost.
+      <p className="py-3 px-4 text-md text-center">
+     Hotwater24 offers Mobicred financing. Please click on the link below to calculate your monthly cost.
       </p>
 
-     <div className="w-full flex justify-center text-center"> <a href={`https://mobicred.co.za/app-widget`} target="_blank" rel="noopener noreferrer" className="py-2 px-4 text-sm text-center text-blue-500 w-full">https://mobicred.co.za/app-widget</a>
+     <div className="w-full flex justify-center text-center"> <a href={`https://mobicred.co.za/app-widget`} target="_blank" rel="noopener noreferrer" className="py-3 px-4 text-md text-center">https://mobicred.co.za/app-widget</a>
 </div>
 
-          <p className="text-md text-center my-3 text-sky-600 font-medium">
+          <p className="text-md text-center my-3">
            Please indicate below if you would like to use Mobicred financing?
           </p>
 

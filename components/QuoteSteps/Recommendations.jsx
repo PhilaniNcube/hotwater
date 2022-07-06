@@ -26,11 +26,21 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
+
+
+
+const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+  const [ref, { height, width }] = useMeasure();
+  console.log('Step9', quoteInfo);
+
+    const [geyserPrice, setGeyserPrice] = useState();
+  const [geyserSize, setGeyserSize] = useState();
+
+   const options = {
   plugins: {
     title: {
       display: true,
-      text: 'Estimated Cost',
+      text: `Estimated Cost ${formatter.format(geyserPrice + 3500 +4500) }`,
     },
   },
   responsive: false,
@@ -49,23 +59,21 @@ export const options = {
 const labels = ['Total Cost']
 
 
-const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
-  const [ref, { height, width }] = useMeasure();
-  console.log('Step9', quoteInfo);
-
-  const [geyserPrice, setGeyserPrice] = useState();
-  const [geyserSize, setGeyserSize] = useState();
 
   useEffect(() => {
 if (quoteInfo.flowRate <= 12   ) {
   setGeyserPrice((5200+750)*1.15)
+  setGeyserSize(12)
 
 } else if (quoteInfo.flowRate <= 16) {
   setGeyserPrice((6800+820)*1.15)
+  setGeyserSize(16)
 } else if (quoteInfo.flowRate <= 20) {
   setGeyserPrice((11000*1.15))
-} else if (quoteInfo.flowRate <= 26) {
+  setGeyserSize(20)
+} else if (quoteInfo.flowRate <= 30) {
   setGeyserPrice(12000*1.15)
+  setGeyserSize(26)
 }
 
   },[]);
@@ -81,19 +89,19 @@ const data = {
     {
       label: 'Geyser',
       data: [geyserPrice],
-      backgroundColor: 'rgb(255, 99, 132)',
+      backgroundColor: '#0284c7',
       barThickness: 100,
     },
     {
       label: 'Installation',
-      data: [3500],
-      backgroundColor: 'rgb(75, 192, 192)',
+      data: [4500],
+      backgroundColor: '#059669',
       barThickness: 100,
     },
     {
       label: 'Plumbing',
-      data: [4500],
-      backgroundColor: 'rgb(53, 162, 235)',
+      data: [3500],
+      backgroundColor: '#ef4444',
       barThickness: 100,
     },
   ],
@@ -112,33 +120,33 @@ const data = {
         animate={{ x: 0 }}
         exit={{ x: '-100%' }} className="mt-8 min-h-[90vh]">
 
-    <p className="text-center text-4xl text-gray-700 mb-3 font-bold">Geyser Size: {geyserSize}L/Min</p>
-    <h2 className="text-center text-4xl text-gray-700  font-bold">Estimated Cost</h2>
-    <div className="flex max-w-7xl px-6 min-h-[400px] max-h-[450px] mx-auto items-center flex-col bg-gray-100 py-3 mb-8 relative"  ref={ref} >
+    <p className="text-center text-lg md:text-3xl text-gray-700 mb-3 font-bold">Geyser Size: {geyserSize}L/Min</p>
+    <p className="text-center text-lg md:text-3xl text-gray-700  font-bold">Estimated Cost: {` ${formatter.format(geyserPrice + 3500 +4500) }`} </p>
+    <div className="flex max-w-7xl min-w-[200px] w-[380px] px-6 min-h-[400px] max-h-[450px] mx-auto items-center flex-col bg-gray-100 py-3 mb-8 relative"  ref={ref} >
 
           <Bar options={ {
-  plugins: {
+                plugins: {
 
-    title: {
-      display: true,
-      text: 'Estimated Cost',
-    },
-  },
-  locale: 'ZA',
-  responsive: true,
-  maintainAspectRatio: false,
+                  legend: {
+                    position: 'top',
 
-  scales: {
-    x: {
-      stacked: true,
-    },
-    y: {
-      stacked: true,
-    },
-  },
+                  }
+                },
+                locale: 'ZA',
+                responsive: true,
+                maintainAspectRatio: false,
 
-}}
-          data={data} />
+                scales: {
+                  x: {
+                    stacked: true,
+                  },
+                  y: {
+                    stacked: true,
+                  },
+                },
+
+              }}
+              data={data} />
 
           </div>
 
