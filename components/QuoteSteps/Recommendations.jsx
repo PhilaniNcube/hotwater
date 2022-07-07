@@ -34,7 +34,9 @@ const Recommendations = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
   console.log('Step9', quoteInfo);
 
     const [geyserPrice, setGeyserPrice] = useState();
-  const [geyserSize, setGeyserSize] = useState();
+    const [geyserSize, setGeyserSize] = useState();
+    const [installation, setInstallation] = useState();
+    const [plumbing, setPlumbing] = useState();
 
    const options = {
   plugins: {
@@ -62,17 +64,25 @@ const labels = ['Total Cost']
 
   useEffect(() => {
 if (quoteInfo.flowRate <= 12   ) {
-  setGeyserPrice((5200+750)*1.15)
+  setGeyserPrice(6900)
+  setInstallation(5500)
+  setPlumbing(5060)
   setGeyserSize(12)
 
-} else if (quoteInfo.flowRate <= 16) {
-  setGeyserPrice((6800+820)*1.15)
+} else if (quoteInfo.flowRate <= 17) {
+   setGeyserPrice(8970)
+  setInstallation(6500)
+  setPlumbing(5060)
   setGeyserSize(16)
-} else if (quoteInfo.flowRate <= 20) {
-  setGeyserPrice((11000*1.15))
+} else if (quoteInfo.flowRate <= 22) {
+    setGeyserPrice(12880)
+  setInstallation(7000)
+  setPlumbing(5060)
   setGeyserSize(20)
 } else if (quoteInfo.flowRate <= 30) {
-  setGeyserPrice(12000*1.15)
+   setGeyserPrice(14030)
+  setInstallation(7000)
+  setPlumbing(5060)
   setGeyserSize(26)
 }
 
@@ -89,19 +99,19 @@ const data = {
     {
       label: 'Geyser',
       data: [geyserPrice],
-      backgroundColor: '#0284c7',
+      backgroundColor: '#41a6dd',
       barThickness: 100,
     },
     {
       label: 'Installation',
-      data: [4500],
-      backgroundColor: '#059669',
+      data: [installation],
+      backgroundColor: '#aaaaaa',
       barThickness: 100,
     },
     {
       label: 'Plumbing',
-      data: [3500],
-      backgroundColor: '#ef4444',
+      data: [plumbing],
+      backgroundColor: '#c03d32',
       barThickness: 100,
     },
   ],
@@ -120,8 +130,11 @@ const data = {
         animate={{ x: 0 }}
         exit={{ x: '-100%' }} className="mt-8 min-h-[90vh]">
 
-    <p className="text-center text-lg md:text-3xl text-gray-700 mb-3 font-bold">Geyser Size: {geyserSize}L/Min</p>
-    <p className="text-center text-lg md:text-3xl text-gray-700  font-bold">Estimated Cost: {` ${formatter.format(geyserPrice + 3500 +4500) }`} </p>
+    <p className="text-center text-lg text-gray-700 mb-3 font-medium max-w-[60ch] mx-auto">Based on the information provided we have calculated the following size gas geyser for your property: <br /> <span className="text-2xl font-bold">{geyserSize}L/Min*</span></p>
+    <p className="text-center text-lg mb-6 text-gray-700  font-medium max-w-[60ch] mx-auto">The estimated total cost based on this size geyser is:<br /> <span className="text-2xl font-bold">
+ {` ${formatter.format(geyserPrice + installation +plumbing) }`}* </span> </p>
+
+
     <div className="flex max-w-7xl min-w-[200px] w-[380px] px-6 min-h-[400px] max-h-[450px] mx-auto items-center flex-col bg-gray-100 py-3 mb-8 relative"  ref={ref} >
 
           <Bar options={ {
@@ -150,16 +163,14 @@ const data = {
 
           </div>
 
+           <p className="text-sm text-center text-gray-600 max-w-[600px] mx-auto">*This total estimated cost is based on the information as provided. It includes the cost for the gas geyser, gas installation and plumbing work and excludes the cost for a gas cage, gas cylinder(s) and gas supply.
+</p>
+
           <div className="max-w-7xl mx-auto mt-3 px-4 text-auto">
-           <p className="text-xs text-center text-gray-600">Costs are based on estimates, which are based on information provided and fluctuating factors (mileage, size and set-up of property). These estimates are not a promise or guarantee of a customer’s savings. </p>
+
 
        <p className="mt-4 text-gray-700 font-medium text-sm md:text-lg px-8 text-center">Would you like us to get in touch with you to discuss your requirements and to advise and quote you for a water heating solution for your property?</p>
           </div>
-
-
-
-
-
 
        <div className="flex items-center justify-center space-x-6 mt-6 mb-8">
         {
@@ -195,7 +206,12 @@ const data = {
            </span>
            <span onClick={() => {
              setQuoteInfo({ ...quoteInfo,
-           installation: false}
+           installation: true,
+           installationCost: installation,
+           plumbingCost: plumbing,
+           geyserPrice: geyserPrice,
+           geyserSize: geyserSize,
+          }
            )
             nextPage()
            }} className="flex bg-sky-500 items-center cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium ">

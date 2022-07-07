@@ -72,7 +72,12 @@ const index = ({ initialProducts }) => {
     contactDay: '',
     contactTime: '',
     financing: false,
-    geyserPrice: null
+    geyserPrice: null,
+    monthlySavings: null,
+    yearlySavings: null,
+    geyserSize: null,
+    installationCost: null,
+    plumbingCost: null,
   });
 
   const nextPage = () => {
@@ -211,16 +216,8 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
+
       {page === 7 && (
-        <Recommendations
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 8 && (
         <Savings
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -229,17 +226,8 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
-      {page === 9 && (
-        <Financing
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 10 && (
-        <Step10
+       {page === 8 && (
+        <Recommendations
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -248,7 +236,9 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 11 && (
+
+
+      {page === 9 && (
         <PersonalDetails
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -258,7 +248,7 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 12 && (
+      {page === 10 && (
         <Summary
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -267,7 +257,7 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
-      {page === 13 && (
+      {page === 11 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}

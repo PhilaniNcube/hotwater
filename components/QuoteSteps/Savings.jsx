@@ -6,12 +6,6 @@ import { motion } from 'framer-motion';
 const Savings = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
-  const [interaction, setInteraction] = useState(false);
-
-  const homeOwnership = (type) => {
-    setQuoteInfo({ ...quoteInfo, ownership: type });
-    setInteraction(true);
-  };
 
   return (
     <motion.div
@@ -22,15 +16,15 @@ const Savings = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         exit={{ x: '-100%' }}
     className="max-w-6xl mx-auto my-16">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
-      Savings
+      Savings on your electricity bill when switching to a gas geyser!
       </h1>
 
       <p className="py-3 px-4 text-center">
-      Please indicate below your monthly electricity bill (excluding fees and levies) to calculate your potential savings!
+      Please indicate below your current monthly electricity bill (excluding fees and levies) to calculate your potential savings!
       </p>
 
         <div>
-        <Slider />
+        <Slider setQuoteInfo={setQuoteInfo} quoteInfo={quoteInfo} />
         </div>
       <div className="flex items-center justify-center space-x-6 my-3">
         {quoteInfo.ownership !== null ? (

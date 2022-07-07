@@ -17,18 +17,10 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
   console.log('Step', page, quoteInfo);
 
-  const { products, productsIsLoading, productsError } = useProducts(
-    quoteInfo.flowRate,
-  );
-
-  console.log({ products, productsIsLoading, productsError });
-
   const router = useRouter();
 
   const {
-    children,
-    teenagers,
-    adults,
+
     houseType,
     ownership,
     gasSupply,
@@ -63,7 +55,12 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     installation,
     contactDay,
     contactTime,
-    financing
+    geyserPrice,
+    monthlySavings,
+    yearlySavings,
+    geyserSize,
+    installationCost,
+    plumbingCost,
   } = quoteInfo;
 
   const queryClient = useQueryClient();
@@ -71,9 +68,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const mutation = useMutation(() =>
     supabase.from('quotes').insert([
       {
-        children: children,
-        teenagers: teenagers,
-        adults: adults,
+
         houseType: houseType,
         ownership: ownership,
         gasSupply: gasSupply,
@@ -108,7 +103,12 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         installation: installation,
         contactDay: contactDay,
         contactTime: contactTime,
-        financing: financing
+        geyserPrice: geyserPrice,
+        monthlySavings: monthlySavings,
+        yearlySavings: yearlySavings,
+        geyserSize: geyserSize,
+        installationCost: installationCost,
+        plumbingCost: plumbingCost,
       },
     ]),
   );
@@ -128,9 +128,6 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            children: children,
-            teenagers: teenagers,
-            adults: adults,
             houseType: houseType,
             ownership: ownership,
             gasSupply: gasSupply,
@@ -165,7 +162,12 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             installation: installation,
             contactDay: contactDay,
             contactTime: contactTime,
-            financing:financing
+            geyserPrice: geyserPrice,
+            monthlySavings: monthlySavings,
+            yearlySavings: yearlySavings,
+            geyserSize: geyserSize,
+            installationCost: installationCost,
+            plumbingCost: plumbingCost,
           }),
         });
 

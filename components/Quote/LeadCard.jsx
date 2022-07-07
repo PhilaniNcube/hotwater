@@ -144,19 +144,9 @@ function LeadCard({ quote }) {
                       </span>
                     </li>
 
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Off Grid Solution -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.completeSolution ? 'Yes' : 'No'}
-                      </span>
-                    </li>
 
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Geyser on outside wall -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.locateOutside ? 'Yes' : 'No'}
-                      </span>
-                    </li>
+
+
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Require Installation -{' '}
@@ -164,12 +154,7 @@ function LeadCard({ quote }) {
                         {quote.installation ? 'Yes' : 'No'}
                       </span>
                     </li>
-                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Mobicred Financing -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.financing ? 'Yes' : 'No'}
-                      </span>
-                    </li>
+
                   </ul>
                 </div>
               </div>
@@ -177,9 +162,9 @@ function LeadCard({ quote }) {
                  <h3 className="font-bold text-lg text-gray-600">Estimated Cost</h3>
                 <div className="flex items-center border-t-2 justify-between py-2">
 
-              <h3 className="text-sm text-green-700">Geyser Cost: {formatter.format(geyserPrice)}</h3>
-              <h3 className="text-sm text-orange-700">Approx Installation Cost: {formatter.format(5000*1.15)} - {formatter.format(8000*1.15)}</h3>
-              <h3 className="text-sm text-violet-700 mb-3">Approx Plumbing Cost: {formatter.format(2500 * 1.15)} - {formatter.format(4000 * 1.15)}</h3>
+              <h3 className="text-sm text-green-700">Geyser Cost: {formatter.format(quote.geyserPrice)}</h3>
+              <h3 className="text-sm text-orange-700">Approx Installation Cost: {formatter.format(quote.installationCost)} </h3>
+              <h3 className="text-sm text-violet-700 mb-3">Approx Plumbing Cost: {formatter.format(quote.plumbingCost)}</h3>
                 </div>
 
                 <h3 className="text-gray-600 font-bold text-lg">

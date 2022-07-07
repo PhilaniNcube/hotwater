@@ -7,7 +7,7 @@ function clamp(number, min, max) {
   return Math.max(min, Math.min( number, max));
 }
 
-const Slider = () => {
+const Slider = ({ quoteInfo, setQuoteInfo}) => {
   let min = 0
   let max = 12000
   const [value, setValue] = useState(500)
@@ -22,12 +22,18 @@ const Slider = () => {
   let monthlySavings = value * .2
   let yearlySavings = monthlySavings *12
 
-
   useEffect(() => {
     let newProgress = value /(max-min)
     let progressBarBounds = progressBarRef.current.getBoundingClientRect()
     handleX.set(newProgress * progressBarBounds.width)
-  },[handleX, max, min, value])
+
+    setQuoteInfo({
+      ...quoteInfo,
+      monthlySavings: roundUp(value * 0.2),
+      yearlySavings: roundUp((value * 0.2)*12),
+    })
+
+  },[handleX, max, min, value, setQuoteInfo])
 
   const handleDrag = () => {
     // calculate savings
@@ -35,9 +41,8 @@ const Slider = () => {
       let middleOfHandle = handleBounds.x + handleBounds.width / 2
       let progressBarBounds = progressBarRef.current.getBoundingClientRect()
       let newProgress = (middleOfHandle - progressBarBounds.x) / progressBarBounds.width
-
-
       setValue(newProgress * (max - min))
+
    }
 
   return (
@@ -74,6 +79,12 @@ const Slider = () => {
                       let newProgress = position / width
                       let newValue = newProgress * (max - min)
                       setValue(clamp(newValue, min, max))
+                      console.log({value})
+                      setQuoteInfo({
+                        ...quoteInfo,
+                        monthlySavings: monthlySavings,
+                        yearlySavings: yearlySavings
+                      })
                     }} />
                     </div>
                     <div className="flex flex-col space-x-4">

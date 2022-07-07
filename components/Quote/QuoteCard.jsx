@@ -5,21 +5,6 @@ import formatter from '../../lib/format';
 
 function Index({ quote }) {
 
- const [geyserPrice, setGeyserPrice] = useState();
-
- useEffect(() => {
-
-
-   if(quote.flowRate < 12) {
-        setGeyserPrice((5200*1.15) + (750*1.15))
-        } else if (quote.flowRate >= 12 && quote.flowRate < 16) {
-        setGeyserPrice((6800*1.15) + (820*1.15))
-        } else if (quote.flowRate >= 16 && quote.flowRate < 20) {
-        setGeyserPrice((11200*1.15))
-        } else {
-        setGeyserPrice((12200*1.15))
-   }
- },[quote.flowRate])
 
   return (
     <Fragment>
@@ -50,14 +35,18 @@ function Index({ quote }) {
 
                 <div className="flex items-center justify-between mt-8">
                   <div>
-                    <p className="text-md text-gray-600 font-bold mb-1 tracking-normal">
-                      Calculated Flow Rate
-                    </p>
+
                     <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                      {quote.flowRate} L/Min
+                       Geyser Size:  {quote.geyserSize} L/Min
                     </h2>
+
+                    <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">Estimated Cost: {formatter.format(quote.geyserPrice + quote.installationCost + quote.plumbingCost )}</h3>
+                    <h3 className="font-bold text-lg text-gray-600 mt-3">Monthly Savings: {formatter.format(quote.monthlySavings)}</h3>
+                    <h3 className="font-bold text-lg text-gray-600">Yearly Savings: {formatter.format(quote.yearlySavings)}</h3>
                   </div>
                 </div>
+
+
 
                 <div className="mt-4">
                   <div className="mb-2 flex items-center justify-between">
@@ -171,21 +160,6 @@ function Index({ quote }) {
                         {quote.gasSupply}
                       </span>
                     </li>
-
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Off Grid Solution -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.completeSolution ? 'Yes' : 'No'}
-                      </span>
-                    </li>
-
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Geyser on outside wall -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.locateOutside ? 'Yes' : 'No'}
-                      </span>
-                    </li>
-
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       Require Installation -{' '}
                       <span className="uppercase font-bold">
@@ -203,10 +177,9 @@ function Index({ quote }) {
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
 
-              <h3 className="font-bold text-lg text-gray-600">Estimated Cost</h3>
-              <h3 className="text-sm text-green-700">Geyser Cost: {formatter.format(geyserPrice)}</h3>
-              <h3 className="text-sm text-orange-700">Approx Installation Cost: {formatter.format(5000*1.15)} - {formatter.format(8000*1.15)}</h3>
-              <h3 className="text-sm text-violet-700 mb-3">Approx Plumbing Cost: {formatter.format(2500 * 1.15)} - {formatter.format(4000 * 1.15)}</h3>
+
+
+
 
                 {/**
                 <h3 className="text-gray-600 font-bold text-lg">
