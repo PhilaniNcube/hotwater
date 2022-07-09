@@ -157,7 +157,7 @@ function LeadCard({ quote }) {
                 <h3 className="font-bold text-lg text-gray-600">
                   Estimated Cost
                 </h3>
-                <div className="flex items-center border-t-2 justify-between py-2">
+                <div className="flex items-center border-t-2 justify-between py-3">
                   <h3 className="text-sm text-green-700">
                     Geyser Cost: {formatter.format(quote.geyserPrice)}
                   </h3>
