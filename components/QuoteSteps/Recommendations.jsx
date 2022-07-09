@@ -113,7 +113,10 @@ const Recommendations = ({
             The estimated total cost based on this size geyser is:
             <br />{" "}
             <span className="text-2xl font-bold">
-              {` ${formatter.format(geyserPrice + installation + plumbing)}`}*{" "}
+              {` ${formatter.format(
+                roundUp(geyserPrice + installation + plumbing)
+              )}`}
+              *{" "}
             </span>{" "}
           </p>
           <div
@@ -156,61 +159,166 @@ const Recommendations = ({
               estimated total cost?
             </p>
           </div>
+          <div className="flex items-center justify-center space-x-6 mt-6 mb-8">
+            {
+              <Fragment>
+                <svg
+                  onClick={prevPage}
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+                <div className="flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0">
+                  <span
+                    onClick={() => {
+                      setQuoteInfo({
+                        ...quoteInfo,
+                        installation: "No thanks",
+                        installationCost: installation,
+                        plumbingCost: plumbing,
+                        geyserPrice: geyserPrice,
+                        geyserSize: geyserSize,
+                      });
+                      nextPage();
+                    }}
+                    className="flex items-center bg-red-500 cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-10 w-10"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <p>No thanks</p>
+                  </span>
+                  <span
+                    onClick={() => {
+                      setQuoteInfo({
+                        ...quoteInfo,
+                        installation: "geyser only",
+                        installationCost: installation,
+                        plumbingCost: plumbing,
+                        geyserPrice: geyserPrice,
+                        geyserSize: geyserSize,
+                      });
+                      nextPage();
+                    }}
+                    className="flex bg-sky-500 items-center cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-8 w-8 top-2 right-2 text-white"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p>Gas geyser only quote</p>
+                  </span>
+                  <span
+                    onClick={() => {
+                      setQuoteInfo({
+                        ...quoteInfo,
+                        installation: "full installation",
+                        installationCost: installation,
+                        plumbingCost: plumbing,
+                        geyserPrice: geyserPrice,
+                        geyserSize: geyserSize,
+                      });
+                      nextPage();
+                    }}
+                    className="flex bg-sky-500 items-center cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-8 w-8 top-2 right-2 text-white"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p>Full installation quote</p>
+                  </span>
+                </div>
+              </Fragment>
+            }
+          </div>
         </Fragment>
       ) : (
         <Fragment>
           <div className="max-w-6xl mx-auto px-4">
             <p className="text-lg text-center text-gray-700 font-bold">
               Thank you for completing the wizard! However the number of warm
-              water outlets indicated exceeds the maximum capacity of a single
-              geyser (26L/min).
+              water outlets indicated exceeds the maximum capacity (26L/min) for
+              a single gas geyser.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-4 mt-4">
-              <div className="w-full flex flex-col justify-center items-center">
-                <p className="text-sm font-medium text-gray-600">
-                  But no worries as we can find a solution for you. In this
-                  situation we would normally recommend that you get 2 smaller
-                  gas geysers. With each gas geyser supplying hot water to
-                  separate sections property.
+              <div className="w-full flex flex-col justify-center">
+                <p className="text-sm md:text-md font-medium text-gray-600 my-3">
+                  But no worries as we can find a solution for you.
                 </p>
-
-                <p className="mt-4 text-gray-700 font-medium text-sm md:text-lg px-8 text-center">
-                  Would you like us to prepare an initial quote based on the
-                  above estimated total cost?
+                <p className="text-sm md:text-md font-medium text-gray-600">
+                  What we simply need to do is looking at subdividing the hot
+                  water supply for your property into 2 or more sections.
                 </p>
               </div>
 
               <div className="w-full">
                 <img
                   className="w-full object-cover"
-                  alt="tub"
-                  src="/images/tub.jpg"
+                  alt="bathroom"
+                  src="/images/new_shower.jpg"
                 />
               </div>
             </div>
           </div>
-        </Fragment>
-      )}
 
-      <div className="flex items-center justify-center space-x-6 mt-6 mb-8">
-        {
-          <Fragment>
-            <svg
-              onClick={prevPage}
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+          <div className="max-w-6xl mx-auto flex flex-col items-center justify-center mt-4">
+            <p className="my-4 text-gray-700 font-medium text-sm md:text-lg px-8 text-center">
+              Would you like us to inform you on the costs involved for such a
+              water heating solution?
+            </p>
             <div className="flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0">
+              <svg
+                onClick={prevPage}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-16 w-16 bg-red-500 text-white rounded-full shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
               <span
                 onClick={() => {
                   setQuoteInfo({
@@ -245,7 +353,7 @@ const Recommendations = ({
                 onClick={() => {
                   setQuoteInfo({
                     ...quoteInfo,
-                    installation: "geyser only",
+                    installation: "Inform me about water heating solution",
                     installationCost: installation,
                     plumbingCost: plumbing,
                     geyserPrice: geyserPrice,
@@ -257,54 +365,23 @@ const Recommendations = ({
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+                  className="h-8 w-8 top-2 right-2 text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
                   <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
                   />
                 </svg>
-                <p>Gas geyser only quote</p>
+                <p>Yes thanks</p>
               </span>
-              <span
-                onClick={() => {
-                  setQuoteInfo({
-                    ...quoteInfo,
-                    installation: "full installation",
-                    installationCost: installation,
-                    plumbingCost: plumbing,
-                    geyserPrice: geyserPrice,
-                    geyserSize: geyserSize,
-                  });
-                  nextPage();
-                }}
-                className="flex bg-sky-500 items-center cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <p>Full installation quote</p>
-              </span>
+
             </div>
-          </Fragment>
-        }
-      </div>
+          </div>
+        </Fragment>
+      )}
     </motion.div>
   );
 };

@@ -36,16 +36,19 @@ function Index({ quote }) {
                 <div className="flex items-center justify-between mt-8">
                   <div>
                     <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                      Geyser Size: {quote.geyserSize} L/Min
+                      {quote.flowRate <= 30
+                        ? `Geyser Size: ${quote.geyserSize} L/Min`
+                        : `Flow Rate: ${quote.flowRate} L/Min`}
                     </h2>
 
                     <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
-                      Estimated Cost:{" "}
-                      {formatter.format(
+                      {quote.flowRate <= 30 &&
+                        ` Estimated Cost:
+                      ${formatter.format(
                         quote.geyserPrice +
                           quote.installationCost +
                           quote.plumbingCost
-                      )}
+                      )}`}
                     </h3>
                     <h3 className="font-bold text-lg text-gray-600 mt-3">
                       Monthly Savings: {formatter.format(quote.monthlySavings)}
@@ -169,12 +172,23 @@ function Index({ quote }) {
                       </span>
                     </li>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Quote Required -{" "}
-                      <span className="uppercase font-bold">
-                        {quote.installation}
-                      </span>
+                      {quote.flowRate <= 30 ? (
+                        <Fragment>
+                          Quote Required -{' '}
+                          <span className="uppercase font-bold">
+                            {quote.installation}
+                          </span>
+                        </Fragment>
+                      ) : (
+                        <Fragment>
+                          {" "}
+                          Request Information -{` `}
+                          <span className="uppercase font-bold">
+                            {quote.installation}
+                          </span>
+                        </Fragment>
+                      )}
                     </li>
-
                   </ul>
                 </div>
               </div>
