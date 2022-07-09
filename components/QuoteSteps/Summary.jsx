@@ -198,7 +198,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
       <p className="text-sm lg:px-36 text-gray-600 font-bold mt-2 text-center">
         Please click on the button below to complete the process. You will
         instantly receive an e-mail with the information you provided and we
-        will get in touch with you as soon as possible.
+        will get in touch with you.
       </p>
 
       <div

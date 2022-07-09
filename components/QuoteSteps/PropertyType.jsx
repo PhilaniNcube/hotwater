@@ -43,7 +43,6 @@ const PropertyType = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => 
         Please tell us which of the below properties best describes the type of
         house you live in
       </p>
-
       <div className="py-8 max-w-6xl mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-y-8">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg justify-self-center bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"

@@ -7,17 +7,17 @@ import {CheckCircleIcon} from '@heroicons/react/outline'
 
 const cylinders = [
   {
-    name: 'Weight',
+    name: 'Cylinder Size',
     size: 'Less than 19kg Cylinder',
 
   },
   {
-    name: 'Weight',
+    name: 'Cylinder Size',
     size: '19kg Cylinder',
 
   },
   {
-    name: 'Weight',
+    name: 'Cylinder Size',
     size: '48kg Cylinder',
 
   },

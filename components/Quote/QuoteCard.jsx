@@ -35,18 +35,26 @@ function Index({ quote }) {
 
                 <div className="flex items-center justify-between mt-8">
                   <div>
-
                     <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                       Geyser Size:  {quote.geyserSize} L/Min
+                      Geyser Size: {quote.geyserSize} L/Min
                     </h2>
 
-                    <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">Estimated Cost: {formatter.format(quote.geyserPrice + quote.installationCost + quote.plumbingCost )}</h3>
-                    <h3 className="font-bold text-lg text-gray-600 mt-3">Monthly Savings: {formatter.format(quote.monthlySavings)}</h3>
-                    <h3 className="font-bold text-lg text-gray-600">Yearly Savings: {formatter.format(quote.yearlySavings)}</h3>
+                    <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
+                      Estimated Cost:{" "}
+                      {formatter.format(
+                        quote.geyserPrice +
+                          quote.installationCost +
+                          quote.plumbingCost
+                      )}
+                    </h3>
+                    <h3 className="font-bold text-lg text-gray-600 mt-3">
+                      Monthly Savings: {formatter.format(quote.monthlySavings)}
+                    </h3>
+                    <h3 className="font-bold text-lg text-gray-600">
+                      Yearly Savings: {formatter.format(quote.yearlySavings)}
+                    </h3>
                   </div>
                 </div>
-
-
 
                 <div className="mt-4">
                   <div className="mb-2 flex items-center justify-between">
@@ -142,45 +150,35 @@ function Index({ quote }) {
                 <div className="mt-2 mb-2 bg-gray-100 shadow rounded p-4 relative">
                   <ul>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Home Ownership -{' '}
+                      Home Ownership -{" "}
                       <span className="uppercase font-bold">
-                        {quote.ownership ? `Owner` : 'Renter'}
+                        {quote.ownership ? `Owner` : "Renter"}
                       </span>
                     </li>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Porperty Type -{' '}
+                      Porperty Type -{" "}
                       <span className="uppercase font-bold">
                         {quote.houseType}
                       </span>
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Current Gas Supply -{' '}
+                      Current Gas Supply -{" "}
                       <span className="uppercase font-bold">
                         {quote.gasSupply}
                       </span>
                     </li>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Require Installation -{' '}
+                      Quote Required -{" "}
                       <span className="uppercase font-bold">
-                        {quote.installation ? 'Yes' : 'No'}
+                        {quote.installation}
                       </span>
                     </li>
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Mobicred Financing -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.financing ? 'Yes' : 'No'}
-                      </span>
-                    </li>
+
                   </ul>
                 </div>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
-
-
-
-
-
                 {/**
                 <h3 className="text-gray-600 font-bold text-lg">
                   Household Size:
