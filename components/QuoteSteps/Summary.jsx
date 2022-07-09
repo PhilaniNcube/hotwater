@@ -195,7 +195,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
       <QuoteCard quote={quoteInfo} />
 
-      <p className="text-sm lg:px-36 text-gray-600 font-bold mt-2 text-center">
+      <p className="text-sm md:text-lg lg:px-36 text-gray-600 font-bold my-4 text-center">
         Please click on the button below to complete the process. You will
         instantly receive an e-mail with the information you provided and we
         will get in touch with you.

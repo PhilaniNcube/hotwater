@@ -2,6 +2,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
 import formatter from '../../lib/format';
+import roundUp from '../../lib/roundUp';
 
 function Index({ quote }) {
 
@@ -45,9 +46,11 @@ function Index({ quote }) {
                       {quote.flowRate <= 30 &&
                         ` Estimated Cost:
                       ${formatter.format(
-                        quote.geyserPrice +
-                          quote.installationCost +
-                          quote.plumbingCost
+                        roundUp(
+                          quote.geyserPrice +
+                            quote.installationCost +
+                            quote.plumbingCost
+                        )
                       )}`}
                     </h3>
                     <h3 className="font-bold text-lg text-gray-600 mt-3">
@@ -174,7 +177,7 @@ function Index({ quote }) {
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       {quote.flowRate <= 30 ? (
                         <Fragment>
-                          Quote Required -{' '}
+                          Quote Required -{" "}
                           <span className="uppercase font-bold">
                             {quote.installation}
                           </span>
