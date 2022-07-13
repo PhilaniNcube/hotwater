@@ -78,6 +78,10 @@ body {font-family: 'Poppins', sans-serif;}
                         <tr>
                           <td>
                             <!--[if mso]>
+                                                 <!--[if mso]>
+    <center>
+    <table><tr><td width="550">
+  <![endif]-->
      <center class="wrapper" data-link-color="#1188E6" data-body-style="font-size:14px; font-family:inherit; color:#000000; background-color:#e5dcd2;">
         <div class="webkit">
           <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="#e5dcd2">
@@ -196,7 +200,9 @@ We will contact you shortly if additional information is required from you in or
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.3" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${ownership ? 'Owner' : 'Renter'}</span></div><div></div></div></td>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          ownership ? "Owner" : "Renter"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -640,7 +646,9 @@ We will contact you shortly if additional information is required from you in or
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>${flowRate <= 30 ? 'Geyser Size' : 'Flow Rate'}</strong></span></div><div></div></div></td>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>${
+          flowRate <= 30 ? "Geyser Size" : "Flow Rate"
+        }</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
@@ -686,9 +694,13 @@ We will contact you shortly if additional information is required from you in or
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 5px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 30px"><strong>${flowRate <= 30 ? formatter.format(
-          roundUp(geyserPrice + installationCost + plumbingCost)
-        ) : 'Awaiting calculations'}</strong></span></div><div></div></div></td>
+        <td style="padding:15px 0px 5px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 30px"><strong>${
+          flowRate <= 30
+            ? formatter.format(
+                roundUp(geyserPrice + installationCost + plumbingCost)
+              )
+            : "Awaiting calculations"
+        }</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -859,7 +871,12 @@ We will contact you shortly if additional information is required from you in or
     </table></td>
                                       </tr>
                                     </table>
-
+                                  <!--[if mso]>
+                                  </td>
+                                </tr>
+                              </table>
+                            </center>
+                            <![endif]-->
                           </td>
                         </tr>
                       </table>
