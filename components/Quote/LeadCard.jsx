@@ -118,84 +118,56 @@ function LeadCard({ quote }) {
                   {`Phone Number: ${quote.telephoneNumber}`}
                 </p>
                 <span className="text-gray-50 mb-2 font-medium bg-sky-800 px-4 py-1 flex space-x-8 mt-3 text-sm">
-                  <p>{`Contact Day: ${quote.contactDay}`}</p>{' '}
+                  <p>{`Contact Day: ${quote.contactDay}`}</p>{" "}
                   <p>{`Contact Time: ${quote.contactTime}`}</p>
                 </span>
 
                 <div className="mt-2 mb-2 bg-gray-100 shadow rounded p-4 relative">
                   <ul>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Home Ownership -{' '}
+                      Home Ownership -{" "}
                       <span className="uppercase font-bold">
-                        {quote.ownership ? `Owner` : 'Renter'}
+                        {quote.ownership ? `Owner` : "Renter"}
                       </span>
                     </li>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Porperty Type -{' '}
+                      Porperty Type -{" "}
                       <span className="uppercase font-bold">
                         {quote.houseType}
                       </span>
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Current Gas Supply -{' '}
+                      Current Gas Supply -{" "}
                       <span className="uppercase font-bold">
                         {quote.gasSupply}
                       </span>
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Off Grid Solution -{' '}
+                      Quote Required -{" "}
                       <span className="uppercase font-bold">
-                        {quote.completeSolution ? 'Yes' : 'No'}
-                      </span>
-                    </li>
-
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Geyser on outside wall -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.locateOutside ? 'Yes' : 'No'}
-                      </span>
-                    </li>
-
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Require Installation -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.installation ? 'Yes' : 'No'}
+                        {quote.installation}
                       </span>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
-                <h3 className="text-gray-600 font-bold text-lg">
-                  Household Size:
+                <h3 className="font-bold text-lg text-gray-600">
+                  Estimated Cost
                 </h3>
-                <div className="flex items-center border-t-2 justify-between py-2">
-                  <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
-                      Children
-                    </h2>
-                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
-                      {quote.children}
-                    </h2>
-                  </div>
-                  <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
-                      Teenagers
-                    </h2>
-                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
-                      {quote.teenagers}
-                    </h2>
-                  </div>
-                  <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
-                      Adults
-                    </h2>
-                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
-                      {quote.adults}
-                    </h2>
-                  </div>
+                <div className="flex items-center border-t-2 justify-between py-3">
+                  <h3 className="text-sm text-green-700">
+                    Geyser Cost: {formatter.format(quote.geyserPrice)}
+                  </h3>
+                  <h3 className="text-sm text-orange-700">
+                    Approx Installation Cost:{" "}
+                    {formatter.format(quote.installationCost)}{" "}
+                  </h3>
+                  <h3 className="text-sm text-violet-700 mb-3">
+                    Approx Plumbing Cost: {formatter.format(quote.plumbingCost)}
+                  </h3>
                 </div>
 
                 <h3 className="text-gray-600 font-bold text-lg">

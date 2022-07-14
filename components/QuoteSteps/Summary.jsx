@@ -10,24 +10,17 @@ import { useProducts } from '../../hooks/products';
 import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
 import QuoteCard from '../Quote/QuoteCard';
+import { motion } from 'framer-motion';
 
-const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const [loading, setLoading] = useState(false);
 
   console.log('Step', page, quoteInfo);
 
-  const { products, productsIsLoading, productsError } = useProducts(
-    quoteInfo.flowRate,
-  );
-
-  console.log({ products, productsIsLoading, productsError });
-
   const router = useRouter();
 
   const {
-    children,
-    teenagers,
-    adults,
+
     houseType,
     ownership,
     gasSupply,
@@ -62,6 +55,12 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     installation,
     contactDay,
     contactTime,
+    geyserPrice,
+    monthlySavings,
+    yearlySavings,
+    geyserSize,
+    installationCost,
+    plumbingCost,
   } = quoteInfo;
 
   const queryClient = useQueryClient();
@@ -69,9 +68,7 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const mutation = useMutation(() =>
     supabase.from('quotes').insert([
       {
-        children: children,
-        teenagers: teenagers,
-        adults: adults,
+
         houseType: houseType,
         ownership: ownership,
         gasSupply: gasSupply,
@@ -106,6 +103,12 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         installation: installation,
         contactDay: contactDay,
         contactTime: contactTime,
+        geyserPrice: geyserPrice,
+        monthlySavings: monthlySavings,
+        yearlySavings: yearlySavings,
+        geyserSize: geyserSize,
+        installationCost: installationCost,
+        plumbingCost: plumbingCost,
       },
     ]),
   );
@@ -125,9 +128,6 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            children: children,
-            teenagers: teenagers,
-            adults: adults,
             houseType: houseType,
             ownership: ownership,
             gasSupply: gasSupply,
@@ -162,6 +162,12 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             installation: installation,
             contactDay: contactDay,
             contactTime: contactTime,
+            geyserPrice: geyserPrice,
+            monthlySavings: monthlySavings,
+            yearlySavings: yearlySavings,
+            geyserSize: geyserSize,
+            installationCost: installationCost,
+            plumbingCost: plumbingCost,
           }),
         });
 
@@ -180,13 +186,19 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
+    <motion.div
+       transition={{duration: 0.3}}
+        key="summary"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+    className="max-w-6xl mx-auto my-16 lg:my-4 px-6 lg:px-0">
       <QuoteCard quote={quoteInfo} />
 
-      <p className="text-sm lg:px-36 text-gray-600 font-bold mt-2 text-center">
+      <p className="text-sm md:text-lg lg:px-36 text-gray-600 font-bold my-4 text-center">
         Please click on the button below to complete the process. You will
         instantly receive an e-mail with the information you provided and we
-        will get in touch with you as soon as possible.
+        will get in touch with you.
       </p>
 
       <div
@@ -217,8 +229,8 @@ const Step11 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           {loading ? 'Loading...' : 'Complete the process'}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default Step11;
+export default Summary;

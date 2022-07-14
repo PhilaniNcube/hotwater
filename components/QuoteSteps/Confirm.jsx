@@ -2,6 +2,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Confirm({
   quoteInfo,
@@ -11,7 +12,13 @@ export default function Confirm({
   setQuoteInfo,
 }) {
   return (
-    <div className="max-w-6xl mx-auto">
+    <motion.div
+          transition={{ duration: 0.3}}
+        key="confirm"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+    className="max-w-6xl mx-auto">
       <div className="flex flex-col lg:flex-row items-stretch justify-between lg:px-0 px-6 lg:py-20 py-8 2xl:mx-auto 2xl:container">
         <div className="z-30 relative lg:w-1/2">
           <div className="hidden  bg-gray-100 w-full lg:w-10/12 lg:h-full lg:flex justify-end items-center">
@@ -79,6 +86,6 @@ export default function Confirm({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

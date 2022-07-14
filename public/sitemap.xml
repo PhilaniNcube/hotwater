@@ -2,115 +2,191 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
     <loc>https://hotwater24.com/blog</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/cart</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/checkout</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/contact</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/get-it</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/our-approach</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/register</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/savings</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/search</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/signin</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/who-we-are</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/why-us</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/blog/[slug]</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/catalogue/[id]</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/catalogue/index</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/promo/price</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/promo/save</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/quote/index</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
     <loc>https://hotwater24.com/quote/start</loc>
+<<<<<<< HEAD
     <lastmod>2022-06-28T11:42:41.011Z</lastmod>
+=======
+    <lastmod>2022-07-14T08:46:26.364Z</lastmod>
+>>>>>>> reduced_steps
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

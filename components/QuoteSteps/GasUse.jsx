@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import Step5Modal from '../Modals/Step5Modal';
+import { motion } from 'framer-motion';
 
-const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const GasUse = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
   const [interaction, setInteraction] = useState(false);
 
@@ -13,7 +14,13 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-16 relative">
+    <motion.div
+       transition={{duration: 0.3}}
+        key="gasUse"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
+    className="max-w-6xl mx-auto my-16 relative">
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
         Intended gas use
       </h1>
@@ -191,8 +198,8 @@ const Step5 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           </Fragment>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default Step5;
+export default GasUse;

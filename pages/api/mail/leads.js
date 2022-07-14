@@ -1,5 +1,7 @@
 import sgMail from '@sendgrid/mail';
 import client from '@sendgrid/client';
+import formatter from '../../../lib/format';
+import roundUp from '../../../lib/roundUp';
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 client.setApiKey(process.env.SENDGRID_API_KEY);
@@ -11,9 +13,7 @@ export default async function handler(req, res) {
   }
 
   const {
-    children,
-    teenagers,
-    adults,
+
     houseType,
     ownership,
     gasSupply,
@@ -46,16 +46,27 @@ export default async function handler(req, res) {
     completeSolution,
     product_id,
     installation,
+    geyserPrice,
+    monthlySavings,
+    yearlySavings,
+    geyserSize,
+    installationCost,
+    plumbingCost,
   } = req.body;
 
   const msg = {
-    to: 'info@hotwater24.com', // Change to your recipient
-    from: 'info@hotwater24.com', // Change to your verified sender
+    to: "info@hotwater24.com", // Change to your recipient
+    from: "info@hotwater24.com", // Change to your verified sender
     cc: req.body.email,
-    subject: 'Hotwater24 | Your size gas geyser',
+    subject: "Hotwater24 | Your size gas geyser",
     text: `Thank you for answering questions about your property and gas geyser needs. We will be in touch shortly`,
     html: `
-   <center class="wrapper" data-link-color="#1188E6" data-body-style="font-size:14px; font-family:inherit; color:#000000; background-color:#e5dcd2;">
+   <!--user entered Head Start--><link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"><style>
+body {font-family: 'Poppins', sans-serif;}
+</style><!--End Head user entered-->
+
+
+      <center class="wrapper" data-link-color="#1188E6" data-body-style="font-size:14px; font-family:inherit; color:#000000; background-color:#e5dcd2;">
         <div class="webkit">
           <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="#e5dcd2">
             <tr>
@@ -67,9 +78,22 @@ export default async function handler(req, res) {
                         <tr>
                           <td>
                             <!--[if mso]>
+                                                 <!--[if mso]>
     <center>
     <table><tr><td width="550">
   <![endif]-->
+     <center class="wrapper" data-link-color="#1188E6" data-body-style="font-size:14px; font-family:inherit; color:#000000; background-color:#e5dcd2;">
+        <div class="webkit">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="#e5dcd2">
+            <tr>
+              <td valign="top" bgcolor="#e5dcd2" width="100%">
+                <table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="100%">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td>
+
                                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:550px;" align="center">
                                       <tr>
                                         <td role="modules-container" style="padding:0px 0px 0px 0px; color:#000000; text-align:left;" bgcolor="#FFFFFF" width="100%" align="left"><table class="module preheader preheader-hide" role="module" data-type="preheader" border="0" cellpadding="0" cellspacing="0" width="100%" style="display: none !important; mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;">
@@ -78,24 +102,18 @@ export default async function handler(req, res) {
         <p></p>
       </td>
     </tr>
-  </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; color: #80817f" data-muid="ecb815cc-87bc-4a3f-a334-040d110516dc" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:5px 5px 5px 0px; line-height:20px; text-align:inherit; background-color:#e5dcd2;" height="100%" valign="top" bgcolor="#e5dcd2" role="module-content"><div><div style="font-family: inherit; text-align: right"><a href="{{Weblink}}"><span style="font-size: 10px; color: #6f6860"><u>View this email in your browser.</u></span></a></div><div></div></div></td>
-      </tr>
-    </tbody>
   </table><table class="wrapper" role="module" data-type="image" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="cb31e9b8-b045-4c38-a478-ed2a6e2dc166">
     <tbody>
       <tr>
-        <td style="font-size:6px; line-height:10px; padding:0px 0px 0px 0px;" valign="top" align="center">
-          
-        <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;" width="600" alt="" data-proportionally-constrained="true" data-responsive="false" src="https://www.hotwater24.com/images/shower-2.jpg" height="189"></td>
+        <td style="font-size:6px; line-height:10px; padding:0px 10px 0px 10px;" valign="top" align="center">
+
+        <a href="	http://cdn.mcauto-images-production.sendgrid.net/622b9324edf69236/cc9f1deb-95ef-4bac-8ec3-858187a3ef07/1488x302.png"><img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:80% !important; width:80%; height:auto !important;" width="440" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/622b9324edf69236/cc9f1deb-95ef-4bac-8ec3-858187a3ef07/1488x302.png"></a></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="8fd711e6-aecf-4663-bf53-6607f08b57e9" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:30px 0px 40px 30px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: left"><span style="color: #80817f; font-size: 12px"><strong>Thank you for visiting our website. Please find below a summary of the information you provided, as well as our recommendation on the size of gas geyser (flow rate L/Min) which suits your need.<br>
+        <td style="padding:20px 0px 10px 20px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: left"><span style="color: #80817f; font-size: 12px"><strong>Thank you for visiting our website. Please find below a summary of the information you provided, as well as our recommendation on the size geyser (flow rate L/Min) which suits your need.<br>
 We will contact you shortly if additional information is required from you in order for us to send you our customized proposal.</strong></span></div>
 <div style="font-family: inherit; text-align: center"><br></div><div></div></div></td>
       </tr>
@@ -103,144 +121,28 @@ We will contact you shortly if additional information is required from you in or
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="8fd711e6-aecf-4663-bf53-6607f08b57e9.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:0px 40px 40px 40px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Name:</strong></span><span style="color: #80817f; font-size: 12px"> ${firstName} ${lastName}</span></div>
-<div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Address:</strong></span><span style="color: #80817f; font-size: 12px"> ${streetAddress}</span></div>
-<div style="font-family: inherit; text-align: inherit"><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;
-font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f"><strong>Suburb</strong></span><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f">: ${suburb}</span>&nbsp;</div>
-<div style="font-family: inherit; text-align: inherit"><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f"><strong>City</strong></span><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit;
-font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f">: ${city}</span>&nbsp;</div>
-<div style="font-family: inherit; text-align: inherit"><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f"><strong>Postal code</strong></span><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial;
-border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f">: ${postalCode}</span></div>
-<div style="font-family: inherit; text-align: inherit"><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f"><strong>Phone number:</strong></span>
-<span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; background-color: rgb(255, 255, 255); color: #80817f"> ${telephoneNumber}</span> &nbsp;&nbsp;</div>
-<div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Email:</strong></span><span style="color: #80817f; font-size: 12px"> ${email}</span></div>
-<div style="font-family: inherit; text-align: inherit"><br></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="dc927724-7418-476a-b6bf-02600bb57959.1" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px; color: #80817f"><strong>Size of household</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table><table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10">
-    <tbody>
-      <tr>
-        <td style="padding:0px 40px 0px 40px;" role="module-content" height="100%" valign="top" bgcolor="">
-          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" height="2px" style="line-height:2px; font-size:2px;">
-            <tbody>
-              <tr>
-                <td style="padding:0px 0px 2px 0px;" bgcolor="#80817f"></td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
-    <tbody>
-      <tr role="module-content">
-        <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Children</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${children}</span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table></td>
-      </tr>
-    </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
-    <tbody>
-      <tr role="module-content">
-        <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Teenagers</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${teenagers}</span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table></td>
-      </tr>
-    </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
-    <tbody>
-      <tr role="module-content">
-        <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.5" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Adults</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.5" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${adults}</span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table></td>
+        <td style="padding:0px 0px 20px 20px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Name: </strong>${firstName} ${lastName}</span></div>
+        <div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Address: </strong>${streetAddress},</span>
+        <span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f"> ${suburb}, ${city}</span>&nbsp;,
+        <span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; color: #80817f">${postalCode}</span></div>
+<div style="font-family: inherit; text-align: inherit"><span style="box-sizing: border-box; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 12px; vertical-align: baseline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: initial; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; background-color: rgb(255, 255, 255); color: #80817f"><strong>Tel. Number: </strong>${telephoneNumber}</span> &nbsp;&nbsp;</div>
+<div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 12px"><strong>Email: </strong>${email}</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="dc927724-7418-476a-b6bf-02600bb57959.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px; color: #80817f"><strong>Property details</strong></span></div><div></div></div></td>
+        <td style="padding:10px 0px 20px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px; color: #80817f"><strong>Property Details</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10.1.1">
     <tbody>
       <tr>
         <td style="padding:0px 40px 0px 40px;" role="module-content" height="100%" valign="top" bgcolor="">
-          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" height="2px" style="line-height:2px; font-size:2px;">
+          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" height="3px" style="line-height:3px; font-size:3px;">
             <tbody>
               <tr>
-                <td style="padding:0px 0px 2px 0px;" bgcolor="#80817f"></td>
+                <td style="padding:0px 0px 3px 0px;" bgcolor="#80817f"></td>
               </tr>
             </tbody>
           </table>
@@ -268,7 +170,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.4" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; text-transform:capitalize">${houseType}</span></div><div></div></div></td>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; text-transform:capitalize;">${houseType}</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -299,39 +201,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
     <tbody>
       <tr>
         <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
-          ownership ? 'Owner' : 'Renter'
-        }</span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table></td>
-      </tr>
-    </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
-    <tbody>
-      <tr role="module-content">
-        <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.2" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Geyser location outside</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.2" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
-          locateOutside ? 'Yes' : 'No'
+          ownership ? "Owner" : "Renter"
         }</span></div><div></div></div></td>
       </tr>
     </tbody>
@@ -362,7 +232,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.2.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; text-transform: capitalize">${gasSupply}</span></div><div></div></div></td>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; text-transform:capitalize;">${gasSupply}</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -374,7 +244,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="dc927724-7418-476a-b6bf-02600bb57959.3" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px; color: #80817f"><strong>Intended gas use</strong></span></div><div></div></div></td>
+        <td style="padding:10px 0px 10px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px; color: #80817f"><strong>Intended gas use</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10.1.3">
@@ -400,15 +270,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit;font-weight: bold; text-align: center; color: #80817f">Cooking</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Cooking</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit; color: #80817f" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center">${
-          gasStove ? 'Yes' : 'No'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          gasStove ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -420,15 +290,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit;font-weight: bold; text-align: center; color: #80817f">Water heating</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Water heating</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">${
-          gasWaterHeating ? 'Yes' : 'No'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          gasWaterHeating ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -440,15 +310,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; font-weight: bold;text-align: center; color: #80817f">Heating</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Heating</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">${
-          gasHeating ? 'Yes' : 'No'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          gasHeating ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -460,15 +330,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; font-weight: bold;text-align: center; color: #80817f">Other</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Other</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">${
-          otherGasUse ? otherGasUse : 'None'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          otherGasUse ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -480,7 +350,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="dc927724-7418-476a-b6bf-02600bb57959.4" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px; color: #80817f"><strong>How do you currently heat up your water?</strong></span></div><div></div></div></td>
+        <td style="padding:10px 0px 10px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 18px; color: #80817f"><strong>How do you currently heat up your water?</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10.1.4">
@@ -506,15 +376,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center;font-weight: bold; color: #80817f">Gas geyser</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Gas geyser</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="de06dcc5-d0dc-4158-85bf-c18788a77fc8.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">${
-          gasGeyser ? 'Yes' : 'No'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          gasGeyser ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -526,15 +396,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center;font-weight: bold; color: #80817f">Electric geyser</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Electric geyser</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="6140f356-5654-408e-94da-aed66e31667e.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">${
-          electricGeyser ? 'Yes' : 'No'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          electricGeyser ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -546,15 +416,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f;font-weight: bold;">Solar geyser</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Solar geyser</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a5b3a1d4-9cc5-4f1f-9790-bc7c36b16149.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">${
-          solarGeyser ? 'Yes' : 'No'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          solarGeyser ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -566,15 +436,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca.2" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; font-weight: bold; text-align: center; color: #80817f">Other</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">Other</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3765383c-92dc-4259-ab8b-2df13ea284ca.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center; color: #80817f">${
-          otherGeyser ? 'Yes' : 'No'
-        }</div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f">${
+          otherGeyser ? "Yes" : "No"
+        }</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -603,7 +473,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
         </td>
       </tr>
     </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 5px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
     <tbody>
       <tr role="module-content">
         <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
@@ -633,7 +503,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
     </table></td>
       </tr>
     </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 5px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
     <tbody>
       <tr role="module-content">
         <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
@@ -663,7 +533,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
     </table></td>
       </tr>
     </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 5px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
     <tbody>
       <tr role="module-content">
         <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
@@ -693,42 +563,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
     </table></td>
       </tr>
     </tbody>
-  </table>
-
-  <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
-    <tbody>
-      <tr role="module-content">
-        <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;">
-      <table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Kitchen Sink</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.1.1" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>${kitchenSink}</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 5px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
     <tbody>
       <tr role="module-content">
         <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
@@ -758,12 +593,37 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
     </table></td>
       </tr>
     </tbody>
-  </table>
- 
-
-
-
-  <table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10.1.2.1">
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 5px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
+    <tbody>
+      <tr role="module-content">
+        <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+      <tbody>
+        <tr>
+          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.2" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Kitchen Sink</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table></td>
+        </tr>
+      </tbody>
+    </table><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
+      <tbody>
+        <tr>
+          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>${kitchenSink}</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table></td>
+        </tr>
+      </tbody>
+    </table></td>
+      </tr>
+    </tbody>
+  </table><table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10.1.2.1">
     <tbody>
       <tr>
         <td style="padding:0px 40px 0px 40px;" role="module-content" height="100%" valign="top" bgcolor="">
@@ -786,13 +646,121 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 24px"><strong style="display:flex; justify-content:center;">FLOWRATE</strong></span></div><div></div></div></td>
+        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>${
+          flowRate <= 30 ? "Geyser Size" : "Flow Rate"
+        }</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 30px"><strong>${flowRate} L/Min</strong></span></div><div></div></div></td>
+        <td style="padding:0px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 30px"><strong>${
+          flowRate <= 30 ? geyserSize : flowRate
+        } L/Min</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table></td>
+        </tr>
+      </tbody>
+    </table></td>
+      </tr>
+    </tbody>
+  </table><table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10.1.2.1.1">
+    <tbody>
+      <tr>
+        <td style="padding:0px 40px 0px 40px;" role="module-content" height="100%" valign="top" bgcolor="">
+          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" height="1px" style="line-height:1px; font-size:1px;">
+            <tbody>
+              <tr>
+                <td style="padding:0px 0px 1px 0px;" bgcolor="#80817f"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1">
+    <tbody>
+      <tr role="module-content">
+        <td height="100%" valign="top"><table width="470" style="width:470px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+      <tbody>
+        <tr>
+          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.2" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:15px 0px 0px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Total Estimated Cost</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:15px 0px 5px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 30px"><strong>${
+          flowRate <= 30
+            ? formatter.format(
+                roundUp(geyserPrice + installationCost + plumbingCost)
+              )
+            : "Awaiting calculations"
+        }*</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table></td>
+        </tr>
+      </tbody>
+    </table></td>
+      </tr>
+    </tbody>
+  </table><table class="module" role="module" data-type="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="c614d8b1-248a-48ea-a30a-8dd0b2c65e10.1.2.1.1.1">
+    <tbody>
+      <tr>
+        <td style="padding:0px 40px 0px 40px;" role="module-content" height="100%" valign="top" bgcolor="">
+          <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" height="1px" style="line-height:1px; font-size:1px;">
+            <tbody>
+              <tr>
+                <td style="padding:0px 0px 1px 0px;" bgcolor="#80817f"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 15px 0px 15px;" bgcolor="#FFFFFF" data-distribution="1,1">
+    <tbody>
+      <tr role="module-content">
+        <td height="100%" valign="top"><table width="260" style="width:260px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+      <tbody>
+        <tr>
+          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.2.1" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:0px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Monthly Savings</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:0px 0px 10px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 24px"><strong>${formatter.format(
+          roundUp(monthlySavings)
+        )}&nbsp;</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table></td>
+        </tr>
+      </tbody>
+    </table><table width="260" style="width:260px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
+      <tbody>
+        <tr>
+          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.2.1.1" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:0px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Yearly Savings</strong></span></div><div></div></div></td>
+      </tr>
+    </tbody>
+  </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
+    <tbody>
+      <tr>
+        <td style="padding:0px 0px 10px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 24px"><strong>${formatter.format(
+          roundUp(yearlySavings)
+        )}</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -824,7 +792,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Need installation?</strong></span></div><div></div></div></td>
+        <td style="padding:10px 0px 10px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 18px"><strong>Require Quote?</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -836,9 +804,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.1.1.1.1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>${
-          installation ? 'Yes' : 'No'
-        }</strong></span></div><div></div></div></td>
+        <td style="padding:10px 0px 10px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 18px"><strong style="text-transform:capitalize;">${installation}</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -847,30 +813,16 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
     </table></td>
       </tr>
     </tbody>
-  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1,1">
+  </table><table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" role="module" data-type="columns" style="padding:0px 40px 0px 40px;" bgcolor="#FFFFFF" data-distribution="1">
     <tbody>
       <tr role="module-content">
-        <td height="100%" valign="top"><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+        <td height="100%" valign="top"><table width="470" style="width:470px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
       <tbody>
         <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.2.1.1.1.1.3" data-mc-module-version="2019-10-22">
+          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="1e19420d-1d9e-4ea6-ab69-d9981acd1b3f" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>Need an off-grid-solution?</strong></span></div><div></div></div></td>
-      </tr>
-    </tbody>
-  </table></td>
-        </tr>
-      </tbody>
-    </table><table width="235" style="width:235px; border-spacing:0; border-collapse:collapse; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
-      <tbody>
-        <tr>
-          <td style="padding:0px;margin:0px;border-spacing:0;"><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="64573b96-209a-4822-93ec-5c5c732af15c.1.1.1.1.1.1.2" data-mc-module-version="2019-10-22">
-    <tbody>
-      <tr>
-        <td style="padding:15px 0px 15px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="color: #80817f; font-size: 12px"><strong>${
-          completeSolution ? 'Yes' : 'No'
-        }</strong></span></div><div></div></div></td>
+        <td style="padding:18px 0px 18px 0px; line-height:15px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><span style="color: #80817f; font-size: 10px">*This total estimated cost is based on the information as provided. It includes the cost for the gas geyser, gas installation and plumbing work and excludes the cost for a gas cage, gas cylinder(s) and gas supply.</span></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>
@@ -919,7 +871,7 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
     </table></td>
                                       </tr>
                                     </table>
-                                    <!--[if mso]>
+                                  <!--[if mso]>
                                   </td>
                                 </tr>
                               </table>
@@ -936,22 +888,15 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           </table>
         </div>
       </center>
-        <style type="text/css">
-    center {width: 550px;margin: 0 auto; color: #80817f}
-    table {border-collapse: collapse;}
-    table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
-    img {-ms-interpolation-mode: bicubic;}
-  </style>
-<![endif]-->
-      <style type="text/css">
-    center, p, div {
+         <style type="text/css">
+    body, p, div {
       font-family: inherit;
       font-size: 14px;
     }
-    center {
-     color: #80817f;
+    body {
+      color: #000000;
     }
-    center a {
+    body a {
       color: #1188E6;
       text-decoration: none;
     }
@@ -1042,10 +987,6 @@ border-image-source: initial; border-image-slice: initial; border-image-width: i
           }
       }
     </style>
-      <!--user entered Head Start--><link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"><style>
-center {font-family: 'Poppins', sans-serif;}
-</style>
- 
            `,
   };
 

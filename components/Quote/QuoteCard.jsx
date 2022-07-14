@@ -1,8 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
+import formatter from '../../lib/format';
+import roundUp from '../../lib/roundUp';
 
 function Index({ quote }) {
+
+
   return (
     <Fragment>
       <div className="w-full bg-gray-200 py-4">
@@ -32,12 +36,29 @@ function Index({ quote }) {
 
                 <div className="flex items-center justify-between mt-8">
                   <div>
-                    <p className="text-md text-gray-600 font-bold mb-1 tracking-normal">
-                      Calculated Flow Rate
-                    </p>
                     <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                      {quote.flowRate} L/Min
+                      {quote.flowRate <= 30
+                        ? `Geyser Size: ${quote.geyserSize} L/Min`
+                        : `Flow Rate: ${quote.flowRate} L/Min`}
                     </h2>
+
+                    <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
+                      {quote.flowRate <= 30 &&
+                        ` Estimated Cost:
+                      ${formatter.format(
+                        roundUp(
+                          quote.geyserPrice +
+                            quote.installationCost +
+                            quote.plumbingCost
+                        )
+                      )}`}
+                    </h3>
+                    <h3 className="font-bold text-lg text-gray-600 mt-3">
+                      Monthly Savings: {formatter.format(quote.monthlySavings)}
+                    </h3>
+                    <h3 className="font-bold text-lg text-gray-600">
+                      Yearly Savings: {formatter.format(quote.yearlySavings)}
+                    </h3>
                   </div>
                 </div>
 
@@ -61,7 +82,7 @@ function Index({ quote }) {
                       {quote.dishwasher}
                     </p>
                   </div>
-                     * 
+                     *
                      */}
 
                   <div className="mb-2 flex items-center justify-between">
@@ -107,8 +128,8 @@ function Index({ quote }) {
                       {quote.washingmachine}
                     </p>
                   </div>
-                    * 
-                    * 
+                    *
+                    *
                     */}
                 </div>
               </div>
@@ -135,52 +156,51 @@ function Index({ quote }) {
                 <div className="mt-2 mb-2 bg-gray-100 shadow rounded p-4 relative">
                   <ul>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Home Ownership -{' '}
+                      Home Ownership -{" "}
                       <span className="uppercase font-bold">
-                        {quote.ownership ? `Owner` : 'Renter'}
+                        {quote.ownership ? `Owner` : "Renter"}
                       </span>
                     </li>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Porperty Type -{' '}
+                      Porperty Type -{" "}
                       <span className="uppercase font-bold">
                         {quote.houseType}
                       </span>
                     </li>
 
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Current Gas Supply -{' '}
+                      Current Gas Supply -{" "}
                       <span className="uppercase font-bold">
                         {quote.gasSupply}
                       </span>
                     </li>
-
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Off Grid Solution -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.completeSolution ? 'Yes' : 'No'}
-                      </span>
-                    </li>
-
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Geyser on outside wall -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.locateOutside ? 'Yes' : 'No'}
-                      </span>
-                    </li>
-
-                    <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Require Installation -{' '}
-                      <span className="uppercase font-bold">
-                        {quote.installation ? 'Yes' : 'No'}
-                      </span>
+                      {quote.flowRate <= 30 ? (
+                        <Fragment>
+                          Quote Required -{" "}
+                          <span className="uppercase font-bold">
+                            {quote.installation}
+                          </span>
+                        </Fragment>
+                      ) : (
+                        <Fragment>
+                          {" "}
+                          Request Information -{` `}
+                          <span className="uppercase font-bold">
+                            {quote.installation}
+                          </span>
+                        </Fragment>
+                      )}
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
+                {/**
                 <h3 className="text-gray-600 font-bold text-lg">
                   Household Size:
                 </h3>
+
                 <div className="flex items-center border-t-2 justify-between py-2">
                   <div>
                     <h2 className="text-gray-800  leading-5 text-center">
@@ -207,6 +227,7 @@ function Index({ quote }) {
                     </h2>
                   </div>
                 </div>
+              */}
 
                 <h3 className="text-gray-600 font-bold text-lg">
                   Intended Gas Use:

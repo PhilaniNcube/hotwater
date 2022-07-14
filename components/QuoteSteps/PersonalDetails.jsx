@@ -4,12 +4,19 @@ import React, { Fragment, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useUser } from '../../Context/AuthContext';
 import { supabase } from '../../utils/supabase';
+import {motion} from 'framer-motion';
 
-const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   return (
-    <form
+    <motion.form
+
+       transition={{duration: 0.3}}
+        key="details"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '-100%' }}
       onSubmit={nextPage}
       className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12"
     >
@@ -224,7 +231,7 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
               }
             >
               <option value="">Select Time</option>
-              <option value="8AM - 10AM">8AM - 10AM</option>
+              <option value="9AM - 11AM">9AM - 11AM</option>
               <option value="11AM - 1PM">11AM - 1PM</option>
               <option value="2PM - 5PM">2PM - 5PM</option>
             </select>
@@ -288,8 +295,8 @@ const Step10 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           )}
         </div>
       </div>
-    </form>
+    </motion.form>
   );
 };
 
-export default Step10;
+export default PersonalDetails;

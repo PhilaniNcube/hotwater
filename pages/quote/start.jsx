@@ -22,7 +22,7 @@ const Start = () => {
       </Head>
       <div className="pt-4">
         <h1 className="font-sans text-2xl text-center font-semibold text-gray-800">
-          Let us help you choose your geyser!
+          Let us help you choose your gas geyser!
         </h1>
 
         <p className="text-lg text-center px-8 lg:px-60">

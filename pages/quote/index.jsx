@@ -1,27 +1,28 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { Fragment, useState } from 'react';
-import Step1 from '../../components/QuoteSteps/Step1';
-import Step2 from '../../components/QuoteSteps/Step2';
-import Step3 from '../../components/QuoteSteps/Step3';
-import Step4 from '../../components/QuoteSteps/Step4';
-import Step5 from '../../components/QuoteSteps/Step5';
-import Step6 from '../../components/QuoteSteps/Step6';
+import PropertyType from '../../components/QuoteSteps/PropertyType';
 import Confirm from '../../components/QuoteSteps/Confirm';
 import PageTransitions from '../../components/PageTransitions';
-import Step7 from '../../components/QuoteSteps/Step7';
-import Step8 from '../../components/QuoteSteps/Step8';
-import Step9 from '../../components/QuoteSteps/Step9';
 import Step10 from '../../components/QuoteSteps/Step10';
 import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
-import Step11 from '../../components/QuoteSteps/Step11';
-import Step12 from '../../components/QuoteSteps/Step12';
 import getProducts from '../../lib/getProducts';
 import { useQuery } from 'react-query';
 import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
+import OwnerStatus from '../../components/QuoteSteps/OwnerStatus';
+import GasSupply from '../../components/QuoteSteps/GasSupply';
+import GasUse from '../../components/QuoteSteps/GasUse';
+import WaterHeating from '../../components/QuoteSteps/WaterHeating';
+import WaterOutlets from '../../components/QuoteSteps/WaterOutlests';
+import Recommendations from '../../components/QuoteSteps/Recommendations';
+import Savings from '../../components/QuoteSteps/Savings';
+import Financing from '../../components/QuoteSteps/Financing';
+import PersonalDetails from '../../components/QuoteSteps/PersonalDetails';
+import Summary from '../../components/QuoteSteps/Summary';
+import { AnimatePresence } from 'framer-motion';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -70,6 +71,13 @@ const index = ({ initialProducts }) => {
     installation: null,
     contactDay: '',
     contactTime: '',
+    financing: false,
+    geyserPrice: null,
+    monthlySavings: null,
+    yearlySavings: null,
+    geyserSize: null,
+    installationCost: null,
+    plumbingCost: null,
   });
 
   const nextPage = () => {
@@ -151,8 +159,10 @@ const index = ({ initialProducts }) => {
           }}
         />
       </Head>
+      <AnimatePresence exitBeforeEnter={true} >
+      <div className="relative ">
       {page === 1 && (
-        <Step1
+        <PropertyType
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -161,7 +171,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 2 && (
-        <Step2
+        <OwnerStatus
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -170,7 +180,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 3 && (
-        <Step3
+        <GasSupply
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -179,7 +189,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 4 && (
-        <Step4
+        <GasUse
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -188,7 +198,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 5 && (
-        <Step5
+        <WaterHeating
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -196,8 +206,9 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
+
       {page === 6 && (
-        <Step6
+        <WaterOutlets
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -205,8 +216,9 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
+
       {page === 7 && (
-        <Step7
+        <Savings
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -214,8 +226,8 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
-      {page === 8 && (
-        <Step8
+       {page === 8 && (
+        <Recommendations
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -223,8 +235,11 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
+
+
+
       {page === 9 && (
-        <Step9
+        <PersonalDetails
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -232,8 +247,9 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
+
       {page === 10 && (
-        <Step10
+        <Summary
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -241,27 +257,7 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
-
       {page === 11 && (
-        <Step11
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-
-      {page === 12 && (
-        <Step12
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 13 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -270,7 +266,10 @@ const index = ({ initialProducts }) => {
           page={page}
           products={products}
         />
-      )}
+        )}
+
+        </div>
+        </AnimatePresence>
     </Fragment>
   );
 };
