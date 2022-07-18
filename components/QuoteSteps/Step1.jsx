@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 
-const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const Family = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
 
   const [interaction, setInteraction] = useState(false);
@@ -188,4 +188,4 @@ const Step1 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step1;
+export default Family;
