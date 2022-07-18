@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment } from 'react';
 import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
+import formatter from '../../lib/format';
 
 function LeadCard({ quote }) {
   return (
