@@ -23,6 +23,7 @@ import Financing from '../../components/QuoteSteps/Financing';
 import PersonalDetails from '../../components/QuoteSteps/PersonalDetails';
 import Summary from '../../components/QuoteSteps/Summary';
 import { AnimatePresence } from 'framer-motion';
+import Family from '../../components/QuoteSteps/Step1';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
@@ -162,7 +163,7 @@ const index = ({ initialProducts }) => {
       <AnimatePresence exitBeforeEnter={true} >
       <div className="relative ">
       {page === 1 && (
-        <PropertyType
+        <Family
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -171,7 +172,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 2 && (
-        <OwnerStatus
+        <PropertyType
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -180,7 +181,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 3 && (
-        <GasSupply
+        <OwnerStatus
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -189,7 +190,7 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 4 && (
-        <GasUse
+        <GasSupply
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
@@ -198,6 +199,15 @@ const index = ({ initialProducts }) => {
         />
       )}
       {page === 5 && (
+        <GasUse
+          quoteInfo={quoteInfo}
+          setQuoteInfo={setQuoteInfo}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          page={page}
+        />
+      )}
+      {page === 6 && (
         <WaterHeating
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -207,7 +217,7 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 6 && (
+      {page === 7 && (
         <WaterOutlets
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -217,7 +227,7 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 7 && (
+      {page === 8 && (
         <Savings
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -226,7 +236,7 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
-       {page === 8 && (
+       {page === 9 && (
         <Recommendations
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -238,7 +248,7 @@ const index = ({ initialProducts }) => {
 
 
 
-      {page === 9 && (
+      {page === 10 && (
         <PersonalDetails
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -248,7 +258,7 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 10 && (
+      {page === 11 && (
         <Summary
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -257,7 +267,7 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
-      {page === 11 && (
+      {page === 12 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
