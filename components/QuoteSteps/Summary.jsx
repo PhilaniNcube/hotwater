@@ -20,7 +20,9 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const router = useRouter();
 
   const {
-
+    children,
+    adults,
+    teenagers,
     houseType,
     ownership,
     gasSupply,
@@ -66,9 +68,11 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation(() =>
-    supabase.from('quotes').insert([
+    supabase.from("quotes").insert([
       {
-
+        children,
+        adults,
+        teenagers,
         houseType: houseType,
         ownership: ownership,
         gasSupply: gasSupply,
@@ -110,7 +114,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         installationCost: installationCost,
         plumbingCost: plumbingCost,
       },
-    ]),
+    ])
   );
 
   const handleSubmit = async () => {
@@ -125,9 +129,10 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
 
       if (quote?.data[0]) {
         const mail = await fetch(`/api/mail/leads`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+
             houseType: houseType,
             ownership: ownership,
             gasSupply: gasSupply,
