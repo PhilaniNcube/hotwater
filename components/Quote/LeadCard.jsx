@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import { AiFillCheckSquare, AiFillCloseSquare } from 'react-icons/ai';
 import formatter from '../../lib/format';
+import roundUp from '../../lib/roundUp';
 
 function LeadCard({ quote }) {
   return (
@@ -159,16 +160,16 @@ function LeadCard({ quote }) {
                   Estimated Cost
                 </h3>
                 <div className="flex items-center border-t-2 justify-between py-3">
-                  <h3 className="text-sm text-green-700">
-                    Geyser Cost: {formatter.format(quote.geyserPrice)}
+                  <h3 className="text-md">
+                    {formatter.format(
+                      roundUp(
+                        quote.geyserPrice +
+                          quote.installationCost +
+                          quote.plumbingCost
+                      )
+                    )}
                   </h3>
-                  <h3 className="text-sm text-orange-700">
-                    Approx Installation Cost:{" "}
-                    {formatter.format(quote.installationCost)}{" "}
-                  </h3>
-                  <h3 className="text-sm text-violet-700 mb-3">
-                    Approx Plumbing Cost: {formatter.format(quote.plumbingCost)}
-                  </h3>
+
                 </div>
 
                 <h3 className="text-gray-600 font-bold text-lg">
