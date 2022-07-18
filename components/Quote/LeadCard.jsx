@@ -160,7 +160,7 @@ function LeadCard({ quote }) {
                   Estimated Cost
                 </h3>
                 <div className="flex items-center border-t-2 justify-between py-3">
-                  <h3 className="text-md">
+                  <h3 className="text-lg text-gray-600">
                     {formatter.format(
                       roundUp(
                         quote.geyserPrice +
@@ -169,6 +169,24 @@ function LeadCard({ quote }) {
                       )
                     )}
                   </h3>
+
+                </div>
+                <h3 className="font-bold text-lg text-gray-600">
+                  Household Size
+                </h3>
+                <div className="grid grid-cols-3 border-t-2 py-3 text-gray-600">
+                  <span className="flex flex-col items-center justify-center">
+                  <h4>Children</h4>
+                  <h4>{quote.children}</h4>
+                  </span>
+                  <span className="flex flex-col items-center justify-center">
+                  <h4>Teenagers</h4>
+                  <h4>{quote.teenagers}</h4>
+                  </span>
+                  <span className="flex flex-col items-center justify-center">
+                  <h4>Adults</h4>
+                  <h4>{quote.adults}</h4>
+                  </span>
 
                 </div>
 
