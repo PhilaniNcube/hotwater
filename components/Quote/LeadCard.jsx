@@ -199,14 +199,14 @@ function LeadCard({ quote }) {
                 </span>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
-                {/**
+
                 <h3 className="text-gray-600 font-bold text-lg">
                   Household Size:
                 </h3>
 
                 <div className="flex items-center border-t-2 justify-between py-2">
                   <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
+                    <h2 className="text-gray-600  leading-5 text-center">
                       Children
                     </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
@@ -214,7 +214,7 @@ function LeadCard({ quote }) {
                     </h2>
                   </div>
                   <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
+                    <h2 className="text-gray-600  leading-5 text-center">
                       Teenagers
                     </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
@@ -222,7 +222,7 @@ function LeadCard({ quote }) {
                     </h2>
                   </div>
                   <div>
-                    <h2 className="text-gray-800  leading-5 text-center">
+                    <h2 className="text-gray-600  leading-5 text-center">
                       Adults
                     </h2>
                     <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
@@ -230,7 +230,7 @@ function LeadCard({ quote }) {
                     </h2>
                   </div>
                 </div>
-              */}
+
 
                 <h3 className="text-gray-600 font-bold text-lg">
                   Intended Gas Use:
