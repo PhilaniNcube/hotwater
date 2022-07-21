@@ -34,23 +34,29 @@ function LeadCard({ quote }) {
 
                 <div className="flex items-center justify-between mt-8">
                   <div>
-                    <p className="text-md text-gray-600 font-bold mb-1 tracking-normal">
-                      Date Submitted
-                    </p>
                     <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                      {new Date(quote.created_at).toDateString()}
+                      {quote.flowRate <= 30
+                        ? `Geyser Size: ${quote.geyserSize} L/Min`
+                        : `Flow Rate: ${quote.flowRate} L/Min`}
                     </h2>
-                  </div>
-                </div>
 
-                <div className="flex items-center justify-between mt-8">
-                  <div>
-                    <p className="text-md text-gray-600 font-bold mb-1 tracking-normal">
-                      Calculated Flow Rate
-                    </p>
-                    <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                      {quote.flowRate} L/Min
-                    </h2>
+                    <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
+                      {quote.flowRate <= 30 &&
+                        ` Estimated Cost:
+                      ${formatter.format(
+                        roundUp(
+                          quote.geyserPrice +
+                            quote.installationCost +
+                            quote.plumbingCost
+                        )
+                      )}`}
+                    </h3>
+                    <h3 className="font-bold text-lg text-gray-600 mt-3">
+                      Monthly Savings: {formatter.format(quote.monthlySavings)}
+                    </h3>
+                    <h3 className="font-bold text-lg text-gray-600">
+                      Yearly Savings: {formatter.format(quote.yearlySavings)}
+                    </h3>
                   </div>
                 </div>
 
@@ -61,6 +67,28 @@ function LeadCard({ quote }) {
                     </p>
                     <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
                       {quote.bathtub}
+                    </p>
+                  </div>
+
+                  {/***
+                     * ********************************
+                     *   <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Dishwashers
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.dishwasher}
+                    </p>
+                  </div>
+                     *
+                     */}
+
+                  <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Rain Showers
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.rainShower}
                     </p>
                   </div>
 
@@ -80,16 +108,6 @@ function LeadCard({ quote }) {
                       {quote.bathroomSink}
                     </p>
                   </div>
-
-                  <div className="mb-2 flex items-center justify-between">
-                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
-                      Rain Showers
-                    </p>
-                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
-                      {quote.rainShower}
-                    </p>
-                  </div>
-
                   <div className="mb-2 flex items-center justify-between">
                     <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
                       Standard Showers
@@ -98,6 +116,19 @@ function LeadCard({ quote }) {
                       {quote.standardShower}
                     </p>
                   </div>
+
+                  {/****
+                    *    <div className="mb-2 flex items-center justify-between">
+                    <p className="text-gray-600  text-sm font-normal leading-3 tracking-normal">
+                      Washing Machine
+                    </p>
+                    <p className="text-xs text-sky-700  font-normal leading-3 tracking-normal">
+                      {quote.washingmachine}
+                    </p>
+                  </div>
+                    *
+                    *
+                    */}
                 </div>
               </div>
               <div className="w-full lg:w-1/3 p-6 border-t border-b lg:border-t-0 lg:border-b-0 sm:border-l sm:border-r border-gray-300">
@@ -119,10 +150,6 @@ function LeadCard({ quote }) {
                 <p className="text-gray-600  text-sm font-normal">
                   {`Phone Number: ${quote.telephoneNumber}`}
                 </p>
-                <span className="text-gray-50 mb-2 font-medium bg-sky-800 px-4 py-1 flex space-x-8 mt-3 text-sm">
-                  <p>{`Contact Day: ${quote.contactDay}`}</p>{" "}
-                  <p>{`Contact Time: ${quote.contactTime}`}</p>
-                </span>
 
                 <div className="mt-2 mb-2 bg-gray-100 shadow rounded p-4 relative">
                   <ul>
@@ -145,50 +172,65 @@ function LeadCard({ quote }) {
                         {quote.gasSupply}
                       </span>
                     </li>
-
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Quote Required -{" "}
-                      <span className="uppercase font-bold">
-                        {quote.installation}
-                      </span>
+                      {quote.flowRate <= 30 ? (
+                        <Fragment>
+                          Quote Required -{" "}
+                          <span className="uppercase font-bold">
+                            {quote.installation}
+                          </span>
+                        </Fragment>
+                      ) : (
+                        <Fragment>
+                          {" "}
+                          Request Information -{` `}
+                          <span className="uppercase font-bold">
+                            {quote.installation}
+                          </span>
+                        </Fragment>
+                      )}
                     </li>
                   </ul>
                 </div>
+
+                <span className="text-gray-50 mb-2 font-medium bg-sky-800 px-4 py-1 flex space-x-8 mt-3 text-sm">
+                  <p>{`Contact Day: ${quote.contactDay}`}</p>{" "}
+                  <p>{`Contact Time: ${quote.contactTime}`}</p>
+                </span>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
-                <h3 className="font-bold text-lg text-gray-600">
-                  Estimated Cost
+                {/**
+                <h3 className="text-gray-600 font-bold text-lg">
+                  Household Size:
                 </h3>
-                <div className="flex items-center border-t-2 justify-between py-3">
-                  <h3 className="text-lg text-gray-600">
-                    {formatter.format(
-                      roundUp(
-                        quote.geyserPrice +
-                          quote.installationCost +
-                          quote.plumbingCost
-                      )
-                    )}
-                  </h3>
 
+                <div className="flex items-center border-t-2 justify-between py-2">
+                  <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Children
+                    </h2>
+                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
+                      {quote.children}
+                    </h2>
+                  </div>
+                  <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Teenagers
+                    </h2>
+                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
+                      {quote.teenagers}
+                    </h2>
+                  </div>
+                  <div>
+                    <h2 className="text-gray-800  leading-5 text-center">
+                      Adults
+                    </h2>
+                    <h2 className="text-gray-600  font-bold text-lg leading-6 mb-1 text-center">
+                      {quote.adults}
+                    </h2>
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg text-gray-600">
-                  Household Size
-                </h3>
-                <div className="grid grid-cols-3 border-t-2 py-3 text-gray-600">
-                  <span className="flex flex-col items-center justify-center">
-                  <h4>Children</h4>
-                  <h4>{quote.children}</h4>
-                  </span>
-                  <span className="flex flex-col items-center justify-center">
-                  <h4>Teenagers</h4>
-                  <h4>{quote.teenagers}</h4>
-                  </span>
-                  <span className="flex flex-col items-center justify-center">
-                  <h4>Adults</h4>
-                  <h4>{quote.adults}</h4>
-                  </span>
-
-                </div>
+              */}
 
                 <h3 className="text-gray-600 font-bold text-lg">
                   Intended Gas Use:
