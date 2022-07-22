@@ -38,9 +38,12 @@ function LeadCard({ quote }) {
                 <div className="flex items-center justify-between mt-8">
                   <div>
                     <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
+                      Flow Rate: {quote.flowRate} L/Min
+                    </h2>
+                    <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
                       {quote.flowRate <= 30
-                        ? `Geyser Size: ${quote.geyserSize} L/Min`
-                        : `Flow Rate: ${quote.flowRate} L/Min`}
+                        && `Geyser Size: ${quote.geyserSize} L/Min`
+                        }
                     </h2>
 
                     <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
