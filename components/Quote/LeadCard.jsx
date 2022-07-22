@@ -29,6 +29,9 @@ function LeadCard({ quote }) {
                     <p className="text-gray-600  text-xs font-normal">
                       {quote.email}
                     </p>
+                    <p className="text-gray-600  text-xs font-normal">
+                      {new Date(quote.created_at).toDateString()}
+                    </p>
                   </div>
                 </div>
 
@@ -199,7 +202,6 @@ function LeadCard({ quote }) {
                 </span>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
-
                 <h3 className="text-gray-600 font-bold text-lg">
                   Household Size:
                 </h3>
@@ -230,7 +232,6 @@ function LeadCard({ quote }) {
                     </h2>
                   </div>
                 </div>
-
 
                 <h3 className="text-gray-600 font-bold text-lg">
                   Intended Gas Use:
