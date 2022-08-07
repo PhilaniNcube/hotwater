@@ -10,7 +10,10 @@ const xero = new XeroClient({
     `http://localhost:3000/api/xero/create_contact`,
   ],
   grantType: "client_credentials",
-  scopes: "openid profile email accounting.transactions offline_access".split(" "),
+  scopes:
+    "openid profile email accounting.transactions accounting.contacts accounting.settings offline_access".split(
+      " "
+    ),
 });
 
 xero.initialize()

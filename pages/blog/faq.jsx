@@ -462,31 +462,310 @@ const faq = () => {
                   Are gas geysers safe for home use?
                 </p>
                 <article className="text-base text-gray-600 font-medium">
-                  @Hotwater24 safety comes first, which is why all installers we
-                  work with are certified and registered with the LPGas
-                  Association of South Africa (LPGSA - http://www.lpgas.co.za/).
-                  For safety and quality purposes of the installation work
-                  performed, the installation must be checked to comply with
-                  current rules and regulations. Therefore, a CoC (Certificate
-                  of Compliance) will be signed off after every installation
-                  between the installer and you as our client.
+                  YES. ABSOLUTELY! Gas geysers are 100% safe, provided you work
+                  with professional experts, registered suppliers, and
+                  installers like us.
                 </article>
                 <article className="text-base text-gray-600 font-medium">
-                  Please do not hesitate to contact us at any time for advice.
-                  Please also check the following link of one of our blogs
-                  highlighting the safety aspect:
+                  There is no shortcut around this – Precautious and adequate
+                  safety measures must be taken to select, install, and use any
+                  gas geyser. ALL our gas geysers have safety features: a flame
+                  failure device, an over-heat protection device, a gas and
+                  water stability device, a combustion safety device, and an
+                  oxygen depletion sensor device.
                 </article>
+                <ul className="list-disc text-gray-600 pl-6">
+                  <li>
+                    <p className="text-base font-bold">
+                      Install in a well-ventilated area.
+                    </p>
+                    <p>
+                      Ventilation is the most crucial safety measure when using
+                      a gas geyser at home. Our expert installers assess the
+                      most strategic and ventilated location to install your gas
+                      geysers, for example, mounted on a wall outside, on a
+                      balcony, rooftop, terrace, or other areas where maximum
+                      ventilation can be achieved.
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-base font-bold">
+                      Be on the Lookout for gas Leaks.
+                    </p>
+                    <p>
+                      The second measure that ensures safety is to ALWAYS be on
+                      the lookout for gas leaks. Loosely fitted pipes or other
+                      utility fixtures become one of the most common causes of
+                      gas leaks at home. Be exceptionally vigilant when it comes
+                      to gas leaks!
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-base font-bold">
+                      Keep out of reach of children!
+                    </p>
+                    <p>
+                      Like any potentially harmful device, KEEP OUT OF
+                      CHILDREN&apos;S REACH! NEVER ask your child to turn on or
+                      off the gas geyser or let them fiddle its knobs. We always
+                      install your gas geyser in an area out of reach of
+                      children and recommend that you keep it locked. In
+                      instances where the home has limited placement, for
+                      example, in an apartment building, we install a safety
+                      grill around the geyser to ensure the safety of young
+                      children.
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-base font-bold">
+                      Keep a watchful eye on your thermostat.
+                    </p>
+                    <p>
+                      The thermostat allows you to set your temperature at your
+                      desired levels. Avoid setting your temperature to
+                      &apos;very hot&apos; for extended periods, as boiling
+                      water can accumulate extreme steam pressures. So, please
+                      re-set your thermostat to your &apos;normal&apos;
+                      temperature after using boiling water. Fortunately for
+                      you, ALL our gas geysers are modern and have safety
+                      features that make them very safe. For example, if there
+                      is increased heat in the gas geyser, it has temperature
+                      sensors for the air temperature exiting the unit. If the
+                      temperature is too high, it will stop supplying gas to the
+                      burners. If that were to fail, there is a second water
+                      temperature sensor. If the outgoing water temperature is
+                      too high, it will stop supplying gas to the burner.
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-base font-bold">
+                      Servicing and Maintenance.
+                    </p>
+                    <p>
+                      We keep track of our purchases to remind ALL our clients
+                      of the need for one of our installers to come and run a
+                      thorough service/maintenance on your gas geyser every 12
+                      months. Your gas geyser needs to be maintained regularly
+                      like any mechanised item, including your car, washing
+                      machine, and stove. If your gas geyser hasn&apos;t been
+                      used for a while, please contact us, and one of our expert
+                      technicians will inspect it before turning it on.
+                    </p>
+                  </li>
+                </ul>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Why are gas geysers great?
+                </p>
                 <article className="text-base text-gray-600 font-medium">
-                  <Link href="/blog/are-gas-geysers-safe-yes-absolutely">
-                    <a className="text-sky-500">
-                      https://www.hotwater24.com/blog/are-gas-geysers-safe-yes-absolutely
-                    </a>
-                  </Link>
+                  <ol className="list-decimal pl-6" role="list">
+                    <li>
+                      Gas water geysers provide Just in Time heating! Use It
+                      Right Now! Hot water. They don&apos;t store the hot water
+                      to pre-heat. Instead, they instantaneously heat your water
+                      as it passes through the gas appliance.{" "}
+                    </li>
+                    <li>
+                      You aren&apos;t wasting energy by constantly heating the
+                      water. From a cost perspective, it will cost you less to
+                      run and operate a gas geyser than paying for electricity,
+                      based on the gas you use.
+                    </li>
+                    <li>
+                      You only need to set it to your desired temperature. For
+                      some arbitrary reason, Electric geysers in South Africa
+                      are typically set to 65 degrees Celsius. Anything higher
+                      than 50 degrees is likely to scorch you. That&apos;s why
+                      we usually mix in cold water to reach a tolerable
+                      temperature. How wasteful!
+                    </li>
+                  </ol>
                 </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  What sizes are available?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  12, 16, 20 and 26 Litre gas geysers
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  What uses do the different sizes have?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  The tables below provide a general indication of the usage of
+                  each hot water tap in a typical household and can help you
+                  establish what you may need to consider.
+                </article>
+
+                <p className="text-xl font-medium text-slate-700 py-2">
+                  Multiple-use application guide -{" "}
+                  <span className="font-light">
+                    can run multiple outlets simultaneously
+                  </span>
+                </p>
+                <div>
+                  <table className="w-full shadow text-left bg-white dark:bg-gray-800">
+                    <thead>
+                      <tr className="border-b border-gray-300 dark:border-gray-700">
+                        <th className="py-5 sm:pl-10 pl-2 w-1/4 text-base text-gray-800 dark:text-gray-100">
+                          Application
+                        </th>
+                        <th className="py-5 w-1/4 text-base text-gray-800 dark:text-gray-100">
+                          Usage
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Shower & Basin
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          12 litres
+                        </td>
+                      </tr>
+                      <tr className="bg-gray-200 dark:bg-gray-700">
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          2 Showers & Basin
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          16 litres
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Basin & Bath
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          16 litres
+                        </td>
+                      </tr>
+                      <tr className="bg-gray-200 dark:bg-gray-700">
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Shower, Basin & Bath
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          20 litres
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-xl font-medium text-slate-700 mt-12 py-2">
+                  Single-use application guide -{" "}
+                  <span className="font-light">
+                    outlets cannot run simultaneously
+                  </span>
+                </p>
+                <div>
+                  <table className="w-full shadow text-left bg-white dark:bg-gray-800">
+                    <thead>
+                      <tr className="border-b border-gray-300 dark:border-gray-700">
+                        <th className="py-5 sm:pl-10 pl-2 w-1/4 text-base text-gray-800 dark:text-gray-100">
+                          Application
+                        </th>
+                        <th className="py-5 w-1/4 text-base text-gray-800 dark:text-gray-100">
+                          Usage
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Basin or Camping shower
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          5 – 8 litres
+                        </td>
+                      </tr>
+                      <tr className="bg-gray-200 dark:bg-gray-700">
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Small Showerhead
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          8 litres
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Medium Showerhead
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          10 litres
+                        </td>
+                      </tr>
+                      <tr className="bg-gray-200 dark:bg-gray-700">
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Large Showerhead
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          12 litres
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="sm:pl-10 pl-2 pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          Bath
+                        </td>
+                        <td className="pr-2 py-5 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
+                          16 litres
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  How do I figure out the best size for my home?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Creating a comprehensive list of your primary requirements
+                  will help you decide on the best model and size of gas geyser
+                  you may need for your household. The size of the geyser you
+                  choose depends entirely on your needs, the layout of your
+                  house, and how many hot water taps you expect to have at any
+                  given time. Generally, a bath will require a geyser of 12 -
+                  16L and a shower of about 6L, minimum.
+                </article>
+                <ul className="list-disc text-gray-600 pl-6">
+                  <li>
+                    <p className="text-base font-bold">The Bucket Test</p>
+                    <p>
+                      Now that you have determined your household needs. It is
+                      essential to calculate your highest flow rate amongst all
+                      your outlets. The bucket test is fool proof for figuring
+                      out what size geyser you need. This will give you an
+                      accurate gauge of how many litres flow through your most
+                      demanding tap in 1 minute and thus what size geyser you
+                      need to consider. We advise simply using your tub as a
+                      good gauge since it generally demands the highest water
+                      flow.
+                    </p>
+                    <ol className="list-decimal pl-6 text-xs">
+                      <li>Grab a 20-litre bucket</li>
+                      <li>
+                        Place it under all the taps you require running hot
+                        water (i.e., your shower, bath, kitchen and bathroom
+                        basin etc.). Open the tap and run water into the bucket
+                        for 60 seconds.{" "}
+                      </li>
+                      <li>
+                        After precisely 60 seconds, turn off the tap and measure
+                        how much water is in the bucket.
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <p className="text-base font-bold">
+                      Making your final decision
+                    </p>
+                    <p>
+                      Once you have determined each outlet&apos;s water demand, you
+                      can compare the demands and work out your highest usage.
+                      The size of your geyser is determined by the flow rate of
+                      the outlet that delivers the most water into the bucket.
+                      If you slow down your flow rate (for example, a smaller
+                      showerhead), you can reduce your flow rate demand.
+                    </p>
+                  </li>
+                </ul>
               </div>
-            </section>
-            <section className="hidden md:col-span-2 bg-slate-500 ">
-              hello
             </section>
           </div>
         </section>

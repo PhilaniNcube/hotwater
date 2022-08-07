@@ -3,6 +3,7 @@ import xero from "../../../utils/xero";
 import { encode, decode } from "js-base64";
 import { setCookie } from "cookies-next";
 import { init } from "analytics";
+import { supabaseService } from "../../../utils/supabaseService";
 
 
 export default async function handler(req, res) {
@@ -18,22 +19,27 @@ export default async function handler(req, res) {
   const tokenSet = await xero.apiCallback(url);
 
 
+  const { data, error } = await supabaseService
+    .from("xero")
+    .update({
+      access_token: tokenSet.access_token,
+      id_token: tokenSet.id_token,
+      refresh_token: tokenSet.refresh_token,
+      scope: tokenSet.scope,
+      session_state: tokenSet.session_state,
+      token_type: tokenSet.token_type,
+    })
+    .eq('id', 1);
 
-  // res.send({message: "Token set successfully", token: getToken});
-
-  // const request = await fetch(`https://api.xero.com/connections`, {
-  //   headers: {
-  //     'Authorization': 'Bearer ' + getToken.access_token,
-  //     'Content-Type': 'application/json',
-  //   }
-  // });
+    console.log({data, error})
 
 
-  // const response = await request.json();
-
-  // console.log(response);
-
-  res.send({ message: "Token", response: tokenSet});
+  res.send({
+    message: "Token",
+    response: {
+     data
+    },
+  });
 
 
 

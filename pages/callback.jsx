@@ -23,21 +23,10 @@ useEffect(() => {
 
    let result = await response.json()
 
-   localStorage.setItem('access_token', result.access_token)
-   localStorage.setItem('id_token', result.id_token)
-   localStorage.setItem('refresh_token', result.refresh_token)
-
    console.log(result)
-
-
-
    return result
-
   }
-
   authorize()
-
-
 },[])
 
 
