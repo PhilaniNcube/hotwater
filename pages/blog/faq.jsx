@@ -756,15 +756,215 @@ const faq = () => {
                       Making your final decision
                     </p>
                     <p>
-                      Once you have determined each outlet&apos;s water demand, you
-                      can compare the demands and work out your highest usage.
-                      The size of your geyser is determined by the flow rate of
-                      the outlet that delivers the most water into the bucket.
-                      If you slow down your flow rate (for example, a smaller
-                      showerhead), you can reduce your flow rate demand.
+                      Once you have determined each outlet&apos;s water demand,
+                      you can compare the demands and work out your highest
+                      usage. The size of your geyser is determined by the flow
+                      rate of the outlet that delivers the most water into the
+                      bucket. If you slow down your flow rate (for example, a
+                      smaller showerhead), you can reduce your flow rate demand.
                     </p>
                   </li>
                 </ul>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Is one gas geyser enough for my entire house?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  YES! But there are a few things you need to consider:
+                  <ul className="list-disc text-sm font-normal pl-6">
+                    <li>
+                      It depends on the distance from the gas geyser to where
+                      you want to use it.
+                    </li>
+                    <li>
+                      One (1) gas geyser can supply two bathrooms if they are
+                      within 10 metres from the geyser.
+                    </li>
+                    <li>
+                      You should install another unit if the run is more than 5
+                      metres from the geyser.
+                    </li>
+                    <li>
+                      If your bathrooms are within 5m of the gas geyser, but
+                      your kitchen is further, you can use one gas geyser for
+                      your bathroom and a smaller one for the kitchen.
+                    </li>
+                  </ul>
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Does HW24 offer financing?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Yes, we do offer financing through Mobicred. Please contact us
+                  by e-mail (info@hotwater24.com) or visit our website
+                  (www.hotwater24.com) for any questions on financing options.
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  How much does it cost?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Hardware prices range from approximately R 5,2K for the
+                  12-litre models to 12K for the 26-litre gas geyser. Please
+                  note that it is complicated to provide an accurate estimate
+                  for installation, as this depends on the size of your
+                  property, the mileage, and how your property is set up.
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Gas supply: Cages & Cylinders
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Please be aware that the price mentioned above excludes the
+                  supply of gas, gas cylinders or gas cylinder cages. Depending
+                  on the current setup, you might also need a gas cylinder, gas
+                  cage and gas supply.
+                  <ul className="list-disc text-sm font-normal pl-6">
+                    <li>
+                      <span className="font-bold">Prices on gas cages </span>
+                      (single or double 19kg and 48kg) range from R1.8K (single
+                      19kg cage) to R3.5K (double 48kg).
+                    </li>
+                    <li>
+                      Most gas suppliers want to exchange only, and without a
+                      cylinder, they can charge up to a R1k deposit per cylinder
+                      regardless of the size.
+                    </li>
+                    <li>
+                      For LPG prices (June 2022), the market is offering between
+                      R35 to R40 per kg.
+                    </li>
+                  </ul>
+                  <p className="text-lg font-medium text-slate-700 py-2">
+                    Plumbing
+                  </p>
+                  Our plumbing jobs range between R2,5 – R4kk depending on
+                  requirements and mileage. <br /> Please do drop us an e-mail
+                  (info@hotwater24.com) or visit our website
+                  (www.hotwater24.com) for any questions or pricing issues.
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Can I use a gas geyser off-the-grid?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Gas geysers DO require electricity as it needs a spark to
+                  ignite the burner. However, the answer is Yes! Absolutely!.
+                  During power outages/load-shedding, consider a
+                  battery-operated or Uninterrupted Power Supply (UPS) operated
+                  gas heating system.{" "}
+                  <ul className="list-disc text-sm font-normal pl-6">
+                    <li>
+                      Our 12L and 16L gas geyser models are battery operated,
+                      meaning that the battery (Duracell D) ignites a small
+                      amount of gas with a continuous pulsating electric spark.
+                    </li>
+                    <li>
+                      Our 20L and 26L gas geyser models operate through a small
+                      backup power system like a UPS. A UPS compatible with the
+                      20L and 26L gas geyser costs around R2,5k (excl. VAT).
+                    </li>
+                  </ul>
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Where is the best location for my gas cylinder and gas geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Ensure that your gas geyser is installed by a qualified person
+                  following the installation instructions, and in compliance
+                  with Standards SANS837 (for NG) and SANS10087 (for LPG), as
+                  applicable under local regulations and all local codes, bylaws
+                  and regulatory authority requirements. If in doubt, check with
+                  the relevant authority before undertaking the installation.{" "}
+                  <ul className="list-disc font-normal text-gray-600 pl-6">
+                    <li>
+                      <p className="text-base font-bold">Gas geyser location</p>
+                      <p>
+                        Mount the gas geyser on a wall. In addition to being
+                        installed according to SANS, install the gas geyser
+                        close to where hot water will be used. Clearance must be
+                        allowed for servicing of the gas geyser. The gas geyser
+                        must be accessible without a ladder or scaffold. Make
+                        sure the entire front panel can be removed for service.
+                        You must be able to read the information on the rating
+                        plate.{" "}
+                      </p>
+                    </li>
+                  </ul>
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  How much do I save switching from an electric geyser to a gas
+                  geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Save up to 40-50% on your monthly electricity bills!! With the
+                  current electricity prices as well as the gas prices, the
+                  saving for an average household family (4 people) with average
+                  use (20kg of LPG a month) of hot water (5-10mins per day
+                  shower, twice a day) saving is 20%. <br /> Please{" "}
+                  <Link href="/savings">
+                    <a className="text-sky-500">click here</a>
+                  </Link>{" "}
+                  to calculate your savings and{" "}
+                  <Link href="/blog/gas-geyser-slashes-electricity-consumption-by-20-percent">
+                    <a className="text-sky-500">read our blog</a>
+                  </Link>
+                  read our blog to learn more.{" "}
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Does a gas geyser make noise?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  A gas geyser makes extraordinarily little noise when in use.
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  What is the average use of gas when using a gas geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  The average use for an average household family (4 people)
+                  showering 5-10mins per day shower, twice a day, is estimated
+                  to be 20kg of LPG a month
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Who can I ask to install, service or maintain a gas geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  US, Hotwater24! We only work with certified installers
+                  registered with the LPG Association of South Africa. For
+                  safety and quality purposes of the installation work
+                  performed, every installation comes with a CoC (Certificate of
+                  Compliance) to guarantee your safety.
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  What size cylinder is best for your gas geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  We recommend that you use a 19kg+ cylinder
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Why choose a gas geyser over a solar geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  Although solar geysers work well and are very efficient at
+                  heating water, there are times when either the demand for hot
+                  water is greater than the capacity of your solar geyser,
+                  typically when multiple people are relying on a single geyser
+                  for hot baths and showers (a solar geyser can only heat the
+                  tank once a day), or for periods of bad or overcast conditions
+                  when your solar geyser has not been able to produce enough hot
+                  water.
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  When switching to a gas geyser, do I need to get rid of my old
+                  electrical geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  NO! However, your electric geyser will need to be
+                  decommissioned by a professional, registered and certified
+                  plumber.
+                </article>
+                <p className="text-xl md:text-2xl font-medium text-slate-700 py-2">
+                  Can I convert my electrical geyser to a gas geyser?
+                </p>
+                <article className="text-base text-gray-600 font-medium">
+                  NO!
+                </article>
               </div>
             </section>
           </div>
