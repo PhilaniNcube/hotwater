@@ -79,6 +79,7 @@ const index = ({ initialProducts }) => {
     geyserSize: null,
     installationCost: null,
     plumbingCost: null,
+    comments: ''
   });
 
   const nextPage = () => {

@@ -11,12 +11,11 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
 
   return (
     <motion.form
-
-       transition={{duration: 0.3}}
-        key="details"
-        initial={{ x: '100%' }}
-        animate={{ x: 0 }}
-        exit={{ x: '-100%' }}
+      transition={{ duration: 0.3 }}
+      key="details"
+      initial={{ x: "100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "-100%" }}
       onSubmit={nextPage}
       className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12"
     >
@@ -210,7 +209,6 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
               <option value="Tuesday">Tuesday</option>
 
               <option value="Thursday">Thursday</option>
-
             </select>
           </div>
           <div className="flex flex-col w-full">
@@ -237,18 +235,36 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
             </select>
           </div>
         </div>
+        <div className="flex flex-col w-full">
+          <label className="text-md font-bold" htmlFor="comments">
+            Comments
+          </label>
+          <textarea
+            rows="4"
+            name="comments"
+            required
+            className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
+            value={quoteInfo.comments}
+            onChange={(e) =>
+              setQuoteInfo({
+                ...quoteInfo,
+                comments: e.target.value,
+              })
+            }
+          ></textarea>
+        </div>
       </div>
       <div className="flex items-center justify-center space-x-6 mt-4 mb-12">
         <div className="flex items-center justify-center space-x-6 my-3">
-          {quoteInfo.firstName !== '' ||
-          quoteInfo.lastName !== '' ||
-          quoteInfo.email !== '' ||
-          quoteInfo.telephoneNumber !== '' ||
-          quoteInfo.streetAddress !== '' ||
-          quoteInfo.city !== '' ||
-          quoteInfo.postalCode !== '' ? (
+          {quoteInfo.firstName !== "" ||
+          quoteInfo.lastName !== "" ||
+          quoteInfo.email !== "" ||
+          quoteInfo.telephoneNumber !== "" ||
+          quoteInfo.streetAddress !== "" ||
+          quoteInfo.city !== "" ||
+          quoteInfo.postalCode !== "" ? (
             <Fragment>
-              {' '}
+              {" "}
               <svg
                 onClick={prevPage}
                 xmlns="http://www.w3.org/2000/svg"
