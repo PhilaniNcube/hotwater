@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import Head from 'next/head';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import client from '../../utils/contentful';
 import styles from '../../styles/Content.module.css';
 
@@ -10,8 +11,26 @@ function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
+const renderOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      // render the EMBEDDED_ASSET as you need
+      return (
+        <img
+          src={`https://${node.data.target.fields.file.url}`}
+          height={node.data.target.fields.file.details.image.height}
+          width={node.data.target.fields.file.details.image.width}
+          alt={node.data.target.fields.description}
+        />
+      );
+    },
+  },
+};
+
 const Post = ({ post }) => {
   const [isLoading, setLoading] = useState(true);
+
+
 
   if (!post)
     return (
@@ -100,14 +119,14 @@ const Post = ({ post }) => {
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
-        <h1 className="text-lg md:text-2xl lg:text-4xl mt-4">
+        <h1 className="text-lg md:text-2xl lg:text-6xl mt-4">
           {post.fields.title}
         </h1>
         <p className="text-sm text-gray-700">
           Written By: {post.fields.author.fields.name}
         </p>
         <div className={styles.content}>
-          {documentToReactComponents(post.fields.content)}
+          {documentToReactComponents(post.fields.content, renderOptions)}
         </div>
       </div>
     </Fragment>
@@ -134,7 +153,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { items } = await client.getEntries({
     content_type: 'blog',
+    limit:1,
+    include:10,
     'fields.slug': params.slug,
+
   });
 
   return {

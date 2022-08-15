@@ -1,5 +1,10 @@
 module.exports = {
   reactStrictMode: true,
+  experimental: {
+    images: {
+      allowFutureImage: true
+    }
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       require('./scripts/sitemap-generator');

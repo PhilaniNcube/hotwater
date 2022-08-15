@@ -11,3 +11,19 @@
 .content a {
   @apply text-sky-600 underline;
 }
+
+.content h2 {
+  @apply text-2xl text-sky-600 my-3;
+}
+.content h3 {
+  @apply text-lg my-3;
+}
+
+.content ul {
+  @apply pl-6 list-disc text-xs;
+}
+
+.content img {
+  @apply block;
+}
+

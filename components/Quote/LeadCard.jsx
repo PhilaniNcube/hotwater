@@ -166,7 +166,7 @@ function LeadCard({ quote }) {
                       </span>
                     </li>
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
-                      Porperty Type -{" "}
+                      Property Type -{" "}
                       <span className="uppercase font-bold">
                         {quote.houseType}
                       </span>
