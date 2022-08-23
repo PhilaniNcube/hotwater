@@ -1,223 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/blog</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/blog</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
+    <loc>https://hotwater24.com/callback</loc>
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+<url>
     <loc>https://hotwater24.com/cart</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/callback</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/checkout</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/cart</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/contact</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/checkout</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/get-it</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/contact</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/our-approach</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/faq</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/register</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/get-it</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/savings</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/our-approach</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/search</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/register</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/signin</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/savings</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/who-we-are</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/search</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/why-us</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/signin</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/blog/[slug]</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/who-we-are</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
+    <loc>https://hotwater24.com/blog/faq</loc>
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+<url>
     <loc>https://hotwater24.com/catalogue/[id]</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/why-us</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/catalogue/index</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/blog/[slug]</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/promo/price</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/catalogue/index</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/promo/save</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/catalogue/[id]</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/quote/index</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/promo/price</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 <url>
-<<<<<<< HEAD
     <loc>https://hotwater24.com/quote/start</loc>
-    <lastmod>2022-08-15T06:19:50.457Z</lastmod>
-=======
-    <loc>https://www.hotwater24.com/promo/save</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-<url>
-    <loc>https://www.hotwater24.com/quote/index</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-<url>
-    <loc>https://www.hotwater24.com/quote/start</loc>
-    <lastmod>2022-08-07T13:58:17.551Z</lastmod>
->>>>>>> 03ea3117a4912036d14a6384eb4a321229328e3a
+    <lastmod>2022-08-23T06:33:08.129Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
