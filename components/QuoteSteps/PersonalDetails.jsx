@@ -5,9 +5,184 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useUser } from '../../Context/AuthContext';
 import { supabase } from '../../utils/supabase';
 import {motion} from 'framer-motion';
+import analytics from '../../utils/analytics';
 
 const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   console.log('Step', page, quoteInfo);
+
+  const [loading, setLoading] = useState(false);
+
+    const router = useRouter();
+
+    const {
+      children,
+      adults,
+      teenagers,
+      houseType,
+      ownership,
+      gasSupply,
+      gasStove,
+      gasWaterHeating,
+      gasHeating,
+      otherGasUse,
+      locateOutside,
+      gasGeyser,
+      electricGeyser,
+      solarGeyser,
+      otherGeyser,
+      standardShower,
+      rainShower,
+      bathtub,
+      kitchenSink,
+      bathroomSink,
+      dishwasher,
+      washingmachine,
+      flowRate,
+      offGrid,
+      firstName,
+      lastName,
+      email,
+      streetAddress,
+      suburb,
+      city,
+      telephoneNumber,
+      postalCode,
+      completeSolution,
+      product_id,
+      installation,
+      contactDay,
+      contactTime,
+      geyserPrice,
+      monthlySavings,
+      yearlySavings,
+      geyserSize,
+      installationCost,
+      plumbingCost,
+      comments,
+    } = quoteInfo;
+
+    const queryClient = useQueryClient();
+
+    const mutation = useMutation(() =>
+      supabase.from("quotes").insert([
+        {
+          children,
+          adults,
+          teenagers,
+          houseType: houseType,
+          ownership: ownership,
+          gasSupply: gasSupply,
+          gasStove: gasStove,
+          gasWaterHeating: gasWaterHeating,
+          gasHeating: gasHeating,
+          otherGasUse: otherGasUse,
+          locateOutside: locateOutside,
+          gasGeyser: gasGeyser,
+          electricGeyser: electricGeyser,
+          solarGeyser: solarGeyser,
+          otherGeyser: otherGeyser,
+          standardShower: standardShower,
+          rainShower: rainShower,
+          bathtub: bathtub,
+          kitchenSink: kitchenSink,
+          bathroomSink: bathroomSink,
+          dishwasher: dishwasher,
+          washingmachine: washingmachine,
+          flowRate: flowRate,
+          offGrid: offGrid,
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          streetAddress: streetAddress,
+          city: city,
+          suburb: suburb,
+          telephoneNumber: telephoneNumber,
+          postalCode: postalCode,
+          completeSolution: completeSolution,
+          product_id: product_id || null,
+          installation: installation,
+          contactDay: contactDay,
+          contactTime: contactTime,
+          geyserPrice: geyserPrice,
+          monthlySavings: monthlySavings,
+          yearlySavings: yearlySavings,
+          geyserSize: geyserSize,
+          installationCost: installationCost,
+          plumbingCost: plumbingCost,
+          comments: comments,
+        },
+      ])
+    );
+
+
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    analytics.track("generate_lead");
+
+    try {
+      const quote = await mutation.mutateAsync();
+      queryClient.setQueryData("quote", quote.data[0]);
+      console.log("quote", quote);
+
+      if (quote?.data[0]) {
+        const mail = await fetch(`/api/mail/leads`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            houseType: houseType,
+            ownership: ownership,
+            gasSupply: gasSupply,
+            gasStove: gasStove,
+            gasWaterHeating: gasWaterHeating,
+            gasHeating: gasHeating,
+            otherGasUse: otherGasUse,
+            locateOutside: locateOutside,
+            gasGeyser: gasGeyser,
+            electricGeyser: electricGeyser,
+            solarGeyser: solarGeyser,
+            otherGeyser: otherGeyser,
+            standardShower: standardShower,
+            rainShower: rainShower,
+            bathtub: bathtub,
+            kitchenSink: kitchenSink,
+            bathroomSink: bathroomSink,
+            dishwasher: dishwasher,
+            washingmachine: washingmachine,
+            flowRate: flowRate,
+            offGrid: offGrid,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            streetAddress: streetAddress,
+            suburb: suburb,
+            city: city,
+            telephoneNumber: telephoneNumber,
+            postalCode: postalCode,
+            completeSolution: completeSolution,
+            product_id: product_id || null,
+            installation: installation,
+            contactDay: contactDay,
+            contactTime: contactTime,
+            geyserPrice: geyserPrice,
+            monthlySavings: monthlySavings,
+            yearlySavings: yearlySavings,
+            geyserSize: geyserSize,
+            installationCost: installationCost,
+            plumbingCost: plumbingCost,
+            comments: comments,
+          }),
+        });
+
+
+
+        //  nextPage()
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   return (
     <motion.form
@@ -105,6 +280,8 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
             />
           </div>
         </div>
+
+        {/**
         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full md:w-1/2">
             <label className="text-md font-bold" htmlFor="streetAddress">
@@ -144,7 +321,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
+         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full">
             <label className="text-md font-bold" htmlFor="city">
               City
@@ -184,7 +361,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
+         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full">
             <label className="text-xs font-bold" htmlFor="contactDay">
               What day can we contact you?
@@ -235,6 +412,8 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
             </select>
           </div>
         </div>
+      ***/}
+
         <div className="flex flex-col w-full">
           <label className="text-md font-bold" htmlFor="comments">
             Comments
@@ -259,10 +438,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
           {quoteInfo.firstName !== "" ||
           quoteInfo.lastName !== "" ||
           quoteInfo.email !== "" ||
-          quoteInfo.telephoneNumber !== "" ||
-          quoteInfo.streetAddress !== "" ||
-          quoteInfo.city !== "" ||
-          quoteInfo.postalCode !== "" ? (
+          quoteInfo.telephoneNumber !== ""  ? (
             <Fragment>
               {" "}
               <svg
@@ -281,6 +457,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
                 />
               </svg>
               <button
+                  onClick={handleSubmit}
                 type="submit"
                 className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
               >

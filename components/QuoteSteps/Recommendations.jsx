@@ -34,7 +34,7 @@ const Recommendations = ({
   setQuoteInfo,
 }) => {
   const [ref, { height, width }] = useMeasure();
-  console.log("Step9", quoteInfo);
+  console.log("Step 8", quoteInfo);
 
   const [geyserPrice, setGeyserPrice] = useState();
   const [geyserSize, setGeyserSize] = useState();
@@ -182,35 +182,6 @@ const Recommendations = ({
                     onClick={() => {
                       setQuoteInfo({
                         ...quoteInfo,
-                        installation: "full installation",
-                        installationCost: installation,
-                        plumbingCost: plumbing,
-                        geyserPrice: geyserPrice,
-                        geyserSize: geyserSize,
-                      });
-                      nextPage();
-                    }}
-                    className="flex bg-sky-500 items-center cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium "
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 top-2 right-2 text-white"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <p>Full installation quote</p>
-                  </span>
-
-                  <span
-                    onClick={() => {
-                      setQuoteInfo({
-                        ...quoteInfo,
                         installation: "geyser only",
                         installationCost: installation,
                         plumbingCost: plumbing,
@@ -219,52 +190,10 @@ const Recommendations = ({
                       });
                       nextPage();
                     }}
-                    className="flex bg-sky-500 items-center cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium "
+                    className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 top-2 right-2 text-white"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <p>Gas geyser only quote</p>
-                  </span>
 
-                  <span
-                    onClick={() => {
-                      setQuoteInfo({
-                        ...quoteInfo,
-                        installation: "No thanks",
-                        installationCost: installation,
-                        plumbingCost: plumbing,
-                        geyserPrice: geyserPrice,
-                        geyserSize: geyserSize,
-                      });
-                      nextPage();
-                    }}
-                    className="flex items-center bg-red-500 cursor-pointer rounded-full px-6 py-2 space-x-2 text-white text-base font-medium "
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-10 w-10"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <p>No thanks</p>
+                    <p>Continue</p>
                   </span>
                 </div>
               </Fragment>

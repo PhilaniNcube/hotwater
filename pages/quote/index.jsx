@@ -259,7 +259,7 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 10 && (
+      {/*page === 10 && (
         <Summary
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -267,8 +267,8 @@ const index = ({ initialProducts }) => {
           prevPage={prevPage}
           page={page}
         />
-      )}
-      {page === 11 && (
+      )*/}
+      {page === 10 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}

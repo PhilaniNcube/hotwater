@@ -11,6 +11,10 @@ export default function Confirm({
   page,
   setQuoteInfo,
 }) {
+
+
+  console.log({page})
+
   return (
     <motion.div
           transition={{ duration: 0.3}}
@@ -18,7 +22,7 @@ export default function Confirm({
         initial={{ x: '100%' }}
         animate={{ x: 0 }}
         exit={{ x: '-100%' }}
-    className="max-w-6xl mx-auto">
+    className="max-w-6xl mx-auto px-4">
       <div className="flex flex-col lg:flex-row items-stretch justify-between lg:px-0 px-6 lg:py-20 py-8 2xl:mx-auto 2xl:container">
         <div className="z-30 relative lg:w-1/2">
           <div className="hidden  bg-gray-100 w-full lg:w-10/12 lg:h-full lg:flex justify-end items-center">
@@ -49,40 +53,7 @@ export default function Confirm({
               with the summary of your information. Please check your spam
               folder for your email.
             </p>
-            <Link href="/catalogue" passHref>
-              <button className=" sm:w-auto w-full mt-8 text-base justify-between focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:outline-none hover:bg-gray-700 font-medium leading-none text-white py-4 px-8 bg-gray-800 flex items-center">
-                CHECK OUT OUR CATALOGUE
-                <div className="ml-2 mt-0.5">
-                  <svg
-                    className="fill-stroke"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.33325 8H12.6666"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M10 10.6667L12.6667 8"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M10 5.33301L12.6667 7.99967"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </button>
-            </Link>
+
           </div>
         </div>
       </div>

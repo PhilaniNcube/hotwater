@@ -29,7 +29,7 @@ const OwnerStatus = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         Please tell us if you are the owner of the property or are renting it.
       </p>
 
-      <div className="py-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center space-y-16 md:space-y-0 justify-center lg:space-y-0 lg:space-x-6">
+      <div className="py-8 max-w-6xl space-x-0 sm:space-x-6 mx-auto flex flex-col md:flex-row items-center space-y-16 md:space-y-0 justify-center lg:space-y-0 lg:space-x-6">
         <div
           className="relative h-[200px] w-[250px] rounded shadow-lg bg-gray-100 flex flex-col items-center justify-center hover:shadow-md cursor-pointer"
           onClick={() => homeOwnership(false)}

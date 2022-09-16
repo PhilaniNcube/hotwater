@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function index() {
   return (
     <div>
-      <div className="2xl:mx-auto 2xl:container md:px-20 px-4 md:py-12 py-9">
+      <div className="mx-auto container md:py-12 py-9">
         <div className="relative rounded-md">
           <img
             src="/images/installation.jpg"

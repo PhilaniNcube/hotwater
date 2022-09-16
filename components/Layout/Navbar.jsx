@@ -39,8 +39,8 @@ const Navbar = () => {
   return (
     <Popover>
       {/*Desktop Nav */}
-      <div className="py-4">
-        <div className="max-w-6xl mx-auto px-2 md:px-0 flex items-center justify-between">
+      <div className="py-4 ">
+        <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
           {/*Logo */}
           <Link href="/" passHref>
             <div className="flex space-x-2 items-center cursor-pointer">
@@ -53,8 +53,6 @@ const Navbar = () => {
             </div>
           </Link>
           {/*Search Input*/}
-
-
 
           {/*Quote Button */}
           <div className="flex items-center">
@@ -75,7 +73,7 @@ const Navbar = () => {
 
       {/*Bottom Nav Begins */}
       <div className="bg-gray-800 text-white py-4">
-        <div className="max-w-6xl mx-auto py-4 px-4 md:px-2 lg:px-0 flex items-center justify-between relative">
+        <div className="max-w-6xl mx-auto py-4 px-4  flex items-center justify-between relative">
           <nav className="hidden md:flex items-center">
             <Link href="/">
               <a className="text-sm md:text-md focus:text-sky-600 pr-6">Home</a>
@@ -95,15 +93,9 @@ const Navbar = () => {
                 Our Approach
               </a>
             </Link>
-            <Link href="/catalogue">
-              <a className="text-sm md:text-md focus:text-sky-600 px-6">
-                Our Catalogue
-              </a>
-            </Link>
+
             <Link href="/blog/faq">
-              <a className="text-sm md:text-md focus:text-sky-600 px-6">
-                FAQs
-              </a>
+              <a className="text-sm md:text-md focus:text-sky-600 px-6">FAQs</a>
             </Link>
             <Link href="/blog">
               <a className="text-sm md:text-md focus:text-sky-600 px-6">Blog</a>
@@ -158,9 +150,9 @@ const Navbar = () => {
             <div
               className={classNames(
                 show
-                  ? 'absolute top-16 z-50 left-7 bg-gray-700 w-[280px] transition-all duration-300 rounded-lg shadow-md  px-4 py-8 flex flex-col'
-                  : ' bg-gray-700 h-0 w-0',
-                'absolute top-16 left-7 bg-gray-700 w-[280px] transition-all duration-300 rounded-lg shadow-md  px-4 py-8 flex flex-col',
+                  ? "absolute top-16 z-50 left-7 bg-gray-700 w-[280px] transition-all duration-300 rounded-lg shadow-md  px-4 py-8 flex flex-col"
+                  : " bg-gray-700 h-0 w-0",
+                "absolute top-16 left-7 bg-gray-700 w-[280px] transition-all duration-300 rounded-lg shadow-md  px-4 py-8 flex flex-col"
               )}
             >
               <Link href="/" passHref>
@@ -198,14 +190,6 @@ const Navbar = () => {
                 </a>
               </Link>
 
-              <Link href="/catalogue" passHref>
-                <a
-                  onClick={() => setShow(false)}
-                  className="text-white font-medium text-md py-2"
-                >
-                  Our Catalogue
-                </a>
-              </Link>
               <Link href="/blog" passHref>
                 <a
                   onClick={() => setShow(false)}
@@ -214,8 +198,8 @@ const Navbar = () => {
                   Blog
                 </a>
               </Link>
-
-              {!user ? (
+              {/***
+                    {!user ? (
                 <div className="flex space-x-2 items-center justify-between py-2 px-2 rounded bg-gray-600">
                   <Link href="/signin">
                     <a
@@ -236,15 +220,17 @@ const Navbar = () => {
                   </button>
                 </div>
               )}
+                  */}
             </div>
           )}
           {/*Mobile Bottom Nav Ends*/}
 
           {/*User Nav Starts */}
+
           <div>
-            {user ? (
+            {/**user ? (
               <div className="flex space-x-5">
-                {user.role === 'supabase_admin' ? (
+                {user.role === "supabase_admin" ? (
                   <Link href="/admin" passHref>
                     <div className="flex items-center text-sky-600 cursor-pointer">
                       <span className="pl-2">
@@ -284,7 +270,7 @@ const Navbar = () => {
                         </svg>
                       </span>
                       <p className="text-xs md:text-sm text-white pl-2">
-                        {!!user && 'Profile'}
+                        {!!user && "Profile"}
                       </p>
                     </div>
                   </Link>
@@ -335,7 +321,7 @@ const Navbar = () => {
                   <a className="text-sm md:text-md font-bold">Sign In</a>
                 </Link>
               </div>
-            )}
+            )*/}
           </div>
         </div>
       </div>

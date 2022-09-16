@@ -63,7 +63,7 @@ const Family = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         household
       </p>
 
-      <div className="flex items-center py-8 justify-around max-w-6xl mx-auto flex-wrap space-y-10 lg:space-y-0">
+      <div className="flex items-center py-8  justify-around max-w-6xl mx-auto flex-wrap space-y-10 md:space-y-0">
         <div className="flex flex-col w-64 h-64 shadow-lg rounded bg-gray-50 justify-center items-center hover:bg-gray-100 hover:shadow">
           <img className="h-16 w-16" alt="" src="/images/icons/child.svg" />
           <p className="text-sm py-8">How many children?</p>
