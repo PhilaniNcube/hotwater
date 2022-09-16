@@ -100,6 +100,11 @@ const Navbar = () => {
                 Our Catalogue
               </a>
             </Link>
+            <Link href="/blog/faq">
+              <a className="text-sm md:text-md focus:text-sky-600 px-6">
+                FAQs
+              </a>
+            </Link>
             <Link href="/blog">
               <a className="text-sm md:text-md focus:text-sky-600 px-6">Blog</a>
             </Link>

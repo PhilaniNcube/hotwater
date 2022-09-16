@@ -41,9 +41,8 @@ function LeadCard({ quote }) {
                       Flow Rate: {quote.flowRate} L/Min
                     </h2>
                     <h2 className="text-sm xl:text-lg text-gray-600  font-bold tracking-normal">
-                      {quote.flowRate <= 30
-                        && `Geyser Size: ${quote.geyserSize} L/Min`
-                        }
+                      {quote.flowRate <= 30 &&
+                        `Geyser Size: ${quote.geyserSize} L/Min`}
                     </h2>
 
                     <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
@@ -359,6 +358,9 @@ function LeadCard({ quote }) {
                     </p>
                   </div>
                 </div>
+
+                <h3 className="text-gray-600 font-bold text-lg">Comments:</h3>
+                <p className="text-gray-700 text-xs">{quote.comments}</p>
               </div>
             </div>
             {/* Card code block end */}

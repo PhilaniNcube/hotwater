@@ -63,6 +63,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
     geyserSize,
     installationCost,
     plumbingCost,
+    comments
   } = quoteInfo;
 
   const queryClient = useQueryClient();
@@ -113,6 +114,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
         geyserSize: geyserSize,
         installationCost: installationCost,
         plumbingCost: plumbingCost,
+        comments:comments,
       },
     ])
   );
@@ -132,7 +134,6 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-
             houseType: houseType,
             ownership: ownership,
             gasSupply: gasSupply,
@@ -173,6 +174,7 @@ const Summary = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
             geyserSize: geyserSize,
             installationCost: installationCost,
             plumbingCost: plumbingCost,
+            comments: comments,
           }),
         });
 

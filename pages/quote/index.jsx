@@ -74,11 +74,12 @@ const index = ({ initialProducts }) => {
     contactTime: '',
     financing: false,
     geyserPrice: null,
-    monthlySavings: null,
-    yearlySavings: null,
+    monthlySavings: 200,
+    yearlySavings: 2400,
     geyserSize: null,
     installationCost: null,
     plumbingCost: null,
+    comments: ''
   });
 
   const nextPage = () => {
@@ -227,7 +228,7 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 8 && (
+      {  /*page === 8 && (
         <Savings
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -235,8 +236,8 @@ const index = ({ initialProducts }) => {
           prevPage={prevPage}
           page={page}
         />
-      )}
-       {page === 9 && (
+      )*/}
+       {page === 8 && (
         <Recommendations
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -248,7 +249,7 @@ const index = ({ initialProducts }) => {
 
 
 
-      {page === 10 && (
+      {page === 9 && (
         <PersonalDetails
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -258,7 +259,7 @@ const index = ({ initialProducts }) => {
         />
       )}
 
-      {page === 11 && (
+      {page === 10 && (
         <Summary
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -267,7 +268,7 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )}
-      {page === 12 && (
+      {page === 11 && (
         <Confirm
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
