@@ -154,10 +154,7 @@ const Recommendations = ({
             and gas supply.
           </p>
           <div className="max-w-7xl mx-auto mt-3 px-4 text-auto">
-            <p className="mt-4 text-gray-700 font-medium text-sm md:text-lg px-8 text-center">
-              Would you like us to prepare an initial quote based on the above
-              estimated total cost?
-            </p>
+
           </div>
           <div className="flex items-center justify-center space-x-6 mt-6 mb-8">
             {
