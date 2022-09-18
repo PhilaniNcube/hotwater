@@ -228,7 +228,7 @@ const Navbar = () => {
           {/*User Nav Starts */}
 
           <div>
-            {user.role === "supabase_admin" && (
+            {user?.role === "supabase_admin" && (
               <Link href="/admin" passHref>
                 <div className="flex items-center text-sky-600 cursor-pointer">
                   <span className="pl-2">

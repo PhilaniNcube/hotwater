@@ -31,7 +31,7 @@ const Admin = ({ brands, products, orders, profile, quotes, shortLeads }) => {
         </div>
       </Fragment>
     );
-  } else if (user.role === 'supabase_admin') {
+  } else if (user?.role === 'supabase_admin') {
     return (
       <Fragment>
         <Cards
@@ -43,7 +43,7 @@ const Admin = ({ brands, products, orders, profile, quotes, shortLeads }) => {
         />
       </Fragment>
     );
-  } else if (user.role === 'authenticated') {
+  } else if (user?.role === 'authenticated') {
     return (
       <Fragment>
         <div className="h-screen w-screen flex justify-center items-center">
