@@ -9,7 +9,7 @@ function addPage(page) {
   return `<url>
     <loc>${`${process.env.WEBSITE_URL}${route}`}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>`;
 }
@@ -18,7 +18,8 @@ async function generateSitemap() {
   // excludes Nextjs files and API routes.
   const pages = await globby([
     'pages/**/*{.jsx,.mdx}',
- 
+    '/blog/*{.jsx,.mdx}',
+    '!/blog/[slug]{.jsx,.mdx}',
     'admin/**/*{.jsx,.mdx}',
     'orders/**/*{.jsx,.mdx}',
     '/index/**/*{.jsx,.mdx}',
