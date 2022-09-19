@@ -1,28 +1,9 @@
-
-
+# *
 User-agent: *
 Allow: /
-Allow: /quote
-Allow: /quote/start
-Allow: /contact
-Allow: /why-us
-Allow: /our-approach
-Allow: /search
-Allow: /who-we-are
-Allow: /blog
-Allow: /blog/*
-Allow: /register
-Allow: /promo/save
-Allow: /catalogue
-Allow: /catalogue/*
 
-User-agent: *
-Disallow: /orders/*
-Disallow: /orders
-Disallow: /admin
-Disallow: /catalogue/[id]
-Disallow: /admin/*
-Disallow: /blog/[slug]
+# Host
+Host: https://hotwater24.com
 
-
-Sitemap: https://www.hotwater24.com/sitemap.xml
+# Sitemaps
+Sitemap: https://hotwater24.com/sitemap.xml

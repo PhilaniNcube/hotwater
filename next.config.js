@@ -5,12 +5,7 @@ module.exports = {
       allowFutureImage: true
     }
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require('./scripts/sitemap-generator');
-    }
-    return config;
-  },
+
   images: {
     domains: [
       'tqindzrnxqulmtsuoqaz.supabase.in',
