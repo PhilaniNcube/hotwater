@@ -1,10 +1,16 @@
 import React, { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function IndexPage() {
   return (
     <Fragment>
+    <Head>
+     <title>Save On Electricity | Hotwater24.com</title>
+     <meta name='description' content="Save electricity on your electricity. A gas geyser can potentially save you up to 20% on your monthly electricity bill" />
+     <meta name="keywords" content="gas geyser, geyser installation, gas geyser prices, gas geyser installation" />
+    </Head>
       <div
         className="mx-auto container mt-0 lg:my-16 my-10 px-4 lg:px-0"
         id="saving"

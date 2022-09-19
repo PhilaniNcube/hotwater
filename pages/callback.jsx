@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { setCookie } from "cookies-next";
+import Head from "next/head";
 
 const Callback = () => {
 
@@ -10,14 +11,14 @@ const Callback = () => {
 
 useEffect(() => {
   const authorize = async () => {
-   const response = await fetch(`http://localhost:3000/api/xero/api_callback`, {
+   const response = await fetch(`http://hotwater24.com/api/xero/api_callback`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       code: router.query.code,
-      url: `http://localhost:3000/${router.asPath}`
+      url: `http://hotwater24.com/${router.asPath}`
     })
    })
 
@@ -27,10 +28,10 @@ useEffect(() => {
    return result
   }
   authorize()
-},[])
+},[router.asPath, router.query.code])
 
 
 
-  return <div>Callback</div>;
+  return <Fragment><Head><title>Callback</title></Head><div /></Fragment>;
 };
 export default Callback;
