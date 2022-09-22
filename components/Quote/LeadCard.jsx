@@ -56,12 +56,15 @@ function LeadCard({ quote }) {
                         )
                       )}`}
                     </h3>
+                    {/***
                     <h3 className="font-bold text-lg text-gray-600 mt-3">
                       Monthly Savings: {formatter.format(quote.monthlySavings)}
                     </h3>
                     <h3 className="font-bold text-lg text-gray-600">
                       Yearly Savings: {formatter.format(quote.yearlySavings)}
                     </h3>
+
+                  ***/}
                   </div>
                 </div>
 
