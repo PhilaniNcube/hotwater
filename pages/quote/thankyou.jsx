@@ -43,8 +43,8 @@ const router = useRouter()
         </div>
         <div className="bg-gray-100  lg:w-1/2 lg:ml-12 lg:p-14 p-8 flex items-center">
           <div>
-            <h1 className=" md:w-8/12 lg:w-11/12 w-full sm:text-5xl text-4xl font-semibold text-gray-800 capitalize">
-              THANK YOU! {firstName}
+            <h1 className=" md:w-8/12 lg:w-11/12 w-full sm:text-5xl text-4xl font-semibold text-gray-800 uppercase">
+              THANK YOU {firstName}!
             </h1>
             <p className=" md:w-9/12 lg:w-11/12 xl:w-10/12 2xl:9/12 text-base leading-normal text-gray-600 mt-5">
               We have taken note of your interest. You have received an email with the summary of your information and we will contact you to further discuss your requirements and give our free advise. If you do not see your e-mail, please check your spam folder for your email.
