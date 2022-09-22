@@ -255,6 +255,7 @@ const index = ({ initialProducts }) => {
           setQuoteInfo={setQuoteInfo}
           nextPage={nextPage}
           prevPage={prevPage}
+          setPage={setPage}
           page={page}
         />
       )}
@@ -275,6 +276,7 @@ const index = ({ initialProducts }) => {
           nextPage={nextPage}
           prevPage={prevPage}
           page={page}
+
           products={products}
         />
         )}

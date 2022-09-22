@@ -7,7 +7,7 @@ import { supabase } from '../../utils/supabase';
 import {motion} from 'framer-motion';
 import analytics from '../../utils/analytics';
 
-const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, setPage }) => {
   console.log('Step', page, quoteInfo);
 
   const [loading, setLoading] = useState(false);
@@ -176,8 +176,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
 
           setLoading(false)
 
-
-         nextPage()
+setPage(10)
       }
     } catch (error) {
       console.log(error);
