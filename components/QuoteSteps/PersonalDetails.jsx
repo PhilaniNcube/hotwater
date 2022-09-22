@@ -174,9 +174,10 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
           }),
         });
 
+          setLoading(false)
 
 
-        //  nextPage()
+         nextPage()
       }
     } catch (error) {
       console.log(error);
@@ -191,7 +192,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
       initial={{ x: "100%" }}
       animate={{ x: 0 }}
       exit={{ x: "-100%" }}
-      onSubmit={nextPage}
+      onSubmit={handleSubmit}
       className="max-w-6xl mx-auto my-16 lg:my-8 px-6 lg:px-12"
     >
       <h1 className="mt-8 font-sans text-center font-bold text-2xl">
@@ -458,11 +459,12 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) 
                 />
               </svg>
               <button
-                  onClick={handleSubmit}
+
+                  disabled={loading}
                 type="submit"
                 className="bg-sky-500 hover:bg-sky-600 text-center text-white text-2xl font-medium rounded-full py-4 px-8 shadow-sky-400 shadow-md hover:shadow"
               >
-                Continue
+                {loading ? 'Saving...' : 'Continue'}
               </button>
             </Fragment>
           ) : (
