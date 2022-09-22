@@ -141,13 +141,13 @@ function LeadCard({ quote }) {
                   Address:
                 </h3>
                 <p className="text-gray-600  text-sm font-normal">
-                  {`Street Address: ${quote.streetAddress}`}
+                  {/**  `Street Address: ${quote.streetAddress}` */}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
-                  {`Suburb: ${quote.suburb}`}
+                  {/*`Suburb: ${quote.suburb}`  */}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
-                  {`Postal Code: ${quote.postalCode}`}
+                  {/*`Postal Code: ${quote.postalCode}`*/}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
                   {`City: ${quote.city}`}
@@ -177,6 +177,7 @@ function LeadCard({ quote }) {
                         {quote.gasSupply}
                       </span>
                     </li>
+                    {/***
                     <li className="text-xs text-gray-600  font-normal tracking-normal">
                       {quote.flowRate <= 30 ? (
                         <Fragment>
@@ -195,12 +196,15 @@ function LeadCard({ quote }) {
                         </Fragment>
                       )}
                     </li>
+                  */}
                   </ul>
                 </div>
 
                 <span className="text-gray-50 mb-2 font-medium bg-sky-800 px-4 py-1 flex space-x-8 mt-3 text-sm">
-                  <p>{`Contact Day: ${quote.contactDay}`}</p>{" "}
+                  {/***
+                  <p>{`Contact Day: ${quote.contactDay}`}</p>
                   <p>{`Contact Time: ${quote.contactTime}`}</p>
+              ****/}
                 </span>
               </div>
               <div className="w-full  lg:w-1/3 px-6 pt-4">
