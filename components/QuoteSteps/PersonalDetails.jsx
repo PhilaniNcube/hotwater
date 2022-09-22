@@ -176,7 +176,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
 
           setLoading(false)
 
-setPage(10)
+        router.push(`/quote/thankyou?name=${firstName}`)
       }
     } catch (error) {
       console.log(error);
