@@ -291,27 +291,8 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
               }
             />
           </div>
-          <div className="flex flex-col w-full">
-            <label className="text-md font-bold" htmlFor="city">
-              City
-            </label>
-            <input
-              type="text"
-              name="city"
-              required
-              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
-              value={quoteInfo.city}
-              onChange={(e) =>
-                setQuoteInfo({
-                  ...quoteInfo,
-                  city: e.target.value,
-                })
-              }
-            />
-          </div>
         </div>
 
-        {/**
         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full md:w-1/2">
             <label className="text-md font-bold" htmlFor="streetAddress">
@@ -351,8 +332,25 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
           </div>
         </div>
 
-         <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
-
+        <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
+          <div className="flex flex-col w-full">
+            <label className="text-md font-bold" htmlFor="city">
+              City
+            </label>
+            <input
+              type="text"
+              name="city"
+              required
+              className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
+              value={quoteInfo.city}
+              onChange={(e) =>
+                setQuoteInfo({
+                  ...quoteInfo,
+                  city: e.target.value,
+                })
+              }
+            />
+          </div>
 
           <div className="flex flex-col w-full">
             <label className="text-md font-bold" htmlFor="postalCode">
@@ -374,6 +372,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
           </div>
         </div>
 
+        {/****
          <div className="flex flex-col md:flex-row md:justify-between md:space-x-24 my-4">
           <div className="flex flex-col w-full">
             <label className="text-xs font-bold" htmlFor="contactDay">
@@ -425,7 +424,8 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
             </select>
           </div>
         </div>
-      ***/}
+
+        *** */}
 
         <div className="flex flex-col w-full">
           <label className="text-md font-bold" htmlFor="comments">
@@ -434,7 +434,6 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
           <textarea
             rows="4"
             name="comments"
-
             className="rounded-md border border-gray-300 pl-4 py-2 text-base text-gray-600 focus:outline-none focus:border-gray-700 "
             value={quoteInfo.comments}
             onChange={(e) =>
@@ -480,7 +479,6 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
           ) : (
             <Fragment>
               <svg
-
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-16 w-16 bg-red-500 text-white rounded-full cursor-pointer shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
                 fill="none"

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="relative ">
+    <div className="relative isolate">
       <div className="absolute inset-0 z-[-1]">
         <div className="min-h-[70vh] isolate bg-gray-700 overflow-hidden">
           <Image
@@ -12,7 +12,8 @@ const Hero = () => {
             alt="background"
             layout="fill"
             objectFit="cover"
-            quality={75}
+            quality={100}
+            priority={true}
             className="z-[-1] h-[100%]"
           />
         </div>
