@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           <div className="mt-2 text-gray-400">
             <p className="text-sm">Email: info@hotwater24.com</p>
-            <p className="text-sm">Tel: +27793414075</p>
+            <p className="text-sm">Tel: +27 (0)79 341 4075</p>
             <div className="mt-2 flex flex-col space-y-3 cursor-pointer">
               <Whatsapp />
             </div>
