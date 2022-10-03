@@ -144,13 +144,13 @@ function LeadCard({ quote }) {
                   Address:
                 </h3>
                 <p className="text-gray-600  text-sm font-normal">
-                  {/**  `Street Address: ${quote.streetAddress}` */}
+                  { `Street Address: ${quote.streetAddress}`}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
-                  {/*`Suburb: ${quote.suburb}`  */}
+                  {`Suburb: ${quote.suburb}`}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
-                  {/*`Postal Code: ${quote.postalCode}`*/}
+                  {`Postal Code: ${quote.postalCode}`}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
                   {`City: ${quote.city}`}
