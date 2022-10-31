@@ -61,6 +61,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
       installationCost,
       plumbingCost,
       comments,
+      financing
     } = quoteInfo;
 
     const queryClient = useQueryClient();
@@ -112,6 +113,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
           installationCost: installationCost,
           plumbingCost: plumbingCost,
           comments: comments,
+          financing: financing,
         },
       ])
     );
@@ -174,6 +176,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
             installationCost: installationCost,
             plumbingCost: plumbingCost,
             comments: comments,
+            financing: financing,
           }),
         });
 

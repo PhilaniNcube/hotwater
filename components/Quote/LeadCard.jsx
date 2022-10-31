@@ -56,6 +56,9 @@ function LeadCard({ quote }) {
                         )
                       )}`}
                     </h3>
+                    <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
+                      {quote.financing ? 'FInancing: Yes' : 'Financing: No'}
+                    </h3>
                     {/***
                     <h3 className="font-bold text-lg text-gray-600 mt-3">
                       Monthly Savings: {formatter.format(quote.monthlySavings)}
@@ -210,7 +213,7 @@ function LeadCard({ quote }) {
               ****/}
                 </span>
               </div>
-              <div className="w-full  lg:w-1/3 px-6 pt-4">
+              <div className="w-full  lg:w-1/3 px-6 py-8">
                 <h3 className="text-gray-600 font-bold text-lg">
                   Household Size:
                 </h3>
