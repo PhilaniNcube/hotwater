@@ -57,7 +57,7 @@ function LeadCard({ quote }) {
                       )}`}
                     </h3>
                     <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
-                      {quote.financing ? 'FInancing: Yes' : 'Financing: No'}
+                      {quote.financing === '' || quote.financing === 'false' ? 'No Financing' : quote.financing === 'true' ? "Yes, Full Financing" : quote.financing }
                     </h3>
                     {/***
                     <h3 className="font-bold text-lg text-gray-600 mt-3">

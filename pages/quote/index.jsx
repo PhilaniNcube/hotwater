@@ -72,7 +72,7 @@ const index = ({ initialProducts }) => {
     installation: null,
     contactDay: '',
     contactTime: '',
-    financing: false,
+    financing: '',
     geyserPrice: null,
     monthlySavings: 200,
     yearlySavings: 2400,

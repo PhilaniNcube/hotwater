@@ -153,9 +153,9 @@ const Recommendations = ({
             plumbing work and excludes the cost for a gas cage, gas cylinder(s)
             and gas supply.
           </p>
-          <h3 className="text-lg md:text-3xl font-bold mt-4 text-center text-gray-600 mx-auto">
+          <p className="text-lg md:text-3xl font-bold mt-4 text-center text-gray-600 mx-auto">
             Would you consider financing?
-          </h3>
+          </p>
           <div className="max-w-7xl mx-auto mt-3 px-4 text-auto"></div>
           <div className="flex items-center justify-center space-x-6 mt-6 mb-8">
             {
@@ -185,7 +185,7 @@ const Recommendations = ({
                         plumbingCost: plumbing,
                         geyserPrice: geyserPrice,
                         geyserSize: geyserSize,
-                        financing: false,
+                        financing: "No FInancing",
                       });
                       nextPage();
                     }}
@@ -202,13 +202,30 @@ const Recommendations = ({
                         plumbingCost: plumbing,
                         geyserPrice: geyserPrice,
                         geyserSize: geyserSize,
-                        financing: true,
+                        financing: "Part Financing",
                       });
                       nextPage();
                     }}
                     className="bg-sky-500 items-center flex justify-center hover:bg-sky-600 text-center text-white text-sm font-medium rounded-full py-4 px-8 shadow-sky-400 cursor-pointer shadow-md hover:shadow"
                   >
-                    Yes, I want Financing
+                    Yes, Partly Financed
+                  </span>
+                  <span
+                    onClick={() => {
+                      setQuoteInfo({
+                        ...quoteInfo,
+                        installation: "geyser only",
+                        installationCost: installation,
+                        plumbingCost: plumbing,
+                        geyserPrice: geyserPrice,
+                        geyserSize: geyserSize,
+                        financing: "Full Financing",
+                      });
+                      nextPage();
+                    }}
+                    className="bg-sky-500 items-center flex justify-center hover:bg-sky-600 text-center text-white text-sm font-medium rounded-full py-4 px-8 shadow-sky-400 cursor-pointer shadow-md hover:shadow"
+                  >
+                    Yes, Full Financing
                   </span>
                 </div>
               </Fragment>
