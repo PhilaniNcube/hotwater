@@ -57,7 +57,17 @@ function LeadCard({ quote }) {
                       )}`}
                     </h3>
                     <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
-                      {quote.financing === '' || quote.financing === 'false' ? 'No Financing' : quote.financing === 'true' ? "Yes, Full Financing" : quote.financing }
+                      {quote.financing === "" || quote.financing === "false"
+                        ? "No Financing"
+                        : quote.financing === "true"
+                        ? "Yes, Full Financing"
+                        : quote.financing}
+                    </h3>
+                    <h3 className="font-bold text-lg text-gray-600 border-b pb-3 border-gray-400">
+                     Off Grid Solution:  {quote.completeSolution === null ||
+                      quote.completeSolution === false
+                        ? "No"
+                        : "Yes"}
                     </h3>
                     {/***
                     <h3 className="font-bold text-lg text-gray-600 mt-3">
@@ -147,7 +157,7 @@ function LeadCard({ quote }) {
                   Address:
                 </h3>
                 <p className="text-gray-600  text-sm font-normal">
-                  { `Street Address: ${quote.streetAddress}`}
+                  {`Street Address: ${quote.streetAddress}`}
                 </p>
                 <p className="text-gray-600  text-sm font-normal">
                   {`Suburb: ${quote.suburb}`}

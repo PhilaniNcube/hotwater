@@ -2,8 +2,7 @@
 import React, { Fragment, useState } from 'react';
 import PropertyType from '../../components/QuoteSteps/PropertyType';
 import Confirm from '../../components/QuoteSteps/Confirm';
-import PageTransitions from '../../components/PageTransitions';
-import Step10 from '../../components/QuoteSteps/Step10';
+import OffGridStep from "../../components/QuoteSteps/OffGridStep";
 import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -107,53 +106,47 @@ const index = ({ initialProducts }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
               mainEntity: [
                 {
-                  '@type': 'Question',
-                  name: 'What do I need to know before buying a gas geyser?',
+                  "@type": "Question",
+                  name: "What do I need to know before buying a gas geyser?",
                   acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      '<p>The most important thing to know about buying a gas geyser is your expected flow rate. You need to know your flow rate so that you can select the right geyser for your property or house.</p>',
+                    "@type": "Answer",
+                    text: "<p>The most important thing to know about buying a gas geyser is your expected flow rate. You need to know your flow rate so that you can select the right geyser for your property or house.</p>",
                   },
                 },
                 {
-                  '@type': 'Question',
-                  name: 'How is flow rate calculated?',
+                  "@type": "Question",
+                  name: "How is flow rate calculated?",
                   acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      '<p>Flow rate is calculated by determing the amount of water coming out of all your hot water outlets in a minute.</p>',
+                    "@type": "Answer",
+                    text: "<p>Flow rate is calculated by determing the amount of water coming out of all your hot water outlets in a minute.</p>",
                   },
                 },
                 {
-                  '@type': 'Question',
-                  name: 'Do you install the gas geysers?',
+                  "@type": "Question",
+                  name: "Do you install the gas geysers?",
                   acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      '<p>We work with certified gas geyser installers. Should you take up the installation offer that we can give you, we will coordinate the whole installation process.</p>',
+                    "@type": "Answer",
+                    text: "<p>We work with certified gas geyser installers. Should you take up the installation offer that we can give you, we will coordinate the whole installation process.</p>",
                   },
                 },
                 {
-                  '@type': 'Question',
-                  name: 'Can I buy the gas geyser on credit?',
+                  "@type": "Question",
+                  name: "Can I buy the gas geyser on credit?",
                   acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      '<p>Through our partners at Mobicred we are able to offer you the option to pay for the gas geyser over 12 months.</p>',
+                    "@type": "Answer",
+                    text: "<p>Through our partners at Mobicred we are able to offer you the option to pay for the gas geyser over 12 months.</p>",
                   },
                 },
                 {
-                  '@type': 'Question',
-                  name:
-                    'How much cheaper will my electricity bill be when I switch to a gas geyser?',
+                  "@type": "Question",
+                  name: "How much cheaper will my electricity bill be when I switch to a gas geyser?",
                   acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      '<p>You can expect to save up to 20% a month on your electricity bill when you switch to using a gas geyser.</p>',
+                    "@type": "Answer",
+                    text: "<p>You can expect to save up to 20% a month on your electricity bill when you switch to using a gas geyser.</p>",
                   },
                 },
               ],
@@ -161,106 +154,104 @@ const index = ({ initialProducts }) => {
           }}
         />
       </Head>
-      <AnimatePresence exitBeforeEnter={true} >
-      <div className="relative ">
-      {page === 1 && (
-        <Family
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 2 && (
-        <PropertyType
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 3 && (
-        <OwnerStatus
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 4 && (
-        <GasSupply
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 5 && (
-        <GasUse
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
-      {page === 6 && (
-        <WaterHeating
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
+      <AnimatePresence exitBeforeEnter={true}>
+        <div className="relative ">
+          {page === 1 && (
+            <Family
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
+          {page === 2 && (
+            <PropertyType
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
+          {page === 3 && (
+            <OwnerStatus
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
+          {page === 4 && (
+            <GasSupply
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
+          {page === 5 && (
+            <GasUse
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
+          {page === 6 && (
+            <WaterHeating
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
 
-      {page === 7 && (
-        <WaterOutlets
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
+          {page === 7 && (
+            <WaterOutlets
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
 
-      {  /*page === 8 && (
-        <Savings
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )*/}
-       {page === 8 && (
-        <Recommendations
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-        />
-      )}
+          {page === 8 && (
+            <OffGridStep
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
+          {page === 9 && (
+            <Recommendations
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+            />
+          )}
 
+          {page === 10 && (
+            <PersonalDetails
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              setPage={setPage}
+              page={page}
+            />
+          )}
 
-
-      {page === 9 && (
-        <PersonalDetails
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          setPage={setPage}
-          page={page}
-        />
-      )}
-
-      {/*page === 10 && (
+          {/*page === 10 && (
         <Summary
           quoteInfo={quoteInfo}
           setQuoteInfo={setQuoteInfo}
@@ -269,20 +260,18 @@ const index = ({ initialProducts }) => {
           page={page}
         />
       )*/}
-      {page === 10 && (
-        <Confirm
-          quoteInfo={quoteInfo}
-          setQuoteInfo={setQuoteInfo}
-          nextPage={nextPage}
-          prevPage={prevPage}
-          page={page}
-
-          products={products}
-        />
-        )}
-
+          {page === 11 && (
+            <Confirm
+              quoteInfo={quoteInfo}
+              setQuoteInfo={setQuoteInfo}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              page={page}
+              products={products}
+            />
+          )}
         </div>
-        </AnimatePresence>
+      </AnimatePresence>
     </Fragment>
   );
 };

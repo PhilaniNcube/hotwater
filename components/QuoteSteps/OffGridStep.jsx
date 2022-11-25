@@ -7,7 +7,7 @@ import CatalogueGrid from '../Catalogue/CatalogueGrid';
 import { supabase } from '../../utils/supabase';
 import { useProducts } from '../../hooks/products';
 
-const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
+const OffGridStep = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   const router = useRouter();
 
   return (
@@ -148,4 +148,4 @@ const Step9 = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo }) => {
   );
 };
 
-export default Step9;
+export default OffGridStep;
