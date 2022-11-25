@@ -1,11 +1,5 @@
 module.exports = {
   reactStrictMode: true,
-  experimental: {
-    images: {
-      allowFutureImage: true
-    }
-  },
-
   images: {
     domains: [
       'tqindzrnxqulmtsuoqaz.supabase.in',

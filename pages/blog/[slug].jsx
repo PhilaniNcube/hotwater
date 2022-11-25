@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Head from 'next/head';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
