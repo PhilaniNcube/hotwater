@@ -101,7 +101,7 @@ const Recommendations = ({
       exit={{ x: "-100%" }}
       className="mt-8 min-h-[90vh]"
     >
-      {geyserSize <= 30 ? (
+      {geyserSize <= 35 ? (
         <Fragment>
           {" "}
           <p className="text-center text-lg text-gray-700 mb-3 font-medium max-w-[60ch] mx-auto">
@@ -236,12 +236,13 @@ const Recommendations = ({
         <Fragment>
           <div className="max-w-6xl mx-auto px-4">
             <p className="text-lg text-center text-gray-700 font-bold">
-              Thank you for completing the wizard! However the number of warm
-              water outlets indicated exceeds the maximum capacity (26L/min) for
-              a single gas geyser.
+              Thank you for answering our questions! As the number of hot water
+              outlets exceed the maximum capacity for a single gas geyser, we
+              need to look at possibly subdividing the hot water supply for your
+              property.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-0 md:gap-x-4 mt-4">
-              <div className="w-full flex flex-col justify-center px-4">
+            <div className="grid grid-cols-1 mt-4">
+              <div className="hidden w-full flex-col justify-center px-4">
                 <p className="text-sm md:text-xl font-medium text-gray-600 my-3">
                   But no worries as we can find a solution for you.
                 </p>
@@ -251,9 +252,9 @@ const Recommendations = ({
                 </p>
               </div>
 
-              <div className="w-full">
+              <div className="w-full ">
                 <img
-                  className="w-full object-cover"
+                  className="w-full object-cover h-[40vh] aspect-video mx-auto"
                   alt="bathroom"
                   src="/images/new_shower.jpg"
                 />
@@ -264,7 +265,9 @@ const Recommendations = ({
           <div className="max-w-6xl mx-auto flex flex-col items-center justify-center mt-4">
             <p className="my-4 text-gray-700 font-medium text-sm md:text-lg px-8 text-center">
               Would you like us to inform you on the costs involved for such a
-              water heating solution?
+              water heating solution? Please click &apos;Yes, please&apos; and
+              complete the contact information form on the next page and we will
+              send you our proposal shortly.
             </p>
             <div className="flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0">
               <svg
