@@ -483,6 +483,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
           ) : (
             <Fragment>
               <svg
+                onClick={prevPage}
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-16 w-16 bg-red-500 text-white rounded-full cursor-pointer shadow-red-500 shadow-lg hover:shadow-md hover:bg-red-600"
                 fill="none"
