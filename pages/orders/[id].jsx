@@ -4,6 +4,7 @@ import cookie from 'cookie';
 import Link from 'next/link';
 import Image from 'next/image';
 import { supabase } from '../../utils/supabase';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 const OrderSummary = ({ order }) => {
   console.log(order);
@@ -136,25 +137,28 @@ const OrderSummary = ({ order }) => {
 
 export default OrderSummary;
 
-export async function getServerSideProps({ req, params: { id } }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+export async function getServerSideProps(ctx) {
+const supabase = createServerSupabaseClient(ctx);
 
-  supabase.auth.session = () => ({ access_token: token });
+const {
+  data: { session },
+} = await supabase.auth.getSession();
 
-  if (user === null) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+console.log({ session });
+
+let { data: isAdmin } = await supabase.rpc("is_admin");
+if (!isAdmin)
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
 
   let { data: orders, error } = await supabase
     .from('orders')
     .select('*')
-    .eq('id', id)
+    .eq('id', ctx.params.id)
     .single();
 
   return {

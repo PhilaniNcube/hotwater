@@ -4,19 +4,20 @@ import React from 'react';
 
 import QuoteCard from '../../../components/Quote/QuoteCard';
 import ProfileNav from '../../../components/Profile/ProfileSidebar';
-import { useUser } from '../../../Context/AuthContext';
+
 
 import { supabase } from '../../../utils/supabase';
 import cookie from 'cookie';
-import axios from 'axios';
+
 import RecommendedProducts from '../../../components/Catalogue/RecommededProducts';
+import { useUser } from '@supabase/auth-helpers-react';
 
 const Quote = ({ data, quote }) => {
   console.log({ data, quote });
 
   const router = useRouter();
 
-  const { user } = useUser();
+  const  user  = useUser();
 
   return (
     <ProfileNav>

@@ -1,6 +1,7 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
-import { useUser } from '../../Context/AuthContext';
+
 import { supabase } from '../../utils/supabase';
 
 const ProfileInfo = ({ profile }) => {
@@ -8,7 +9,7 @@ const ProfileInfo = ({ profile }) => {
 
   const router = useRouter();
 
-  const { user } = useUser();
+  const  user  = useUser();
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');

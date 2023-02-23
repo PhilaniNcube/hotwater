@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
-import { useUser } from '../../Context/AuthContext';
+import { useUser } from '@supabase/auth-helpers-react';
+
 
 function ProfileNav({ children }) {
   const [show, setShow] = useState(true);
 
-  const { user } = useUser();
+  const  user  = useUser();
 
   return (
     <Fragment>

@@ -204,25 +204,28 @@ const Product = ({ product }) => {
 
 export default Product;
 
-export async function getServerSideProps({ req, params: { sku } }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+export async function getServerSideProps(ctx) {
+const supabase = createServerSupabaseClient(ctx);
 
-  supabase.auth.session = () => ({ access_token: token });
+const {
+  data: { session },
+} = await supabase.auth.getSession();
 
-  if (user?.role !== 'supabase_admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+console.log({ session });
+
+let { data: isAdmin } = await supabase.rpc("is_admin");
+if (!isAdmin)
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
 
   let { data: products } = await supabaseService
     .from('products')
     .select('*')
-    .eq('sku', sku)
+    .eq('sku', ctx.params.sku)
     .single();
 
   return {

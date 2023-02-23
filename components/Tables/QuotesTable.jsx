@@ -1,13 +1,14 @@
+import { useUser } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import React, { Fragment } from 'react';
-import { useUser } from '../../Context/AuthContext';
+
 import { supabase } from '../../utils/supabase';
 
 export default function QuotesTable({ quotes }) {
   console.log('quotes', quotes);
 
   const router = useRouter();
-  const { user } = useUser();
+  const user = useUser();
 
   const deleteQuote = async (quoteId) => {
     const { data, error } = await supabase

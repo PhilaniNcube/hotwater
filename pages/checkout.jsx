@@ -1,16 +1,16 @@
-import axios from 'axios';
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import Head from 'next/head';
-import { useUser } from '../Context/AuthContext';
+
 import useCart from '../hooks/useCart';
 import formatter from '../lib/format';
 import analytics from '../utils/analytics';
+import { useUser } from '@supabase/auth-helpers-react';
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);
 
-  const { user } = useUser();
+  const user = useUser();
   const formRef = useRef();
   console.log(formRef);
   console.log('checkout', user);

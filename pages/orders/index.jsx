@@ -4,6 +4,7 @@ import Head from 'next/head';
 
 import cookie from 'cookie';
 import { supabase } from '../../utils/supabase';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 function Orders({ orders, page, start, end }) {
   return (
@@ -99,26 +100,31 @@ function Orders({ orders, page, start, end }) {
 
 export default Orders;
 
-export async function getServerSideProps({ req, query: { page = 1 } }) {
+export async function getServerSideProps(ctx) {
   const PER_PAGE = 20;
+
+const {page = 1} = ctx.query
 
   const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE;
 
   const end = start + PER_PAGE;
 
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+const supabase = createServerSupabaseClient(ctx);
 
-  supabase.auth.session = () => ({ access_token: token });
+const {
+  data: { session },
+} = await supabase.auth.getSession();
 
-  if (user === null) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+console.log({ session });
+
+let { data: isAdmin } = await supabase.rpc("is_admin");
+if (!isAdmin)
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
 
   let { data: orders, error } = await supabase
     .from('orders')

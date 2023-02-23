@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router';
 import ProfileNav from '../../components/Profile/ProfileSidebar';
-import { useQuotes } from '../../hooks/quotes';
-import { useUser } from '../../Context/AuthContext';
+
 import cookie from 'cookie';
 import { supabase } from '../../utils/supabase';
 import ProfileInfo from '../../components/Profile/ProfileInfo';
+import { useUser } from '@supabase/auth-helpers-react';
 
 const Profile = ({ data, error, profile }) => {
   console.log({ data, error, profile });
 
-  const { user } = useUser();
+  const  user  = useUser();
 
   return (
     <ProfileNav>
