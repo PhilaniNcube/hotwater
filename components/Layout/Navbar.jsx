@@ -2,37 +2,49 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Popover } from '@headlessui/react';
-import { useUser } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
 import useCart from '../../hooks/useCart';
 import { RiWhatsappLine } from 'react-icons/ri';
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { useUser } from '@supabase/auth-helpers-react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 const Navbar = () => {
-  const router = useRouter();
+    const router = useRouter();
+    const [supabaseClient] = useState(() => createBrowserSupabaseClient())
+
+const isAdmin = async () => {
+  let { data, error } = await supabaseClient.rpc('is_admin')
+  return data
+}
+
+
+const admin = isAdmin()
+
 
   const [query, setQuery] = useState('');
 
-  const { cart } = useCart();
+  // const { cart } = useCart();
 
-  const { user, signOut } = useUser();
-
-  console.log('Navbar user', user);
+  const user = useUser();
 
   const [show, setShow] = useState(false);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
 
-    router.push(`/search?query=${query}`);
-  };
+  //   router.push(`/search?query=${query}`);
+  // };
 
   const handleSignOut = async () => {
     setShow(false);
-    await signOut();
+
+    await supabaseClient.auth.signOut();
+
+    // await signOut();
     // setUser(undefined);
   };
 
@@ -228,7 +240,7 @@ const Navbar = () => {
           {/*User Nav Starts */}
 
           <div>
-            {user?.role === "supabase_admin" && (
+            {admin && (
               <Link href="/admin" passHref>
                 <div className="flex items-center text-sky-600 cursor-pointer">
                   <span className="pl-2">

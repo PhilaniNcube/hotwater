@@ -3,6 +3,7 @@ import Link from 'next/link';
 import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
 import { supabase } from '../../../utils/supabase';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 const index = ({ leads }) => {
   return (
@@ -93,20 +94,23 @@ const index = ({ leads }) => {
 
 export default index;
 
-export async function getServerSideProps({ req, query: { term = '' } }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+export async function getServerSideProps(ctx) {
+const supabase = createServerSupabaseClient(ctx);
 
-  supabase.auth.session = () => ({ access_token: token });
+const term = ctx.query.term || "";
 
-  if (user?.role !== 'supabase_admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+const {
+  data: { session },
+} = await supabase.auth.getSession();
+
+let { data: isAdmin } = await supabase.rpc("is_admin");
+if (!isAdmin)
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
 
   let { data: leads, error } = await supabaseService
     .from('leads')

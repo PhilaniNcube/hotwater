@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { useQuery } from 'react-query';
-import CatalogueGrid from '../../../components/Catalogue/CatalogueGrid';
+
 import QuoteCard from '../../../components/Quote/QuoteCard';
 import ProfileNav from '../../../components/Profile/ProfileSidebar';
 import { useUser } from '../../../Context/AuthContext';

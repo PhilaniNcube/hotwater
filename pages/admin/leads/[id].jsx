@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useState } from 'react';
 import { supabase } from '../../../utils/supabase';
-import QuoteCard from '../../../components/Quote/QuoteCard';
-import cookie from 'cookie';
 import { supabaseService } from '../../../utils/supabaseService';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import LeadCard from '../../../components/Quote/LeadCard';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 function Lead({ lead }) {
-  console.log(lead);
+
 
   const router = useRouter();
 
@@ -60,7 +59,7 @@ function Lead({ lead }) {
 
   const [confirm, setConfirm] = useState(false);
   const [show, setShow] = useState(false);
-  const [processing, setProcessing] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -237,29 +236,30 @@ function Lead({ lead }) {
 }
 export default Lead;
 
-export async function getServerSideProps({ req, params: { id } }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+export async function getServerSideProps(ctx) {
+const supabase = createServerSupabaseClient(ctx);
 
-  supabase.auth.session = () => ({ access_token: token });
 
-  if (user?.role !== 'supabase_admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
 
-  let { data: quotes, error } = await supabaseService
-    .from('quotes')
-    .select('*, product_id(*)')
-    .order('created_at', { ascending: false })
-    .eq('id', id)
+const {
+  data: { session },
+} = await supabase.auth.getSession();
+
+let { data: isAdmin } = await supabase.rpc("is_admin");
+if (!isAdmin)
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
+
+  let { data: lead, error } = await supabaseService
+    .from("quotes")
+    .select("*, product_id(*)")
+    .order("created_at", { ascending: false })
+    .eq("id", ctx.params.id)
     .single();
-
-  const lead = await quotes;
 
   return {
     props: {

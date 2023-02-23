@@ -5,16 +5,21 @@ import { useRouter } from 'next/router';
 import { useUser } from '../Context/AuthContext';
 import { supabase } from '../utils/supabase';
 import analytics from '../utils/analytics';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function SignIn() {
   const router = useRouter();
   const [email, setEmail] = useState('');
 
+   const supabaseClient = useSupabaseClient();
+
   const [loading, setLoading] = useState(false);
 
   const signInWithGoogle = async () => {
     setLoading(true);
-    let { user, error } = await supabase.auth.signIn({ provider: 'google' });
+    let { user, error } = await supabaseClient.auth.signInWithOAuth({
+      provider: "google",
+    });
 
     analytics.track('login', {
       provider: 'google',

@@ -1,15 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../utils/supabase';
 import axios from 'axios';
 import analytics from '../utils/analytics';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 const Context = createContext();
 
 const Provider = ({ children }) => {
   const router = useRouter();
-
-  const [user, setUser] = useState(supabase.auth.user());
+const supabase = useSupabaseClient();
+ const user = useUser();
 
   const signOut = async () => {
     let { error } = await supabase.auth.signOut();

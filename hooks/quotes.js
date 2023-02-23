@@ -1,4 +1,5 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+
+import { useQuery } from '@tanstack/react-query';
 import { fetchJson } from '../lib/requests';
 import { supabase } from '../utils/supabase';
 

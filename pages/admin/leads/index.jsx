@@ -7,6 +7,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { supabaseService } from '../../../utils/supabaseService';
 import { supabase } from '../../../utils/supabase';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 const Leads = ({ leads }) => {
   const router = useRouter();
@@ -122,28 +123,31 @@ const Leads = ({ leads }) => {
 
 export default Leads;
 
-export async function getServerSideProps({ req, query: { term = '' } }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+export async function getServerSideProps(ctx) {
+const supabase = createServerSupabaseClient(ctx);
 
-  supabase.auth.session = () => ({ access_token: token });
+const term = ctx.query.term || ''
 
-  if (user?.role !== 'supabase_admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+const {
+  data: { session },
+} = await supabase.auth.getSession();
 
-  let { data: quotes, error } = await supabaseService
-    .from('quotes')
-    .select('*, product_id(*)')
-    .ilike('firstName', `%${term}%`)
-    .order('created_at', { ascending: false });
+let { data: isAdmin } = await supabase.rpc("is_admin");
+if (!isAdmin)
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
 
-  const leads = await quotes;
+
+  let { data: leads, error } = await supabaseService
+    .from("quotes")
+    .select("*, product_id(*)")
+    .ilike("firstName", `%${term}%`)
+    .order("created_at", { ascending: false });
+
 
   return {
     props: {

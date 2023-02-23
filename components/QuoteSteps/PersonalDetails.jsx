@@ -1,13 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import React, { Fragment, useState } from 'react';
-import { useMutation, useQueryClient } from 'react-query';
-import { useUser } from '../../Context/AuthContext';
-import { supabase } from '../../utils/supabase';
+// import { useMutation, useQueryClient } from 'react-query';
+// import { supabase } from '../../utils/supabase';
 import {motion} from 'framer-motion';
 import analytics from '../../utils/analytics';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, setPage }) => {
+  const [supabaseClient] = useState(() => createBrowserSupabaseClient());
+
+
   console.log('Step', page, quoteInfo);
 
     const router = useRouter();
@@ -67,7 +71,7 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
     const queryClient = useQueryClient();
 
     const mutation = useMutation(() =>
-      supabase.from("quotes").insert([
+      supabaseClient.from("quotes").insert([
         {
           children,
           adults,
@@ -126,11 +130,59 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
     analytics.track("generate_lead");
 
     try {
-      const quote = await mutation.mutateAsync();
-      queryClient.setQueryData("quote", quote.data[0]);
+      const quote = await supabaseClient.from("quotes").insert([
+        {
+          children,
+          adults,
+          teenagers,
+          houseType: houseType,
+          ownership: ownership,
+          gasSupply: gasSupply,
+          gasStove: gasStove,
+          gasWaterHeating: gasWaterHeating,
+          gasHeating: gasHeating,
+          otherGasUse: otherGasUse,
+          locateOutside: locateOutside,
+          gasGeyser: gasGeyser,
+          electricGeyser: electricGeyser,
+          solarGeyser: solarGeyser,
+          otherGeyser: otherGeyser,
+          standardShower: standardShower,
+          rainShower: rainShower,
+          bathtub: bathtub,
+          kitchenSink: kitchenSink,
+          bathroomSink: bathroomSink,
+          dishwasher: dishwasher,
+          washingmachine: washingmachine,
+          flowRate: flowRate,
+          offGrid: offGrid,
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          streetAddress: streetAddress,
+          city: city,
+          suburb: suburb,
+          telephoneNumber: telephoneNumber,
+          postalCode: postalCode,
+          completeSolution: completeSolution,
+          product_id: product_id || null,
+          installation: installation,
+          contactDay: contactDay,
+          contactTime: contactTime,
+          geyserPrice: geyserPrice,
+          monthlySavings: monthlySavings,
+          yearlySavings: yearlySavings,
+          geyserSize: geyserSize,
+          installationCost: installationCost,
+          plumbingCost: plumbingCost,
+          comments: comments,
+          financing: financing,
+        },
+      ]).select('*').single()
+
       console.log("quote", quote);
 
-      if (quote?.data[0]) {
+      if (quote) {
         const mail = await fetch(`/api/mail/leads`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -180,16 +232,10 @@ const PersonalDetails = ({ quoteInfo, nextPage, prevPage, page, setQuoteInfo, se
           }),
         });
 
-
-
-            setLoading(false);
-            nextPage();
-
-
       }
 
-
-
+      setLoading(false);
+      nextPage();
 
     } catch (error) {
       console.log(error);

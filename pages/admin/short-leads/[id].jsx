@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { supabase } from '../../../utils/supabase';
 import cookie from 'cookie';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 function ShortLead({ lead }) {
   console.log({ lead });
@@ -77,7 +78,7 @@ function ShortLead({ lead }) {
                 <p className="mb-2 text-sm text-gray-700 font-medium">
                   Location
                 </p>
-                <p className="text-sm text-gray-700">{`${lead.streetAddress}, ${lead.suburb}, 
+                <p className="text-sm text-gray-700">{`${lead.streetAddress}, ${lead.suburb},
                 ${lead.city} `}</p>
               </div>
             </div>
@@ -198,25 +199,28 @@ function ShortLead({ lead }) {
 }
 export default ShortLead;
 
-export async function getServerSideProps({ req, params: { id } }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+export async function getServerSideProps(ctx) {
+const supabase = createServerSupabaseClient(ctx);
 
-  supabase.auth.session = () => ({ access_token: token });
+const term = ctx.query.term || "";
 
-  if (user?.role !== 'supabase_admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+const {
+  data: { session },
+} = await supabase.auth.getSession();
+
+let { data: isAdmin } = await supabase.rpc("is_admin");
+if (!isAdmin)
+  return {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
 
   let { data: leads, error } = await supabase
     .from('leads')
     .select('*')
-    .eq('id', id)
+    .eq('id', ctx.params.id)
     .single();
 
   return {

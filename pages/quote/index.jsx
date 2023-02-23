@@ -3,12 +3,11 @@ import React, { Fragment, useState } from 'react';
 import PropertyType from '../../components/QuoteSteps/PropertyType';
 import Confirm from '../../components/QuoteSteps/Confirm';
 import OffGridStep from "../../components/QuoteSteps/OffGridStep";
-import { useUser } from '../../Context/AuthContext';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+
+
 import Head from 'next/head';
 import getProducts from '../../lib/getProducts';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
 import OwnerStatus from '../../components/QuoteSteps/OwnerStatus';
@@ -17,21 +16,24 @@ import GasUse from '../../components/QuoteSteps/GasUse';
 import WaterHeating from '../../components/QuoteSteps/WaterHeating';
 import WaterOutlets from '../../components/QuoteSteps/WaterOutlests';
 import Recommendations from '../../components/QuoteSteps/Recommendations';
-import Savings from '../../components/QuoteSteps/Savings';
-import Financing from '../../components/QuoteSteps/Financing';
+// import Savings from '../../components/QuoteSteps/Savings';
+// import Financing from '../../components/QuoteSteps/Financing';
 import PersonalDetails from '../../components/QuoteSteps/PersonalDetails';
-import Summary from '../../components/QuoteSteps/Summary';
+// import Summary from '../../components/QuoteSteps/Summary';
 import { AnimatePresence } from 'framer-motion';
 import Family from '../../components/QuoteSteps/Step1';
+import { useUser } from '@supabase/auth-helpers-react';
 
 const index = ({ initialProducts }) => {
   const [page, setPage] = useState(1);
 
-  const { data: products } = useQuery('products', getProducts, {
-    initialData: initialProducts,
+  const { data: products } = useQuery({
+    queryKey: ['products'],
+    queryFn: getProducts,
+    initialData: initialProducts
   });
 
-  const { user } = useUser();
+  const user = useUser();
 
   const [quoteInfo, setQuoteInfo] = useState({
     children: 0,
@@ -278,7 +280,7 @@ const index = ({ initialProducts }) => {
 
 export default index;
 
-export async function getServerSideProps({}) {
+export async function getServerSideProps() {
   let { data: products, error } = await supabase
     .from('products')
     .select(`*`)

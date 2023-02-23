@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import axios from 'axios';
-import Image from 'next/image';
+// import axios from 'axios';
+// import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
-import { useMutation, useQueryClient } from 'react-query';
-import { useUser } from '../../Context/AuthContext';
-import { useProducts } from '../../hooks/products';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+// import { useUser } from '../../Context/AuthContext';
+// import { useProducts } from '../../hooks/products';
 import analytics from '../../utils/analytics';
 import { supabase } from '../../utils/supabase';
 import QuoteCard from '../Quote/QuoteCard';

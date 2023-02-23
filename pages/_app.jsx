@@ -1,22 +1,24 @@
 /* eslint-disable @next/next/inline-script-id */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import UserProvider from '../Context/AuthContext';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import { GTM_ID, pageview } from '../utils/gtm';
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import CartProvider from '../Context/CartContext';
 import Footer from '../components/Layout/Footer';
 import Navbar from '../components/Layout/Navbar';
 import '../styles/globals.css';
 import analytics from '../utils/analytics';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
+
+  const [supabaseClient] = useState(() => createBrowserSupabaseClient());
 
   useEffect(() => {
     analytics.page();
@@ -24,18 +26,19 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Fragment>
-      <UserProvider>
-        <CartProvider>
-          <QueryClientProvider client={queryClient}>
+      <SessionContextProvider
+        supabaseClient={supabaseClient}
+        initialSession={pageProps.initialSession}
+      >
+        <QueryClientProvider client={queryClient}>
+          <CartProvider>
             <Navbar />
-
             <Component {...pageProps} />
             <Footer />
-
-            <ReactQueryDevtools />
-          </QueryClientProvider>
-        </CartProvider>
-      </UserProvider>
+          </CartProvider>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </SessionContextProvider>
     </Fragment>
   );
 }

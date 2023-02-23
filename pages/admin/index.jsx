@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react';
 import cookie from 'cookie';
 import Cards from '../../components/Admin/AdminCards';
-import AdminHeader from '../../components/Layout/AdminHeader';
 import { supabase } from '../../utils/supabase';
 import { supabaseService } from '../../utils/supabaseService';
-import { useUser } from '../../Context/AuthContext';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { useUser } from '@supabase/auth-helpers-react';
 
-const Admin = ({ brands, products, orders, profile, quotes, shortLeads }) => {
-  const { user } = useUser();
+const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin }) => {
+  const user = useUser();
 
   const router = useRouter();
 
@@ -31,7 +32,7 @@ const Admin = ({ brands, products, orders, profile, quotes, shortLeads }) => {
         </div>
       </Fragment>
     );
-  } else if (user?.role === 'supabase_admin') {
+  } else if (isAdmin) {
     return (
       <Fragment>
         <Cards
@@ -61,20 +62,28 @@ const Admin = ({ brands, products, orders, profile, quotes, shortLeads }) => {
 
 export default Admin;
 
-export async function getServerSideProps({ req }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
-  const token = cookie.parse(req.headers.cookie)['sb:token'];
+export async function getServerSideProps(ctx) {
 
-  supabase.auth.session = () => ({ access_token: token });
+const supabase = createServerSupabaseClient(ctx);
 
-  if (user?.role !== 'supabase_admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+
+
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    console.log({session})
+
+    let { data:isAdmin } = await supabase.rpc("is_admin");
+    if (!isAdmin)
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      };
+
+
 
   let { data: brands } = await supabaseService.from('brands').select('*');
 
@@ -96,6 +105,7 @@ export async function getServerSideProps({ req }) {
       profile,
       quotes,
       shortLeads: leads,
+      isAdmin
     },
   };
 }
