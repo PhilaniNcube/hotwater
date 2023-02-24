@@ -33,7 +33,7 @@ const Invoice = ({ invoice }) => {
 
     const data = await res.json();
 
-    console.log(data);
+
 
     const { paygateId, reqId, ref, checksum } = data;
 
@@ -41,7 +41,9 @@ const Invoice = ({ invoice }) => {
         setChc(checksum);
         setPayId(reqId);
 
-          submit();
+    console.log({})
+
+          submit({chec, payId});
   };
 
   return (
@@ -55,7 +57,7 @@ const Invoice = ({ invoice }) => {
         </p>
 
         <h1 className="text-2xl font-bold text-slate-700">
-          Payment Amount: {formatter(invoice.amount)}
+          Payment Amount: R&nsbp;{invoice.amount}
         </h1>
 
         <p className="text-md font-medium leading-7 text-slate-700">
