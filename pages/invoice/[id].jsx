@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
+import { supabase } from "../../utils/supabase";
 
 const Invoice = ({ invoice }) => {
+
   const formRef = useRef();
 
    const [chec, setChc] = useState("");
@@ -37,6 +39,8 @@ const Invoice = ({ invoice }) => {
 
         setChc(checksum);
         setPayId(reqId);
+
+          submit();
   };
 
   return (
@@ -98,17 +102,15 @@ const Invoice = ({ invoice }) => {
 };
 export default Invoice;
 
-export async function getServerSideProps(ctx) {
-  const supabase = createServerSupabaseClient(ctx);
+export async function getServerSideProps({params: {id}}) {
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+
+
 
   const { data: invoice, error } = await supabase
     .from("invoice")
     .select("*")
-    .eq("id", ctx.params.id)
+    .eq("id", id)
     .single();
 
   return {
