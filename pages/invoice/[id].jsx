@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { supabase } from "../../utils/supabase";
+import formatter from "../../lib/format";
 
 const Invoice = ({ invoice }) => {
 
@@ -44,7 +45,7 @@ const Invoice = ({ invoice }) => {
   };
 
   return (
-    <div>
+    <main>
       <div className="max-w-6xl mx-auto py-10">
         <h1 className="text-2xl font-bold text-slate-700">
           Payment Link: {invoice.first_name} {invoice.last_name}
@@ -54,7 +55,7 @@ const Invoice = ({ invoice }) => {
         </p>
 
         <h1 className="text-2xl font-bold text-slate-700">
-          Payment Amount: {invoice.amount}
+          Payment Amount: {formatter(invoice.amount)}
         </h1>
 
         <p className="text-md font-medium leading-7 text-slate-700">
@@ -64,7 +65,7 @@ const Invoice = ({ invoice }) => {
           payment gateway, where you can safely and easily make your payment for
           the installation service.
         </p>
-        <p className="text-md font-medium leading-7 text-slate-700">
+        <p className="text-md font-medium leading-7 text-slate-700 mt-3">
           Our payment gateway is designed to ensure that your financial
           information is kept confidential and secure throughout the payment
           process. You will be prompted to provide your payment details,
@@ -72,20 +73,20 @@ const Invoice = ({ invoice }) => {
           Once you have completed the payment process, you will receive a
           confirmation email with details of your payment.
         </p>
-        <p className="text-md font-medium leading-7 text-slate-700">
+        <p className="text-md font-medium leading-7 text-slate-700 mt-3">
           We appreciate your business and look forward to providing you with
           excellent service. Please do not hesitate to contact us if you have
           any questions or concerns regarding the payment process. Thank you for
           your trust in us.
         </p>
-      </div>
 
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-600 rounded-md px-6 py-2 text-white text-xl font-medium"
-      >
-        Pay Now
-      </button>
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-600 rounded-md px-6 py-2 text-white text-xl font-medium"
+        >
+          Pay Now
+        </button>
+      </div>
 
       <form
         action="https://secure.paygate.co.za/payweb3/process.trans"
@@ -97,14 +98,12 @@ const Invoice = ({ invoice }) => {
         <input type="hidden" name="CHECKSUM" value={chec} />
         <input type="submit" name="sumbit" className="hidden" />
       </form>
-    </div>
+    </main>
   );
 };
 export default Invoice;
 
 export async function getServerSideProps({params: {id}}) {
-
-
 
 
   const { data: invoice, error } = await supabase
