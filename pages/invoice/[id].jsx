@@ -6,7 +6,7 @@ const Invoice = ({ invoice }) => {
    const [chec, setChc] = useState("");
    const [payId, setPayId] = useState("");
 
-     const handleSubmit = () => {
+     const submit = () => {
        console.log("submit", chec, payId);
 
        formRef.current.submit();
@@ -86,7 +86,7 @@ const Invoice = ({ invoice }) => {
       <form
         action="https://secure.paygate.co.za/payweb3/process.trans"
         method="POST"
-        onSubmit={handleSubmit}
+        onSubmit={submit}
         ref={formRef}
       >
         <input type="hidden" name="PAY_REQUEST_ID" value={payId} />
