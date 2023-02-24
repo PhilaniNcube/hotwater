@@ -23,7 +23,7 @@ const Craete = ({invoice}) => {
         last_name: invoiceState.last_name,
         reference: invoiceState.reference,
       })
-      .eq("id", invoiceState.id).select('*')
+      .eq("id", invoiceState.id).select('*').single()
 
 
       console.log(data)
