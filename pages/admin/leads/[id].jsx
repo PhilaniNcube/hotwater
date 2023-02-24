@@ -122,7 +122,10 @@ function Lead({ lead }) {
 
   const deleteLead = async (id) => {
     console.log('delete');
-    const { data, error } = await supabase.from('quotes').delete().eq('id', id);
+    const { data, error } = await supabaseClient
+      .from("quotes")
+      .delete()
+      .eq("id", id);
 
     if (data) {
       router.push('/admin/leads');
