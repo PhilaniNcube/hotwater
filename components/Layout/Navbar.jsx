@@ -24,6 +24,8 @@ const isAdmin = async () => {
 
 const admin = isAdmin()
 
+console.log(admin)
+
 
 
   const [query, setQuery] = useState('');
