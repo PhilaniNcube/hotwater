@@ -57,7 +57,7 @@ const Invoice = ({ invoice }) => {
         </p>
 
         <h1 className="text-2xl font-bold text-slate-700">
-          Payment Amount: R&nsbp;{invoice.amount}
+          Payment Amount: R {invoice.amount}
         </h1>
 
         <p className="text-md font-medium leading-7 text-slate-700">
