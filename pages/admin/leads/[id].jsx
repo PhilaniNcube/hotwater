@@ -124,6 +124,8 @@ function Lead({ lead }) {
     console.log('delete');
     const { data, error } = await supabase.from("quotes").delete().eq("id", id);
 
+    console.log({data, error})
+
     if (data) {
       router.push('/admin/leads');
     }
