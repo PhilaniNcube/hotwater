@@ -31,7 +31,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    let { user, error } = await supabase.auth.signIn({
+    let { user, error } = await supabase.auth.signInWithOtp({
       email: email,
     });
     console.log('sign in', user);
