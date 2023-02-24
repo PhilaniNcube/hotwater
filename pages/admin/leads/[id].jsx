@@ -298,7 +298,7 @@ const Alert = ({ show, setShow, confirm, setConfirm, deleteLead, lead }) => {
 
 const router = useRouter()
 
- const supabaseClient = createBrowserSupabaseClient();
+
 
   return (
     <div className="absolute top-16 left-4 py-5">
@@ -338,7 +338,7 @@ const router = useRouter()
           <div className="flex xl:items-center lg:items-center sm:justify-end justify-center pr-4 ">
             <span
               onClick={async () => {
-                  const { data, error } = await supabaseClient
+                  const { data, error } = await supabase
                     .from("quotes")
                     .delete()
                     .eq("id", lead.id);
