@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment ,useEffect} from 'react';
 import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import { useRouter } from 'next/router';
@@ -16,13 +16,28 @@ const Navbar = () => {
     const router = useRouter();
     const [supabaseClient] = useState(() => createBrowserSupabaseClient())
 
+    const [admin, setAdmin] = useState()
+
+    useEffect(async () => {
+     let { data, error } = await supabaseClient.rpc("is_admin");
+
+     console.log({data})
+
+     setAdmin(data)
+    }, [])
+
+
 const isAdmin = async () => {
   let { data, error } = await supabaseClient.rpc('is_admin')
+  console.log('admin',data)
   return data
 }
 
 
-const admin = isAdmin()
+
+
+
+
 
 console.log(admin)
 
@@ -271,7 +286,7 @@ console.log(admin)
                   onClick={handleSignOut}
                 >
                   <p>Logout</p>
-                 
+
                 </div>
               </div>
             )}
