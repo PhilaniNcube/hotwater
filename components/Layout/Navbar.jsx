@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 import { useRouter } from 'next/router';
@@ -25,6 +25,7 @@ const isAdmin = async () => {
 const admin = isAdmin()
 
 
+
   const [query, setQuery] = useState('');
 
   // const { cart } = useCart();
@@ -40,10 +41,10 @@ const admin = isAdmin()
   // };
 
   const handleSignOut = async () => {
-    setShow(false);
+
 
     await supabaseClient.auth.signOut();
-
+    router.reload()
     // await signOut();
     // setUser(undefined);
   };
@@ -241,27 +242,51 @@ const admin = isAdmin()
 
           <div>
             {admin && (
-              <Link href="/admin" passHref>
-                <div className="flex items-center text-sky-600 cursor-pointer">
+              <Fragment>
+                <Link href="/admin">
+                  <a className="flex items-center text-sky-600 cursor-pointer">
+                    <span className="pl-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 text-white bg-sky-600 rounded-full p-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    <p className="text-xs md:text-sm text-white pl-2">
+                      Admin Dashboard
+                    </p>
+                  </a>
+                </Link>
+                <div
+                  className="flex px-2 py-1 bg-gray-600 rounded items-center text-red-50 cursor-pointer"
+                  onClick={handleSignOut}
+                >
+                  <p>Logout</p>
                   <span className="pl-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 text-white bg-sky-600 rounded-full p-1"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
                       <path
-                        fillRule="evenodd"
-                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clipRule="evenodd"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                       />
                     </svg>
                   </span>
-                  <p className="text-xs md:text-sm text-white pl-2">
-                    Admin Dashboard
-                  </p>
                 </div>
-              </Link>
+              </Fragment>
             )}
 
             {/**user ? (
