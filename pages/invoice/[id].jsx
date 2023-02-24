@@ -4,6 +4,8 @@ import formatter from "../../lib/format";
 
 const Invoice = ({ invoice }) => {
 
+  const [loading, setLoading] = useState(false)
+
   const formRef = useRef();
 
    const [chec, setChc] = useState("");
@@ -16,6 +18,9 @@ const Invoice = ({ invoice }) => {
      };
 
   const handleSubmit = async () => {
+
+    setLoading(true)
+
     const res = await fetch(`/api/invoice/create`, {
       method: "POST",
       headers: {
@@ -41,9 +46,11 @@ const Invoice = ({ invoice }) => {
         setChc(checksum);
         setPayId(reqId);
 
-    console.log({})
+
 
           submit({chec, payId});
+
+          setLoading(false)
   };
 
   return (
@@ -86,7 +93,7 @@ const Invoice = ({ invoice }) => {
           onClick={handleSubmit}
           className="bg-blue-600 rounded-md px-6 py-2 text-white text-xl font-medium"
         >
-          Pay Now
+          {loading ? "Please wait..." : " Pay Now"}
         </button>
       </div>
 
