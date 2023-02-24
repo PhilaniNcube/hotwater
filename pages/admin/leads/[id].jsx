@@ -5,11 +5,15 @@ import { supabaseService } from '../../../utils/supabaseService';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import LeadCard from '../../../components/Quote/LeadCard';
-import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import {
+  createServerSupabaseClient,
+  useSupabaseClient,
+  createBrowserSupabaseClient,
+} from "@supabase/auth-helpers-nextjs";
 
 function Lead({ lead }) {
 
-
+ const supabaseClient = createBrowserSupabaseClient();
   const router = useRouter();
 
   const {
@@ -63,6 +67,7 @@ function Lead({ lead }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
 
     const mail = await fetch(`/api/mail/installers`, {
       method: 'POST',
@@ -124,13 +129,25 @@ function Lead({ lead }) {
     }
   };
 
+  const createLink = async () => {
+    const { data, error } = await supabaseClient.from('invoice').insert([
+    { first_name: lead.firstName, last_name: lead.lastName, email: lead.email},
+  ]).select('*').single()
+
+  if(error) {
+    throw new Error(error.details)
+  }
+
+  router.push(`/admin/invoices/${data.id}`)
+  }
+
   return (
     <Fragment>
       <Head>
         <title>Admin | Lead</title>
       </Head>
-      <div className="w-full bg-gray-200 py-10 relative">
-        <div className="max-w-6xl mx-auto px-6 lg:px-0">
+      <div className="w-full bg-gray-200 py-10  relative">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-8 lg:px-0">
           <button
             onClick={() => {
               setShow(true);
@@ -138,6 +155,12 @@ function Lead({ lead }) {
             className="bg-red-600 px-12 py-2 rounded text-white my-4 text-base font-medium"
           >
             Delete
+          </button>
+          <button
+            onClick={createLink}
+            className="bg-blue-600 px-12 py-2 rounded text-white my-4 text-base font-medium"
+          >
+            Generate Payment Link
           </button>
         </div>
 
@@ -226,7 +249,7 @@ function Lead({ lead }) {
               disabled={loading}
               className="mt-4 bg-sky-700 text-white py-2 rounded-md"
             >
-              {loading ? 'Sending...' : 'Send'}
+              {loading ? "Sending..." : "Send"}
             </button>
           </div>
         </form>
