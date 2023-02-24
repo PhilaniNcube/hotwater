@@ -20,12 +20,12 @@ const Payment = ({ paymentResult }) => {
           </div>
           <div className="mt-4 lg:w-4/5 xl:w-3/5">
             <p className="text-base leading-6 text-gray-600">
-              We will be in contact shortly in order to arrange for delivery of
-              your order
+              We will be in contact shortly with the status of your order
             </p>
           </div>
           <div className="mt-16 w-full">
-            <Link href="/orders" passHref>
+            {/**
+         <Link href="/orders" passHref>
               <button className="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-72 h-14 text-white hover:bg-gray-700">
                 <p className="text-xl font-medium leading-5">View Account</p>
                 <svg
@@ -59,6 +59,7 @@ const Payment = ({ paymentResult }) => {
                 </svg>
               </button>
             </Link>
+        * */}
           </div>
         </div>
 

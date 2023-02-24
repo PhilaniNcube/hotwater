@@ -32,7 +32,7 @@ const Craete = ({invoice}) => {
       throw new Error(error.details);
     }
 
-    // router.push(`/invoice/${data.id}`);
+     router.push(`/invoice/${data.id}`);
 
   }
 

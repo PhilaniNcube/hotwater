@@ -1,30 +1,119 @@
-const Invoice = ({invoice}) => {
-  return <div>
-            <div className="max-w-6xl mx-auto py-10">
-              <h1 className="text-2xl font-bold text-slate-700">Payment Link: {invoice.first_name} {invoice.last_name}</h1>
-              <p className="text-2xl font-bold text-slate-700">Reference: {invoice.reference}</p>
-            </div>
-         </div>;
+import React, { useRef, useState } from "react";
+
+const Invoice = ({ invoice }) => {
+  const formRef = useRef();
+
+   const [chec, setChc] = useState("");
+   const [payId, setPayId] = useState("");
+
+     const handleSubmit = () => {
+       console.log("submit", chec, payId);
+
+       formRef.current.submit();
+     };
+
+  const handleSubmit = async () => {
+    const res = await fetch(`/api/invoice/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: invoice.first_name,
+        last_name: invoice.last_name,
+        email: invoice.email,
+        amount: invoice.amount,
+        reference: invoice.reference,
+        id: invoice.id,
+      }),
+    });
+
+    const data = await res.json();
+
+    console.log(data);
+
+    const { paygateId, reqId, ref, checksum } = data;
+
+
+        setChc(checksum);
+        setPayId(reqId);
+  };
+
+  return (
+    <div>
+      <div className="max-w-6xl mx-auto py-10">
+        <h1 className="text-2xl font-bold text-slate-700">
+          Payment Link: {invoice.first_name} {invoice.last_name}
+        </h1>
+        <p className="text-lg font-bold text-slate-700">
+          Reference: {invoice.reference}
+        </p>
+
+        <h1 className="text-2xl font-bold text-slate-700">
+          Payment Amount: {invoice.amount}
+        </h1>
+
+        <p className="text-md font-medium leading-7 text-slate-700">
+          Thank you for choosing our Hotwater24 for your needs. We would like to
+          inform you that in order to proceed with the payment, you need to
+          click on the link provided. This link will redirect you to our secure
+          payment gateway, where you can safely and easily make your payment for
+          the installation service.
+        </p>
+        <p className="text-md font-medium leading-7 text-slate-700">
+          Our payment gateway is designed to ensure that your financial
+          information is kept confidential and secure throughout the payment
+          process. You will be prompted to provide your payment details,
+          including credit card information or other preferred payment methods.
+          Once you have completed the payment process, you will receive a
+          confirmation email with details of your payment.
+        </p>
+        <p className="text-md font-medium leading-7 text-slate-700">
+          We appreciate your business and look forward to providing you with
+          excellent service. Please do not hesitate to contact us if you have
+          any questions or concerns regarding the payment process. Thank you for
+          your trust in us.
+        </p>
+      </div>
+
+      <button
+        onClick={handleSubmit}
+        className="bg-blue-600 rounded-md px-6 py-2 text-white text-xl font-medium"
+      >
+        Pay Now
+      </button>
+
+      <form
+        action="https://secure.paygate.co.za/payweb3/process.trans"
+        method="POST"
+        onSubmit={handleSubmit}
+        ref={formRef}
+      >
+        <input type="hidden" name="PAY_REQUEST_ID" value={payId} />
+        <input type="hidden" name="CHECKSUM" value={chec} />
+        <input type="submit" name="sumbit" className="hidden" />
+      </form>
+    </div>
+  );
 };
 export default Invoice;
 
-
 export async function getServerSideProps(ctx) {
-   const supabase = createServerSupabaseClient(ctx);
+  const supabase = createServerSupabaseClient(ctx);
 
-   const {
-     data: { session },
-   } = await supabase.auth.getSession();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
-       const { data: invoice, error } = await supabase
-         .from("invoice")
-         .select("*")
-         .eq("id", ctx.params.id)
-         .single();
+  const { data: invoice, error } = await supabase
+    .from("invoice")
+    .select("*")
+    .eq("id", ctx.params.id)
+    .single();
 
-       return {
-         props: {
-           invoice,
-         },
-       };
+  return {
+    props: {
+      invoice,
+    },
+  };
 }
