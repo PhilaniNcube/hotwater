@@ -2,7 +2,7 @@ import React from 'react'
 
 const terms = () => {
   return (
-    <div className="max-w-7xl mx-auto py-20">
+    <div className="max-w-6xl px-8 mx-auto py-20">
       <h1 className="text-xl">TERMS AND CONDITIONS</h1>
       <p className="text-md">
         Hotwater24 is a business in the gas water heater installation
