@@ -43,7 +43,7 @@ const terms = () => {
       <h2 className="text-lg">Customer details separate from card details</h2>
       <p className="text-md">
         Customer details will be stored by Hotwater24 separately from card
-        details which are entered by the client on PayGate’s secure site. For
+        details which are entered by the client on PayGate&apos;s secure site. For
         more detail on PayGate refer to www.paygate.co.za.
       </p>
       <h2 className="text-lg">
