@@ -2,56 +2,84 @@ import React from 'react'
 
 const terms = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto py-20">
       <h1 className="text-xl">TERMS AND CONDITIONS</h1>
       <p className="text-md">
-        Welcome to Hotwater24.com. By using our website, you agree to be bound
-        by the following terms and conditions. Please read these terms and
-        conditions carefully before using our website.
-      </p>
-      <h2 className="text-lg">Use of Our Website</h2>
-      <p className="text-md">
-        a. You may use our website for lawful purposes only.
-      </p>
-      <p className="text-md">b. You may not use our website:</p>
-      <p className="text-sm">
-        i. In any way that breaches any applicable local, national, or
-        international law or regulation.
-      </p>
-      <p className="text-sm">
-        ii. In any way that is unlawful or fraudulent or has any unlawful or
-        fraudulent purpose or effect.
-      </p>
-      <p className="text-sm">
-        iii. To send, knowingly receive, upload, download, use, or re-use any
-        material that does not comply with our content standards.
+        (Your Company) is a business in the gas water heater installation
+        industry that supplies and installs gas water heaters.
       </p>{" "}
+      <h2 className="text-lg">Delivery Policy</h2>
       <p className="text-md">
-        c. You may not use our website to transmit, or procure the sending of,
-        any unsolicited or unauthorized advertising or promotional material or
-        any other form of similar solicitation (spam).
+        Subject to availability and receipt of payment, requests will be
+        processed within 2 days and delivery will be confirmed by way of booking
+        a date for the installer to come to your premises
       </p>
+      <h2 className="text-lg">Return and Refunds policy</h2>
       <p className="text-md">
-        d. We reserve the right to terminate or restrict your use of our website
-        for any reason without notice or liability.
+        The provision of goods and services by (Your Company) is subject to
+        availability. In cases of unavailability, (Your Company) will refund the
+        client in full within 30 days. Cancellation of orders by the client will
+        attract a 5% administration fee.
       </p>
-      <h2 className="text-lg">Our Liability</h2>{" "}
+      <h2 className="text-lg">Customer Privacy policy</h2>
       <p className="text-md">
-        We do not guarantee that our website will be secure or free from bugs or
-        viruses.
+        (Your Company) shall take all reasonable steps to protect the personal
+        information of users. For the purpose of this clause, "personal
+        information" shall be defined as detailed in the Promotion of Access to
+        Information Act 2 of 2000 (PAIA). The PAIA may be downloaded from:
+        http://www.lawsofsouthafrica.up.ac.za/index.php/current-legislation.
       </p>
+      <h2 className="text-lg">Payment options accepted</h2>
+      <p className="text-md">Payment may be made via Visa and MasterCard.</p>
+      <h2 className="text-lg">Card acquiring and security</h2>
       <p className="text-md">
-        We will not be liable for any loss or damage caused by a virus,
-        distributed denial-of-service attack, or other technologically harmful
-        material that may infect your computer equipment, computer programs,
-        data, or other proprietary material due to your use of our website or to
-        your downloading of any material posted on it, or on any website linked
-        to it.
+        Card transactions will be acquired for (Your Company) via PayGate (Pty)
+        Ltd who are the approved payment gateway for all South African Acquiring
+        Banks. PayGate uses the strictest form of encryption, namely Secure
+        Socket Layer 3 (SSL3) and no Card details are stored on the website.
+        Users may go to www.paygate.co.za to view their security certificate and
+        security policy.
       </p>
+      <h2 className="text-lg">Customer details separate from card details</h2>
       <p className="text-md">
-        c. We will not be liable for any loss or damage caused by any
-        unauthorized access to your personal information.
+        Customer details will be stored by (Your Company) separately from card
+        details which are entered by the client on PayGate’s secure site. For
+        more detail on PayGate refer to www.paygate.co.za.
       </p>
+      <h2 className="text-lg">
+        Merchant Outlet country and transaction currency
+      </h2>
+      <p className="text-md">
+        The merchant outlet country at the time of presenting payment options to
+        the cardholder is South Africa. Transaction currency is South African
+        Rand (ZAR).
+      </p>
+      <h2 className="text-lg">Responsibility</h2>
+      <p className="text-md">
+        (Your Company) takes responsibility for all aspects relating to the
+        transaction including sale of goods and services sold on this website,
+        customer service and support, dispute resolution and delivery of goods.
+      </p>
+      <h2 className="text-lg">Country of domicile</h2>
+      <p className="text-md">
+        This website is governed by the laws of South Africa and (Your Company)
+        chooses as its domicilium citandi et executandi for all purposes under
+        this agreement, whether in respect of court process, notice, or other
+        documents or communication of whatsoever nature (Company Address).
+      </p>
+      <h2 className="text-lg">Variation</h2>
+      <p className="text-md">
+        (Your Company) may, in its sole discretion, change this agreement or any
+        part thereof at any time without notice.
+      </p>
+      <h2 className="text-lg">Company information</h2>
+      <p className="text-md">
+        This website is run by Hotwater24 (Pty) Ltd ( private company) based in
+        South Africa trading as Hotwater24 and with registration number
+        2022/252320/07 and 2 (Director(s)).
+      </p>
+      <h2 className="text-lg">(Your Company) contact details </h2>
+      <p className="text-md">Company Physical Address: 9 Kramer Road, Kramerville, Sandton, 2190. Email: info@hotwater24.com</p>
     </div>
   );
 }
