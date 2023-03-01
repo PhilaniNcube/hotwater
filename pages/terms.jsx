@@ -5,8 +5,8 @@ const terms = () => {
     <div className="max-w-6xl px-8 mx-auto py-20">
       <h1 className="text-xl">TERMS AND CONDITIONS</h1>
       <p className="text-md">
-        Hotwater24 is a business in the gas water heater installation
-        industry that supplies and installs gas water heaters.
+        Hotwater24 is a business in the gas water heater installation industry
+        that supplies and installs gas water heaters.
       </p>{" "}
       <h2 className="text-lg">Delivery Policy</h2>
       <p className="text-md">
@@ -24,17 +24,18 @@ const terms = () => {
       <h2 className="text-lg">Customer Privacy policy</h2>
       <p className="text-md">
         Hotwater24 shall take all reasonable steps to protect the personal
-        information of users. For the purpose of this clause, "personal
-        information" shall be defined as detailed in the Promotion of Access to
-        Information Act 2 of 2000 (PAIA). The PAIA may be downloaded from:
+        information of users. For the purpose of this clause, &quot;personal
+        information&quot; shall be defined as detailed in the Promotion of
+        Access to Information Act 2 of 2000 (PAIA). The PAIA may be downloaded
+        from:
         http://www.lawsofsouthafrica.up.ac.za/index.php/current-legislation.
       </p>
       <h2 className="text-lg">Payment options accepted</h2>
       <p className="text-md">Payment may be made via Visa and MasterCard.</p>
       <h2 className="text-lg">Card acquiring and security</h2>
       <p className="text-md">
-        Card transactions will be acquired for Hotwater24 via PayGate (Pty)
-        Ltd who are the approved payment gateway for all South African Acquiring
+        Card transactions will be acquired for Hotwater24 via PayGate (Pty) Ltd
+        who are the approved payment gateway for all South African Acquiring
         Banks. PayGate uses the strictest form of encryption, namely Secure
         Socket Layer 3 (SSL3) and no Card details are stored on the website.
         Users may go to www.paygate.co.za to view their security certificate and
@@ -43,8 +44,8 @@ const terms = () => {
       <h2 className="text-lg">Customer details separate from card details</h2>
       <p className="text-md">
         Customer details will be stored by Hotwater24 separately from card
-        details which are entered by the client on PayGate&apos;s secure site. For
-        more detail on PayGate refer to www.paygate.co.za.
+        details which are entered by the client on PayGate&apos;s secure site.
+        For more detail on PayGate refer to www.paygate.co.za.
       </p>
       <h2 className="text-lg">
         Merchant Outlet country and transaction currency
@@ -79,7 +80,10 @@ const terms = () => {
         2022/252320/07 and 2 (Director(s)).
       </p>
       <h2 className="text-lg">Hotwater24 contact details </h2>
-      <p className="text-md">Company Physical Address: 9 Kramer Road, Kramerville, Sandton, 2190. Email: info@hotwater24.com Telephone: +27(0)79 341 4075</p>
+      <p className="text-md">
+        Company Physical Address: 9 Kramer Road, Kramerville, Sandton, 2190.
+        Email: info@hotwater24.com Telephone: +27(0)79 341 4075
+      </p>
     </div>
   );
 }
