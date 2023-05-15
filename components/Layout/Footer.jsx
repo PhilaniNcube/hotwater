@@ -42,6 +42,9 @@ const Footer = () => {
             <Link href="/contact">
               <a className="text-sm">Contact us</a>
             </Link>
+            <Link href="/terms">
+              <a className="text-sm">Terms & Conditions</a>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col justify-start w-full items-start"></div>
