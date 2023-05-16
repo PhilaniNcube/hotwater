@@ -10,7 +10,7 @@ import Head from 'next/head';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { useUser } from '@supabase/auth-helpers-react';
 
-const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin }) => {
+const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin, news }) => {
   const user = useUser();
 
   const router = useRouter();
@@ -41,6 +41,7 @@ const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin 
           profiles={profile}
           quotes={quotes}
           orders={orders}
+          news={news}
         />
       </Fragment>
     );
@@ -94,6 +95,7 @@ const supabase = createServerSupabaseClient(ctx);
   let { data: profile } = await supabaseService.from('profile').select('*');
 
   let { data: quotes } = await supabaseService.from('quotes').select('*');
+  let { data: news } = await supabaseService.from('news').select('*');
 
   let { data: leads, error } = await supabaseService.from('leads').select('*');
 
@@ -105,7 +107,8 @@ const supabase = createServerSupabaseClient(ctx);
       profile,
       quotes,
       shortLeads: leads,
-      isAdmin
+      isAdmin,
+      news
     },
   };
 }

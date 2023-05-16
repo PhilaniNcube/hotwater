@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 
-function Cards({ brands, products, orders, quotes, shortLeads }) {
+function Cards({ brands, products, orders, quotes, shortLeads, news }) {
   return (
     <Fragment>
       {/* Card is full width. Use in 12 col grid for best view. */}
@@ -42,7 +42,7 @@ function Cards({ brands, products, orders, quotes, shortLeads }) {
           </div>
         </Link>
 
-        <Link href="/admin/short-leads" passHref>
+        <Link href="/admin/articles" passHref>
           <div className="bg-white dark:bg-gray-800 rounded shadow px-8 py-6 flex items-center cursor-pointer">
             <div className="p-4 bg-indigo-700 rounded text-white">
               <svg
@@ -66,10 +66,10 @@ function Cards({ brands, products, orders, quotes, shortLeads }) {
             </div>
             <div className="ml-6">
               <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
-                {shortLeads.length}
+                {news.length}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
-                Short Leads
+                News Articles
               </p>
             </div>
           </div>

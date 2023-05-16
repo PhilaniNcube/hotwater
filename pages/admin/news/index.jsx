@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { supabase } from "../../../utils/supabase";
+import { useRouter } from "next/router";
 
 
 const News = () => {
@@ -10,6 +11,8 @@ const News = () => {
 
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const uploadImage = async (e) => {
     setLoading(true);
@@ -56,8 +59,9 @@ const News = () => {
    } else if (error) {
      alert(error.message)
    }
-
    setLoading(false)
+
+   router.push("/admin/articles")
   }
 
   return (
