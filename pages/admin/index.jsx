@@ -10,10 +10,10 @@ import Head from 'next/head';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { useUser } from '@supabase/auth-helpers-react';
 
-const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin, news }) => {
+const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin, news, count }) => {
   const user = useUser();
-  
-  console.log(quotes)
+
+  // console.log(quotes)
 
   const router = useRouter();
 
@@ -44,6 +44,7 @@ const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin,
           quotes={quotes}
           orders={orders}
           news={news}
+          count={count}
         />
       </Fragment>
     );
@@ -96,7 +97,10 @@ const supabase = createServerSupabaseClient(ctx);
 
   let { data: profile } = await supabaseService.from('profile').select('*');
 
-  let { data: quotes } = await supabaseService.from('quotes').select('*',{count: 'exact', head: true});
+  let { data: quotes, count } = await supabaseService.from('quotes').select('*', { count: 'exact' });
+
+console.log(count + ' quotes')
+
   let { data: news } = await supabaseService.from('news').select('*');
 
   let { data: leads, error } = await supabaseService.from('leads').select('*');
@@ -108,6 +112,7 @@ const supabase = createServerSupabaseClient(ctx);
       products,
       profile,
       quotes,
+      count,
       shortLeads: leads,
       isAdmin,
       news

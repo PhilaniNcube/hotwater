@@ -9,11 +9,13 @@ import { supabaseService } from '../../../utils/supabaseService';
 import { supabase } from '../../../utils/supabase';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
-const Leads = ({ leads, page }) => {
+const Leads = ({ leads, page, count, pages }) => {
   const router = useRouter();
 
+  console.log({pages})
+
   const [query, setQuery] = useState('');
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -72,11 +74,22 @@ const Leads = ({ leads, page }) => {
         </div>
         <div className="">
           <div className="w-full overflow-x-auto">
-            <div className="flex w-full my-3 items-center justify-beyween">
-              {page > 0 &&   <Link  href={`/admin/leads?page=${page - 1}`}><button className="w-fit px-4 py-2 bg-black text-white font-medium text-lg rounded">Prev Page</button></Link>   }
-            
-             
-              <Link  href={`/admin/leads?page=${page + 1}`}><button className="w-fit px-4 py-2 bg-black text-white font-medium text-lg rounded">Next Page</button></Link>  
+            <div className="flex w-full my-3 items-center justify-between">
+              {page > 0 && (
+                <Link href={`/admin/leads?page=${page - 1}`} passHref>
+                  <button className="w-fit px-4 py-2 bg-black text-white font-medium text-lg rounded">
+                    Prev Page
+                  </button>
+                </Link>
+              )}
+
+              {pages - 1 > page && (
+                <Link href={`/admin/leads?page=${page + 1}`} passHref>
+                  <button className="w-fit px-4 py-2 bg-black text-white font-medium text-lg rounded">
+                    Next Page
+                  </button>
+                </Link>
+              )}
             </div>
             <table className="w-full whitespace-nowrap">
               <thead>
@@ -157,17 +170,22 @@ if (!isAdmin)
   };
 
 
-  let { data: leads, error } = await supabaseService
+  let { data: leads, error, count } = await supabaseService
     .from("quotes")
-    .select("*, product_id(*)").range(from, to)
+    .select("*, product_id(*)", {count: 'exact'}).range(from, to)
     .ilike("firstName", `%${term}%`)
     .order("created_at", { ascending: false });
+
+
+    const pages = Math.ceil(count / per_page)
 
 
   return {
     props: {
       leads,
-      page
+      page,
+      count,
+      pages
     },
   };
 }

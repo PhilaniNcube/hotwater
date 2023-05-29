@@ -1,7 +1,10 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 
-function Cards({ brands, products, orders, quotes, shortLeads, news }) {
+function Cards({ brands, products, orders, quotes, shortLeads, news, count }) {
+
+
+
   return (
     <Fragment>
       {/* Card is full width. Use in 12 col grid for best view. */}
@@ -32,7 +35,7 @@ function Cards({ brands, products, orders, quotes, shortLeads, news }) {
               </div>
               <div className="ml-6 cursor-pointer">
                 <h3 className="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">
-                  {quotes}
+                  {count}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
                   Leads
