@@ -94,7 +94,7 @@ const supabase = createServerSupabaseClient(ctx);
 
   let { data: profile } = await supabaseService.from('profile').select('*');
 
-  let { data: quotes } = await supabaseService.from('quotes').select('*');
+  let { data: quotes } = await supabaseService.from('quotes').select('*',{count: 'exact', head: true});
   let { data: news } = await supabaseService.from('news').select('*');
 
   let { data: leads, error } = await supabaseService.from('leads').select('*');
@@ -105,7 +105,7 @@ const supabase = createServerSupabaseClient(ctx);
       orders,
       products,
       profile,
-      quotes,
+      quotes: quotes.count,
       shortLeads: leads,
       isAdmin,
       news
