@@ -9,15 +9,15 @@ import { supabaseService } from '../../../utils/supabaseService';
 import { supabase } from '../../../utils/supabase';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
-const Leads = ({ leads }) => {
+const Leads = ({ leads, page }) => {
   const router = useRouter();
 
   const [query, setQuery] = useState('');
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    router.push(`/admin/leads?term=${query}`);
+    router.push(`/admin/leads?term=${query}&page=${page}`);
   };
 
   return (
@@ -72,6 +72,12 @@ const Leads = ({ leads }) => {
         </div>
         <div className="">
           <div className="w-full overflow-x-auto">
+            <div className="flex items-center justify-beyween">
+              {page > 0 &&   <Link className="w-fit px-4 py-2 bg-blue-500 text-white font-medium text-lg rounded" href={`/admin/leads?page=${page - 1}`}>Prev Page</Link>   }
+            
+             
+              <Link className="w-fit px-4 py-2 bg-blue-500 text-white font-medium text-lg rounded" href={`/admin/leads?page=${page + 1}`}>Next Page</Link>  
+            </div>
             <table className="w-full whitespace-nowrap">
               <thead>
                 <tr className="h-20 w-full text-sm leading-none text-gray-600">
@@ -127,6 +133,15 @@ export async function getServerSideProps(ctx) {
 const supabase = createServerSupabaseClient(ctx);
 
 const term = ctx.query.term || ''
+const page = +ctx.query.page || 0
+
+const per_page = 100
+
+const from = page * per_page
+
+const to = from + per_page
+
+
 
 const {
   data: { session },
@@ -144,7 +159,7 @@ if (!isAdmin)
 
   let { data: leads, error } = await supabaseService
     .from("quotes")
-    .select("*, product_id(*)")
+    .select("*, product_id(*)").range(from, to)
     .ilike("firstName", `%${term}%`)
     .order("created_at", { ascending: false });
 
@@ -152,6 +167,7 @@ if (!isAdmin)
   return {
     props: {
       leads,
+      page
     },
   };
 }
