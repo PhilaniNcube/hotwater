@@ -105,7 +105,7 @@ const supabase = createServerSupabaseClient(ctx);
       orders,
       products,
       profile,
-      quotes: quotes.count,
+      quotes,
       shortLeads: leads,
       isAdmin,
       news
