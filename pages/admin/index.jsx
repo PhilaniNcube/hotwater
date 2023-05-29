@@ -12,6 +12,8 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin, news }) => {
   const user = useUser();
+  
+  console.log(quotes)
 
   const router = useRouter();
 
