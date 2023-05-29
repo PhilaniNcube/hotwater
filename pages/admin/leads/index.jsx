@@ -72,11 +72,11 @@ const Leads = ({ leads, page }) => {
         </div>
         <div className="">
           <div className="w-full overflow-x-auto">
-            <div className="flex items-center justify-beyween">
-              {page > 0 &&   <Link className="w-fit px-4 py-2 bg-blue-500 text-white font-medium text-lg rounded" href={`/admin/leads?page=${page - 1}`}>Prev Page</Link>   }
+            <div className="flex w-full my-3 items-center justify-beyween">
+              {page > 0 &&   <Link className="w-fit px-4 py-2 bg-black text-white font-medium text-lg rounded" href={`/admin/leads?page=${page - 1}`}>Prev Page</Link>   }
             
              
-              <Link className="w-fit px-4 py-2 bg-blue-500 text-white font-medium text-lg rounded" href={`/admin/leads?page=${page + 1}`}>Next Page</Link>  
+              <Link className="w-fit px-4 py-2 bg-black text-white font-medium text-lg rounded" href={`/admin/leads?page=${page + 1}`}>Next Page</Link>  
             </div>
             <table className="w-full whitespace-nowrap">
               <thead>
