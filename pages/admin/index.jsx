@@ -10,7 +10,7 @@ import Head from 'next/head';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { useUser } from '@supabase/auth-helpers-react';
 
-const Admin = ({ brands, products, orders, profile, quotes, shortLeads, isAdmin, news, count }) => {
+const Admin = ({  products, orders,  quotes,  isAdmin, news, count }) => {
   const user = useUser();
 
   // console.log(quotes)
@@ -89,13 +89,11 @@ const supabase = createServerSupabaseClient(ctx);
 
 
 
-  let { data: brands } = await supabaseService.from('brands').select('*');
-
   let { data: orders } = await supabaseService.from('orders').select('*');
 
   let { data: products } = await supabaseService.from('products').select('*');
 
-  let { data: profile } = await supabaseService.from('profile').select('*');
+
 
   let { data: quotes, count } = await supabaseService.from('quotes').select('*', { count: 'exact' });
 
@@ -103,17 +101,14 @@ console.log(count + ' quotes')
 
   let { data: news } = await supabaseService.from('news').select('*');
 
-  let { data: leads, error } = await supabaseService.from('leads').select('*');
+
 
   return {
     props: {
-      brands,
       orders,
       products,
-      profile,
       quotes,
       count,
-      shortLeads: leads,
       isAdmin,
       news
     },
