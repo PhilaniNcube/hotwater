@@ -38,9 +38,9 @@ const Admin = ({  products, orders,  quotes,  isAdmin, news, count }) => {
     return (
       <Fragment>
         <Cards
-          shortLeads={shortLeads}
+
           products={products}
-          profiles={profile}
+
           quotes={quotes}
           orders={orders}
           news={news}

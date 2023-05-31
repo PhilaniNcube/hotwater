@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
 
-function Cards({ brands, products, orders, quotes, shortLeads, news, count }) {
+function Cards({  products, orders,   news, count }) {
 
 
 
