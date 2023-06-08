@@ -12,14 +12,14 @@ import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 const Leads = ({ leads, page, count, pages }) => {
   const router = useRouter();
 
-  console.log({pages})
+
 
   const [query, setQuery] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    router.push(`/admin/leads?term=${query}&page=${page}`);
+    router.push(`/admin/leads?term=${query}&page=0`);
   };
 
   return (
@@ -63,7 +63,13 @@ const Leads = ({ leads, page, count, pages }) => {
                 <input
                   type="text"
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={(e) => {
+
+
+
+                    setQuery(e.target.value)
+
+                  }}
                   className="py-2.5 pl-1 w-40 sm:w-64 focus:outline-none text-sm rounded-md text-gray-600 placeholder-gray-400"
                   placeholder="Search First Name"
                 />
@@ -177,7 +183,10 @@ if (!isAdmin)
     .order("created_at", { ascending: false });
 
 
+
+
     const pages = Math.ceil(count / per_page)
+
 
 
   return {
